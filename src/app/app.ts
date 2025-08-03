@@ -1,11 +1,10 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
 import { Icon } from './components/icon/icon';
 import { WORK_EXPERIENCES } from '../assets/experience';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Icon],
+  imports: [Icon],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
