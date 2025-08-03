@@ -23,34 +23,50 @@
   margin: 20px 0;
 
   * {
-    margin: 0 2px;
+    margin: 0 10px;
     cursor: pointer;
   }
 }
 
 .experience {
   &__title {
+    display: flex;
+
     img {
       width: 25px;
       height: 25px;
     }
 
     &__left {
+      width: 100%;
+
       &__position {
         font-weight: bold;
-        font-size: 1.2em;
-        color: white;
+        color: colors.$white;
+      }
+    }
+
+    &__right {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
+
+      &__period {
+        font-style: italic;
+        white-space: nowrap;
       }
     }
   }
 
-  &__position {
-    font-style: italic;
-    color: #666;
-  }
+  &__technologies {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
 
-  &__period {
-    color: #999;
-    font-size: 0.9em;
+    span {
+      font-weight: bold;
+      color: colors.$primary;
+      padding: 0 5px;
+    }
   }
 }

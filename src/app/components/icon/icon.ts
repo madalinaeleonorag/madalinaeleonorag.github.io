@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class Icon {
   @Input() name: string = '';
+  @Input() color: 'primary' | 'white' = 'primary';
 
   public readonly icons = {
     EMAIL: 'email',
@@ -16,5 +17,6 @@ export class Icon {
     INSTAGRAM: 'instagram',
     LINKEDIN: 'linkedin',
     MEDIUM: 'medium',
+    SETTING: 'setting',
   };
 }

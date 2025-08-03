@@ -21,7 +21,7 @@ export class App {
     PAYPAL: 'https://www.paypal.com/paypalme/madalinaeleonorag',
   };
 
-  public readonly isWIP = true;
+  public readonly isWIP = false;
   public readonly WORK_EXPERIENCES = WORK_EXPERIENCES;
 
   public open(link: string): void {

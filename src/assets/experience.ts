@@ -19,14 +19,15 @@ export const WORK_EXPERIENCES = [
         </li>
         </ul>
         Served as the lead frontend developer for over a year, while also taking on junior-level Java backend tasks when needed. Demonstrated a solid understanding of the full system architecture and a strong team-first mindset by stepping in to support cross-functional efforts.
-
+        <br><br>
         Achieved strong production impact over time by eliminating incidents through a deepening understanding of banking processes. Replaced a legacy interface with a modern, user-friendly UI that improved agent experience. Played a key role in frontend deployments to test and production environments, ensuring application stability and availability.
-
+        <br><br>
         Stepped in as Team Lead for another team for one month during the leader’s absence. Actively managed team activities, increased feature delivery, and optimized communication with management.
-
+        <br><br>
         Maintained up-to-date tasks, sprints, and backlog to ensure smooth project flow. Led feature definition meetings, owned requirements, and proposed frontend solutions that enhanced development and team efficiency. Presented demos to clients, contributing to strategic decision-making. Facilitated communication and problem-solving across teams to ensure alignment, timely delivery, and continuous quality improvement.
-
+        <br><br>
         Took full ownership of the application’s design and user experience, successfully adapting innovative ideas within technical constraints without a dedicated designer. Held complete decision-making authority over design and creative aspects in the past year.
+        <br><br>
         Mentored new colleagues and fostered cross-team collaboration, promoting knowledge transfer and skill development focused on frontend best practices. Actively supported team members in learning unit testing with Jasmine.
     `,
     endDate: 'Present',

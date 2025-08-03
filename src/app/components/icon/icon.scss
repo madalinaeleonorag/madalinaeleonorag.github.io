@@ -1,0 +1,18 @@
+@use "./../../../assets/colors" as colors;
+
+svg {
+  width: 25px;
+  height: 25px;
+}
+
+.primary {
+  svg {
+    fill: colors.$primary;
+  }
+}
+
+.white {
+  svg {
+    fill: colors.$white;
+  }
+}

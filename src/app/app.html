@@ -26,22 +26,22 @@
 
 <div class="social-links">
   <div (click)="open('mailto:' + links.EMAIL)">
-    <icon name="email"></icon>
+    <icon name="email" color="white"></icon>
   </div>
   <div (click)="open(links.LINKEDIN)">
-    <icon name="linkedin"></icon>
+    <icon name="linkedin" color="white"></icon>
   </div>
   <div (click)="open(links.MEDIUM)">
-    <icon name="medium"></icon>
+    <icon name="medium" color="white"></icon>
   </div>
   <div (click)="open(links.GITHUB)">
-    <icon name="github"></icon>
+    <icon name="github" color="white"></icon>
   </div>
   <div (click)="open(links.INSTAGRAM)">
-    <icon name="instagram"></icon>
+    <icon name="instagram" color="white"></icon>
   </div>
   <div (click)="open(links.FACEBOOK)">
-    <icon name="facebook"></icon>
+    <icon name="facebook" color="white"></icon>
   </div>
 </div>
 
@@ -70,7 +70,7 @@
       <span class="experience__title__left__position">{{
         experience.position
       }}</span>
-      <div class="experience__title__left__company">
+      <div>
         {{ experience.companyName }}
       </div>
     </div>
@@ -80,11 +80,14 @@
       <span>{{ experience.endDate }}</span>
     </div>
   </div>
-  <ul>
-    @for (item of experience.technologies; track $index) {
-    <li>{{ item }}</li>
-    }
-  </ul>
+  <div class="experience__technologies">
+    <icon name="setting" color="primary"></icon> <span>Tech stack:</span> @for
+    (item of experience.technologies; track $index) {
+    {{ item }}
+    @if ($index < experience.technologies.length -1) {
+    <span>| </span>
+    } }
+  </div>
   <p [innerHTML]="experience.description"></p>
 </div>
 } }
