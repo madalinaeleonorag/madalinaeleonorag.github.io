@@ -1,0 +1,56 @@
+@use "../assets/colors" as colors;
+
+.title,
+.wip {
+  * {
+    text-align: center;
+  }
+
+  h1 {
+    color: colors.$primary;
+  }
+}
+
+.summary {
+  text-align: center;
+}
+
+.social-links,
+.download {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin: 20px 0;
+
+  * {
+    margin: 0 2px;
+    cursor: pointer;
+  }
+}
+
+.experience {
+  &__title {
+    img {
+      width: 25px;
+      height: 25px;
+    }
+
+    &__left {
+      &__position {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: white;
+      }
+    }
+  }
+
+  &__position {
+    font-style: italic;
+    color: #666;
+  }
+
+  &__period {
+    color: #999;
+    font-size: 0.9em;
+  }
+}
