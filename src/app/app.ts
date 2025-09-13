@@ -27,4 +27,12 @@ export class App {
   public open(link: string): void {
     window.open(link, '_blank');
   }
+
+  public getUniqueTechnologiesByCompany(experience: any): string[] {
+    const allTechnologies = experience.assignments.flatMap(
+      (assignment: any) => assignment.technologies
+    );
+
+    return Array.from(new Set(allTechnologies));
+  }
 }

@@ -40,9 +40,6 @@
   <div (click)="open(links.INSTAGRAM)">
     <icon name="instagram" color="white"></icon>
   </div>
-  <div (click)="open(links.FACEBOOK)">
-    <icon name="facebook" color="white"></icon>
-  </div>
 </div>
 
 <div class="download">
@@ -68,24 +65,26 @@
     <img [src]="experience.logo" alt="" />
     <div class="experience__title__left">
       <span class="experience__title__left__position">{{
-        experience.position
+        experience.assignments[experience.assignments.length - 1].position
       }}</span>
       <div>
         {{ experience.companyName }}
       </div>
     </div>
     <div class="experience__title__right__period">
-      {{ experience.startDate }}&nbsp;-&nbsp;{{ experience.endDate }}
+      {{ experience.assignments[0].startDate }}&nbsp;-&nbsp;{{
+        experience.assignments[experience.assignments.length - 1].endDate
+      }}
     </div>
   </div>
   <div class="experience__technologies">
     <icon name="setting" color="primary"></icon> <span>Tech stack:</span> @for
-    (item of experience.technologies; track $index) {
+    (item of getUniqueTechnologiesByCompany(experience); track $index) {
     {{ item }}
-    @if ($index < experience.technologies.length -1) {
-    <span>| </span>
+    @if ($index < getUniqueTechnologiesByCompany(experience).length -1) {
+    <span>,</span>
     } }
   </div>
-  <p [innerHTML]="experience.description"></p>
+  <p [innerHTML]="experience.shortDescriptionOfAssessments"></p>
 </div>
 } }

@@ -1,7 +1,22 @@
 export const WORK_EXPERIENCES = [
   {
-    companyName: 'Cognizant',
-    description: `
+    assignments: [
+      {
+        description: ``,
+        endDate: 'Present',
+        position: 'Frontend developer',
+        startDate: '15 Sep 2025',
+        technologies: ['Angular', 'TypeScript', 'RxJS', 'HTML', 'CSS', 'Sass'],
+      },
+    ],
+    companyName: 'SS&C Technologies',
+    logo: './assets/images/ssc.png',
+    shortDescriptionOfAssessments: ``,
+  },
+  {
+    assignments: [
+      {
+        description: `
         I have led and contributed to the development of complex internal web applications, with a strong focus on creating intuitive and functional user interfaces, and robust solutions for critical business challenges.
 
         I initiated and led the development of two major internal operations applications from scratch:
@@ -30,10 +45,22 @@ export const WORK_EXPERIENCES = [
         <br><br>
         Mentored new colleagues and fostered cross-team collaboration, promoting knowledge transfer and skill development focused on frontend best practices. Actively supported team members in learning unit testing with Jasmine.
     `,
-    endDate: 'Present',
-    position: 'Frontend developer',
-    startDate: '2023-01-01',
+        endDate: '9 Sep 2025',
+        position: 'Frontend developer',
+        startDate: '1 Jan 2023',
+        technologies: ['Angular', 'TypeScript', 'RxJS', 'HTML', 'CSS', 'Sass'],
+      },
+    ],
+    companyName: 'Cognizant',
     logo: './assets/images/cognizant.png',
-    technologies: ['Angular', 'TypeScript', 'RxJS', 'HTML', 'CSS', 'Sass'],
+    shortDescriptionOfAssessments: `
+      <ul>    
+        <li>Led frontend development of internal banking web applications focused on fraud detection and employee access management.</li>
+        <li>Built modular, scalable applications with advanced data visualization, real-time monitoring, and complex search features.</li>
+        <li>Served as lead frontend developer, contributed to backend tasks, and acted as interim team lead.</li>
+        <li>Improved production stability, replaced legacy UI, and managed deployments.</li>
+        <li>Owned design decisions, mentored colleagues, and facilitated cross-team collaboration.</li>
+      </ul>
+    `,
   },
 ];

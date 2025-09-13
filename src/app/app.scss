@@ -15,7 +15,24 @@
   text-align: center;
 }
 
-.social-links,
+.social-links {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin: 20px 0;
+
+  & > * {
+    display: inherit;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 32px;
+  }
+
+  *:hover {
+    color: colors.$primary;
+  }
+}
+
 .download {
   display: flex;
   flex-flow: row;
@@ -23,12 +40,15 @@
   margin: 20px 0;
 
   * {
+    display: inherit;
     margin: 0 10px;
     cursor: pointer;
   }
 }
 
 .experience {
+  margin-bottom: 32px;
+
   &__title {
     display: flex;
     margin-bottom: 10px;
@@ -65,8 +85,6 @@
     align-items: center;
 
     span {
-      font-weight: bold;
-      color: colors.$primary;
       padding: 0 5px;
     }
   }
