@@ -88,4 +88,28 @@
       padding: 0 5px;
     }
   }
+
+  &__assignments {
+    margin-top: 10px;
+
+    h4 {
+      margin-bottom: 10px;
+      color: colors.$primary;
+    }
+
+    &__assignment {
+      padding-left: 10px;
+      margin-bottom: 10px;
+      border-left: 2px solid colors.$primary;
+
+      &__position {
+        font-weight: bold;
+      }
+
+      &__period {
+        font-style: italic;
+        margin-bottom: 5px;
+      }
+    }
+  }
 }

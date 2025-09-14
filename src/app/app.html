@@ -47,7 +47,6 @@
   <button (click)="open(links.CV)">Download One-page CV</button>
 </div>
 
-@if (isWIP) {
 <div class="wip">
   <h1>Work in progress</h1>
   <p>
@@ -55,7 +54,6 @@
     completed version.
   </p>
 </div>
-} @else {
 
 <h2>Work experience</h2>
 
@@ -86,5 +84,26 @@
     } }
   </div>
   <p [innerHTML]="experience.shortDescriptionOfAssessments"></p>
+  <button (click)="switchShowMore(experience)">
+    {{ experience.showMore ? "Show less" : "Show details about assignments" }}
+  </button>
+  @if (experience.showMore) {
+  <div class="experience__assignments">
+    <h4>Detailed assignments</h4>
+    @for (assignment of experience.assignments; track $index) {
+    <div class="experience__assignments__assignment">
+      <div class="experience__assignments__assignment__position">
+        {{ assignment.position }} &nbsp;|&nbsp;
+        {{ assignment.applicationTitle }} &nbsp;|&nbsp;
+        {{ assignment.clientCountry }}
+      </div>
+      <div class="experience__assignments__assignment__period">
+        {{ assignment.startDate }}&nbsp;-&nbsp;{{ assignment.endDate }}
+      </div>
+      <p [innerHTML]="assignment.description"></p>
+    </div>
+    }
+  </div>
+  }
 </div>
-} }
+}

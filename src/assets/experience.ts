@@ -1,7 +1,28 @@
-export const WORK_EXPERIENCES = [
+interface Assignment {
+  applicationTitle: string;
+  clientCountry: string;
+  description: string;
+  endDate: string;
+  position: string;
+  startDate: string;
+  technologies: string[];
+}
+
+interface Experience {
+  assignments: Assignment[];
+  companyName: string;
+  logo: string;
+  shortDescriptionOfAssessments: string;
+  showMore?: boolean;
+}
+
+export const WORK_EXPERIENCES: Experience[] = [
   {
     assignments: [
       {
+        applicationTitle:
+          'Internal Applications for Financial Services Clients',
+        clientCountry: 'USA',
         description: ``,
         endDate: 'Present',
         position: 'Frontend developer',
@@ -16,6 +37,8 @@ export const WORK_EXPERIENCES = [
   {
     assignments: [
       {
+        applicationTitle: 'Fraud Monitoring & Access Management Applications',
+        clientCountry: 'Belgium',
         description: `
         I have led and contributed to the development of complex internal web applications, with a strong focus on creating intuitive and functional user interfaces, and robust solutions for critical business challenges.
 
