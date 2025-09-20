@@ -1,0 +1,6 @@
+<div class="experience__technologies">
+  <icon name="setting" color="primary"></icon> Tech stack: @for (item of
+  technologies; track $index) {
+  {{ item }}
+  @if ($index < technologies.length -1) { , } }
+</div>

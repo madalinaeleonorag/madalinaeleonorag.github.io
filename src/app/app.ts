@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Icon } from './components/icon/icon';
 import { WORK_EXPERIENCES } from '../assets/experience';
+import { ExperienceComponent } from './components/experience/experience';
 
 @Component({
   selector: 'app-root',
-  imports: [Icon],
+  imports: [Icon, ExperienceComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -25,17 +26,5 @@ export class App {
 
   public open(link: string): void {
     window.open(link, '_blank');
-  }
-
-  public getUniqueTechnologiesByCompany(experience: any): string[] {
-    const allTechnologies = experience.assignments.flatMap(
-      (assignment: any) => assignment.technologies
-    );
-
-    return Array.from(new Set(allTechnologies));
-  }
-
-  public switchShowMore(experience: any): void {
-    experience.showMore = !experience.showMore;
   }
 }

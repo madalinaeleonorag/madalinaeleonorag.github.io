@@ -1,0 +1,26 @@
+@use "../../../../assets/colors" as colors;
+
+.assignment {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  border-left: 2px solid colors.$primary;
+
+  &__position {
+    font-weight: bold;
+  }
+
+  &__period {
+    font-style: italic;
+    margin-bottom: 5px;
+  }
+
+  &__technologies {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    span {
+      padding: 0 5px;
+    }
+  }
+}

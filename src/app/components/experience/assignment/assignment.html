@@ -1,0 +1,13 @@
+<div class="assignment">
+  <div class="assignment__position">
+    {{ assignment.position }}
+    @if(assignment.applicationTitle) { &nbsp;|&nbsp;
+    {{ assignment.applicationTitle }}} @if(assignment.clientCountry) {
+    &nbsp;|&nbsp; {{ assignment.clientCountry }}}
+  </div>
+  <div class="assignment__period">
+    {{ assignment.startDate }}&nbsp;-&nbsp;{{ assignment.endDate }}
+  </div>
+  <technologies [technologies]="assignment.technologies"></technologies>
+  <p [innerHTML]="assignment.description"></p>
+</div>

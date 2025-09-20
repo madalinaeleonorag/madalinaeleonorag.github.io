@@ -58,52 +58,5 @@
 <h2>Work experience</h2>
 
 @for (experience of WORK_EXPERIENCES; track $index) {
-<div class="experience">
-  <div class="experience__title">
-    <img [src]="experience.logo" alt="" />
-    <div class="experience__title__left">
-      <span class="experience__title__left__position">{{
-        experience.assignments[experience.assignments.length - 1].position
-      }}</span>
-      <div>
-        {{ experience.companyName }}
-      </div>
-    </div>
-    <div class="experience__title__right__period">
-      {{ experience.assignments[0].startDate }}&nbsp;-&nbsp;{{
-        experience.assignments[experience.assignments.length - 1].endDate
-      }}
-    </div>
-  </div>
-  <div class="experience__technologies">
-    <icon name="setting" color="primary"></icon> <span>Tech stack:</span> @for
-    (item of getUniqueTechnologiesByCompany(experience); track $index) {
-    {{ item }}
-    @if ($index < getUniqueTechnologiesByCompany(experience).length -1) {
-    <span>,</span>
-    } }
-  </div>
-  <p [innerHTML]="experience.shortDescriptionOfAssessments"></p>
-  <button (click)="switchShowMore(experience)">
-    {{ experience.showMore ? "Show less" : "Show details about assignments" }}
-  </button>
-  @if (experience.showMore) {
-  <div class="experience__assignments">
-    <h4>Detailed assignments</h4>
-    @for (assignment of experience.assignments; track $index) {
-    <div class="experience__assignments__assignment">
-      <div class="experience__assignments__assignment__position">
-        {{ assignment.position }} &nbsp;|&nbsp;
-        {{ assignment.applicationTitle }} &nbsp;|&nbsp;
-        {{ assignment.clientCountry }}
-      </div>
-      <div class="experience__assignments__assignment__period">
-        {{ assignment.startDate }}&nbsp;-&nbsp;{{ assignment.endDate }}
-      </div>
-      <p [innerHTML]="assignment.description"></p>
-    </div>
-    }
-  </div>
-  }
-</div>
+<experience [experience]="experience"></experience>
 }

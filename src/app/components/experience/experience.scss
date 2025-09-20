@@ -1,0 +1,44 @@
+@use "../../../assets/colors" as colors;
+
+.experience {
+  margin-bottom: 32px;
+
+  &__title {
+    display: flex;
+    margin-bottom: 10px;
+
+    img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    &__left {
+      width: 100%;
+
+      &__position {
+        font-weight: bold;
+        color: colors.$white;
+      }
+    }
+
+    &__right {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
+
+      &__period {
+        font-style: italic;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &__assignments {
+    margin-top: 10px;
+
+    h4 {
+      margin-bottom: 10px;
+      color: colors.$primary;
+    }
+  }
+}

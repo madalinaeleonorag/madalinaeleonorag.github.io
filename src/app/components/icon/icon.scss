@@ -1,18 +1,22 @@
 @use "./../../../assets/colors" as colors;
 
-svg {
-  width: 25px;
-  height: 25px;
-}
+.icon {
+  display: inline-block;
 
-.primary {
   svg {
-    fill: colors.$primary;
+    width: 25px;
+    height: 25px;
   }
-}
 
-.white {
-  svg {
-    fill: colors.$white;
+  .primary {
+    svg {
+      fill: colors.$primary;
+    }
+  }
+
+  .white {
+    svg {
+      fill: colors.$white;
+    }
   }
 }
