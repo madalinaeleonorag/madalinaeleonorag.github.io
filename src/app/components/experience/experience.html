@@ -19,15 +19,17 @@
     [technologies]="getUniqueTechnologiesByCompany(experience)"
   ></technologies>
   <p [innerHTML]="experience.shortDescriptionOfAssessments"></p>
+  @if (!experience.showMore) {
   <button (click)="switchShowMore(experience)">
-    {{ experience.showMore ? "Show less" : "Show details about assignments" }}
+    Show details about assignments
   </button>
-  @if (experience.showMore) {
+  } @if (experience.showMore) {
   <div class="experience__assignments">
     <h4>Detailed assignments</h4>
     @for (assignment of experience.assignments; track $index) {
     <assignment [assignment]="assignment"></assignment>
     }
   </div>
-  }
+
+  <button (click)="switchShowMore(experience)">Show less details</button>}
 </div>

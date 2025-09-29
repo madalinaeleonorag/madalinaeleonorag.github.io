@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Icon } from './components/icon/icon';
-import { WORK_EXPERIENCES } from '../assets/experience';
+import { WORK_EXPERIENCES } from '../assets/infos/work-experiences';
 import { ExperienceComponent } from './components/experience/experience';
+import { SOCIAL_LINKS } from '../assets/infos/social-links';
+import { SKILLS } from '../assets/infos/skills';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +12,8 @@ import { ExperienceComponent } from './components/experience/experience';
   styleUrl: './app.scss',
 })
 export class App {
-  public links = {
-    CV: './assets/resumes/Gheorghe-Madalina-Eleonora-CV.pdf',
-    EMAIL: 'madalinaeleonora.gheorghe@gmail.com',
-    FACEBOOK: 'https://www.facebook.com/mdx.madalinaeleonora/',
-    FULL_CV: './assets/resumes/Gheorghe-Madalina-Eleonora-FULL-CV.pdf',
-    GITHUB: 'https://github.com/madalinaeleonorag',
-    INSTAGRAM: 'https://www.instagram.com/madalinaeleonorag/',
-    LINKEDIN: 'https://www.linkedin.com/in/madalinaeleonorag/',
-    MEDIUM: 'https://madalinaeleonorag.medium.com/',
-    PAYPAL: 'https://www.paypal.com/paypalme/madalinaeleonorag',
-  };
+  public links = SOCIAL_LINKS;
+  public skills = SKILLS;
 
   public readonly WORK_EXPERIENCES = WORK_EXPERIENCES;
 

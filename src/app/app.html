@@ -24,6 +24,17 @@
   </p>
 </div>
 
+<div class="skills">
+  @for (skill of skills; track skill.name) {
+  <div>
+    {{ skill.icon }} <b>{{ skill.name }}</b
+    >: @for (item of skill.items; track $index) {
+    {{ item.name }} @if(item.level) {({{ item.level }})} @if ($index <
+    skill.items.length -1) { , } }
+  </div>
+  }
+</div>
+
 <div class="social-links">
   <div (click)="open('mailto:' + links.EMAIL)">
     <icon name="email" color="white"></icon>
@@ -46,16 +57,6 @@
   <button (click)="open(links.FULL_CV)">Download Full CV</button>
   <button (click)="open(links.CV)">Download One-page CV</button>
 </div>
-
-<div class="wip">
-  <h1>Work in progress</h1>
-  <p>
-    This page is currently under construction. Please check back later for the
-    completed version.
-  </p>
-</div>
-
-<h2>Work experience</h2>
 
 @for (experience of WORK_EXPERIENCES; track $index) {
 <experience [experience]="experience"></experience>
