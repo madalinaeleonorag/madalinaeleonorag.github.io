@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 
 @Component({
   selector: 'icon',
@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './icon.scss',
 })
 export class Icon {
-  @Input() name: string = '';
-  @Input() color: 'primary' | 'white' = 'primary';
+  name = input.required<string>();
+  color = input<'primary' | 'white'>('primary');
 
   public readonly icons = {
     EMAIL: 'email',

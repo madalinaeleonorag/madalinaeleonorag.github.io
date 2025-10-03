@@ -1,5 +1,5 @@
-<div [class]="color" class="icon">
-  @switch (name) { @case (icons.EMAIL) {
+<div [class]="color()" class="icon">
+  @switch (name()) { @case (icons.EMAIL) {
   <i class="fa-solid fa-envelope"></i>
   } @case (icons.GITHUB) {
   <i class="fa-brands fa-github"></i>

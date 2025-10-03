@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Icon } from '../../icon/icon';
 
 @Component({
@@ -8,5 +8,5 @@ import { Icon } from '../../icon/icon';
   styleUrl: './technologies.scss',
 })
 export class TechnologiesComponent {
-  @Input() technologies: string[] = [];
+  technologies = input.required<string[]>();
 }

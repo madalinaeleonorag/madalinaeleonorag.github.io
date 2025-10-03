@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Experience } from '../../interfaces/experience';
 import { AssignmentComponent } from './assignment/assignment';
 import { TechnologiesComponent } from './technologies/technologies';
@@ -10,17 +10,13 @@ import { TechnologiesComponent } from './technologies/technologies';
   styleUrl: './experience.scss',
 })
 export class ExperienceComponent {
-  @Input() experience: Experience = {} as Experience;
+  experience = input.required<Experience>();
 
-  public getUniqueTechnologiesByCompany(experience: any): string[] {
-    const allTechnologies = experience.assignments.flatMap(
+  public getUniqueTechnologiesByCompany(): string[] {
+    const allTechnologies = this.experience().assignments.flatMap(
       (assignment: any) => assignment.technologies
     );
 
     return Array.from(new Set(allTechnologies));
-  }
-
-  public switchShowMore(experience: any): void {
-    experience.showMore = !experience.showMore;
   }
 }
