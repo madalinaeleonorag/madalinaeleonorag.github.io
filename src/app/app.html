@@ -63,6 +63,11 @@
 <experience [experience]="experience"></experience>
 }
 
+<!-- Certifications  -->
+@for (certification of certifications; track $index) {
+<app-certification [certification]="certification"></app-certification>
+}
+
 <!-- Footer -->
 <div class="footer">
   <div>Last updated: Oct 2025</div>
