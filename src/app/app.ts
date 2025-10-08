@@ -3,7 +3,7 @@ import { Icon } from './components/icon/icon';
 import { WORK_EXPERIENCES } from '../assets/infos/work-experiences';
 import { ExperienceComponent } from './components/experience/experience';
 import { SOCIAL_LINKS } from '../assets/infos/social-links';
-import { SKILLS } from '../assets/infos/skills';
+import { GENERAL_SKILLS } from '../assets/infos/general-skills';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ import { SKILLS } from '../assets/infos/skills';
 })
 export class App {
   public links = SOCIAL_LINKS;
-  public skills = SKILLS;
+  public skills = GENERAL_SKILLS;
 
   public readonly WORK_EXPERIENCES = WORK_EXPERIENCES;
 

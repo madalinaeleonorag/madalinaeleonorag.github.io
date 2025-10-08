@@ -58,6 +58,13 @@
   <button (click)="open(links.CV)">Download One-page CV</button>
 </div>
 
+<!-- Experience -->
 @for (experience of WORK_EXPERIENCES; track $index) {
 <experience [experience]="experience"></experience>
 }
+
+<!-- Footer -->
+<div class="footer">
+  <div>Last updated: Oct 2025</div>
+  <div>Designed & Developed by Madalina-Eleonora Gheorghe</div>
+</div>
