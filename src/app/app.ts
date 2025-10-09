@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Icon } from './components/icon/icon';
 import { WORK_EXPERIENCES } from '../assets/infos/work-experiences';
 import { ExperienceComponent } from './components/experience/experience';
@@ -6,21 +6,32 @@ import { SOCIAL_LINKS } from '../assets/infos/social-links';
 import { GENERAL_SKILLS } from '../assets/infos/general-skills';
 import { CERTIFICATIONS } from '../assets/infos/certifications';
 import { CertificationComponent } from './components/certification/certification';
+import { ExternalServices } from './services/external-services';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [Icon, ExperienceComponent, CertificationComponent],
+  imports: [
+    Icon,
+    ExperienceComponent,
+    CertificationComponent,
+    AsyncPipe,
+    JsonPipe,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
-  public links = SOCIAL_LINKS;
-  public skills = GENERAL_SKILLS;
-  public certifications = CERTIFICATIONS;
+export class AppComponent {
+  externalServices = inject(ExternalServices);
+  githubProjects$ = this.externalServices.githubProjects;
+  mediumArticles$ = this.externalServices.mediumArticles;
 
-  public readonly WORK_EXPERIENCES = WORK_EXPERIENCES;
+  readonly WORK_EXPERIENCES = WORK_EXPERIENCES;
+  readonly GENERAL_SKILLS = GENERAL_SKILLS;
+  readonly SOCIAL_LINKS = SOCIAL_LINKS;
+  readonly CERTIFICATIONS = CERTIFICATIONS;
 
-  public open(link: string): void {
+  open(link: string): void {
     window.open(link, '_blank');
   }
 }

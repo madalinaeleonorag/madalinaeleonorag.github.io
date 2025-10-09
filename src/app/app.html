@@ -25,7 +25,7 @@
 </div>
 
 <div class="skills">
-  @for (skill of skills; track skill.name) {
+  @for (skill of GENERAL_SKILLS; track skill.name) {
   <div>
     {{ skill.icon }} <b>{{ skill.name }}</b
     >: @for (item of skill.items; track $index) {
@@ -36,26 +36,26 @@
 </div>
 
 <div class="social-links">
-  <div (click)="open('mailto:' + links.EMAIL)">
+  <div (click)="open('mailto:' + SOCIAL_LINKS.EMAIL)">
     <icon name="email" color="white"></icon>
   </div>
-  <div (click)="open(links.LINKEDIN)">
+  <div (click)="open(SOCIAL_LINKS.LINKEDIN)">
     <icon name="linkedin" color="white"></icon>
   </div>
-  <div (click)="open(links.MEDIUM)">
+  <div (click)="open(SOCIAL_LINKS.MEDIUM)">
     <icon name="medium" color="white"></icon>
   </div>
-  <div (click)="open(links.GITHUB)">
+  <div (click)="open(SOCIAL_LINKS.GITHUB)">
     <icon name="github" color="white"></icon>
   </div>
-  <div (click)="open(links.INSTAGRAM)">
+  <div (click)="open(SOCIAL_LINKS.INSTAGRAM)">
     <icon name="instagram" color="white"></icon>
   </div>
 </div>
 
 <div class="download">
-  <button (click)="open(links.FULL_CV)">Download Full CV</button>
-  <button (click)="open(links.CV)">Download One-page CV</button>
+  <button (click)="open(SOCIAL_LINKS.FULL_CV)">Download Full CV</button>
+  <button (click)="open(SOCIAL_LINKS.CV)">Download One-page CV</button>
 </div>
 
 <!-- Experience -->
@@ -63,8 +63,20 @@
 <experience [experience]="experience"></experience>
 }
 
+<!-- GitHub Projects -->
+@for (project of githubProjects$ | async; track $index) {
+{{ project | json }}
+<!-- <app-github-project [project]="project"></app-github-project> -->
+}
+
+<!-- Medium Articles -->
+@for (article of mediumArticles$ | async; track $index) {
+{{ article | json }}
+<!-- <app-github-article [article]="article"></app-github-article> -->
+}
+
 <!-- Certifications  -->
-@for (certification of certifications; track $index) {
+@for (certification of CERTIFICATIONS; track $index) {
 <app-certification [certification]="certification"></app-certification>
 }
 
