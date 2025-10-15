@@ -1,11 +1,11 @@
 import { Component, input } from '@angular/core';
-import { Icon } from '../../icon/icon';
+import { Icon } from '../../icon/icon.component';
 
 @Component({
   selector: 'technologies',
   imports: [Icon],
-  templateUrl: './technologies.html',
-  styleUrl: './technologies.scss',
+  templateUrl: './technologies.component.html',
+  styleUrl: './technologies.component.scss',
 })
 export class TechnologiesComponent {
   technologies = input.required<string[]>();

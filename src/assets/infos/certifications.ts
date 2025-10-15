@@ -1,4 +1,4 @@
-import { Certification } from '../../app/interfaces/certifications';
+import { Certification } from '../../app/models/certification.model';
 
 export const CERTIFICATIONS: Certification[] = [
   //   {

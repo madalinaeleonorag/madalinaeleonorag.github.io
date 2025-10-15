@@ -1,13 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Icon } from './components/icon/icon';
+import { Icon } from './components/icon/icon.component';
 import { WORK_EXPERIENCES } from '../assets/infos/work-experiences';
-import { ExperienceComponent } from './components/experience/experience';
+import { ExperienceComponent } from './components/experience/experience.component';
 import { SOCIAL_LINKS } from '../assets/infos/social-links';
 import { GENERAL_SKILLS } from '../assets/infos/general-skills';
 import { CERTIFICATIONS } from '../assets/infos/certifications';
-import { CertificationComponent } from './components/certification/certification';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { CertificationComponent } from './components/certification/certification.component';
+import { AsyncPipe } from '@angular/common';
 import { ExternalService } from './services/external.service';
+import { ProjectComponent } from './components/project/project.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ import { ExternalService } from './services/external.service';
     ExperienceComponent,
     CertificationComponent,
     AsyncPipe,
-    JsonPipe,
+    ProjectComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

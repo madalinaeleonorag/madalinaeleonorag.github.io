@@ -1,13 +1,13 @@
 import { Component, input } from '@angular/core';
-import { Experience } from '../../interfaces/experience';
-import { AssignmentComponent } from './assignment/assignment';
-import { TechnologiesComponent } from './technologies/technologies';
+import { Experience } from '../../models/experience.model';
+import { AssignmentComponent } from './assignment/assignment.component';
+import { TechnologiesComponent } from './technologies/technologies.component';
 
 @Component({
   selector: 'experience',
   imports: [AssignmentComponent, TechnologiesComponent],
-  templateUrl: './experience.html',
-  styleUrl: './experience.scss',
+  templateUrl: './experience.component.html',
+  styleUrl: './experience.component.scss',
 })
 export class ExperienceComponent {
   experience = input.required<Experience>();

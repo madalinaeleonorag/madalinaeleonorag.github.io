@@ -3,8 +3,8 @@ import { Component, input, Input } from '@angular/core';
 @Component({
   selector: 'icon',
   imports: [],
-  templateUrl: './icon.html',
-  styleUrl: './icon.scss',
+  templateUrl: './icon.component.html',
+  styleUrl: './icon.component.scss',
 })
 export class Icon {
   name = input.required<string>();
