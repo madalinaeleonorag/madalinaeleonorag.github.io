@@ -4,7 +4,7 @@ import { inject, Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class ExternalServices {
+export class ExternalService {
   readonly MEDIUM_API_URL =
     'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@madalinaeleonorag';
   readonly GITHUB_API_URL =

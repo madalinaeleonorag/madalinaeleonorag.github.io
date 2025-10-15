@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Certification } from '../../interfaces/certifications';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-certification',
@@ -9,4 +10,10 @@ import { Certification } from '../../interfaces/certifications';
 })
 export class CertificationComponent {
   certification = input.required<Certification>();
+
+  commonService = inject(CommonService);
+
+  openLink(link: string) {
+    this.commonService.openLinkNewTab(link);
+  }
 }

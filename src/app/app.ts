@@ -6,8 +6,8 @@ import { SOCIAL_LINKS } from '../assets/infos/social-links';
 import { GENERAL_SKILLS } from '../assets/infos/general-skills';
 import { CERTIFICATIONS } from '../assets/infos/certifications';
 import { CertificationComponent } from './components/certification/certification';
-import { ExternalServices } from './services/external-services';
 import { AsyncPipe, JsonPipe } from '@angular/common';
+import { ExternalService } from './services/external.service';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +22,9 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
   styleUrl: './app.scss',
 })
 export class AppComponent {
-  externalServices = inject(ExternalServices);
-  githubProjects$ = this.externalServices.githubProjects;
-  mediumArticles$ = this.externalServices.mediumArticles;
+  externalService = inject(ExternalService);
+  githubProjects$ = this.externalService.githubProjects;
+  mediumArticles$ = this.externalService.mediumArticles;
 
   readonly WORK_EXPERIENCES = WORK_EXPERIENCES;
   readonly GENERAL_SKILLS = GENERAL_SKILLS;

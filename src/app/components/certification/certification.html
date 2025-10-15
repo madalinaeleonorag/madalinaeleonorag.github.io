@@ -1,1 +1,5 @@
-<img [src]="certification().logo" [alt]="certification().title" />
+<img
+  [src]="certification().logo"
+  [alt]="certification().title"
+  (click)="openLink(certification().link)"
+/>
