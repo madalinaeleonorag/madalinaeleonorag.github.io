@@ -1,4 +1,4 @@
-export const SKILLS = [
+export const GENERAL_SKILLS = [
   {
     icon: '🖥️',
     name: 'Frontend',
