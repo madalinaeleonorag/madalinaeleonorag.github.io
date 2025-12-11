@@ -1,13 +1,17 @@
 import { Component, input } from '@angular/core';
 import { GithubProject } from '../../models/github-project.model';
-import { JsonPipe } from '@angular/common';
+import { SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-project',
-  imports: [JsonPipe],
+  imports: [SlicePipe],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss',
 })
 export class ProjectComponent {
   project = input.required<GithubProject>();
+
+  openUrl(url: string): void {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
 }

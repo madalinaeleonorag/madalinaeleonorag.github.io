@@ -64,9 +64,11 @@
 }
 
 <!-- GitHub Projects -->
-@for (project of githubProjects$ | async; track $index) {
-<app-project [project]="project"></app-project>
-}
+<div class="projects-grid">
+  @for (project of githubProjects$ | async; track $index) {
+  <app-project [project]="project"></app-project>
+  }
+</div>
 
 <!-- Medium Articles -->
 <!-- @for (article of mediumArticles$ | async; track $index) {

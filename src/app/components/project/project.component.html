@@ -1,3 +1,41 @@
-<div class="project">
-  {{ project() | json }}
+<div class="project-card">
+  @if (project().openGraphImageUrl) {
+  <div class="project-image">
+    <img [src]="project().openGraphImageUrl" [alt]="project().name" />
+  </div>
+  }
+
+  <div class="project-content">
+    <h3 class="project-name">{{ project().name }}</h3>
+
+    @if (project().description) {
+    <p class="project-description">
+      {{ project().description | slice : 0 : 150
+      }}{{ project().description.length > 150 ? "..." : "" }}
+    </p>
+    } @if (project().languages.nodes.length > 0) {
+    <div class="project-languages">
+      @for (language of project().languages.nodes; track language.name) {
+      <span class="language-tag" [style.background-color]="language.color">
+        {{ language.name }}
+      </span>
+      }
+    </div>
+    }
+
+    <div class="project-footer">
+      <button class="project-button" (click)="openUrl(project().url)">
+        View on GitHub
+      </button>
+
+      @if (project().homepageUrl) {
+      <button
+        class="project-button project-button--secondary"
+        (click)="openUrl(project().homepageUrl)"
+      >
+        Visit Website
+      </button>
+      }
+    </div>
+  </div>
 </div>

@@ -45,6 +45,24 @@
   }
 }
 
+.projects-grid {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 40px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1025px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .footer {
   text-align: center;
   margin: 20px 0 10px;
