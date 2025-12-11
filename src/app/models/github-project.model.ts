@@ -1,11 +1,22 @@
-// There are many more fields available, but these are the ones needed
-export interface GithubProject {
+interface Language {
   name: string;
+  color: string;
+}
+export interface GithubProject {
   description: string;
-  fullName: string;
-  branch: string;
-  principalCodingLanguage: string;
-  imageUrl: string;
+  homepageUrl: string;
+  languages: { nodes: Language[] };
+  name: string;
+  openGraphImageUrl: string;
   url: string;
-  created: Date;
+}
+
+export interface GithubProjectsResponse {
+  data: {
+    user: {
+      pinnedItems: {
+        nodes: GithubProject[];
+      };
+    };
+  };
 }
