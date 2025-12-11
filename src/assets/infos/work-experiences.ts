@@ -15,7 +15,7 @@ export const WORK_EXPERIENCES: Experience[] = [
       },
     ],
     companyName: 'SS&C Technologies',
-    logo: './assets/images/ssc.png',
+    logo: 'assets/images/ssc.png',
     shortDescriptionOfAssessments: `Contributing to the development of an in-house platform with two user types (employee/employer). Responsible for building features, improving scalability, and enhancing a customer-facing CSM module that allows clients to configure their own application templates. Collaborating cross-functionally to deliver secure, compliant, and high-quality solutions.`,
   },
   {
@@ -57,7 +57,7 @@ export const WORK_EXPERIENCES: Experience[] = [
       },
     ],
     companyName: 'Cognizant',
-    logo: './assets/images/cognizant.png',
+    logo: 'assets/images/cognizant.png',
     shortDescriptionOfAssessments: `
       <ul>    
         <li>Led frontend development of internal banking web applications focused on fraud detection and employee access management.</li>
@@ -110,7 +110,7 @@ export const WORK_EXPERIENCES: Experience[] = [
       },
     ],
     companyName: 'Deloitte Digital',
-    logo: './assets/images/deloitte-digital.png',
+    logo: 'assets/images/deloitte-digital.png',
     shortDescriptionOfAssessments: `
       <ul>
         <li> Delivered and owned key features for internal banking and insurance platforms, includin client onboarding, loan management, and policy creation/editing. </li>
@@ -210,7 +210,7 @@ export const WORK_EXPERIENCES: Experience[] = [
       },
     ],
     companyName: 'IBM Romania',
-    logo: './assets/images/ibm.png',
+    logo: 'assets/images/ibm.png',
     shortDescriptionOfAssessments: `
       <ul>
         <li> Delivered feature-rich apps across e-commerce, retail, and enterprise compliance sectors.</li>

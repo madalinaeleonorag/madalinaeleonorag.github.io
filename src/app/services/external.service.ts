@@ -1,6 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { GithubProject } from '../models/github-project.model';
+
+interface GraphQLResponse {
+  data: {
+    user: {
+      pinnedItems: {
+        nodes: GithubProject[];
+      };
+    };
+  };
+}
 
 @Injectable({
   providedIn: 'root',
@@ -32,16 +44,21 @@ export class ExternalService {
         }
       }
     `;
-
-    return this.http.post<any>(
-      this.GITHUB_GRAPHQL_URL,
-      { query },
-      {
-        headers: {
-          Authorization: `Bearer ${environment.githubToken}`,
-        },
-      }
-    );
+    return this.http
+      .post<GraphQLResponse>(
+        this.GITHUB_GRAPHQL_URL,
+        { query },
+        {
+          headers: {
+            Authorization: `Bearer ${environment.githubToken}`,
+          },
+        }
+      )
+      .pipe(
+        map((response: GraphQLResponse) => {
+          return response.data.user.pinnedItems.nodes;
+        })
+      );
   }
 
   get mediumArticles() {
