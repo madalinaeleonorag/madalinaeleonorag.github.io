@@ -1,2 +1,12 @@
-{{ project().name }}
 <!-- {{ project().description }} -->
+<div>
+  <div class="project__name">
+    {{ project().name }}
+  </div>
+  <div class="project__description">
+    {{ shorterDescription() }}
+  </div>
+  <div class="project__technology">
+    {{ project().principalCodingLanguage }}
+  </div>
+</div>
