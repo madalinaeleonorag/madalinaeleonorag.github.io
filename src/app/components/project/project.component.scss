@@ -11,12 +11,6 @@
   box-shadow: 0px 0px 10px -2px colors.$primary;
   height: 100%;
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0px 0px 15px -1px colors.$primary;
-    background-color: rgba(colors.$primary, 0.05);
-  }
-
   .project-image {
     width: 100%;
     aspect-ratio: 640 / 320;
