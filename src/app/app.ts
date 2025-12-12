@@ -16,15 +16,15 @@ import { ProjectComponent } from './components/project/project.component';
     Icon,
     ExperienceComponent,
     CertificationComponent,
-    // AsyncPipe,
-    // ProjectComponent,
+    AsyncPipe,
+    ProjectComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class AppComponent {
   externalService = inject(ExternalService);
-  // githubProjects$ = this.externalService.githubProjects;
+  githubProjects$ = this.externalService.githubProjects;
   mediumArticles$ = this.externalService.mediumArticles;
 
   readonly WORK_EXPERIENCES = WORK_EXPERIENCES;
