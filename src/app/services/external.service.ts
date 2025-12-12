@@ -12,23 +12,23 @@ import { GITHUB_GRAPHQL_URL, MEDIUM_API_URL } from '../constants/api-url';
 export class ExternalService {
   private http = inject(HttpClient);
 
-  get githubProjects() {
-    return this.http
-      .post<GithubProjectsResponse>(
-        GITHUB_GRAPHQL_URL,
-        { query: GET_PINNED_GITHUB_REPOSITORIES },
-        {
-          headers: {
-            Authorization: `Bearer ${environment.githubToken}`,
-          },
-        }
-      )
-      .pipe(
-        map((response: GithubProjectsResponse) => {
-          return response.data.user.pinnedItems.nodes;
-        })
-      );
-  }
+  // get githubProjects() {
+  //   return this.http
+  //     .post<GithubProjectsResponse>(
+  //       GITHUB_GRAPHQL_URL,
+  //       { query: GET_PINNED_GITHUB_REPOSITORIES },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${environment.githubToken}`,
+  //         },
+  //       }
+  //     )
+  //     .pipe(
+  //       map((response: GithubProjectsResponse) => {
+  //         return response.data.user.pinnedItems.nodes;
+  //       })
+  //     );
+  // }
 
   get mediumArticles() {
     return this.http.get<any[]>(MEDIUM_API_URL);
