@@ -1,7 +1,7 @@
 export const EDUCATION = [
   {
-    logo: './assets/images/RAU.png',
-    name: 'Computer Scrience for Business Management',
+    logo: 'assets/images/RAU.png',
+    name: 'Computer Science for Business Management',
     institution: 'Romanian-American University',
     period: '2018 - 2020',
     type: 'Master Degree',
@@ -10,8 +10,8 @@ export const EDUCATION = [
     grade: '9.66/10',
   },
   {
-    logo: './assets/images/RAU.png',
-    name: 'Computer Scrience for Business Management',
+    logo: 'assets/images/RAU.png',
+    name: 'Computer Science for Business Management',
     institution: 'Romanian-American University',
     period: '2015 - 2018',
     type: 'Bachelor Degree',
