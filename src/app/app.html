@@ -58,12 +58,12 @@
   <button (click)="open(SOCIAL_LINKS.CV)">Download One-page CV</button>
 </div>
 
-<!-- Experience -->
+<div class="category-title">Work Experience</div>
 @for (experience of WORK_EXPERIENCES; track $index) {
 <experience [experience]="experience"></experience>
 }
 
-<!-- GitHub Projects -->
+<div class="category-title">GitHub Projects</div>
 <div class="projects-grid">
   @for (project of githubProjects$ | async; track $index) {
   <app-project [project]="project"></app-project>
@@ -71,18 +71,18 @@
 </div>
 
 <!-- Medium Articles -->
+<!-- <div class="category-title">Written Articles</div> -->
 <!-- @for (article of mediumArticles$ | async; track $index) {
-{{ article | json }} -->
+  {{ article | json }} -->
 <!-- <app-github-article [article]="article"></app-github-article> -->
 <!-- } -->
 
-<!-- Certifications  -->
+<div class="category-title">Latest Certifications</div>
 @for (certification of CERTIFICATIONS; track $index) {
 <app-certification [certification]="certification"></app-certification>
 }
 
-<!-- Footer -->
 <div class="footer">
-  <div>Last updated: Oct 2025</div>
+  <div>Last updated: Dec 2025</div>
   <div>Designed & Developed by Madalina-Eleonora Gheorghe</div>
 </div>

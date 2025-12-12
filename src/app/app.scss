@@ -45,6 +45,14 @@
   }
 }
 
+.category-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 40px 0 20px;
+  text-align: center;
+  color: colors.$primary;
+}
+
 .projects-grid {
   display: grid;
   gap: 20px;
