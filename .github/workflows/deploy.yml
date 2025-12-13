@@ -18,7 +18,7 @@ jobs:
 
       - run: npm ci
 
-      - run: ng build --configuration production --base-href /
+      - run: npx ng build --configuration production --base-href /
         env:
           NG_CLI_ANALYTICS: "false"
 
