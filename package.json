@@ -1,14 +1,25 @@
 {
-  "name": "madalina_eleonora_portfolio",
+  "name": "madalinaeleonorag.github.io",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --configuration production --base-href /",
+    "postbuild": "rd /s /q docs && xcopy dist\\madalinaeleonorag.github.io\\browser docs /E /I /Y",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
   "dependencies": {
     "@angular/common": "^20.1.0",
     "@angular/compiler": "^20.1.0",
