@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --configuration production --base-href /",
-    "postbuild": "rd /s /q docs && xcopy dist\\madalinaeleonorag.github.io\\browser docs /E /I /Y",
+    "postbuild": "rm -rf docs && cp -r dist/madalinaeleonorag.github.io/browser docs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
