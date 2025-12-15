@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { GithubProjectsResponse } from '../models/github-project.model';
 import { GET_PINNED_GITHUB_REPOSITORIES } from '../components/graphql/getPinnedGithubRepositories';
 import { GITHUB_GRAPHQL_URL, MEDIUM_API_URL } from '../constants/api-url';
