@@ -19,7 +19,7 @@ export class ExternalService {
         { query: GET_PINNED_GITHUB_REPOSITORIES },
         {
           headers: {
-            Authorization: `Bearer ${environment.GITHUB_TOKEN}`,
+            Authorization: `Bearer ${environment.githubToken}`,
           },
         }
       )
