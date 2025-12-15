@@ -19,12 +19,27 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Inject Secret into Environment File
+        env:
+          githubToken: ${{ secrets.GH_TOKEN }}
+        run: |
+          ENV_FILE="./src/environments/environment.prod.ts"
+
+          if [ ! -f "$ENV_FILE" ]; then
+            echo "Eroare: Fișierul de mediu $ENV_FILE nu a fost găsit."
+            exit 1
+          fi
+
+          TOKEN_ESCAPED=$(echo $githubToken | sed 's/[&/\]/\\&/g')
+
+          sed -i "s|githubToken: '.*'|githubToken: '${TOKEN_ESCAPED}'|" $ENV_FILE
+
+          echo "Secretul a fost injectat în proprietatea 'githubToken' din $ENV_FILE."
+
       - name: Build to docs folder
         run: |
           npm install
-          npm run build
-        env:
-          githubToken: ${{ secrets.GH_TOKEN }}
+          npm run build -- --configuration=production --base-href=/
 
       - name: Commit and Push
         run: |
