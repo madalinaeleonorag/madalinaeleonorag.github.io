@@ -1,0 +1,18 @@
+<div class="swiper cert-swiper">
+  <div class="swiper-wrapper">
+    @for (cert of CERTIFICATIONS; track cert) {
+    <div class="swiper-slide">
+      <a
+        [href]="cert.link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cert-link"
+      >
+        <div class="cert-card">
+          <img [src]="cert.logo" [alt]="cert.title" [title]="cert.title" />
+        </div>
+      </a>
+    </div>
+    }
+  </div>
+</div>

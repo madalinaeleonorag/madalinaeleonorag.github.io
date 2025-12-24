@@ -1,3 +1,5 @@
+@use "swiper/css";
+@use "swiper/css/autoplay";
 @use "./assets/colors" as colors;
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
@@ -39,7 +41,7 @@ button {
   background: unset;
   padding: 8px;
   border: 1px solid colors.$primary;
-  border-radius: 10px;
+  border-radius: 7px;
   color: white;
   box-shadow: 0px 0px 10px -2px colors.$primary;
 

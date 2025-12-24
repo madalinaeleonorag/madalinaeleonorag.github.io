@@ -1,86 +1,92 @@
-<div class="title">
-  <h1>Gheorghe Madalina-Eleonora</h1>
-  <h2>Senior Frontend Developer</h2>
-</div>
-
-<div class="summary">
-  <p>
-    With <b>6+ years of experience</b> delivering scalable, enterprise-grade
-    Angular applications that drive measurable business impact. I have deep
-    expertise in <b>clean architecture</b>, <b>responsive UI design</b>, and
-    <b>performance optimization</b>, having led to the development of critical
-    systems ranging from real-time fraud detection platforms to internal
-    self-service tools. I take full ownership across the development lifecycle —
-    from
-    <b
-      >technical design and architecture decisions to deployment and production
-      support</b
-    >.
-  </p>
-  <p>
-    Known for <b>proactive leadership</b>, I work closely with product, design,
-    and backend teams to align technical solutions with strategic goals,
-    ensuring quality, scalability, and user value at every stage.
-  </p>
-</div>
-
-<div class="skills">
-  @for (skill of GENERAL_SKILLS; track skill.name) {
-  <div>
-    {{ skill.icon }} <b>{{ skill.name }}</b
-    >: @for (item of skill.items; track $index) {
-    {{ item.name }} @if(item.level) {({{ item.level }})} @if ($index <
-    skill.items.length -1) { , } }
+<section>
+  <div class="title">
+    <h1>Gheorghe Madalina-Eleonora</h1>
+    <h2>Senior Frontend Developer</h2>
   </div>
+
+  <div class="summary">
+    <p>
+      With <b>6+ years of experience</b> delivering scalable, enterprise-grade
+      Angular applications that drive measurable business impact. I have deep
+      expertise in <b>clean architecture</b>, <b>responsive UI design</b>, and
+      <b>performance optimization</b>, having led to the development of critical
+      systems ranging from real-time fraud detection platforms to internal
+      self-service tools. I take full ownership across the development lifecycle
+      — from
+      <b
+        >technical design and architecture decisions to deployment and
+        production support</b
+      >.
+    </p>
+    <p>
+      Known for <b>proactive leadership</b>, I work closely with product,
+      design, and backend teams to align technical solutions with strategic
+      goals, ensuring quality, scalability, and user value at every stage.
+    </p>
+  </div>
+
+  <div class="skills">
+    @for (skill of GENERAL_SKILLS; track skill.name) {
+    <div>
+      {{ skill.icon }} <b>{{ skill.name }}</b
+      >: @for (item of skill.items; track $index) {
+      {{ item.name }} @if(item.level) {({{ item.level }})} @if ($index <
+      skill.items.length -1) { , } }
+    </div>
+    }
+  </div>
+
+  <div class="social-links">
+    <div (click)="open('mailto:' + SOCIAL_LINKS.EMAIL)">
+      <icon name="email" color="white"></icon>
+    </div>
+    <div (click)="open(SOCIAL_LINKS.LINKEDIN)">
+      <icon name="linkedin" color="white"></icon>
+    </div>
+    <div (click)="open(SOCIAL_LINKS.MEDIUM)">
+      <icon name="medium" color="white"></icon>
+    </div>
+    <div (click)="open(SOCIAL_LINKS.GITHUB)">
+      <icon name="github" color="white"></icon>
+    </div>
+    <div (click)="open(SOCIAL_LINKS.INSTAGRAM)">
+      <icon name="instagram" color="white"></icon>
+    </div>
+  </div>
+
+  <div class="download">
+    <button (click)="open(SOCIAL_LINKS.FULL_CV)">Download Full CV</button>
+    <button (click)="open(SOCIAL_LINKS.CV)">Download One-page CV</button>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">Work Experience</div>
+  @for (experience of WORK_EXPERIENCES; track $index) {
+  <experience [experience]="experience"></experience>
   }
-</div>
+</section>
 
-<div class="social-links">
-  <div (click)="open('mailto:' + SOCIAL_LINKS.EMAIL)">
-    <icon name="email" color="white"></icon>
+<section>
+  <div class="section-title">GitHub Projects</div>
+  <div class="projects-grid">
+    @for (project of githubProjects$ | async; track $index) {
+    <app-project [project]="project"></app-project>
+    }
   </div>
-  <div (click)="open(SOCIAL_LINKS.LINKEDIN)">
-    <icon name="linkedin" color="white"></icon>
-  </div>
-  <div (click)="open(SOCIAL_LINKS.MEDIUM)">
-    <icon name="medium" color="white"></icon>
-  </div>
-  <div (click)="open(SOCIAL_LINKS.GITHUB)">
-    <icon name="github" color="white"></icon>
-  </div>
-  <div (click)="open(SOCIAL_LINKS.INSTAGRAM)">
-    <icon name="instagram" color="white"></icon>
-  </div>
-</div>
-
-<div class="download">
-  <button (click)="open(SOCIAL_LINKS.FULL_CV)">Download Full CV</button>
-  <button (click)="open(SOCIAL_LINKS.CV)">Download One-page CV</button>
-</div>
-
-<div class="category-title">Work Experience</div>
-@for (experience of WORK_EXPERIENCES; track $index) {
-<experience [experience]="experience"></experience>
-}
-
-<div class="category-title">GitHub Projects</div>
-<div class="projects-grid">
-  @for (project of githubProjects$ | async; track $index) {
-  <app-project [project]="project"></app-project>
-  }
-</div>
+</section>
 
 <!-- Medium Articles -->
-<!-- <div class="category-title">Written Articles</div> -->
+<!-- <div class="section-title">Written Articles</div> -->
 <!-- @for (article of mediumArticles$ | async; track $index) {
   {{ article | json }} -->
 <!-- <app-github-article [article]="article"></app-github-article> -->
 <!-- } -->
 
-<div class="category-title">Latest Certifications</div>
-@for (certification of CERTIFICATIONS; track $index) {
-<app-certification [certification]="certification"></app-certification>
-}
+<section>
+  <div class="section-title">Latest Certifications</div>
+  <app-certifications />
+</section>
 
 <div class="footer">
   <div>Last updated: Dec 2025</div>
