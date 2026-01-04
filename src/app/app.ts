@@ -5,9 +5,10 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { SOCIAL_LINKS } from '../assets/infos/social-links';
 import { GENERAL_SKILLS } from '../assets/infos/general-skills';
 import { CertificationsComponent } from './components/certifications/certifications.component';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 import { ExternalService } from './services/external.service';
 import { ProjectComponent } from './components/project/project.component';
+import { ArticleComponent } from './components/article/article.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { ProjectComponent } from './components/project/project.component';
     CertificationsComponent,
     AsyncPipe,
     ProjectComponent,
+    ArticleComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

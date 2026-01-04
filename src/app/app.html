@@ -76,12 +76,12 @@
   </div>
 </section>
 
-<!-- Medium Articles -->
-<!-- <div class="section-title">Written Articles</div> -->
-<!-- @for (article of mediumArticles$ | async; track $index) {
-  {{ article | json }} -->
-<!-- <app-github-article [article]="article"></app-github-article> -->
-<!-- } -->
+<section>
+  <div class="section-title">Written Articles</div>
+  @for (article of mediumArticles$ | async; track $index) {
+  <app-article [article]="article"></app-article>
+  }
+</section>
 
 <section>
   <div class="section-title">Latest Certifications</div>

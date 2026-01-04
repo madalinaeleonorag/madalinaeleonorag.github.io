@@ -1,0 +1,18 @@
+<div class="article-card">
+  <div class="card-content">
+    <h2 class="title">{{ article().title }}</h2>
+
+    <p class="snippet">{{ article().snippet }}</p>
+
+    <div class="meta-row">
+      <div class="meta-left">
+        <button (click)="openUrl(article().link)">See article</button>
+        <span class="date">{{ article().date }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-image">
+    <img [src]="article().thumbnail" [alt]="article().title" loading="lazy" />
+  </div>
+</div>

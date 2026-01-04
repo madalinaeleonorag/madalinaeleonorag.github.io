@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { filter, map, tap } from 'rxjs/operators';
 import { GITHUB_API_URL, MEDIUM_API_URL } from '../constants/api-url';
 import { GithubProject } from '../models/github-project.model';
+import { MediumArticlesResponse } from '../models/medium-article';
 
 @Injectable({
   providedIn: 'root',
@@ -52,6 +53,26 @@ export class ExternalService {
   }
 
   get mediumArticles() {
-    return this.http.get<any[]>(MEDIUM_API_URL);
+    return this.http.get<MediumArticlesResponse>(MEDIUM_API_URL).pipe(
+      map((response) => response.items.slice(0, 3)),
+      map((items: any[]) =>
+        items.map((article) => ({
+          title: article.title,
+          snippet:
+            article.description.replace(/<[^>]+>/g, '').substring(0, 100) +
+            '...',
+          thumbnail: article.thumbnail || this.extractImage(article.content),
+          link: article.link,
+          date: new Date(article.pubDate).toLocaleDateString(),
+        }))
+      )
+    );
+  }
+
+  private extractImage(content: string): string {
+    const imgRegex = /<img[^>]+src="([^">]+)"/;
+    const match = content.match(imgRegex);
+
+    return match ? match[1] : '';
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Assignment } from '../../../models/experience.model';
 import { TechnologiesComponent } from '../technologies/technologies.component';
 
@@ -9,5 +9,5 @@ import { TechnologiesComponent } from '../technologies/technologies.component';
   styleUrl: './assignment.component.scss',
 })
 export class AssignmentComponent {
-  @Input() assignment: Assignment = {} as Assignment;
+  assignment = input.required<Assignment>();
 }

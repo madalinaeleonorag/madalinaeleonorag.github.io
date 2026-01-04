@@ -1,0 +1,68 @@
+@use "../../../assets/colors" as colors;
+
+.article-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.card-content {
+  flex: 1;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: colors.$primary;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.snippet {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0 0 1.5rem 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  margin-top: auto;
+}
+
+.meta-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .date {
+    font-style: italic;
+    color: colors.$secondary;
+  }
+}
+
+.icon {
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.card-image {
+  width: 250px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+}
