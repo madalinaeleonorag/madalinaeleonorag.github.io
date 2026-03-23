@@ -1,0 +1,33 @@
+.hero-section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  margin: 0 var(--space-lg);
+  text-align: center;
+  gap: var(--space-lg);
+
+  h2 {
+    color: var(--accent-color);
+  }
+
+  p {
+    max-width: 70ch;
+  }
+
+  &__tech {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  &__contact {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  &__download {
+    display: flex;
+    gap: var(--space-md);
+  }
+}
