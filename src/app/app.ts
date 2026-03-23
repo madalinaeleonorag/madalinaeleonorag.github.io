@@ -31,7 +31,7 @@ export class App {
       type === 'CV'
         ? 'Madalina-Eleonora-Gheorghe-CV'
         : 'Madalina-Eleonora-Gheorghe-Recommendations';
-    const fileUrl = `assets/${fileName}.pdf`;
+    const fileUrl = `/${fileName}.pdf`;
     window.open(fileUrl, '_blank');
   }
 }
