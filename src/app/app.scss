@@ -4,7 +4,7 @@
   align-items: center;
   height: 100vh;
   justify-content: center;
-  margin: 0 var(--space-lg);
+  margin: 0 calc(var(--space-lg) + 24px);
   text-align: center;
   gap: var(--space-lg);
 
@@ -61,4 +61,37 @@
   justify-content: center;
   gap: var(--space-md);
   flex-flow: wrap;
+}
+
+.sidenav {
+  cursor: pointer;
+  position: fixed;
+  display: flex;
+  flex-flow: column;
+  top: 0;
+  height: 100%;
+  justify-content: center;
+  right: 1vw;
+  gap: var(--space-sm);
+  z-index: 1001;
+
+  .label {
+    display: none;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    align-self: end;
+    opacity: 0.3;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+
+      .label {
+        display: block;
+      }
+    }
+  }
 }

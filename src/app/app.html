@@ -47,3 +47,13 @@
     }
   </div>
 </div>
+
+<div class="sidenav">
+  @for (link of sidenavLinks; track $index) {
+    <a [href]="link.href" class="sidenav__link">
+      <span class="label">{{ link.label }}</span>
+      &nbsp;
+      <app-svg-icon [type]="link.icon" class="icon" />
+    </a>
+  }
+</div>

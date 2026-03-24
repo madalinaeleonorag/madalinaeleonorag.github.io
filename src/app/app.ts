@@ -9,6 +9,11 @@ import { Chip } from './components/chip/chip';
   imports: [SvgIcon, Chip],
 })
 export class App {
+  readonly sidenavLinks = [
+    { label: 'Home', icon: 'home', href: '#hero' },
+    { label: 'Expertise', icon: 'build', href: '#expertise' },
+  ];
+
   readonly socialLinks = [
     { type: 'email', url: 'mailto:madalinaeleonora.gheorghe@gmail.com' },
     {
