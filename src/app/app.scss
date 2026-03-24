@@ -38,6 +38,21 @@
     flex-flow: column;
     align-items: center;
     gap: var(--space-md);
+    padding: var(--space-md);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+
+    .icon {
+      --icon-size: 48px;
+    }
+
+    &:hover {
+      border-color: var(--accent-hover);
+
+      .icon {
+        --icon-color: var(--accent-color);
+      }
+    }
   }
 }
 
