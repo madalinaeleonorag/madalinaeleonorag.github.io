@@ -64,7 +64,6 @@
 }
 
 .sidenav {
-  cursor: pointer;
   position: fixed;
   display: flex;
   flex-flow: column;
@@ -88,6 +87,10 @@
 
     &:hover {
       opacity: 1;
+
+      .icon {
+        --icon-color: var(--accent-color);
+      }
 
       .label {
         display: block;
