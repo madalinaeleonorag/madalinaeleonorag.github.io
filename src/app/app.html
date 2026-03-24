@@ -1,5 +1,5 @@
 <!-- TODO add menu on the right with icons and on hover to open the name of category, for easy navigation-->
-<div class="hero-section">
+<div class="section" id="hero">
   <h3>🚀 Building Scalable Enterprise Ecosystems</h3>
   <h1>Hi, I'm Madalina-Eleonora Gheorghe</h1>
   <h2>UI Engineer</h2>
@@ -9,23 +9,41 @@
     state management.
   </p>
 
-  <div class="hero-section__tech">
+  <div class="chips-wrapper">
     <app-chip label="Angular 20" />
     <app-chip label="Micro-Frontends" />
     <app-chip label="(MFE) Module Federation" />
     <app-chip label="Signals / NgRx" />
   </div>
-  <div class="hero-section__contact">
+  <div class="hero__contact">
     @for (social of socialLinks; track $index) {
       <a [href]="social.url" target="_blank" rel="noopener noreferrer">
         <app-svg-icon [type]="social.type"></app-svg-icon>
       </a>
     }
   </div>
-  <div class="hero-section__download">
+  <div class="hero__download">
     <button class="btn-primary" (click)="downloadFile('CV')">Download CV</button>
     <button class="btn-secondary" (click)="downloadFile('Recommendations')">
       Download Recommendations
     </button>
+  </div>
+</div>
+
+<div class="section" id="expertise">
+  <h2>Areas of Expertise</h2>
+  <div class="expertise">
+    @for (category of expertise; track $index) {
+      <div class="expertise__category">
+        <app-svg-icon [type]="category.icon" />
+        <h3>{{ category.title }}</h3>
+        <p>{{ category.description }}</p>
+        <div class="chips-wrapper">
+          @for (tech of category.techStack; track $index) {
+            <app-chip [label]="tech" />
+          }
+        </div>
+      </div>
+    }
   </div>
 </div>

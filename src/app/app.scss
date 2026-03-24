@@ -1,4 +1,4 @@
-.hero-section {
+.section {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -15,12 +15,9 @@
   p {
     max-width: 70ch;
   }
+}
 
-  &__tech {
-    display: flex;
-    gap: var(--space-md);
-  }
-
+.hero {
   &__contact {
     display: flex;
     gap: var(--space-lg);
@@ -30,4 +27,23 @@
     display: flex;
     gap: var(--space-md);
   }
+}
+
+.expertise {
+  display: flex;
+  gap: var(--space-lg);
+
+  &__category {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+}
+
+.chips-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-flow: wrap;
 }
