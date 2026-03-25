@@ -1,0 +1,83 @@
+<div class="section" id="hero">
+  <h3>🚀 Building Scalable Enterprise Ecosystems</h3>
+  <h1>Hi, I'm Madalina-Eleonora Gheorghe</h1>
+  <h2>UI Engineer</h2>
+  <p>
+    I bridge the gap between business requirements and engineering execution. My focus is on
+    frontend architecture, Micro-Frontends (MFE), and modernizing complex systems using reactive
+    state management.
+  </p>
+
+  <div class="chips-wrapper">
+    <app-chip label="Angular 20" />
+    <app-chip label="Micro-Frontends" />
+    <app-chip label="(MFE) Module Federation" />
+    <app-chip label="Signals / NgRx" />
+  </div>
+  <div class="hero__contact">
+    @for (social of socialLinks; track $index) {
+      <a [href]="social.url" target="_blank" rel="noopener noreferrer">
+        <app-svg-icon [type]="social.type"></app-svg-icon>
+      </a>
+    }
+  </div>
+  <div class="hero__download">
+    <button class="btn-primary" (click)="downloadFile('CV')">Download CV</button>
+    <button class="btn-secondary" (click)="downloadFile('Recommendations')">
+      Download Recommendations
+    </button>
+  </div>
+</div>
+
+<div class="section" id="expertise">
+  <h2>Areas of Expertise</h2>
+  <div class="expertise">
+    @for (category of expertise; track $index) {
+      <div class="expertise__category">
+        <app-svg-icon [type]="category.icon" class="icon" />
+        <h3>{{ category.title }}</h3>
+        <p>{{ category.description }}</p>
+        <div class="chips-wrapper">
+          @for (tech of category.techStack; track $index) {
+            <app-chip [label]="tech" />
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<div class="section" id="experience">
+  <div>
+    <h2>Work Experience</h2>
+    <p>A brief look at my professional journey.</p>
+  </div>
+  <div class="experience">
+    @for (job of jobs; track job.company) {
+      <div class="experience__item" [class.current-job]="job.isCurrent">
+        <app-svg-icon [type]="job.logo" class="experience__logo" />
+        <div class="experience__details">
+          <div>{{ job.role }}</div>
+          <p>{{ job.company }} | {{ job.period }}</p>
+        </div>
+      </div>
+
+      @if (job.description) {
+        <div class="experience__summary" [innerHTML]="job.description"></div>
+      }
+    }
+  </div>
+  <button class="btn-secondary" routerLink="work-experience">
+    Explore Full Experience & Reviews
+  </button>
+</div>
+
+<div class="sidenav">
+  @for (link of sidenavLinks; track $index) {
+    <a [href]="link.href" class="sidenav__link">
+      <span class="label">{{ link.label }}</span>
+      &nbsp;
+      <app-svg-icon [type]="link.icon" class="icon" />
+    </a>
+  }
+</div>
