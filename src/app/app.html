@@ -1,4 +1,3 @@
-<!-- TODO add menu on the right with icons and on hover to open the name of category, for easy navigation-->
 <div class="section" id="hero">
   <h3>🚀 Building Scalable Enterprise Ecosystems</h3>
   <h1>Hi, I'm Madalina-Eleonora Gheorghe</h1>
@@ -46,6 +45,29 @@
       </div>
     }
   </div>
+</div>
+
+<div class="section" id="experience">
+  <div>
+    <h2>Work Experience</h2>
+    <p>A brief look at my professional journey.</p>
+  </div>
+  <div class="experience">
+    @for (job of jobs; track job.company) {
+      <div class="experience__item" [class.current-job]="job.isCurrent">
+        <app-svg-icon [type]="job.logo" class="experience__logo" />
+        <div class="experience__details">
+          <div>{{ job.role }}</div>
+          <p>{{ job.company }} | {{ job.period }}</p>
+        </div>
+      </div>
+
+      @if (job.description) {
+        <div class="experience__summary" [innerHTML]="job.description"></div>
+      }
+    }
+  </div>
+  <button class="btn-secondary">Explore Full Experience & Reviews</button>
 </div>
 
 <div class="sidenav">

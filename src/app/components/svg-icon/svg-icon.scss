@@ -1,8 +1,8 @@
 svg {
   width: var(--icon-size, 24px);
   height: var(--icon-size, 24px);
-  fill: var(--icon-color, var(--text-secondary));
-  transition: fill 0.2s;
+  fill: var(--icon-fill-color, var(--text-secondary));
+  transition: fill var(--transition-normal);
 
   &:hover {
     fill: var(--accent-color);
