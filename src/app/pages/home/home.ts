@@ -6,6 +6,7 @@ import { WORK_EXPERIENCE } from '../../database/experience';
 import { WorkComponent } from '../../components/work/work';
 import { SOCIAL_LINKS } from '../../database/social-links';
 import { EXPERTISE } from '../../database/expertise';
+import { IWorkExperience } from '../../interfaces/work-experience';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,19 @@ export class Home {
 
   readonly expertise = EXPERTISE;
 
-  readonly workExperience = [WORK_EXPERIENCE[0]];
+  readonly workExperience: IWorkExperience[] = [
+    {
+      ...WORK_EXPERIENCE[0],
+      descriptionPoints: [],
+      techStack: [],
+    },
+    ...WORK_EXPERIENCE.slice(1).map((job) => ({
+      ...job,
+      descriptionPoints: [],
+      summary: '',
+      techStack: [],
+    })),
+  ];
 
   downloadFile(type: 'CV' | 'Recommendations') {
     const fileName =

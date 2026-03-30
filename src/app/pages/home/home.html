@@ -52,9 +52,11 @@
     <h2>Work Experience</h2>
     <p>A brief look at my professional journey.</p>
   </div>
-  @for (job of workExperience; track job.company) {
-    <app-work [job]="job" />
-  }
+  <div class="experience">
+    @for (job of workExperience; track job.company) {
+      <app-work [job]="job" />
+    }
+  </div>
   <button class="btn-secondary" routerLink="work-experience">
     Explore Full Experience & Reviews
   </button>

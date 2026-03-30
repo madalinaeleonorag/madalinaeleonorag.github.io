@@ -7,17 +7,23 @@
     </div>
   </div>
 
-  <div class="experience__summary">{{ job().summary }}</div>
+  @if (job().summary) {
+    <p class="experience__summary">{{ job().summary }}</p>
+  }
 
-  <ul class="experience__description">
-    @for (point of job().descriptionPoints; track $index) {
-      <li [innerHTML]="point"></li>
-    }
-  </ul>
+  @if (job().descriptionPoints?.length) {
+    <ul class="experience__description">
+      @for (point of job().descriptionPoints; track $index) {
+        <li [innerHTML]="point"></li>
+      }
+    </ul>
+  }
 
-  <div class="experience__tech-stack">
-    @for (tech of job().techStack; track $index) {
-      <app-chip [label]="tech" />
-    }
-  </div>
+  @if (job().techStack?.length) {
+    <div class="experience__tech-stack">
+      @for (tech of job().techStack; track $index) {
+        <app-chip [label]="tech" />
+      }
+    </div>
+  }
 </div>

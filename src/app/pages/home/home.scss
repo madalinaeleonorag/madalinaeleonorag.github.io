@@ -43,40 +43,10 @@
 }
 
 .experience {
-  display: flex;
-  flex-flow: column;
-  gap: var(--space-md);
+  text-align: left;
 
-  &__item {
-    display: flex;
-    text-align: left;
-
-    &.current-job {
-      .experience__logo {
-        animation: colorPulse 2s infinite;
-      }
-    }
-
-    &:hover {
-      .experience__logo {
-        transform: scale(1.1);
-      }
-    }
-  }
-
-  &__logo {
-    --icon-size: 48px;
-    margin-right: var(--space-md);
-    transition: transform var(--transition-normal);
-  }
-
-  &__summary {
-    text-align: left;
-    margin-left: var(--space-lg);
-    color: var(--text-secondary);
-    font-weight: 100;
-    line-height: 1.4rem;
-    max-width: 100ch;
+  app-work {
+    margin-bottom: 5vh;
   }
 }
 

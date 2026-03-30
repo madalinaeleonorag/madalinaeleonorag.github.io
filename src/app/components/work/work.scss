@@ -6,10 +6,10 @@
   display: flex;
   flex-flow: column;
   gap: var(--space-md);
+  text-align: left;
 
   &__item {
     display: flex;
-    text-align: left;
 
     &.current-job {
       .experience__logo {
