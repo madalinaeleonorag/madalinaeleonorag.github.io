@@ -1,0 +1,23 @@
+<div class="experience">
+  <div class="experience__item" [class.current-job]="job().isCurrent">
+    <app-svg-icon [type]="job().logo" class="experience__logo" />
+    <div class="experience__details">
+      <div>{{ job().role }}</div>
+      <p>{{ job().company }} | {{ job().period }}</p>
+    </div>
+  </div>
+
+  <div class="experience__summary">{{ job().summary }}</div>
+
+  <ul class="experience__description">
+    @for (point of job().descriptionPoints; track $index) {
+      <li [innerHTML]="point"></li>
+    }
+  </ul>
+
+  <div class="experience__tech-stack">
+    @for (tech of job().techStack; track $index) {
+      <app-chip [label]="tech" />
+    }
+  </div>
+</div>

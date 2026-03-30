@@ -5,26 +5,6 @@
 </div>
 
 <h2>Work Experience</h2>
-<div class="experience">
-  @for (job of workExperience; track job.company) {
-    <div class="experience__item" [class.current-job]="job.isCurrent">
-      <app-svg-icon [type]="job.logo" class="experience__logo" />
-      <div class="experience__details">
-        <div>{{ job.role }}</div>
-        <p>{{ job.company }} | {{ job.period }}</p>
-      </div>
-    </div>
-
-    <ul class="experience__description">
-      @for (point of job.descriptionPoints; track $index) {
-        <li [innerHTML]="point"></li>
-      }
-    </ul>
-
-    <div class="experience__tech-stack">
-      @for (tech of job.techStack; track $index) {
-        <app-chip [label]="tech" />
-      }
-    </div>
-  }
-</div>
+@for (job of workExperience; track job.company) {
+  <app-work [job]="job" />
+}
