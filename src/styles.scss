@@ -68,6 +68,11 @@ svg {
 a {
   text-decoration: none;
   color: inherit;
+  color: var(--accent-color);
+
+  &:hover {
+    color: var(--accent-hover);
+  }
 }
 
 button {
@@ -79,6 +84,8 @@ button {
   font-weight: 500;
   color: var(--text-primary);
   transition: background-color var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 
   &.btn-primary {
     background-color: var(--accent-color);
@@ -97,4 +104,18 @@ p {
   color: var(--text-secondary);
   font-weight: 100;
   line-height: 1.4rem;
+}
+
+h2 {
+  color: var(--accent-color);
+}
+
+.section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-lg);
 }
