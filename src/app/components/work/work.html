@@ -7,23 +7,31 @@
     </div>
   </div>
 
-  @if (job().summary) {
-    <p class="experience__summary">{{ job().summary }}</p>
-  }
+  @for (assignment of job().assignments; track $index) {
+    @if (assignment.summary) {
+      <p class="experience__summary">{{ assignment.summary }}</p>
+    }
 
-  @if (job().descriptionPoints?.length) {
-    <ul class="experience__description">
-      @for (point of job().descriptionPoints; track $index) {
-        <li [innerHTML]="point"></li>
-      }
-    </ul>
-  }
+    @if (assignment.descriptionPoints?.length) {
+      <ul class="experience__description">
+        @for (point of assignment.descriptionPoints; track $index) {
+          <li [innerHTML]="point"></li>
+        }
+      </ul>
+    }
 
-  @if (job().techStack?.length) {
-    <div class="experience__tech-stack">
-      @for (tech of job().techStack; track $index) {
-        <app-chip [label]="tech" />
-      }
-    </div>
+    @if (assignment.techStack?.length) {
+      <div class="experience__tech-stack">
+        @for (tech of assignment.techStack; track $index) {
+          <app-chip [label]="tech" />
+        }
+      </div>
+    }
+
+    @if (assignment.stakeholderImpact) {
+      <p class="experience__stakeholder-impact">
+        <span>💡 Stakeholder Impact & Recognition:</span> {{ assignment.stakeholderImpact }}
+      </p>
+    }
   }
 </div>

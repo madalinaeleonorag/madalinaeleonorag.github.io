@@ -16,8 +16,14 @@ h2 {
   text-align: center;
 }
 
-app-work {
-  margin-bottom: 5vh;
-  padding-bottom: 5vh;
-  border-bottom: 1px solid var(--border-color);
+.experience-wrapper {
+  app-work {
+    margin-bottom: 5vh;
+    padding-bottom: 5vh;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
