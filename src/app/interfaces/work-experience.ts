@@ -11,8 +11,5 @@ export interface IWorkExperience {
   period: string;
   logo: string;
   isCurrent?: boolean;
-  techStack?: string[];
-  summary?: string;
-  descriptionPoints?: string[];
   assignments?: IAssignment[];
 }

@@ -28,14 +28,15 @@ export class Home {
   readonly workExperience: IWorkExperience[] = [
     {
       ...WORK_EXPERIENCE[0],
-      descriptionPoints: [],
-      techStack: [],
+      assignments: WORK_EXPERIENCE[0].assignments?.map((assignment) => ({
+        ...assignment,
+        techStack: [],
+        descriptionPoints: [],
+      })),
     },
     ...WORK_EXPERIENCE.slice(1).map((job) => ({
       ...job,
-      descriptionPoints: [],
-      summary: '',
-      techStack: [],
+      assignments: [],
     })),
   ];
 
