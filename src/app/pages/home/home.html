@@ -33,7 +33,7 @@
   <h2>Areas of Expertise</h2>
   <div class="expertise">
     @for (category of expertise; track $index) {
-      <div class="expertise__category">
+      <div class="glass-card expertise__category">
         <app-svg-icon [type]="category.icon" class="icon" />
         <h3>{{ category.title }}</h3>
         <p>{{ category.description }}</p>
@@ -70,4 +70,50 @@
       <app-svg-icon [type]="link.icon" class="icon" />
     </a>
   }
+</div>
+
+<div class="section" id="reviews">
+  <div>
+    <h2>Recommendations & Reviews</h2>
+    <p>What colleagues and clients say about working with me.</p>
+  </div>
+  <div class="carousel-wrapper" (mouseenter)="pauseAutoPlay()" (mouseleave)="startAutoPlay()">
+    <button class="carousel-control prev" (click)="prevSlide()" aria-label="Previous slide">
+      &#10094;
+    </button>
+
+    <div class="carousel-track">
+      @for (slideGroup of reviewsSlides; track $index) {
+        <div class="carousel-slide" [class.is-active]="currentSlideIndex() === $index">
+          @for (review of slideGroup; track review.reviewer) {
+            <div class="glass-card">
+              <div class="quote-text" [innerHTML]="review.preview"></div>
+
+              <div class="author-info">
+                <span class="author-name">{{ review.reviewer }}</span>
+                <span class="author-role">{{ review.position }} &#64; {{ review.company }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <button class="carousel-control next" (click)="nextSlide()" aria-label="Next slide">
+      &#10095;
+    </button>
+
+    <div class="carousel-dots">
+      @for (slideGroup of reviewsSlides; track $index) {
+        <span
+          class="dot"
+          [class.active]="currentSlideIndex() === $index"
+          (click)="goToSlide($index)"
+          [attr.aria-label]="'Go to slide ' + ($index + 1)"
+        >
+        </span>
+      }
+    </div>
+  </div>
+  <button class="btn-secondary" routerLink="reviews">Read All Reviews</button>
 </div>

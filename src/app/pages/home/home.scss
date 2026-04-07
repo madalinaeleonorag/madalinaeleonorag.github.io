@@ -19,22 +19,15 @@
   gap: var(--space-lg);
 
   &__category {
-    display: flex;
     flex-flow: column;
     align-items: center;
     gap: var(--space-md);
-    padding: var(--space-md);
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    transition: border-color var(--transition-normal);
 
     .icon {
       --icon-size: 48px;
     }
 
     &:hover {
-      border-color: var(--accent-hover);
-
       .icon {
         --icon-fill-color: var(--accent-color);
       }
@@ -112,5 +105,159 @@ p {
         display: block;
       }
     }
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 4rem;
+  overflow: hidden;
+
+  .carousel-track {
+    position: relative;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    &.is-active {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    .quote-text {
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+      flex-grow: 1;
+
+      ::ng-deep strong {
+        color: var(--accent-color);
+      }
+    }
+
+    .author-info {
+      border-top: 1px solid var(--glass-border);
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: column;
+
+      .author-name {
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .author-role {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+      }
+    }
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+    }
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 10;
+    transition: all var(--transition-normal) ease;
+    backdrop-filter: blur(4px);
+
+    &:hover {
+      background: var(--accent-color);
+      color: #fff;
+      border-color: var(--accent-color);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &.prev {
+      left: 0.5rem;
+    }
+    &.next {
+      right: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all var(--transition-normal) ease;
+
+      &.active {
+        background: var(--accent-color);
+      }
+
+      &:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition:
+    transform var(--transition-normal) ease,
+    background var(--transition-normal) ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-4px);
   }
 }
