@@ -1,0 +1,13 @@
+.
+@for (review of reviews; track $index) {
+  <div class="glass-card">
+    <div class="quote-text" [innerHTML]="review.review"></div>
+
+    <div class="author-info">
+      <span class="author-name">{{ review.reviewer }}</span>
+      <span class="author-role"
+        >&nbsp;&#45;&nbsp;{{ review.position }} &#64; {{ review.company }}</span
+      >
+    </div>
+  </div>
+}

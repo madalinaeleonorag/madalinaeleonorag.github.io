@@ -9,6 +9,11 @@ export const routes: Routes = [
   },
   {
     path: 'work-experience',
-    component: WorkExperience,
+    loadComponent: () =>
+      import('./pages/work-experience/work-experience').then((m) => m.WorkExperience),
+  },
+  {
+    path: 'reviews',
+    loadComponent: () => import('./pages/reviews/reviews').then((m) => m.Reviews),
   },
 ];

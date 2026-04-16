@@ -1,0 +1,27 @@
+.glass-card {
+  .quote-text {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    flex-grow: 1;
+
+    ::ng-deep strong {
+      color: var(--accent-color);
+    }
+  }
+
+  .author-info {
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1rem;
+    display: flex;
+    font-size: 1rem;
+
+    .author-name {
+      font-weight: 600;
+    }
+
+    .author-role {
+      color: var(--text-secondary);
+    }
+  }
+}

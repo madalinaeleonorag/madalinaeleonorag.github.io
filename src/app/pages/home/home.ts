@@ -1,7 +1,7 @@
 import { afterNextRender, Component, DestroyRef, inject, signal } from '@angular/core';
 import { Chip } from '../../components/chip/chip';
 import { SvgIcon } from '../../components/svg-icon/svg-icon';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { WORK_EXPERIENCE } from '../../database/experience';
 import { WorkComponent } from '../../components/work/work';
 import { SOCIAL_LINKS } from '../../database/social-links';
@@ -51,6 +51,7 @@ export class Home {
   private autoPlayInterval = 6000;
   private timerSubscription?: Subscription;
   private destroyRef = inject(DestroyRef);
+  private router = inject(Router);
 
   constructor() {
     afterNextRender(() => {
@@ -66,6 +67,13 @@ export class Home {
     const fileUrl = `/${fileName}.pdf`;
     window.open(fileUrl, '_blank');
   }
+
+  goToReviewDetail(date: Date, reviewer?: string, position?: string): void {
+    this.router.navigate(['/reviews'], {
+      queryParams: { date: date.toISOString(), reviewer, position },
+    });
+  }
+
   nextSlide(): void {
     this.currentSlideIndex.update((index) =>
       index === this.reviewsSlides.length - 1 ? 0 : index + 1,

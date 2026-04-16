@@ -1,6 +1,7 @@
 {
   "routes": {
     "/": {},
+    "/reviews": {},
     "/work-experience": {}
   }
 }

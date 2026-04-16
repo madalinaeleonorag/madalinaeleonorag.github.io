@@ -4,3 +4,16 @@
   justify-content: center;
   margin: 0 calc(var(--space-lg) + 24px + 5vw);
 }
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 2rem 0;
+
+  &__active {
+    font-weight: 500;
+  }
+}

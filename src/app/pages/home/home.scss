@@ -135,6 +135,14 @@ p {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 
+    .glass-card {
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+
     &.is-active {
       position: relative;
       opacity: 1;
@@ -241,23 +249,5 @@ p {
         background: rgba(255, 255, 255, 0.5);
       }
     }
-  }
-}
-
-.glass-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition:
-    transform var(--transition-normal) ease,
-    background var(--transition-normal) ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.04);
-    transform: translateY(-4px);
   }
 }
