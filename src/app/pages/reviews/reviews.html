@@ -53,7 +53,10 @@
   </div>
 </div>
 
-<p>{{ filteredReviews().length }} reviews out of {{ ALL_REVIEWS.length }} total</p>
+<p>
+  {{ filteredReviews().length }} review{{ filteredReviews().length !== 1 ? 's' : '' }} out of
+  {{ ALL_REVIEWS.length }} total
+</p>
 
 <div class="reviews-wrapper">
   @for (review of filteredReviews(); track $index) {
