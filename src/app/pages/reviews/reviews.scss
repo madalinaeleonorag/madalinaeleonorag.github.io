@@ -1,27 +1,84 @@
-.glass-card {
-  .quote-text {
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-    font-style: italic;
-    flex-grow: 1;
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
 
-    ::ng-deep strong {
-      color: var(--accent-color);
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.filter-group label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-input {
+  width: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--transition-normal);
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.custom-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.reviews-wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+
+  .glass-card {
+    .quote-text {
+      font-size: 1rem;
+      margin-bottom: var(--space-lg);
+      font-style: italic;
+
+      ::ng-deep ul {
+        margin-left: 1rem;
+      }
     }
-  }
 
-  .author-info {
-    border-top: 1px solid var(--glass-border);
-    padding-top: 1rem;
-    display: flex;
-    font-size: 1rem;
-
-    .author-name {
-      font-weight: 600;
-    }
-
-    .author-role {
+    .author-info {
+      border-top: 1px solid var(--glass-border);
+      padding-top: var(--space-md);
+      display: flex;
+      font-size: var(--space-md);
       color: var(--text-secondary);
+
+      .author-name {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .review-date {
+        margin-left: auto;
+      }
     }
   }
 }

@@ -1,0 +1,67 @@
+.lib-select-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: var(--bg-primary); /* Dark background for the input */
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color var(--transition-normal);
+}
+
+.lib-select-trigger:hover,
+.lib-select-trigger.is-open,
+.lib-select-trigger:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.chevron {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  transition: transform var(--transition-normal);
+}
+
+.lib-select-trigger.is-open .chevron {
+  transform: rotate(180deg);
+}
+
+.lib-select-panel {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  margin-top: 4px;
+  min-width: 200px;
+  overflow: hidden;
+}
+
+.lib-option {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all var(--transition-normal);
+}
+
+.lib-option:hover {
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.lib-option.selected {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-left: 2px solid var(--accent-color);
+  font-weight: 500;
+}
+
+.clear-option {
+  color: var(--text-secondary);
+  font-style: italic;
+  border-bottom: 1px solid var(--border-color);
+}
