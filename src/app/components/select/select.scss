@@ -7,7 +7,7 @@
   color: var(--text-primary);
   border: 1px solid var(--border-color);
   padding: 0.75rem 1rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   font-family: inherit;
   font-size: 1rem;
   cursor: pointer;
@@ -34,7 +34,7 @@
 .lib-select-panel {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   margin-top: 4px;
   min-width: 200px;

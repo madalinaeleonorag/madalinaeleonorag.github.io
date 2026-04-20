@@ -1,28 +1,27 @@
 <div class="filters">
   <div class="filter-group">
-    <label>Keyword Search</label>
-    <input
+    <p>Keyword Search</p>
+    <lib-input
       type="text"
-      class="custom-input"
       placeholder="Search reviews..."
-      [ngModel]="searchTerm()"
-      (ngModelChange)="searchTerm.set($event)"
-    />
+      [value]="searchTerm()"
+      (valueChange)="searchTerm.set($event)"
+    ></lib-input>
   </div>
 
   <div class="filter-group">
-    <label>Role / Position</label>
+    <p>Category</p>
     <lib-select
-      placeholder="All Positions"
-      [options]="availablePositions()"
-      [value]="selectedPosition()"
-      (valueChange)="selectedPosition.set($event)"
+      placeholder="All Categories"
+      [options]="availableCategories()"
+      [value]="selectedCategory()"
+      (valueChange)="selectedCategory.set($event)"
     >
     </lib-select>
   </div>
 
   <div class="filter-group">
-    <label>Company</label>
+    <p>Company</p>
     <lib-select
       placeholder="All Companies"
       [options]="availableCompanies()"
@@ -33,23 +32,13 @@
   </div>
 
   <div class="filter-group">
-    <label>From Date</label>
-    <input
-      type="date"
-      class="custom-input"
-      [ngModel]="startDate()"
-      (ngModelChange)="startDate.set($event)"
-    />
+    <p>From Date</p>
+    <lib-input type="date" [value]="startDate()" (valueChange)="startDate.set($event)"></lib-input>
   </div>
 
   <div class="filter-group">
-    <label>To Date</label>
-    <input
-      type="date"
-      class="custom-input"
-      [ngModel]="endDate()"
-      (ngModelChange)="endDate.set($event)"
-    />
+    <p>To Date</p>
+    <lib-input type="date" [value]="endDate()" (valueChange)="endDate.set($event)"></lib-input>
   </div>
 </div>
 
@@ -63,11 +52,11 @@
     <div class="glass-card">
       <div class="quote-text" [innerHTML]="review.review"></div>
 
-      <div class="author-info">
+      <p class="author-info">
         <span class="author-name">{{ review.reviewer }}</span>
         <span>&nbsp;&#45;&nbsp;{{ review.position }} &#64; {{ review.company }}</span
         ><span class="review-date">{{ review.date | date: 'mediumDate' }}</span>
-      </div>
+      </p>
     </div>
   }
 </div>

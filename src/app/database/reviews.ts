@@ -2,6 +2,7 @@ export interface IReview {
   company: string;
   date: Date;
   position: string;
+  category: string;
   reviewer?: string;
   preview?: string;
   review: string;
@@ -12,6 +13,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Cognizant',
     date: new Date('2024-11-14'),
     position: 'Application Manager',
+    category: 'Management',
     reviewer: 'Iris Vanstraelen',
     preview: `You are my favorite developer. I don't think you can further improve... The work is excellent as well. You have taken a <strong>lot of initiative</strong>. [...] You are always thinking about finding good <strong>customer solutions</strong>, so I'm very happy with you.`,
     review: `You are my favorite developer. I don’t think you can further improve I’m not kidding, you are
@@ -26,6 +28,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-01-28'),
     position: 'Technical Lead',
+    category: 'Leadership',
     reviewer: 'Dragos-Vasile Lungu',
     preview: `She gave a <strong>huge boost</strong> to our Web app development; she came up with a very long list of improvements... The quality of the code she has been writing, and the <strong>overall work quality has been impressive</strong>.`,
     review: `She gave a huge boost to our Web app development; she came up with a very long list of
@@ -37,6 +40,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-04-06'),
     position: 'Manager',
+    category: 'Management',
     reviewer: 'Jack Taylor',
     preview: `...how quickly our production increased thanks to Madalina. Madalina clearly has a <strong>strong skillset</strong> which benefited our FE team significantly. Madalina worked hard to <strong>develop her colleagues</strong>...`,
     review: `Madalina instantly collaborated with the team and importantly understood our objectives quickly.
@@ -49,6 +53,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Cognizant',
     date: new Date('2024-11-15'),
     position: 'Manager',
+    category: 'Management',
     reviewer: 'Etienne De Paepe',
     preview: `We appreciate: your <strong>ownership</strong>, your involvement, your <strong>E2E view</strong>... how you take up a key position after replacing the old Tech Lead...`,
     review: `Here is some feedback about your involvement in our team. Overall, we are very happy with your
@@ -64,6 +69,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Cognizant',
     date: new Date('2024-11-01'),
     position: 'Process Manager',
+    category: 'Management',
     reviewer: 'Kathleen Renard',
     preview: `Not only you help us with designing and developing screens for our end user, you also <strong>think with us</strong> to find the best suitable solution which is <strong>smart and user friendly</strong>.`,
     review: `I promised to send you some feedback about the work we did together. I can only sum up positive
@@ -92,6 +98,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'IBM',
     date: new Date('2021-06-22'),
     position: 'Frontend Developer',
+    category: 'Development',
     reviewer: 'Theodor Palamaru',
     preview: `Her determination to <strong>never give up</strong> and always learn and improve, is what sets her apart... I <strong>highly recommend her</strong> to anyone looking to expand their team(s).`,
     review: `She quickly managed to learn and acquire quite an extensive set of skills. Her determination to
@@ -104,6 +111,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
     position: 'Team Lead',
+    category: 'Leadership',
     reviewer: 'Andrei-Ioan Popescu',
     preview: `...she managed to <strong>surpass everyone's expectations</strong>. I appreciate the fact that during refinements and clarifications, she <strong>challenges the approach</strong> and the input data.`,
     review: `From early on, she was fully independent from a tech perspective, requiring assistance only to
@@ -124,6 +132,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
     position: 'Business Analyst',
+    category: 'Business/Analysis',
     reviewer: 'Kavitha Padmanabham',
     preview: `Overnight she became an <strong>expert and point of contact</strong> for front-end applications. She has delivered all her tasks at <strong>great speed</strong> and took on several topics instantly.`,
     review: `Overnight she became an expert and point of contact for front-end applications. She has delivered
@@ -134,6 +143,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Wooter Apparel',
     date: new Date('2021-09-24'),
     position: 'Full-Stack Developer',
+    category: 'Development',
     reviewer: 'Emanuel Cepoi',
     preview: `Her ability to develop high quality products while <strong>under extreme pressure</strong> is something that I look up to... She's also able to make everyone in the team feel that they are <strong>capable of doing more</strong>.`,
     review: `For the past years I had the opportunity to work alongside Madalina on multiple personal and
@@ -147,6 +157,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-10-19'),
     position: 'Team Lead',
+    category: 'Leadership',
     reviewer: 'Andrei-Ioan Popescu',
     review: `She tackled new features with ease, always on time and with the highest possible quality. She’s a
       vocal team member and she’s always deeply involved in discovering all the requirements of what
@@ -158,6 +169,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'SS&C',
     date: new Date('2026-02-01'),
     position: 'Senior Frontend Developer',
+    category: 'Development',
     reviewer: 'Tech Lead',
     review: `Madalina proved a very good knowledge of Angular and front-end technologies, which she
       successfully applied to our project. Although the complexity of the project is high, Madalina
@@ -168,6 +180,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'SS&C',
     date: new Date('2026-02-01'),
     position: 'Tech Lead',
+    category: 'Leadership',
     reviewer: 'Tech Lead',
     review: `Madalina proved to be a highly reliable and skilled front-end developer. She can independently
       take over and deliver complex features; she constantly pays attention to details and is always
@@ -178,6 +191,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'SS&C',
     date: new Date('2026-02-01'),
     position: 'Tech Lead',
+    category: 'Leadership',
     reviewer: 'Tech Lead',
     review: `Madalina is a hard-working individual, highly motivated and organized. She has very good
       technical skills and is eager to learn and try new things. From the soft skills point of view, she
@@ -187,6 +201,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'SS&C',
     date: new Date('2026-02-01'),
     position: 'Peer/Team Member',
+    category: 'Peer',
     reviewer: 'Peer',
     review: `From the short period of time I worked with her, she is very good from a technical perspective.
       Proactive, good coding style, understand quickly the logic of the code and is able to proceed with
@@ -199,6 +214,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'SS&C',
     date: new Date('2026-02-01'),
     position: 'Peer/Team Member',
+    category: 'Peer',
     reviewer: 'Peer',
     review: `Keep the desire and courage to try new technologies and also the will to learn new stuff. Clean
       code. Good eye for requirements. Fast learner even when switching projects. She is a reliable
@@ -209,6 +225,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-05-02'),
     position: 'Senior Manager',
+    category: 'Management',
     reviewer: 'Silvana-Roberta Helal',
     review: `Feedback from both team and local technical lead is positive as Madalina started working on the
       project near stabilization phase but managed to get familiar in a short timeframe with the
@@ -218,6 +235,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-11-07'),
     position: 'Senior Consultant',
+    category: 'Business/Analysis',
     reviewer: 'Cristina-Mihaela Antohe',
     review: `She proves her great technical expertise and collaboration skills with every task that is assigned to
       her and is supporting the project teams with business and technical information for successful
@@ -227,6 +245,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
     position: 'Solution Lead',
+    category: 'Leadership',
     reviewer: 'Diego Frison Aladren',
     review: `Madalina could quickly take over the tasks assigned to her and she could deliver them with a very
       good quality on the agreed time. Madalina is also a team player, and she knows when she needs to
@@ -238,6 +257,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-11-10'),
     position: 'Project Manager / Scrum Master',
+    category: 'Management',
     reviewer: 'Pavol Tomek',
     review: `Madalina is really valuable member, more of self-initiative in areas which are visibly not covered
       well on project will help her to present herself with higher seniority, she is currently operating at the
@@ -247,6 +267,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-02-07'),
     position: 'Project Manager',
+    category: 'Management',
     reviewer: 'Isabela Pecete',
     review: `During her time spent on Alpha space, Madalina has shown a lot of flexibility and maturity. Even
       though she had to change teams and industries, from banking to insurance, her experience has
@@ -261,6 +282,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Vodafone',
     date: new Date('2021-11-25'),
     position: 'System Support Engineer',
+    category: 'Development',
     reviewer: 'Mihaela Gales',
     review: `Madalina is a very practical person. Working on various projects with her, I was able to see how
       flexible she can be, especially with the help of her vast knowledge in the IT field. In addition to
@@ -273,6 +295,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'IBM',
     date: new Date('2021-09-13'),
     position: 'Project Manager',
+    category: 'Management',
     reviewer: 'Raluca Rusu',
     review: `Madalina is always reliable and helps her team members, able to understand the requirements
       and come up with a solution. It was a joy and I always had confidence while working with her. I
@@ -282,6 +305,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'IBM',
     date: new Date('2019-02-15'),
     position: 'Project Manager',
+    category: 'Management',
     reviewer: 'Raluca Rusu',
     review: `Madalina had a very good start and path in the project, having in charge a very hard project and
       client on a team, being in front of the client for direct communication and problem solving. I am
@@ -292,6 +316,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'IBM',
     date: new Date('2021-09-02'),
     position: 'Frontend Developer',
+    category: 'Development',
     reviewer: 'Madalin Tuca',
     review: `Madalina was my mentor during my internship period at IBM iX. She was friendly and open from
       the start and rapidly developed a learning plan for me. We had a great mentor-mentee relationship
@@ -302,6 +327,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'IBM',
     date: new Date('2021-08-06'),
     position: 'Project Manager',
+    category: 'Management',
     reviewer: 'Alexandra-Luminita Tanef',
     review: `Appreciate your guidance and helping bring new talent to our wider iX IBM team and also constant
       strong contribution to our project delivery. Keep up the good work!`,
@@ -310,6 +336,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'IBM',
     date: new Date('2020-12-16'),
     position: 'People Manager',
+    category: 'Management',
     reviewer: 'Sorina Radulescu',
     review: `Great job on the project Madalina, the feedback received for the project is very good. Also, I like
       your drive and attitude, and I hope you will continue to invest in your skills as you did until now, and

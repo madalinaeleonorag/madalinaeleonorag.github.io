@@ -3,10 +3,11 @@ import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SelectComponent } from '../../components/select/select';
+import { InputComponent } from '../../components/input/input';
 
 @Component({
   selector: 'app-reviews',
-  imports: [FormsModule, CommonModule, SelectComponent],
+  imports: [FormsModule, CommonModule, SelectComponent, InputComponent],
   templateUrl: './reviews.html',
   styleUrl: './reviews.scss',
 })
@@ -15,24 +16,24 @@ export class Reviews {
 
   searchTerm = signal<string>('');
   selectedCompany = signal<string>('');
-  selectedPosition = signal<string>('');
+  selectedCategory = signal<string>('');
   startDate = signal<string>('');
   endDate = signal<string>('');
 
   availableCompanies = computed(() => [...new Set(this.ALL_REVIEWS.map((r) => r.company))]);
-  availablePositions = computed(() => [...new Set(this.ALL_REVIEWS.map((r) => r.position))]);
+  availableCategories = computed(() => [...new Set(this.ALL_REVIEWS.map((r) => r.category))]);
 
   filteredReviews = computed(() => {
     const term = this.searchTerm().toLowerCase();
     const company = this.selectedCompany();
-    const position = this.selectedPosition();
+    const category = this.selectedCategory();
 
     const startTarget = this.startDate() ? new Date(this.startDate()).getTime() : null;
     const endTarget = this.endDate() ? new Date(this.endDate()).getTime() : null;
 
     return this.ALL_REVIEWS.filter((review) => {
       if (company && review.company !== company) return false;
-      if (position && review.position !== position) return false;
+      if (category && review.category !== category) return false;
 
       const reviewTime = review.date.getTime();
       if (startTarget && reviewTime < startTarget) return false;
@@ -41,7 +42,6 @@ export class Reviews {
       if (term) {
         const searchableText = `
           ${review.reviewer ?? ''} 
-          ${review.preview ?? ''} 
           ${review.review}
         `.toLowerCase();
 

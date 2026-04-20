@@ -20,6 +20,7 @@
   --space-xl: clamp(3rem, 5vw, 5rem);
 
   --transition-normal: 0.2s;
+  --border-radius: 8px;
 }
 
 *,
@@ -43,6 +44,7 @@ body {
   font-size: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
 }
 
 body::before {
@@ -83,7 +85,7 @@ button {
   cursor: pointer;
   padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--accent-color);
-  border-radius: 3px;
+  border-radius: var(--border-radius);
   font-weight: 500;
   color: var(--text-primary);
   transition: background-color var(--transition-normal);
@@ -126,7 +128,7 @@ h2 {
 .glass-card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: var(--border-radius);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
