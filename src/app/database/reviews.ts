@@ -166,7 +166,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       support needed to get the job done.`,
   },
   {
-    company: 'SS&C',
+    company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     position: 'Senior Frontend Developer',
     category: 'Development',
@@ -177,7 +177,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       was a great team player.`,
   },
   {
-    company: 'SS&C',
+    company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     position: 'Tech Lead',
     category: 'Leadership',
@@ -188,7 +188,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       skills made her a great addition to the team.`,
   },
   {
-    company: 'SS&C',
+    company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     position: 'Tech Lead',
     category: 'Leadership',
@@ -198,7 +198,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       communicates very well and proved to be a great team player.`,
   },
   {
-    company: 'SS&C',
+    company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     position: 'Peer/Team Member',
     category: 'Peer',
@@ -211,7 +211,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       planning her task easy and smooth. Overall, it's a pleasure working with her.`,
   },
   {
-    company: 'SS&C',
+    company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     position: 'Peer/Team Member',
     category: 'Peer',

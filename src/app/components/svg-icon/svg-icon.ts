@@ -6,5 +6,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './svg-icon.scss',
 })
 export class SvgIcon {
-  type = input.required<string>();
+  type = input<string | null>(null);
 }

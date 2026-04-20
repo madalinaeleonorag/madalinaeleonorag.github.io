@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SelectComponent } from '../../components/select/select';
 import { InputComponent } from '../../components/input/input';
+import { SvgIcon } from '../../components/svg-icon/svg-icon';
 import { HighlightPipe } from '../../pipes/highlight.pipe';
 
 @Component({
   selector: 'app-reviews',
-  imports: [FormsModule, CommonModule, SelectComponent, InputComponent, HighlightPipe],
+  imports: [FormsModule, CommonModule, SelectComponent, InputComponent, SvgIcon, HighlightPipe],
   templateUrl: './reviews.html',
   styleUrl: './reviews.scss',
 })

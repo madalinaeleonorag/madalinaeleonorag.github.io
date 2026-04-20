@@ -34,9 +34,21 @@
       border-top: 1px solid var(--glass-border);
       padding-top: var(--space-md);
       display: flex;
+      align-items: center;
+      gap: var(--space-sm);
 
       .author-name {
         color: var(--text-primary);
+      }
+
+      .company-with-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        .company-logo {
+          --icon-size: 20px;
+        }
       }
 
       .review-date {

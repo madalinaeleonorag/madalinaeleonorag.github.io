@@ -49,7 +49,7 @@
 
 <div class="reviews-wrapper">
   @for (review of filteredReviews(); track $index) {
-    <div class="glass-card">
+    <div class="glass-card" [attr.data-company]="review.company">
       <div
         class="quote-text"
         [innerHTML]="getHighlightedReview(review.review | highlight: searchTerm())"
@@ -57,8 +57,14 @@
 
       <p class="author-info">
         <span class="author-name">{{ review.reviewer }}</span>
-        <span>&nbsp;&#45;&nbsp;{{ review.position }} &#64; {{ review.company }}</span
-        ><span class="review-date">{{ review.date | date: 'mediumDate' }}</span>
+        <span>&nbsp;&#45;&nbsp;{{ review.position }} &#64;</span>
+        <app-svg-icon
+          [type]="review.company"
+          class="company-logo"
+          [attr.aria-label]="review.company + ' logo'"
+        ></app-svg-icon>
+        {{ review.company }}
+        <span class="review-date">{{ review.date | date: 'mediumDate' }}</span>
       </p>
     </div>
   }

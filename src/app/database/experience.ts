@@ -69,7 +69,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
     ],
   },
   {
-    company: 'Deloitte Digital Romania',
+    company: 'Deloitte Digital',
     role: 'Frontend Developer',
     period: 'Oct 2021 - Dec 2022',
     logo: 'Deloitte',
