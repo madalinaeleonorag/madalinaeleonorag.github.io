@@ -50,7 +50,10 @@
 <div class="reviews-wrapper">
   @for (review of filteredReviews(); track $index) {
     <div class="glass-card">
-      <div class="quote-text" [innerHTML]="review.review"></div>
+      <div
+        class="quote-text"
+        [innerHTML]="getHighlightedReview(review.review | highlight: searchTerm())"
+      ></div>
 
       <p class="author-info">
         <span class="author-name">{{ review.reviewer }}</span>

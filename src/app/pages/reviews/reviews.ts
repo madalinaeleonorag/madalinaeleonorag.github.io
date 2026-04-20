@@ -1,17 +1,21 @@
 import { Component, computed, signal } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SelectComponent } from '../../components/select/select';
 import { InputComponent } from '../../components/input/input';
+import { HighlightPipe } from '../../pipes/highlight.pipe';
 
 @Component({
   selector: 'app-reviews',
-  imports: [FormsModule, CommonModule, SelectComponent, InputComponent],
+  imports: [FormsModule, CommonModule, SelectComponent, InputComponent, HighlightPipe],
   templateUrl: './reviews.html',
   styleUrl: './reviews.scss',
 })
 export class Reviews {
+  constructor(private readonly sanitizer: DomSanitizer) {}
+
   ALL_REVIEWS = STAKEHOLDER_REVIEWS;
 
   searchTerm = signal<string>('');
@@ -51,4 +55,8 @@ export class Reviews {
       return true;
     });
   });
+
+  getHighlightedReview(review: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(review);
+  }
 }
