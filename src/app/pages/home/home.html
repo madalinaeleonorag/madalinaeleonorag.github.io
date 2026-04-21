@@ -17,7 +17,7 @@
   <div class="hero__contact">
     @for (social of socialLinks; track $index) {
       <a [href]="social.url" target="_blank" rel="noopener noreferrer">
-        <app-svg-icon [type]="social.type"></app-svg-icon>
+        <app-svg-icon [type]="social.type" [useAccentColor]="true"></app-svg-icon>
       </a>
     }
   </div>
@@ -34,7 +34,7 @@
   <div class="expertise">
     @for (category of expertise; track $index) {
       <div class="glass-card expertise__category">
-        <app-svg-icon [type]="category.icon" class="icon" />
+        <app-svg-icon [type]="category.icon" [useAccentColor]="true" class="icon" />
         <h3>{{ category.title }}</h3>
         <p>{{ category.description }}</p>
         <div class="chips-wrapper">
@@ -67,7 +67,7 @@
     <a [href]="link.href" class="sidenav__link">
       <span class="label">{{ link.label }}</span>
       &nbsp;
-      <app-svg-icon [type]="link.icon" class="icon" />
+      <app-svg-icon [type]="link.icon" [useAccentColor]="true" class="icon" />
     </a>
   }
 </div>

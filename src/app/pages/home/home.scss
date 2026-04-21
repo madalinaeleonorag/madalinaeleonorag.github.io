@@ -26,12 +26,6 @@
     .icon {
       --icon-size: 48px;
     }
-
-    &:hover {
-      .icon {
-        --icon-fill-color: var(--accent-color);
-      }
-    }
   }
 }
 

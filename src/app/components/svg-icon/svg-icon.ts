@@ -7,4 +7,5 @@ import { Component, input } from '@angular/core';
 })
 export class SvgIcon {
   type = input<string | null>(null);
+  useAccentColor = input<boolean>(false);
 }

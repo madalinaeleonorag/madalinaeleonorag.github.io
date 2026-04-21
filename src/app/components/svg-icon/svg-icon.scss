@@ -2,3 +2,29 @@ svg {
   width: var(--icon-size, 24px);
   height: var(--icon-size, 24px);
 }
+
+.accent-color {
+  svg {
+    path {
+      fill: var(--accent-hover);
+      stroke: var(--accent-hover);
+    }
+
+    polygon {
+      fill: var(--accent-hover);
+      stroke: var(--accent-hover);
+    }
+
+    &:hover {
+      path {
+        fill: var(--accent-color);
+        stroke: var(--accent-color);
+      }
+
+      polygon {
+        fill: var(--accent-color);
+        stroke: var(--accent-color);
+      }
+    }
+  }
+}
