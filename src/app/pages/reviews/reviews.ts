@@ -1,4 +1,6 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, effect, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 import { CommonModule } from '@angular/common';
@@ -15,7 +17,27 @@ import { HighlightPipe } from '../../pipes/highlight.pipe';
   styleUrl: './reviews.scss',
 })
 export class Reviews {
-  constructor(private readonly sanitizer: DomSanitizer) {}
+  private readonly route = inject(ActivatedRoute);
+  private readonly queryParams = toSignal(this.route.queryParams, {
+    initialValue: { company: '', startDate: '', endDate: '' },
+  });
+
+  constructor(private readonly sanitizer: DomSanitizer) {
+    effect(() => {
+      const params = this.queryParams();
+      if (params) {
+        if (params['company']) {
+          this.selectedCompany.set(params['company']);
+        }
+        if (params['startDate']) {
+          this.startDate.set(params['startDate']);
+        }
+        if (params['endDate']) {
+          this.endDate.set(params['endDate'] === 'Present' ? new Date() : params['endDate']);
+        }
+      }
+    });
+  }
 
   ALL_REVIEWS = STAKEHOLDER_REVIEWS;
 

@@ -91,6 +91,7 @@ button {
   transition: background-color var(--transition-normal);
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  width: fit-content;
 
   &.btn-primary {
     background-color: var(--accent-color);

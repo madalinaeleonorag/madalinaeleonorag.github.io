@@ -86,11 +86,7 @@
       @for (slideGroup of reviewsSlides; track $index) {
         <div class="carousel-slide" [class.is-active]="currentSlideIndex() === $index">
           @for (review of slideGroup; track review.reviewer) {
-            <div
-              class="glass-card"
-              (click)="goToReviewDetail(review.date, review.reviewer, review.position)"
-              role="button"
-            >
+            <div class="glass-card">
               <div class="quote-text" [innerHTML]="review.preview"></div>
 
               <div class="author-info">

@@ -4,11 +4,11 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
   {
     company: 'SS&C Technologies',
     role: 'UI Engineer',
-    period: 'Sep 2025 - Present',
     logo: 'SSNC',
-    isCurrent: true,
     assignments: [
       {
+        startDate: 'Sep 2025',
+        endDate: 'Present',
         techStack: [
           'Angular 20+',
           'TypeScript',
@@ -36,10 +36,11 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
   {
     company: 'Cognizant',
     role: 'Frontend Developer & Interim Team Lead',
-    period: 'Jan 2023 - Sep 2025',
     logo: 'Cognizant',
     assignments: [
       {
+        startDate: 'Jan 2023',
+        endDate: 'Sep 2025',
         techStack: [
           'Angular 17+',
           'TypeScript',
@@ -71,10 +72,11 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
   {
     company: 'Deloitte Digital',
     role: 'Frontend Developer',
-    period: 'Oct 2021 - Dec 2022',
     logo: 'Deloitte',
     assignments: [
       {
+        startDate: 'Feb 2022',
+        endDate: 'Dec 2022',
         techStack: ['React', 'TypeScript', 'Mambu', 'Thymeleaf', 'AWS Services', 'Java'],
         summary:
           'Served as the sole frontend developer for an internal banking application, building robust client and loan management workflows while navigating the strict architectural constraints of the Mambu interface.',
@@ -87,6 +89,8 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         stakeholderImpact: `Recognized by Team Leads and Senior Consultants for rapidly becoming a fully independent technical pillar who "managed to surpass everyone's expectations." Praised for accelerating the delivery of complex features, seamlessly handling cross-functional tasks (including Cloud configurations), and actively improving Agile processes by challenging requirements to define better-structured stories for the entire team.`,
       },
       {
+        startDate: 'Oct 2021',
+        endDate: 'Jan 2022',
         techStack: ['Angular', 'TypeScript', 'RxJS', 'Sass'],
         summary:
           'Contributed to an insurance platform by delivering responsive, interactive features that allowed users to efficiently manage active policies directly from their profiles.',
@@ -102,10 +106,11 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
   {
     company: 'IBM',
     role: 'Frontend Developer',
-    period: 'Dec 2018 - Oct 2021',
     logo: 'IBM',
     assignments: [
       {
+        startDate: 'Apr 2020',
+        endDate: 'Oct 2021',
         techStack: [
           'Angular',
           'TypeScript',
@@ -128,6 +133,8 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         stakeholderImpact: `Commended by Project Managers and peers for a "constant strong contribution" to project delivery and an exceptional "determination to never give up." Praised for rapidly acquiring an extensive technical skillset and acting as a key mentor who guides and brings "new talent to our wider iX IBM team," standing out from other developers through relentless drive, adaptability, and high reliability.`,
       },
       {
+        startDate: 'Mar 2020',
+        endDate: 'Mar 2020',
         techStack: ['React.js', 'GraphQL', 'Material UI'],
         summary:
           'Delivered a fast-paced, high-stakes MVP for the retail recycling sector, building a dynamic purchasing platform that successfully converted a prospect into a long-term company partner.',
@@ -137,6 +144,8 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         ],
       },
       {
+        startDate: 'Mar 2019',
+        endDate: 'Mar 2020',
         techStack: ['Angular', 'Ionic', 'TypeScript', 'Capacitor', 'RxJs', 'Sass', 'Unit Testing'],
         summary:
           'Navigated both highly autonomous and team-based enterprise projects, taking full technical ownership of several critical applications. Delivered secure internal knowledge bases and offline-capable mobile/tablet tools used by insurance field staff.',
@@ -150,6 +159,10 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         stakeholderImpact: `Commended by Project and People Managers for successfully taking charge of "very hard projects" and acting as the direct line of communication with enterprise clients. Consistently praised for receiving excellent project feedback, making a "constant strong contribution," and showing an exceptional "determination to never give up." Recognized as a key mentor who actively brings "new talent to the wider iX IBM team" through an outstanding "drive and attitude" and a continuous investment in professional growth.`,
       },
       {
+        startDate: 'Dec 2018',
+        endDate: 'Feb 2019',
+        summary:
+          'Rapidly onboarded to a new project and delivered a critical feature within the first two weeks, demonstrating exceptional adaptability and technical versatility.',
         techStack: ['Angular', 'Ionic', 'TypeScript', 'RxJs'],
         descriptionPoints: [
           'Quickly acquired necessary technologies to align with project requirements and ensure a smooth onboarding process. Contributed to client project by handling initial development tasks and integrating into the team workflow.',

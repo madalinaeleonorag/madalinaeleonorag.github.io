@@ -1,7 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chip } from '../chip/chip';
 import { SvgIcon } from '../svg-icon/svg-icon';
-import { IWorkExperience } from '../../interfaces/work-experience';
+import { IAssignment, IWorkExperience } from '../../interfaces/work-experience';
 
 @Component({
   selector: 'app-work',
@@ -11,4 +12,22 @@ import { IWorkExperience } from '../../interfaces/work-experience';
 })
 export class WorkComponent {
   job = input.required<IWorkExperience>();
+  showReviewsButton = input<boolean>(false);
+
+  lastAssignmentEndDate = computed(() => {
+    const lastAssignment = this.job().assignments[this.job().assignments.length - 1];
+    return lastAssignment ? lastAssignment.endDate : null;
+  });
+
+  constructor(private readonly router: Router) {}
+
+  viewReviews(assignment: IAssignment) {
+    this.router.navigate(['/reviews'], {
+      queryParams: {
+        company: this.job().company,
+        startDate: assignment.startDate,
+        endDate: assignment.endDate,
+      },
+    });
+  }
 }

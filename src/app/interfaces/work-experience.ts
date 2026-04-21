@@ -1,15 +1,15 @@
-interface IAssignment {
+export interface IAssignment {
+  descriptionPoints?: string[];
+  endDate: string;
+  stakeholderImpact?: string;
+  startDate: string;
   summary?: string;
   techStack?: string[];
-  descriptionPoints?: string[];
-  stakeholderImpact?: string;
 }
 
 export interface IWorkExperience {
+  assignments: IAssignment[];
   company: string;
-  role: string;
-  period: string;
   logo: string;
-  isCurrent?: boolean;
-  assignments?: IAssignment[];
+  role: string;
 }
