@@ -11,6 +11,15 @@
   </div>
 
   @for (assignment of job().assignments; track $index) {
+    @if (totalAssignments() > 1) {
+      <p class="experience__assignment-label">
+        Assignment {{ totalAssignments() - $index }} of {{ totalAssignments() }} ({{
+          assignment.startDate
+        }}
+        - {{ assignment.endDate }})
+      </p>
+    }
+
     @if (assignment.summary) {
       <p class="experience__summary">{{ assignment.summary }}</p>
     }

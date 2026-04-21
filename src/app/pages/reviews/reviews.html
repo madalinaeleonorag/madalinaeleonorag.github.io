@@ -63,7 +63,7 @@
           class="company-logo"
           [attr.aria-label]="review.company + ' logo'"
         ></app-svg-icon>
-        {{ review.company }}
+        <span class="company-name">{{ review.company }}</span>
         <span class="review-date">{{ review.date | date: 'mediumDate' }}</span>
       </p>
     </div>

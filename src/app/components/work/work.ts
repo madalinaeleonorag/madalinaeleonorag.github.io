@@ -19,6 +19,8 @@ export class WorkComponent {
     return lastAssignment ? lastAssignment.endDate : null;
   });
 
+  totalAssignments = computed(() => this.job().assignments?.length || 0);
+
   constructor(private readonly router: Router) {}
 
   viewReviews(assignment: IAssignment) {

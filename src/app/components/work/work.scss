@@ -59,6 +59,10 @@
       color: var(--yellow-color);
     }
   }
+
+  &__assignment-label {
+    color: var(--text-primary);
+  }
 }
 
 @keyframes colorPulse {

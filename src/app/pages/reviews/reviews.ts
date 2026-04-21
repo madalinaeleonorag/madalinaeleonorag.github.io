@@ -39,6 +39,23 @@ export class Reviews {
     });
   }
 
+  private parseDateString(dateStr: string): number | null {
+    if (!dateStr) return null;
+
+    const isoMatch = dateStr.match(/^\d{4}-\d{2}-\d{2}$/);
+    if (isoMatch) {
+      return new Date(dateStr).getTime();
+    }
+
+    const monthYearMatch = dateStr.match(/^([A-Za-z]+)\s+(\d{4})$/);
+    if (monthYearMatch) {
+      return new Date(`${monthYearMatch[1]} 1, ${monthYearMatch[2]}`).getTime();
+    }
+
+    const parsedDate = new Date(dateStr).getTime();
+    return isNaN(parsedDate) ? null : parsedDate;
+  }
+
   ALL_REVIEWS = STAKEHOLDER_REVIEWS;
 
   searchTerm = signal<string>('');
@@ -55,8 +72,8 @@ export class Reviews {
     const company = this.selectedCompany();
     const category = this.selectedCategory();
 
-    const startTarget = this.startDate() ? new Date(this.startDate()).getTime() : null;
-    const endTarget = this.endDate() ? new Date(this.endDate()).getTime() : null;
+    const startTarget = this.parseDateString(this.startDate());
+    const endTarget = this.parseDateString(this.endDate());
 
     return this.ALL_REVIEWS.filter((review) => {
       if (company && review.company !== company) return false;
