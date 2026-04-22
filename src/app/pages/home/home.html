@@ -54,7 +54,7 @@
   </div>
   <div class="experience">
     @for (job of workExperience; track job.company) {
-      <app-work [job]="job" />
+      <app-work [job]="job" [isSummaryView]="true" />
     }
   </div>
   <button class="btn-secondary" routerLink="work-experience">

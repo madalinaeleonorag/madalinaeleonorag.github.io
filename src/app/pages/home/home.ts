@@ -26,20 +26,7 @@ export class Home {
   ];
   readonly socialLinks = SOCIAL_LINKS;
   readonly expertise = EXPERTISE;
-  readonly workExperience: IWorkExperience[] = [
-    {
-      ...WORK_EXPERIENCE[0],
-      assignments: WORK_EXPERIENCE[0].assignments?.map((assignment) => ({
-        ...assignment,
-        techStack: [],
-        descriptionPoints: [],
-      })),
-    },
-    ...WORK_EXPERIENCE.slice(1).map((job) => ({
-      ...job,
-      assignments: [],
-    })),
-  ];
+  readonly workExperience = WORK_EXPERIENCE;
   reviewsSlides = [
     STAKEHOLDER_REVIEWS.slice(0, 3),
     STAKEHOLDER_REVIEWS.slice(3, 6),

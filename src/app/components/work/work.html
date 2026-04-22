@@ -10,41 +10,41 @@
     </div>
   </div>
 
-  @for (assignment of job().assignments; track $index) {
-    @if (totalAssignments() > 1) {
-      <p class="experience__assignment-label">
-        Assignment {{ totalAssignments() - $index }} of {{ totalAssignments() }} ({{
-          assignment.startDate
-        }}
-        - {{ assignment.endDate }})
-      </p>
-    }
+  @if (!isSummaryView()) {
+    @for (assignment of job().assignments; track $index) {
+      @if (totalAssignments() > 1) {
+        <p class="experience__assignment-label">
+          Assignment {{ totalAssignments() - $index }} of {{ totalAssignments() }} ({{
+            assignment.startDate
+          }}
+          - {{ assignment.endDate }})
+        </p>
+      }
 
-    @if (assignment.summary) {
-      <p class="experience__summary">{{ assignment.summary }}</p>
-    }
+      @if (assignment.summary) {
+        <p class="experience__summary">{{ assignment.summary }}</p>
+      }
 
-    @if (assignment.descriptionPoints?.length) {
-      <ul class="experience__description">
-        @for (point of assignment.descriptionPoints; track $index) {
-          <li [innerHTML]="point"></li>
-        }
-      </ul>
-    }
+      @if (assignment.descriptionPoints?.length) {
+        <ul class="experience__description">
+          @for (point of assignment.descriptionPoints; track $index) {
+            <li [innerHTML]="point"></li>
+          }
+        </ul>
+      }
 
-    @if (assignment.techStack?.length) {
-      <div class="experience__tech-stack">
-        @for (tech of assignment.techStack; track $index) {
-          <app-chip [label]="tech" />
-        }
-      </div>
-    }
+      @if (assignment.techStack?.length) {
+        <div class="experience__tech-stack">
+          @for (tech of assignment.techStack; track $index) {
+            <app-chip [label]="tech" />
+          }
+        </div>
+      }
 
-    @if (assignment.stakeholderImpact) {
-      <p class="experience__stakeholder-impact">
-        <span>💡 Stakeholder Impact & Recognition:</span> {{ assignment.stakeholderImpact }}
-      </p>
-      @if (showReviewsButton()) {
+      @if (assignment.stakeholderImpact) {
+        <p class="experience__stakeholder-impact">
+          <span>💡 Stakeholder Impact & Recognition:</span> {{ assignment.stakeholderImpact }}
+        </p>
         <button class="btn-secondary" (click)="viewReviews(assignment)">View Reviews</button>
       }
     }

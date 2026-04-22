@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { booleanAttribute, Component, computed, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chip } from '../chip/chip';
 import { SvgIcon } from '../svg-icon/svg-icon';
@@ -12,7 +12,7 @@ import { IAssignment, IWorkExperience } from '../../interfaces/work-experience';
 })
 export class WorkComponent {
   job = input.required<IWorkExperience>();
-  showReviewsButton = input<boolean>(false);
+  isSummaryView = input(false, { transform: booleanAttribute });
 
   lastAssignmentEndDate = computed(() => {
     const lastAssignment = this.job().assignments[this.job().assignments.length - 1];
