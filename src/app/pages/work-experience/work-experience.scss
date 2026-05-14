@@ -1,6 +1,17 @@
+@use '../../../styles/breakpoints' as *;
+
 h2 {
   margin: 5vh 0;
   text-align: center;
+
+  @media (max-width: $breakpoint-md) {
+    margin: 3vh 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    margin: 2vh 0;
+    font-size: 1.5rem;
+  }
 }
 
 .experience-wrapper {
@@ -8,6 +19,16 @@ h2 {
     margin-bottom: 5vh;
     padding-bottom: 5vh;
     border-bottom: 1px solid var(--border-color);
+
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 3vh;
+      padding-bottom: 3vh;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      margin-bottom: 2vh;
+      padding-bottom: 2vh;
+    }
   }
 
   &:last-child {

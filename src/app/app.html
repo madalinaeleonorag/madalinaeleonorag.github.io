@@ -1,9 +1,11 @@
-@if (!isHomePage()) {
-  <div class="breadcrumb">
-    <a href="/">← Go back</a>
-    <span>&nbsp;/&nbsp;</span>
-    <span class="breadcrumb__active">Work Experience</span>
-  </div>
-}
+<div class="app-wrapper">
+  @if (!isHomePage()) {
+    <div class="breadcrumb">
+      <a href="/">← Go back</a>
+      <span>&nbsp;/&nbsp;</span>
+      <span class="breadcrumb__active">Work Experience</span>
+    </div>
+  }
 
-<router-outlet />
+  <router-outlet />
+</div>

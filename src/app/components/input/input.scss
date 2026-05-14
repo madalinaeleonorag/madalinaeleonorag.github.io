@@ -1,3 +1,5 @@
+@use '../../../styles/breakpoints' as *;
+
 .custom-input {
   width: 100%;
   background: var(--bg-primary);
@@ -7,6 +9,12 @@
   border-radius: var(--border-radius);
   font-family: inherit;
   transition: border-color var(--transition-normal);
+  min-height: 44px;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }
 
 .custom-input:focus {

@@ -20,5 +20,10 @@ export class App {
     ),
   );
 
-  isHomePage = computed(() => this.urlSignal() === '/');
+  isHomePage = computed(() => {
+    const currentUrl = this.urlSignal() || '';
+    const basePath = currentUrl.split('#')[0].split('?')[0];
+
+    return basePath === '/' || basePath === '';
+  });
 }

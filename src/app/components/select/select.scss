@@ -1,3 +1,5 @@
+@use '../../../styles/breakpoints' as *;
+
 .lib-select-trigger {
   display: flex;
   justify-content: space-between;
@@ -39,6 +41,13 @@
   margin-top: 4px;
   min-width: 200px;
   overflow: hidden;
+  max-height: 300px;
+  overflow-y: auto;
+
+  @media (max-width: $breakpoint-sm) {
+    min-width: 100%;
+    max-width: calc(100vw - 2rem);
+  }
 }
 
 .lib-option {

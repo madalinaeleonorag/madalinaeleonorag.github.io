@@ -1,3 +1,5 @@
+@use '../src/styles/breakpoints' as *;
+
 :root {
   --bg-primary: #18191b;
   --text-primary: #ffffff;
@@ -82,27 +84,42 @@ a {
 
 button {
   font-family: inherit;
-  cursor: pointer;
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--accent-color);
-  border-radius: var(--border-radius);
   font-weight: 500;
-  color: var(--text-primary);
-  transition: background-color var(--transition-normal);
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+
+  cursor: pointer;
   width: fit-content;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--accent-color);
+
+  transition: all var(--transition-normal) ease;
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
 
   &.btn-primary {
     background-color: var(--accent-color);
+    color: #fff;
+
+    &:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
   }
 
   &.btn-secondary {
     background-color: transparent;
-  }
+    color: var(--text-primary);
 
-  &:hover {
-    background-color: var(--accent-hover);
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--accent-color);
+    }
   }
 }
 
@@ -112,18 +129,30 @@ p {
   line-height: 1.4rem;
 }
 
-h2 {
-  color: var(--accent-color);
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary, #ffffff);
 }
 
-.section {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  height: 100vh;
-  justify-content: center;
-  text-align: center;
-  gap: var(--space-lg);
+h1 {
+  font-size: clamp(2rem, 1.25rem + 3.75vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 1.75rem);
+}
+
+h2 {
+  color: var(--accent-color);
 }
 
 .glass-card {
@@ -137,6 +166,10 @@ h2 {
   transition:
     transform var(--transition-normal) ease,
     background var(--transition-normal) ease;
+
+  @media (max-width: $breakpoint-md) {
+    height: unset;
+  }
 
   &:hover {
     background: rgba(255, 255, 255, 0.04);

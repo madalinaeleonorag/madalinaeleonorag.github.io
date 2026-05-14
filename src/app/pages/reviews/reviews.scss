@@ -1,8 +1,18 @@
+@use '../../../styles/breakpoints' as *;
+
 .filters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-md);
   margin-bottom: var(--space-md);
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .filter-group {
@@ -17,9 +27,18 @@
   gap: var(--space-md);
   margin: var(--space-lg) 0;
 
+  @media (max-width: $breakpoint-sm) {
+    margin: var(--space-md) 0;
+  }
+
   .glass-card {
     .quote-text {
       margin-bottom: var(--space-lg);
+
+      @media (max-width: $breakpoint-sm) {
+        margin-bottom: var(--space-md);
+        font-size: 0.9rem;
+      }
     }
 
     ::ng-deep .highlight {
@@ -28,6 +47,10 @@
 
     ::ng-deep ul {
       margin-left: 1rem;
+
+      @media (max-width: $breakpoint-sm) {
+        margin-left: 0.5rem;
+      }
     }
 
     .author-info {
@@ -36,6 +59,12 @@
       display: flex;
       align-items: center;
       gap: var(--space-sm);
+      flex-wrap: wrap;
+
+      @media (max-width: $breakpoint-sm) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       .author-name {
         color: var(--text-primary);
@@ -53,6 +82,11 @@
 
       .review-date {
         margin-left: auto;
+
+        @media (max-width: $breakpoint-sm) {
+          margin-left: 0;
+          font-size: 0.85rem;
+        }
       }
     }
   }

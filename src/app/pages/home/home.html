@@ -1,4 +1,4 @@
-<div class="section" id="hero">
+<section id="hero">
   <h3>🚀 Building Scalable Enterprise Ecosystems</h3>
   <h1>Hi, I'm Madalina-Eleonora Gheorghe</h1>
   <h2>UI Engineer</h2>
@@ -27,27 +27,27 @@
       Download Recommendations
     </button>
   </div>
-</div>
+</section>
 
-<div class="section" id="expertise">
+<section id="expertise">
   <h2>Areas of Expertise</h2>
   <div class="expertise">
-    @for (category of expertise; track $index) {
+    @for (category of expertise; track category.title) {
       <div class="glass-card expertise__category">
         <app-svg-icon [type]="category.icon" [useAccentColor]="true" class="icon" />
         <h3>{{ category.title }}</h3>
         <p>{{ category.description }}</p>
         <div class="chips-wrapper">
-          @for (tech of category.techStack; track $index) {
+          @for (tech of category.techStack; track tech) {
             <app-chip [label]="tech" />
           }
         </div>
       </div>
     }
   </div>
-</div>
+</section>
 
-<div class="section" id="experience">
+<section id="experience">
   <div>
     <h2>Work Experience</h2>
     <p>A brief look at my professional journey.</p>
@@ -60,7 +60,7 @@
   <button class="btn-secondary" routerLink="work-experience">
     Explore Full Experience & Reviews
   </button>
-</div>
+</section>
 
 <div class="sidenav">
   @for (link of sidenavLinks; track $index) {
@@ -72,7 +72,7 @@
   }
 </div>
 
-<div class="section" id="reviews">
+<section id="reviews">
   <div>
     <h2>Recommendations & Reviews</h2>
     <p>What colleagues and clients say about working with me.</p>
@@ -116,4 +116,4 @@
     </div>
   </div>
   <button class="btn-secondary" routerLink="reviews">Read All Reviews</button>
-</div>
+</section>
