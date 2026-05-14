@@ -14,10 +14,17 @@ export class WorkComponent {
   job = input.required<IWorkExperience>();
   isSummaryView = input(false, { transform: booleanAttribute });
 
-  lastAssignmentEndDate = computed(() => {
-    const lastAssignment = this.job().assignments[this.job().assignments.length - 1];
-    return lastAssignment ? lastAssignment.endDate : null;
+  overallStartDate = computed(() => {
+    const arr = this.job().assignments;
+    return arr.length ? arr[arr.length - 1].startDate : '';
   });
+
+  overallEndDate = computed(() => {
+    const arr = this.job().assignments;
+    return arr.length ? arr[0].endDate : '';
+  });
+
+  isCurrentJob = computed(() => this.overallEndDate() === 'Present');
 
   totalAssignments = computed(() => this.job().assignments?.length || 0);
 

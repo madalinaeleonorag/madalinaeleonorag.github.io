@@ -1,18 +1,11 @@
 @use '../styles/breakpoints' as *;
 
-:host {
+.app-wrapper {
   display: flex;
   flex-flow: column;
   justify-content: center;
   margin: 0 calc(var(--space-lg) + 24px + 5vw);
-
-  @media (max-width: $breakpoint-md) {
-    margin: 0 2rem;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    margin: 0 1rem;
-  }
+  margin: 0 clamp(1rem, calc(24px + 5vw), calc(var(--space-lg) + 24px + 5vw));
 }
 
 .breadcrumb {

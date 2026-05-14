@@ -1,24 +1,23 @@
-import{B as d,d as p,l as g,n as s,r as l,x as i,za as m}from"./chunk-FD3ZSGP4.js";var w=[{company:"Cognizant",date:new Date("2024-11-14"),position:"Application Manager",category:"Management",reviewer:"Iris Vanstraelen",preview:"You are my favorite developer. I don't think you can further improve... The work is excellent as well. You have taken a <strong>lot of initiative</strong>. [...] You are always thinking about finding good <strong>customer solutions</strong>, so I'm very happy with you.",review:`You are my favorite developer. I don\u2019t think you can further improve I\u2019m not kidding, you are
-      very quick in picking up new stories, you ask good questions so we as application manager can in
-      fill in the blanks we haven\u2019t thought about. The work is excellent as well. It\u2019s a very difficult topic to
-      work on; we have created a whole new application. You have taken a lot of initiative. There aren\u2019t
-      many bugs and the ones we have are quickly resolved. You are always thinking about finding good
-      customer solutions, so I\u2019m very happy with you. I can\u2019t see any improvements that you can make.
-      We are so happy with the way things are handled.`},{company:"Deloitte Digital",date:new Date("2022-01-28"),position:"Technical Lead",category:"Leadership",reviewer:"Dragos-Vasile Lungu",preview:"She gave a <strong>huge boost</strong> to our Web app development; she came up with a very long list of improvements... The quality of the code she has been writing, and the <strong>overall work quality has been impressive</strong>.",review:`She gave a huge boost to our Web app development; she came up with a very long list of
-      improvements to our existing app and managed to implement a lot of those items in just a couple
-      of weeks. The quality of the code she has been writing, and the overall work quality has been
-      impressive. I would always want her in my team, given the opportunity.`},{company:"Deloitte Digital",date:new Date("2022-04-06"),position:"Manager",category:"Management",reviewer:"Jack Taylor",preview:"...how quickly our production increased thanks to Madalina. Madalina clearly has a <strong>strong skillset</strong> which benefited our FE team significantly. Madalina worked hard to <strong>develop her colleagues</strong>...",review:`Madalina instantly collaborated with the team and importantly understood our objectives quickly.
-      The repeated feedback from the development lead was how quickly our production increased \u2013
-      thanks to Madalina. Madalina clearly has a strong skillset which benefited our FE team
-      significantly. Madalina worked hard to develop her colleagues and ensured they were
-      implementing best practice techniques.`},{company:"Cognizant",date:new Date("2024-11-15"),position:"Manager",category:"Management",reviewer:"Etienne De Paepe",preview:"We appreciate: your <strong>ownership</strong>, your involvement, your <strong>E2E view</strong>... how you take up a key position after replacing the old Tech Lead...",review:`Here is some feedback about your involvement in our team. Overall, we are very happy with your
+import{l as r,p as c,v as s,xa as u,z as l}from"./chunk-DMBA43LF.js";var m=[{company:"Cognizant",date:new Date("2024-11-15"),position:"Manager",category:"Management",reviewer:"Etienne De Paepe",preview:"We appreciate: your <strong>ownership</strong>, your involvement, your <strong>E2E view</strong>... how you take up a key position after replacing the old Tech Lead...",review:`Here is some feedback about your involvement in our team. Overall, we are very happy with your
       contribution to our project and your role in the team. No real learning points could be found, which
       is very good . We appreciate: your ownership, your involvement, your E2E view, testing of your
       changes, the extra tasks you picked up outside of your role: UX design, use of new Kendo table
       component, you being open for feedback and improvements, how you take initiative, your efficient
       & fast way of working, you to be a fast learner, how you take up a key position after replacing the old
       Tech Lead, you to think along with business about problems and solutions, you being a team
-      player`},{company:"Cognizant",date:new Date("2024-11-01"),position:"Process Manager",category:"Management",reviewer:"Kathleen Renard",preview:"Not only you help us with designing and developing screens for our end user, you also <strong>think with us</strong> to find the best suitable solution which is <strong>smart and user friendly</strong>.",review:`I promised to send you some feedback about the work we did together. I can only sum up positive
+      player`},{company:"Deloitte Digital",date:new Date("2022-04-20"),position:"Team Lead",category:"Leadership",reviewer:"Andrei-Ioan Popescu",preview:"...she managed to <strong>surpass everyone's expectations</strong>. I appreciate the fact that during refinements and clarifications, she <strong>challenges the approach</strong> and the input data.",review:`From early on, she was fully independent from a tech perspective, requiring assistance only to
+      understand the features she needed to implement. Even though she is a less experienced front-end
+      developer than the former one, seeing her work, I can confirm that she managed to surpass
+      everyone\u2019s expectations. She communicates the blockers & issues clearly; she developed complex
+      features faster and with increased quality than before. She handled cloud configuration and
+      installed the applications that she developed with ease, even though this is out of her area of
+      expertise. She is asking everyone for information when she needs it, she is efficiently
+      communicating her concerns and thus, every story that she implemented was easily integrated
+      with the backend components and the platform. Moreover, I appreciate the fact that during
+      refinements and clarifications, she challenges the approach and the input data, and thus we
+      managed to increase the quality of the features\u2019 description resulting in better structured stories
+      and acceptance criteria. I\u2019m happy that I got the chance to work with her and I would definitely like
+      to continue doing this in the future.`},{company:"Cognizant",date:new Date("2024-11-01"),position:"Process Manager",category:"Management",reviewer:"Kathleen Renard",preview:"Not only you help us with designing and developing screens for our end user, you also <strong>think with us</strong> to find the best suitable solution which is <strong>smart and user friendly</strong>.",review:`I promised to send you some feedback about the work we did together. I can only sum up positive
       things about how I experienced you in your job as frontend developer and unofficial screen
       designer:
       <ul><li>Eager to learn, you pick up new aspects of your job and gather the necessary information. It
@@ -38,25 +37,26 @@ import{B as d,d as p,l as g,n as s,r as l,x as i,za as m}from"./chunk-FD3ZSGP4.j
       <li>Strong communication skills: you communicate very transparently, directly and to the
       point. This makes it easy to work together and not waste a lot of time discussing as we said
       before.</li></ul>
-      It was a pleasure working with you. I wish you all the best.`},{company:"IBM",date:new Date("2021-06-22"),position:"Frontend Developer",category:"Development",reviewer:"Theodor Palamaru",preview:"Her determination to <strong>never give up</strong> and always learn and improve, is what sets her apart... I <strong>highly recommend her</strong> to anyone looking to expand their team(s).",review:`She quickly managed to learn and acquire quite an extensive set of skills. Her determination to
+      It was a pleasure working with you. I wish you all the best.`},{company:"Cognizant",date:new Date("2024-11-14"),position:"Application Manager",category:"Management",reviewer:"Iris Vanstraelen",review:`You are my favorite developer. I don\u2019t think you can further improve I\u2019m not kidding, you are
+      very quick in picking up new stories, you ask good questions so we as application manager can in
+      fill in the blanks we haven\u2019t thought about. The work is excellent as well. It\u2019s a very difficult topic to
+      work on; we have created a whole new application. You have taken a lot of initiative. There aren\u2019t
+      many bugs and the ones we have are quickly resolved. You are always thinking about finding good
+      customer solutions, so I\u2019m very happy with you. I can\u2019t see any improvements that you can make.
+      We are so happy with the way things are handled.`},{company:"Deloitte Digital",date:new Date("2022-01-28"),position:"Technical Lead",category:"Leadership",reviewer:"Dragos-Vasile Lungu",review:`She gave a huge boost to our Web app development; she came up with a very long list of
+      improvements to our existing app and managed to implement a lot of those items in just a couple
+      of weeks. The quality of the code she has been writing, and the overall work quality has been
+      impressive. I would always want her in my team, given the opportunity.`},{company:"Deloitte Digital",date:new Date("2022-04-06"),position:"Manager",category:"Management",reviewer:"Jack Taylor",review:`Madalina instantly collaborated with the team and importantly understood our objectives quickly.
+      The repeated feedback from the development lead was how quickly our production increased \u2013
+      thanks to Madalina. Madalina clearly has a strong skillset which benefited our FE team
+      significantly. Madalina worked hard to develop her colleagues and ensured they were
+      implementing best practice techniques.`},{company:"IBM",date:new Date("2021-06-22"),position:"Frontend Developer",category:"Development",reviewer:"Theodor Palamaru",review:`She quickly managed to learn and acquire quite an extensive set of skills. Her determination to
       never give up and always learn and improve, is what sets her apart from many other developers out
       there. It's been a pleasure working with her. She is currently riding the proverbial wave, and I am
       sure she will achieve great things in the future. I highly recommend her to anyone looking to expand
-      their team(s).`},{company:"Deloitte Digital",date:new Date("2022-04-20"),position:"Team Lead",category:"Leadership",reviewer:"Andrei-Ioan Popescu",preview:"...she managed to <strong>surpass everyone's expectations</strong>. I appreciate the fact that during refinements and clarifications, she <strong>challenges the approach</strong> and the input data.",review:`From early on, she was fully independent from a tech perspective, requiring assistance only to
-      understand the features she needed to implement. Even though she is a less experienced front-end
-      developer than the former one, seeing her work, I can confirm that she managed to surpass
-      everyone\u2019s expectations. She communicates the blockers & issues clearly; she developed complex
-      features faster and with increased quality than before. She handled cloud configuration and
-      installed the applications that she developed with ease, even though this is out of her area of
-      expertise. She is asking everyone for information when she needs it, she is efficiently
-      communicating her concerns and thus, every story that she implemented was easily integrated
-      with the backend components and the platform. Moreover, I appreciate the fact that during
-      refinements and clarifications, she challenges the approach and the input data, and thus we
-      managed to increase the quality of the features\u2019 description resulting in better structured stories
-      and acceptance criteria. I\u2019m happy that I got the chance to work with her and I would definitely like
-      to continue doing this in the future.`},{company:"Deloitte Digital",date:new Date("2022-04-20"),position:"Business Analyst",category:"Business/Analysis",reviewer:"Kavitha Padmanabham",preview:"Overnight she became an <strong>expert and point of contact</strong> for front-end applications. She has delivered all her tasks at <strong>great speed</strong> and took on several topics instantly.",review:`Overnight she became an expert and point of contact for front-end applications. She has delivered
+      their team(s).`},{company:"Deloitte Digital",date:new Date("2022-04-20"),position:"Business Analyst",category:"Business/Analysis",reviewer:"Kavitha Padmanabham",review:`Overnight she became an expert and point of contact for front-end applications. She has delivered
       all her tasks at great speed and took on several topics instantly. The entire project is happy to have
-      her onboard.`},{company:"Wooter Apparel",date:new Date("2021-09-24"),position:"Full-Stack Developer",category:"Development",reviewer:"Emanuel Cepoi",preview:"Her ability to develop high quality products while <strong>under extreme pressure</strong> is something that I look up to... She's also able to make everyone in the team feel that they are <strong>capable of doing more</strong>.",review:`For the past years I had the opportunity to work alongside Madalina on multiple personal and
+      her onboard.`},{company:"Wooter Apparel",date:new Date("2021-09-24"),position:"Full-Stack Developer",category:"Development",reviewer:"Emanuel Cepoi",review:`For the past years I had the opportunity to work alongside Madalina on multiple personal and
       commercial projects. She was able to develop features in an extremely elegant and creative way all
       the time. Her ability to develop high quality products while under extreme pressure is something
       that I look up to, not only that she's able to stay calm and professional in difficult situations. She's
@@ -114,4 +114,4 @@ import{B as d,d as p,l as g,n as s,r as l,x as i,za as m}from"./chunk-FD3ZSGP4.j
       proactivity which she possesses inspired me a lot through my internship period.`},{company:"IBM",date:new Date("2021-08-06"),position:"Project Manager",category:"Management",reviewer:"Alexandra-Luminita Tanef",review:`Appreciate your guidance and helping bring new talent to our wider iX IBM team and also constant
       strong contribution to our project delivery. Keep up the good work!`},{company:"IBM",date:new Date("2020-12-16"),position:"People Manager",category:"Management",reviewer:"Sorina Radulescu",review:`Great job on the project Madalina, the feedback received for the project is very good. Also, I like
       your drive and attitude, and I hope you will continue to invest in your skills as you did until now, and
-      more.`}];function F(n){n||(n=l(i));let e=new p(t=>{if(n.destroyed){t.next();return}return n.onDestroy(t.next.bind(t))});return t=>t.pipe(g(e))}function O(n,e){let h=!e?.manualCleanup?e?.injector?.get(i)??l(i):null,c=y(e?.equal),o;e?.requireSync?o=d({kind:0},{equal:c}):o=d({kind:1,value:e?.initialValue},{equal:c});let r,u=n.subscribe({next:a=>o.set({kind:1,value:a}),error:a=>{o.set({kind:2,error:a}),r?.()},complete:()=>{r?.()}});if(e?.requireSync&&o().kind===0)throw new s(601,!1);return r=h?.onDestroy(u.unsubscribe.bind(u)),m(()=>{let a=o();switch(a.kind){case 1:return a.value;case 2:throw a.error;case 0:throw new s(601,!1)}},{equal:e?.equal})}function y(n=Object.is){return(e,t)=>e.kind===1&&t.kind===1&&n(e.value,t.value)}export{w as a,F as b,O as c};
+      more.`}];function C(a,e){let p=!e?.manualCleanup?e?.injector?.get(s)??c(s):null,d=g(e?.equal),n;e?.requireSync?n=l({kind:0},{equal:d}):n=l({kind:1,value:e?.initialValue},{equal:d});let i,h=a.subscribe({next:t=>n.set({kind:1,value:t}),error:t=>{n.set({kind:2,error:t}),i?.()},complete:()=>{i?.()}});if(e?.requireSync&&n().kind===0)throw new r(601,!1);return i=p?.onDestroy(h.unsubscribe.bind(h)),u(()=>{let t=n();switch(t.kind){case 1:return t.value;case 2:throw t.error;case 0:throw new r(601,!1)}},{equal:e?.equal})}function g(a=Object.is){return(e,o)=>e.kind===1&&o.kind===1&&a(e.value,o.value)}export{m as a,C as b};

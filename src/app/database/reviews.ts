@@ -11,46 +11,6 @@ export interface IReview {
 export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'Cognizant',
-    date: new Date('2024-11-14'),
-    position: 'Application Manager',
-    category: 'Management',
-    reviewer: 'Iris Vanstraelen',
-    preview: `You are my favorite developer. I don't think you can further improve... The work is excellent as well. You have taken a <strong>lot of initiative</strong>. [...] You are always thinking about finding good <strong>customer solutions</strong>, so I'm very happy with you.`,
-    review: `You are my favorite developer. I don’t think you can further improve I’m not kidding, you are
-      very quick in picking up new stories, you ask good questions so we as application manager can in
-      fill in the blanks we haven’t thought about. The work is excellent as well. It’s a very difficult topic to
-      work on; we have created a whole new application. You have taken a lot of initiative. There aren’t
-      many bugs and the ones we have are quickly resolved. You are always thinking about finding good
-      customer solutions, so I’m very happy with you. I can’t see any improvements that you can make.
-      We are so happy with the way things are handled.`,
-  },
-  {
-    company: 'Deloitte Digital',
-    date: new Date('2022-01-28'),
-    position: 'Technical Lead',
-    category: 'Leadership',
-    reviewer: 'Dragos-Vasile Lungu',
-    preview: `She gave a <strong>huge boost</strong> to our Web app development; she came up with a very long list of improvements... The quality of the code she has been writing, and the <strong>overall work quality has been impressive</strong>.`,
-    review: `She gave a huge boost to our Web app development; she came up with a very long list of
-      improvements to our existing app and managed to implement a lot of those items in just a couple
-      of weeks. The quality of the code she has been writing, and the overall work quality has been
-      impressive. I would always want her in my team, given the opportunity.`,
-  },
-  {
-    company: 'Deloitte Digital',
-    date: new Date('2022-04-06'),
-    position: 'Manager',
-    category: 'Management',
-    reviewer: 'Jack Taylor',
-    preview: `...how quickly our production increased thanks to Madalina. Madalina clearly has a <strong>strong skillset</strong> which benefited our FE team significantly. Madalina worked hard to <strong>develop her colleagues</strong>...`,
-    review: `Madalina instantly collaborated with the team and importantly understood our objectives quickly.
-      The repeated feedback from the development lead was how quickly our production increased –
-      thanks to Madalina. Madalina clearly has a strong skillset which benefited our FE team
-      significantly. Madalina worked hard to develop her colleagues and ensured they were
-      implementing best practice techniques.`,
-  },
-  {
-    company: 'Cognizant',
     date: new Date('2024-11-15'),
     position: 'Manager',
     category: 'Management',
@@ -64,6 +24,27 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       & fast way of working, you to be a fast learner, how you take up a key position after replacing the old
       Tech Lead, you to think along with business about problems and solutions, you being a team
       player`,
+  },
+  {
+    company: 'Deloitte Digital',
+    date: new Date('2022-04-20'),
+    position: 'Team Lead',
+    category: 'Leadership',
+    reviewer: 'Andrei-Ioan Popescu',
+    preview: `...she managed to <strong>surpass everyone's expectations</strong>. I appreciate the fact that during refinements and clarifications, she <strong>challenges the approach</strong> and the input data.`,
+    review: `From early on, she was fully independent from a tech perspective, requiring assistance only to
+      understand the features she needed to implement. Even though she is a less experienced front-end
+      developer than the former one, seeing her work, I can confirm that she managed to surpass
+      everyone’s expectations. She communicates the blockers & issues clearly; she developed complex
+      features faster and with increased quality than before. She handled cloud configuration and
+      installed the applications that she developed with ease, even though this is out of her area of
+      expertise. She is asking everyone for information when she needs it, she is efficiently
+      communicating her concerns and thus, every story that she implemented was easily integrated
+      with the backend components and the platform. Moreover, I appreciate the fact that during
+      refinements and clarifications, she challenges the approach and the input data, and thus we
+      managed to increase the quality of the features’ description resulting in better structured stories
+      and acceptance criteria. I’m happy that I got the chance to work with her and I would definitely like
+      to continue doing this in the future.`,
   },
   {
     company: 'Cognizant',
@@ -95,12 +76,48 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       It was a pleasure working with you. I wish you all the best.`,
   },
   {
+    company: 'Cognizant',
+    date: new Date('2024-11-14'),
+    position: 'Application Manager',
+    category: 'Management',
+    reviewer: 'Iris Vanstraelen',
+    review: `You are my favorite developer. I don’t think you can further improve I’m not kidding, you are
+      very quick in picking up new stories, you ask good questions so we as application manager can in
+      fill in the blanks we haven’t thought about. The work is excellent as well. It’s a very difficult topic to
+      work on; we have created a whole new application. You have taken a lot of initiative. There aren’t
+      many bugs and the ones we have are quickly resolved. You are always thinking about finding good
+      customer solutions, so I’m very happy with you. I can’t see any improvements that you can make.
+      We are so happy with the way things are handled.`,
+  },
+  {
+    company: 'Deloitte Digital',
+    date: new Date('2022-01-28'),
+    position: 'Technical Lead',
+    category: 'Leadership',
+    reviewer: 'Dragos-Vasile Lungu',
+    review: `She gave a huge boost to our Web app development; she came up with a very long list of
+      improvements to our existing app and managed to implement a lot of those items in just a couple
+      of weeks. The quality of the code she has been writing, and the overall work quality has been
+      impressive. I would always want her in my team, given the opportunity.`,
+  },
+  {
+    company: 'Deloitte Digital',
+    date: new Date('2022-04-06'),
+    position: 'Manager',
+    category: 'Management',
+    reviewer: 'Jack Taylor',
+    review: `Madalina instantly collaborated with the team and importantly understood our objectives quickly.
+      The repeated feedback from the development lead was how quickly our production increased –
+      thanks to Madalina. Madalina clearly has a strong skillset which benefited our FE team
+      significantly. Madalina worked hard to develop her colleagues and ensured they were
+      implementing best practice techniques.`,
+  },
+  {
     company: 'IBM',
     date: new Date('2021-06-22'),
     position: 'Frontend Developer',
     category: 'Development',
     reviewer: 'Theodor Palamaru',
-    preview: `Her determination to <strong>never give up</strong> and always learn and improve, is what sets her apart... I <strong>highly recommend her</strong> to anyone looking to expand their team(s).`,
     review: `She quickly managed to learn and acquire quite an extensive set of skills. Her determination to
       never give up and always learn and improve, is what sets her apart from many other developers out
       there. It's been a pleasure working with her. She is currently riding the proverbial wave, and I am
@@ -110,31 +127,9 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
-    position: 'Team Lead',
-    category: 'Leadership',
-    reviewer: 'Andrei-Ioan Popescu',
-    preview: `...she managed to <strong>surpass everyone's expectations</strong>. I appreciate the fact that during refinements and clarifications, she <strong>challenges the approach</strong> and the input data.`,
-    review: `From early on, she was fully independent from a tech perspective, requiring assistance only to
-      understand the features she needed to implement. Even though she is a less experienced front-end
-      developer than the former one, seeing her work, I can confirm that she managed to surpass
-      everyone’s expectations. She communicates the blockers & issues clearly; she developed complex
-      features faster and with increased quality than before. She handled cloud configuration and
-      installed the applications that she developed with ease, even though this is out of her area of
-      expertise. She is asking everyone for information when she needs it, she is efficiently
-      communicating her concerns and thus, every story that she implemented was easily integrated
-      with the backend components and the platform. Moreover, I appreciate the fact that during
-      refinements and clarifications, she challenges the approach and the input data, and thus we
-      managed to increase the quality of the features’ description resulting in better structured stories
-      and acceptance criteria. I’m happy that I got the chance to work with her and I would definitely like
-      to continue doing this in the future.`,
-  },
-  {
-    company: 'Deloitte Digital',
-    date: new Date('2022-04-20'),
     position: 'Business Analyst',
     category: 'Business/Analysis',
     reviewer: 'Kavitha Padmanabham',
-    preview: `Overnight she became an <strong>expert and point of contact</strong> for front-end applications. She has delivered all her tasks at <strong>great speed</strong> and took on several topics instantly.`,
     review: `Overnight she became an expert and point of contact for front-end applications. She has delivered
       all her tasks at great speed and took on several topics instantly. The entire project is happy to have
       her onboard.`,
@@ -145,7 +140,6 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     position: 'Full-Stack Developer',
     category: 'Development',
     reviewer: 'Emanuel Cepoi',
-    preview: `Her ability to develop high quality products while <strong>under extreme pressure</strong> is something that I look up to... She's also able to make everyone in the team feel that they are <strong>capable of doing more</strong>.`,
     review: `For the past years I had the opportunity to work alongside Madalina on multiple personal and
       commercial projects. She was able to develop features in an extremely elegant and creative way all
       the time. Her ability to develop high quality products while under extreme pressure is something
