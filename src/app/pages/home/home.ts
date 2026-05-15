@@ -3,14 +3,13 @@ import { Chip } from '../../components/chip/chip';
 import { SvgIcon } from '../../components/svg-icon/svg-icon';
 import { Router, RouterLink } from '@angular/router';
 import { WORK_EXPERIENCE } from '../../database/experience';
-import { WorkComponent } from '../../components/work/work';
 import { SOCIAL_LINKS } from '../../database/social-links';
 import { EXPERTISE } from '../../database/expertise';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 
 @Component({
   selector: 'app-home',
-  imports: [SvgIcon, Chip, RouterLink, WorkComponent],
+  imports: [SvgIcon, Chip, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

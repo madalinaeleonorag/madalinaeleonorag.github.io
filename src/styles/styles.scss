@@ -1,4 +1,4 @@
-@use '../src/styles/breakpoints' as *;
+@use './breakpoints' as *;
 
 :root {
   --bg-primary: #18191b;
@@ -126,7 +126,8 @@ button {
 p {
   color: var(--text-secondary);
   font-weight: 100;
-  line-height: 1.4rem;
+  line-height: 2rem;
+  font-size: 1.2rem;
 }
 
 h1,

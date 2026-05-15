@@ -1,6 +1,65 @@
 <h2>Work Experience</h2>
 <div class="experience-wrapper">
   @for (job of workExperience; track job.company) {
-    <app-work [job]="job" />
+    <div class="experience">
+      <header class="experience__header" [class.current-job]="isCurrentJob(job)">
+        <div class="header-main">
+          <app-svg-icon [type]="job.logo" class="experience__logo" />
+          <div class="header-text">
+            <span class="role">{{ job.role }}</span>
+            <span class="separator">@</span>
+            <span class="company">{{ job.company }}</span>
+          </div>
+        </div>
+        <div class="header-period">
+          {{ getOverallStartDate(job) }} — {{ getOverallEndDate(job) }}
+        </div>
+      </header>
+
+      <div class="experience__assignments">
+        @for (assignment of job.assignments; track assignment.startDate; let i = $index) {
+          <div class="assignment-entry">
+            @if (job.assignments.length > 1) {
+              <p class="assignment-label">
+                Assignment {{ job.assignments.length - i }}: {{ assignment.startDate }} -
+                {{ assignment.endDate }}
+              </p>
+            }
+
+            <div class="assignment-grid">
+              <div class="assignment-main">
+                @if (assignment.summary) {
+                  <p class="assignment-summary">{{ assignment.summary }}</p>
+                }
+                @if (assignment.descriptionPoints?.length) {
+                  <ul class="assignment-description">
+                    @for (point of assignment.descriptionPoints; track point) {
+                      <li [innerHTML]="point"></li>
+                    }
+                  </ul>
+                }
+              </div>
+
+              <aside class="assignment-meta">
+                @if (assignment.techStack?.length) {
+                  <div class="tech-group">
+                    <p class="meta-label">Technologies</p>
+                    <div class="chips-wrapper">
+                      @for (tech of assignment.techStack; track tech) {
+                        <app-chip [label]="tech" />
+                      }
+                    </div>
+                  </div>
+                }
+
+                <button class="btn-secondary" (click)="viewReviews(job, assignment)">
+                  View Reviews
+                </button>
+              </aside>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
   }
 </div>

@@ -64,8 +64,6 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           `<b>UX/UI & Product Ownership</b>:Held full decision-making authority over the platform's UI/UX direction, balancing intuitive design for fraud agents with technical feasibility.`,
           '<b>Quality & Mentorship</b>: Fostered a culture of engineering excellence by establishing Angular best practices, driving Jasmine unit testing adoption, and mentoring peers.',
         ],
-        stakeholderImpact:
-          'Recognized by Application and Process Managers for taking extreme E2E ownership and stepping into a "key position after replacing the old Tech Lead." Described as an "unofficial screen designer" who delivers "more than expected from a frontend developer" by proactively identifying business gaps, proposing smart architecture solutions, and rapidly delivering complex applications with exceptional quality.',
       },
     ],
   },
@@ -86,7 +84,6 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           '<b>Full-Stack Accountability</b>: Bridged the gap between frontend and backend teams by taking ownership of the Java-based PDF banking report generation code.',
           '<b>Proactive Troubleshooting</b>: Demonstrated technical versatility by proactively investigating and resolving various backend bugs when backend developers were unavailable, ensuring continuous and stable delivery.',
         ],
-        stakeholderImpact: `Recognized by Team Leads and Senior Consultants for rapidly becoming a fully independent technical pillar who "managed to surpass everyone's expectations." Praised for accelerating the delivery of complex features, seamlessly handling cross-functional tasks (including Cloud configurations), and actively improving Agile processes by challenging requirements to define better-structured stories for the entire team.`,
       },
       {
         startDate: 'Oct 2021',
@@ -99,7 +96,6 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           '<b>UX/UI Collaboration</b>: Worked tightly with the product designer to map out and improve application flows, directly enhancing the overall user experience.',
           '<b>Cross-Functional Communication</b>: Maintained efficient and proactive communication with both frontend and backend engineering teams, ensuring smooth project delivery and a highly collaborative environment.',
         ],
-        stakeholderImpact: `Described by Project Managers and Tech Leads as an "overnight expert" who brought a "huge boost to Web app development" and rapidly increased team production. Recognized for operating "at the next level" across multiple industries (Banking to Insurance) by not only delivering complex features and Cloud integrations with exceptional speed, but also actively mentoring junior developers and instilling engineering best practices across the entire team.`,
       },
     ],
   },
@@ -130,7 +126,6 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           '<b>Engineering Process</b>: Took ownership of daily builds, led product feature demos for stakeholders, and provided on-call production support while adapting to US time zones.',
           '<b>Feature Development</b>: Implemented high-impact features including omnichannel support (stock checking, delivery/in-store pickup), "What You See Is What You Get" real-time discount feedback (with animations), and a personalized reorder feature.',
         ],
-        stakeholderImpact: `Commended by Project Managers and peers for a "constant strong contribution" to project delivery and an exceptional "determination to never give up." Praised for rapidly acquiring an extensive technical skillset and acting as a key mentor who guides and brings "new talent to our wider iX IBM team," standing out from other developers through relentless drive, adaptability, and high reliability.`,
       },
       {
         startDate: 'Mar 2020',
@@ -156,7 +151,6 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           '<b>Feature Integration</b>: Enabled field agents to seamlessly add photos of repaired items, create new insurance entries, and view detailed insurance histories by item or customer.',
           '<b>Client Alignment</b>: Regularly presented new features during demo sessions and conducted multiple onsite visits to the client in Munich, Germany, maintaining a strong, collaborative technical partnership.',
         ],
-        stakeholderImpact: `Commended by Project and People Managers for successfully taking charge of "very hard projects" and acting as the direct line of communication with enterprise clients. Consistently praised for receiving excellent project feedback, making a "constant strong contribution," and showing an exceptional "determination to never give up." Recognized as a key mentor who actively brings "new talent to the wider iX IBM team" through an outstanding "drive and attitude" and a continuous investment in professional growth.`,
       },
       {
         startDate: 'Dec 2018',

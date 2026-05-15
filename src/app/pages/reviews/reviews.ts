@@ -30,13 +30,34 @@ export class Reviews {
           this.selectedCompany.set(params['company']);
         }
         if (params['startDate']) {
-          this.startDate.set(params['startDate']);
+          this.startDate.set(this.formatToHTMLDate(params['startDate']));
         }
         if (params['endDate']) {
-          this.endDate.set(params['endDate'] === 'Present' ? new Date() : params['endDate']);
+          this.endDate.set(this.formatToHTMLDate(params['endDate']));
         }
       }
     });
+  }
+
+  private formatToHTMLDate(dateStr: string): string {
+    if (!dateStr) return '';
+
+    if (dateStr.toLowerCase() === 'present') {
+      return new Date().toISOString().split('T')[0];
+    }
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+      return dateStr;
+    }
+
+    const parsed = new Date(`${dateStr} 1`);
+    if (!isNaN(parsed.getTime())) {
+      const year = parsed.getFullYear();
+      const month = String(parsed.getMonth() + 1).padStart(2, '0');
+      return `${year}-${month}-01`;
+    }
+
+    return '';
   }
 
   private parseDateString(dateStr: string): number | null {

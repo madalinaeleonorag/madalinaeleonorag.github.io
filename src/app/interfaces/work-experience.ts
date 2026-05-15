@@ -1,7 +1,6 @@
 export interface IAssignment {
   descriptionPoints?: string[];
   endDate: string;
-  stakeholderImpact?: string;
   startDate: string;
   summary?: string;
   techStack?: string[];

@@ -54,7 +54,23 @@
   </div>
   <div class="experience">
     @for (job of workExperience; track job.company) {
-      <app-work [job]="job" [isSummaryView]="true" />
+      <article
+        class="experience-summary"
+        [class.current-job]="job.assignments[0].endDate === 'Present'"
+      >
+        <app-svg-icon [type]="job.logo" class="summary-logo" />
+
+        <div class="summary-content">
+          <div class="summary-header">
+            <h4 class="summary-title">
+              {{ job.role }}
+            </h4>
+            <span class="summary-period"
+              >{{ job.assignments[0].startDate }} — {{ job.assignments[0].endDate }}</span
+            >
+          </div>
+        </div>
+      </article>
     }
   </div>
   <button class="btn-secondary" routerLink="work-experience">

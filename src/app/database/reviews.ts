@@ -1,12 +1,4 @@
-export interface IReview {
-  company: string;
-  date: Date;
-  position: string;
-  category: string;
-  reviewer?: string;
-  preview?: string;
-  review: string;
-}
+import { IReview } from '../interfaces/review';
 
 export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
