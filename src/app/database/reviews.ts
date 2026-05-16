@@ -4,6 +4,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'Cognizant',
     date: new Date('2024-11-15'),
+    isTop: true,
     position: 'Manager',
     category: 'Management',
     reviewer: 'Etienne De Paepe',
@@ -20,6 +21,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
+    isTop: true,
     position: 'Team Lead',
     category: 'Leadership',
     reviewer: 'Andrei-Ioan Popescu',
@@ -41,6 +43,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'Cognizant',
     date: new Date('2024-11-01'),
+    isTop: true,
     position: 'Process Manager',
     category: 'Management',
     reviewer: 'Kathleen Renard',
@@ -70,9 +73,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'Cognizant',
     date: new Date('2024-11-14'),
+    isTop: true,
     position: 'Application Manager',
     category: 'Management',
     reviewer: 'Iris Vanstraelen',
+    preview: `You are my favorite developer... you ask good questions so we as application manager can <strong>fill in the blanks</strong>... always thinking about finding <strong>good customer solutions</strong>.`,
     review: `You are my favorite developer. I don’t think you can further improve I’m not kidding, you are
       very quick in picking up new stories, you ask good questions so we as application manager can in
       fill in the blanks we haven’t thought about. The work is excellent as well. It’s a very difficult topic to
@@ -84,9 +89,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'Deloitte Digital',
     date: new Date('2022-01-28'),
+    isTop: true,
     position: 'Technical Lead',
     category: 'Leadership',
     reviewer: 'Dragos-Vasile Lungu',
+    preview: `She gave a <strong>huge boost to our Web app development</strong>... The quality of the code she has been writing, and the overall work quality has been <strong>impressive</strong>.`,
     review: `She gave a huge boost to our Web app development; she came up with a very long list of
       improvements to our existing app and managed to implement a lot of those items in just a couple
       of weeks. The quality of the code she has been writing, and the overall work quality has been
@@ -107,9 +114,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'IBM',
     date: new Date('2021-06-22'),
+    isTop: true,
     position: 'Frontend Developer',
     category: 'Development',
     reviewer: 'Theodor Palamaru',
+    preview: `Her determination to <strong>never give up</strong> and always learn and improve, is what <strong>sets her apart</strong> from many other developers out there.`,
     review: `She quickly managed to learn and acquire quite an extensive set of skills. Her determination to
       never give up and always learn and improve, is what sets her apart from many other developers out
       there. It's been a pleasure working with her. She is currently riding the proverbial wave, and I am
@@ -119,9 +128,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
+    isTop: true,
     position: 'Business Analyst',
     category: 'Business/Analysis',
     reviewer: 'Kavitha Padmanabham',
+    preview: `<strong>Overnight she became an expert</strong> and point of contact for front-end applications. She has delivered all her tasks at <strong>great speed</strong>...`,
     review: `Overnight she became an expert and point of contact for front-end applications. She has delivered
       all her tasks at great speed and took on several topics instantly. The entire project is happy to have
       her onboard.`,
@@ -165,9 +176,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
+    isTop: true,
     position: 'Tech Lead',
     category: 'Leadership',
     reviewer: 'Tech Lead',
+    preview: `...can independently <strong>take over and deliver complex features</strong>... constantly pays attention to details...`,
     review: `Madalina proved to be a highly reliable and skilled front-end developer. She can independently
       take over and deliver complex features; she constantly pays attention to details and is always
       making sure all the acceptance criteria are met. Her positive attitude and excellent communication
@@ -186,9 +199,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
+    isTop: true,
     position: 'Peer/Team Member',
     category: 'Peer',
     reviewer: 'Peer',
+    preview: `...good coding style... quickly integrate... she is <strong>great at estimating</strong> how long something will take...`,
     review: `From the short period of time I worked with her, she is very good from a technical perspective.
       Proactive, good coding style, understand quickly the logic of the code and is able to proceed with
       her tasks without a lot of help. Also communicate well with the team, bringing great energy into the
@@ -199,9 +214,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
+    isTop: true,
     position: 'Peer/Team Member',
     category: 'Peer',
     reviewer: 'Peer',
+    preview: `...reliable partner... clean code... Reliability on solving problems and <strong>unblocking others</strong>.`,
     review: `Keep the desire and courage to try new technologies and also the will to learn new stuff. Clean
       code. Good eye for requirements. Fast learner even when switching projects. She is a reliable
       partner in the projects we are working together. Gives and receives feedback. Questions when
@@ -289,10 +306,12 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   },
   {
     company: 'IBM',
-    date: new Date('2019-02-15'),
+    date: new Date('2019-03-15'),
+    isTop: true,
     position: 'Project Manager',
     category: 'Management',
     reviewer: 'Raluca Rusu',
+    preview: `...having in charge a very hard project and client... being <strong>in front of the client</strong> for direct communication and <strong>problem solving</strong>.`,
     review: `Madalina had a very good start and path in the project, having in charge a very hard project and
       client on a team, being in front of the client for direct communication and problem solving. I am
       very satisfied with her abilities to create and maintain a good working relationship both with the
@@ -301,9 +320,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'IBM',
     date: new Date('2021-09-02'),
+    isTop: true,
     position: 'Frontend Developer',
     category: 'Development',
     reviewer: 'Madalin Tuca',
+    preview: `Madalina <strong>was my mentor</strong>... she was always eager to show me new front-end tricks and quirks. The <strong>proactivity</strong> which she possesses inspired me a lot...`,
     review: `Madalina was my mentor during my internship period at IBM iX. She was friendly and open from
       the start and rapidly developed a learning plan for me. We had a great mentor-mentee relationship
       during that time, and she was always eager to show me new front-end tricks and quirks. The

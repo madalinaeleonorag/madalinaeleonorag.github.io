@@ -30,6 +30,8 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           '<b>Dynamic CMS Development</b>: Contributed to a client-facing CMS platform by successfully migrating an existing production feature and expanding it with dynamic, client-driven configuration capabilities.',
           '<b>Cross-Team Adaptability & Troubleshooting</b>: Demonstrated high adaptability through short-term cross-team allocations, including a rapid two-week assignment to investigate and resolve a bug in a separate production application.',
         ],
+        stakeholderImpact:
+          'Achieved rapid architectural integration, independently taking over complex features and serving as a reliable technical unblocker for cross-functional peers.',
       },
     ],
   },
@@ -61,9 +63,11 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           '<b>Application Architecture</b>: Architected a highly scalable, 11-flow modular Angular application. Designed the system with a strong focus on component reusability, strict Role-Based Access Control (RBAC), and long-term maintainability.',
           '<b>High-Volume Data Processing</b>: Engineered robust bulk-action investigation interfaces capable of seamlessly handling 50,000+ records via AG Grid, combined with live monitoring dashboards for proactive fraud intervention.',
           '<b>Technical Leadership & Delivery</b>: Served as Lead Frontend Developer and Interim Team Lead. Managed architectural decisions, sprint planning, and cross-team coordination, achieving zero production incidents from the very first release.',
-          `<b>UX/UI & Product Ownership</b>:Held full decision-making authority over the platform's UI/UX direction, balancing intuitive design for fraud agents with technical feasibility.`,
+          `<b>UX/UI & Product Ownership</b>: Held full decision-making authority over the platform's UI/UX direction, balancing intuitive design for fraud agents with technical feasibility.`,
           '<b>Quality & Mentorship</b>: Fostered a culture of engineering excellence by establishing Angular best practices, driving Jasmine unit testing adoption, and mentoring peers.',
         ],
+        stakeholderImpact:
+          'Assumed End-to-End ownership and Tech Lead responsibilities, driving the delivery of a new application. Actively guided business stakeholders toward smarter, user-friendly solutions beyond initial requirements.',
       },
     ],
   },
@@ -84,6 +88,8 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           '<b>Full-Stack Accountability</b>: Bridged the gap between frontend and backend teams by taking ownership of the Java-based PDF banking report generation code.',
           '<b>Proactive Troubleshooting</b>: Demonstrated technical versatility by proactively investigating and resolving various backend bugs when backend developers were unavailable, ensuring continuous and stable delivery.',
         ],
+        stakeholderImpact:
+          'Became the core point of contact for front-end applications overnight. Significantly boosted production speed and app quality while proactively challenging technical approaches to refine business requirements and architecture.',
       },
       {
         startDate: 'Oct 2021',
@@ -126,6 +132,8 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           '<b>Engineering Process</b>: Took ownership of daily builds, led product feature demos for stakeholders, and provided on-call production support while adapting to US time zones.',
           '<b>Feature Development</b>: Implemented high-impact features including omnichannel support (stock checking, delivery/in-store pickup), "What You See Is What You Get" real-time discount feedback (with animations), and a personalized reorder feature.',
         ],
+        stakeholderImpact:
+          'Managed direct technical communication with demanding clients while actively mentoring junior developers and successfully onboarding new talent into the wider IBM iX ecosystem.',
       },
       {
         startDate: 'Mar 2020',
@@ -133,7 +141,6 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         techStack: ['React.js', 'GraphQL', 'Material UI'],
         summary:
           'Delivered a fast-paced, high-stakes MVP for the retail recycling sector, building a dynamic purchasing platform that successfully converted a prospect into a long-term company partner.',
-
         descriptionPoints: [
           '<b>Strategic MVP Delivery</b>: Redesigned the purchasing flow from scratch using dynamic, step-dependent forms that adapt based on prior inputs, serving as the core technical proof-of-concept for the client.',
         ],

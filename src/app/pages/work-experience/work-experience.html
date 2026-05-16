@@ -1,6 +1,6 @@
 <h2>Work Experience</h2>
 <div class="experience-wrapper">
-  @for (job of workExperience; track job.company) {
+  @for (job of enrichedWorkExperience(); track job.company) {
     <div class="experience">
       <header class="experience__header" [class.current-job]="isCurrentJob(job)">
         <div class="header-main">
@@ -52,11 +52,49 @@
                   </div>
                 }
 
-                <button class="btn-secondary" (click)="viewReviews(job, assignment)">
+                @if (assignment.stakeholderImpact) {
+                  <div class="impact-group" style="margin-top: 1rem">
+                    <p class="meta-label">Impact</p>
+                    <div
+                      class="impact-box"
+                      style="
+                        font-size: 0.9rem;
+                        border-left: 2px solid var(--yellow-color);
+                        padding-left: 1rem;
+                        color: var(--text-secondary);
+                      "
+                    >
+                      {{ assignment.stakeholderImpact }}
+                    </div>
+                  </div>
+                }
+
+                <button
+                  class="btn-secondary"
+                  style="margin-top: 1rem; width: 100%"
+                  (click)="viewReviews(job, assignment)"
+                >
                   View Reviews
                 </button>
               </aside>
             </div>
+
+            @if (assignment.topReviews.length) {
+              <div class="assignment-reviews">
+                <p class="meta-label">Featured Recommendations</p>
+                <div class="mini-reviews-grid">
+                  @for (review of assignment.topReviews; track review.reviewer) {
+                    <div class="mini-review-card">
+                      <div class="quote" [innerHTML]="review.preview || review.review"></div>
+                      <div class="author">
+                        <strong>{{ review.reviewer }}</strong>
+                        <span>{{ review.position }}</span>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
           </div>
         }
       </div>

@@ -1,3 +1,13 @@
+<div class="sidenav">
+  @for (link of sidenavLinks; track $index) {
+    <a [href]="link.href" class="sidenav__link">
+      <span class="label">{{ link.label }}</span>
+      &nbsp;
+      <app-svg-icon [type]="link.icon" [useAccentColor]="true" class="icon" />
+    </a>
+  }
+</div>
+
 <section id="hero">
   <h3>🚀 Building Scalable Enterprise Ecosystems</h3>
   <h1>Hi, I'm Madalina-Eleonora Gheorghe</h1>
@@ -77,16 +87,6 @@
     Explore Full Experience & Reviews
   </button>
 </section>
-
-<div class="sidenav">
-  @for (link of sidenavLinks; track $index) {
-    <a [href]="link.href" class="sidenav__link">
-      <span class="label">{{ link.label }}</span>
-      &nbsp;
-      <app-svg-icon [type]="link.icon" [useAccentColor]="true" class="icon" />
-    </a>
-  }
-</div>
 
 <section id="reviews">
   <div>

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { WORK_EXPERIENCE } from '../../database/experience';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 import { IAssignment, IWorkExperience } from '../../interfaces/work-experience';
@@ -14,9 +14,17 @@ import { Router } from '@angular/router';
   styleUrl: './work-experience.scss',
 })
 export class WorkExperience {
-  readonly workExperience = WORK_EXPERIENCE;
-
   private router = inject(Router);
+
+  enrichedWorkExperience = computed(() => {
+    return WORK_EXPERIENCE.map((job) => {
+      const enrichedAssignments = job.assignments.map((assignment) => ({
+        ...assignment,
+        topReviews: this.getTopReviewsForAssignment(job.company, assignment),
+      }));
+      return { ...job, assignments: enrichedAssignments };
+    });
+  });
 
   getOverallStartDate(job: IWorkExperience) {
     const arr = job.assignments;
@@ -42,7 +50,7 @@ export class WorkExperience {
     });
   }
 
-  getTopReviewsForAssignment(company: string, assignment: IAssignment): IReview[] {
+  private getTopReviewsForAssignment(company: string, assignment: IAssignment): IReview[] {
     const parseDate = (dateStr: string): number => {
       if (!dateStr || dateStr.toLowerCase() === 'present') {
         return new Date().getTime();
