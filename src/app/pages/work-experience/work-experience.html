@@ -84,13 +84,7 @@
                 <p class="meta-label">Featured Recommendations</p>
                 <div class="mini-reviews-grid">
                   @for (review of assignment.topReviews; track review.reviewer) {
-                    <div class="mini-review-card">
-                      <div class="quote" [innerHTML]="review.preview || review.review"></div>
-                      <div class="author">
-                        <strong>{{ review.reviewer }}</strong>
-                        <span>{{ review.position }}</span>
-                      </div>
-                    </div>
+                    <app-review-card [review]="review" [showRole]="true"></app-review-card>
                   }
                 </div>
               </div>

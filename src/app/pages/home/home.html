@@ -95,14 +95,7 @@
   </div>
   <div class="cards-grid">
     @for (review of topReviews; track review.reviewer) {
-      <div class="glass-card">
-        <div class="quote-text" [innerHTML]="review.preview"></div>
-
-        <div class="author-info">
-          <span class="author-name">{{ review.reviewer }}</span>
-          <span class="author-role">{{ review.position }} &#64; {{ review.company }}</span>
-        </div>
-      </div>
+      <app-review-card [review]="review" [showCompany]="true"></app-review-card>
     }
   </div>
   <button class="btn-secondary" routerLink="reviews">Read All Reviews</button>

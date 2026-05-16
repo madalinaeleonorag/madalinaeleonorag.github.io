@@ -1,0 +1,12 @@
+<div class="mini-review-card">
+  <div class="quote" [innerHTML]="review().preview || review().review"></div>
+  <div class="author">
+    <strong>{{ review().reviewer }}</strong>
+    @if (showRole()) {
+      <span>{{ review().position }}</span>
+    }
+    @if (showCompany()) {
+      <span>{{ review().company }}</span>
+    }
+  </div>
+</div>

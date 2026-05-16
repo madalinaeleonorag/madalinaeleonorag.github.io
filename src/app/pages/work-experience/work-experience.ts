@@ -6,10 +6,11 @@ import { IReview } from '../../interfaces/review';
 import { Chip } from '../../components/chip/chip';
 import { SvgIcon } from '../../components/svg-icon/svg-icon';
 import { Router } from '@angular/router';
+import { ReviewCard } from '../../components/review-card/review-card';
 
 @Component({
   selector: 'app-work-experience',
-  imports: [SvgIcon, Chip],
+  imports: [SvgIcon, Chip, ReviewCard],
   templateUrl: './work-experience.html',
   styleUrl: './work-experience.scss',
 })

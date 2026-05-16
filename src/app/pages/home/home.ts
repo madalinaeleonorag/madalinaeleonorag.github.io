@@ -6,10 +6,11 @@ import { WORK_EXPERIENCE } from '../../database/experience';
 import { SOCIAL_LINKS } from '../../database/social-links';
 import { EXPERTISE } from '../../database/expertise';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
+import { ReviewCard } from '../../components/review-card/review-card';
 
 @Component({
   selector: 'app-home',
-  imports: [SvgIcon, Chip, RouterLink],
+  imports: [SvgIcon, Chip, RouterLink, ReviewCard],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
