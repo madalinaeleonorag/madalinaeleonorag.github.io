@@ -1,18 +1,16 @@
 import { Component, computed, signal, effect, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SelectComponent } from '../../components/select/select';
 import { InputComponent } from '../../components/input/input';
-import { SvgIcon } from '../../components/svg-icon/svg-icon';
-import { HighlightPipe } from '../../pipes/highlight.pipe';
+import { ReviewCard } from '../../components/review-card/review-card';
 
 @Component({
   selector: 'app-reviews',
-  imports: [FormsModule, CommonModule, SelectComponent, InputComponent, SvgIcon, HighlightPipe],
+  imports: [FormsModule, CommonModule, SelectComponent, InputComponent, ReviewCard],
   templateUrl: './reviews.html',
   styleUrl: './reviews.scss',
 })
@@ -22,7 +20,7 @@ export class Reviews {
     initialValue: { company: '', startDate: '', endDate: '' },
   });
 
-  constructor(private readonly sanitizer: DomSanitizer) {
+  constructor() {
     effect(() => {
       const params = this.queryParams();
       if (params) {
@@ -116,8 +114,4 @@ export class Reviews {
       return true;
     });
   });
-
-  getHighlightedReview(review: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(review);
-  }
 }

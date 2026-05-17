@@ -1,4 +1,4 @@
-.mini-review-card {
+.review-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius);
@@ -10,15 +10,16 @@
   box-sizing: border-box;
   text-align: center;
 
-  .quote {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: var(--text-primary);
-    flex-grow: 1;
+  .quote-full {
+    text-align: left;
+  }
 
-    ::ng-deep strong {
-      color: var(--accent-color);
-    }
+  ::ng-deep strong {
+    color: var(--accent-color);
+  }
+
+  ::ng-deep ul {
+    margin-left: 2rem;
   }
 
   .author {
@@ -26,14 +27,31 @@
     flex-direction: column;
     font-size: 0.8rem;
     border-top: 1px solid var(--glass-border);
-    padding-top: 0.5rem;
+    padding-top: var(--space-sm);
     width: 100%;
+    gap: var(--space-sm);
 
-    strong {
-      color: var(--text-primary);
+    &.full-width {
+      flex-flow: row wrap;
+      justify-content: space-between;
     }
-    span {
-      color: var(--text-secondary);
+
+    .author-details {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+
+      .company-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+
+        .company-logo {
+          --icon-size: 16px;
+        }
+      }
     }
   }
 }

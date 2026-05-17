@@ -1,12 +1,31 @@
-<div class="mini-review-card">
-  <div class="quote" [innerHTML]="review().preview || review().review"></div>
-  <div class="author">
+<div class="review-card">
+  <div
+    [ngClass]="{ 'quote-full': fullReview(), 'quote-preview': !fullReview() }"
+    [innerHTML]="
+      fullReview()
+        ? getHighlightedReview(review().review | highlight: searchTerm())
+        : review().preview
+    "
+  ></div>
+  <div class="author" [class.full-width]="fullReview()">
     <strong>{{ review().reviewer }}</strong>
-    @if (showRole()) {
-      <span>{{ review().position }}</span>
-    }
-    @if (showCompany()) {
-      <span>{{ review().company }}</span>
-    }
+    <div class="author-details">
+      @if (showRole()) {
+        <span>{{ review().position }}</span>
+      }
+      @if (showRole() && showCompany()) {
+        <span>@</span>
+      }
+      @if (showCompany()) {
+        <div class="company-info">
+          <app-svg-icon
+            [type]="review().company"
+            class="company-logo"
+            [attr.aria-label]="review().company + ' logo'"
+          ></app-svg-icon>
+          <span>{{ review().company }}</span>
+        </div>
+      }
+    </div>
   </div>
 </div>

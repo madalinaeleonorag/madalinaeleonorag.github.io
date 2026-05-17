@@ -10,9 +10,9 @@
   </div>
 
   <div class="filter-group">
-    <p>Category</p>
+    <p>Function</p>
     <lib-select
-      placeholder="All Categories"
+      placeholder="All Functions"
       [options]="availableCategories()"
       [value]="selectedCategory()"
       (valueChange)="selectedCategory.set($event)"
@@ -49,23 +49,12 @@
 
 <div class="reviews-wrapper">
   @for (review of filteredReviews(); track $index) {
-    <div class="glass-card" [attr.data-company]="review.company">
-      <div
-        class="quote-text"
-        [innerHTML]="getHighlightedReview(review.review | highlight: searchTerm())"
-      ></div>
-
-      <p class="author-info">
-        <span class="author-name">{{ review.reviewer }}</span>
-        <span>&nbsp;&#45;&nbsp;{{ review.position }} &#64;</span>
-        <app-svg-icon
-          [type]="review.company"
-          class="company-logo"
-          [attr.aria-label]="review.company + ' logo'"
-        ></app-svg-icon>
-        <span class="company-name">{{ review.company }}</span>
-        <span class="review-date">{{ review.date | date: 'mediumDate' }}</span>
-      </p>
-    </div>
+    <app-review-card
+      [review]="review"
+      [showRole]="true"
+      [showCompany]="true"
+      [fullReview]="true"
+      [searchTerm]="searchTerm()"
+    ></app-review-card>
   }
 </div>
