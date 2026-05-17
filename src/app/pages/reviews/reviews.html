@@ -1,4 +1,15 @@
-<div class="filters">
+<header class="reviews-header">
+  <div class="header-title">
+    <p class="results-count">
+      Showing {{ filteredReviews().length }} review{{
+        filteredReviews().length !== 1 ? 's' : ''
+      }}
+      out of {{ ALL_REVIEWS.length }} total
+    </p>
+  </div>
+</header>
+
+<div class="filters-dashboard glass-card">
   <div class="filter-group">
     <p>Keyword Search</p>
     <lib-input
@@ -10,9 +21,9 @@
   </div>
 
   <div class="filter-group">
-    <p>Function</p>
+    <p>Domain / Category</p>
     <lib-select
-      placeholder="All Functions"
+      placeholder="All Domains"
       [options]="availableCategories()"
       [value]="selectedCategory()"
       (valueChange)="selectedCategory.set($event)"
@@ -41,11 +52,6 @@
     <lib-input type="date" [value]="endDate()" (valueChange)="endDate.set($event)"></lib-input>
   </div>
 </div>
-
-<p>
-  {{ filteredReviews().length }} review{{ filteredReviews().length !== 1 ? 's' : '' }} out of
-  {{ ALL_REVIEWS.length }} total
-</p>
 
 <div class="reviews-wrapper">
   @for (review of filteredReviews(); track $index) {

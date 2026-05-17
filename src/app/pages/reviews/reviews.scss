@@ -1,33 +1,62 @@
 @use '../../../styles/breakpoints' as *;
 
-.filters {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-md);
+:host {
+  display: block;
+}
+
+.reviews-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
   margin-bottom: var(--space-md);
+
+  .results-count {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.filters-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   @media (max-width: $breakpoint-md) {
     grid-template-columns: repeat(2, 1fr);
+    padding: 1.25rem;
   }
 
   @media (max-width: $breakpoint-sm) {
     grid-template-columns: 1fr;
+    padding: 1rem;
   }
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: 0.5rem;
+
+  p {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin: 0;
+  }
 }
 
 .reviews-wrapper {
   display: flex;
   flex-flow: column;
-  gap: var(--space-md);
-  margin: var(--space-lg) 0;
-
-  @media (max-width: $breakpoint-sm) {
-    margin: var(--space-md) 0;
-  }
+  gap: var(--space-lg);
+  margin-bottom: 10vh;
 }

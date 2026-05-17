@@ -12,14 +12,19 @@
 
   .quote-full {
     text-align: left;
+
+    ::ng-deep .highlight {
+      background: var(--accent-hover);
+      padding: 0 0.2rem;
+    }
+
+    ::ng-deep ul {
+      margin-left: 2rem;
+    }
   }
 
   ::ng-deep strong {
     color: var(--accent-color);
-  }
-
-  ::ng-deep ul {
-    margin-left: 2rem;
   }
 
   .author {
