@@ -4,13 +4,21 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SelectComponent } from '../../components/select/select';
-import { InputComponent } from '../../components/input/input';
 import { ReviewCard } from '../../components/review-card/review-card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-reviews',
-  imports: [FormsModule, CommonModule, SelectComponent, InputComponent, ReviewCard],
+  imports: [
+    FormsModule,
+    CommonModule,
+    ReviewCard,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+  ],
   templateUrl: './reviews.html',
   styleUrl: './reviews.scss',
 })

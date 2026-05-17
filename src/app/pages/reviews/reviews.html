@@ -1,56 +1,51 @@
 <header class="reviews-header">
-  <div class="header-title">
-    <p class="results-count">
-      Showing {{ filteredReviews().length }} review{{
-        filteredReviews().length !== 1 ? 's' : ''
-      }}
-      out of {{ ALL_REVIEWS.length }} total
-    </p>
+  <div class="results-count">
+    Showing {{ filteredReviews().length }} review{{ filteredReviews().length !== 1 ? 's' : '' }} out
+    of {{ ALL_REVIEWS.length }} total
   </div>
 </header>
 
 <div class="filters-dashboard glass-card">
-  <div class="filter-group">
-    <p>Keyword Search</p>
-    <lib-input
+  <mat-form-field appearance="outline" class="filter-group">
+    <mat-label>Keyword Search</mat-label>
+    <input
+      matInput
       type="text"
       placeholder="Search reviews..."
-      [value]="searchTerm()"
-      (valueChange)="searchTerm.set($event)"
-    ></lib-input>
-  </div>
+      [ngModel]="searchTerm()"
+      (ngModelChange)="searchTerm.set($event)"
+    />
+  </mat-form-field>
 
-  <div class="filter-group">
-    <p>Domain / Category</p>
-    <lib-select
-      placeholder="All Domains"
-      [options]="availableCategories()"
-      [value]="selectedCategory()"
-      (valueChange)="selectedCategory.set($event)"
-    >
-    </lib-select>
-  </div>
+  <mat-form-field appearance="outline" class="filter-group">
+    <mat-label>Domain / Category</mat-label>
+    <mat-select [ngModel]="selectedCategory()" (ngModelChange)="selectedCategory.set($event)">
+      <mat-option value="">All Domains</mat-option>
+      @for (category of availableCategories(); track category) {
+        <mat-option [value]="category">{{ category }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-  <div class="filter-group">
-    <p>Company</p>
-    <lib-select
-      placeholder="All Companies"
-      [options]="availableCompanies()"
-      [value]="selectedCompany()"
-      (valueChange)="selectedCompany.set($event)"
-    >
-    </lib-select>
-  </div>
+  <mat-form-field appearance="outline" class="filter-group">
+    <mat-label>Company</mat-label>
+    <mat-select [ngModel]="selectedCompany()" (ngModelChange)="selectedCompany.set($event)">
+      <mat-option value="">All Companies</mat-option>
+      @for (company of availableCompanies(); track company) {
+        <mat-option [value]="company">{{ company }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-  <div class="filter-group">
-    <p>From Date</p>
-    <lib-input type="date" [value]="startDate()" (valueChange)="startDate.set($event)"></lib-input>
-  </div>
+  <mat-form-field appearance="outline" class="filter-group">
+    <mat-label>From Date</mat-label>
+    <input matInput type="date" [ngModel]="startDate()" (ngModelChange)="startDate.set($event)" />
+  </mat-form-field>
 
-  <div class="filter-group">
-    <p>To Date</p>
-    <lib-input type="date" [value]="endDate()" (valueChange)="endDate.set($event)"></lib-input>
-  </div>
+  <mat-form-field appearance="outline" class="filter-group">
+    <mat-label>To Date</mat-label>
+    <input matInput type="date" [ngModel]="endDate()" (ngModelChange)="endDate.set($event)" />
+  </mat-form-field>
 </div>
 
 <div class="reviews-wrapper">
