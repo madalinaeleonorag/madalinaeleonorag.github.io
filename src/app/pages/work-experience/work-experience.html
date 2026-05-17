@@ -53,27 +53,15 @@
                 }
 
                 @if (assignment.stakeholderImpact) {
-                  <div class="impact-group" style="margin-top: 1rem">
+                  <div class="impact-group">
                     <p class="meta-label">Impact</p>
-                    <div
-                      class="impact-box"
-                      style="
-                        font-size: 0.9rem;
-                        border-left: 2px solid var(--yellow-color);
-                        padding-left: 1rem;
-                        color: var(--text-secondary);
-                      "
-                    >
+                    <div class="impact-box">
                       {{ assignment.stakeholderImpact }}
                     </div>
                   </div>
                 }
 
-                <button
-                  class="btn-secondary"
-                  style="margin-top: 1rem; width: 100%"
-                  (click)="viewReviews(job, assignment)"
-                >
+                <button class="btn-secondary" (click)="viewReviews(job, assignment)">
                   View Reviews
                 </button>
               </aside>

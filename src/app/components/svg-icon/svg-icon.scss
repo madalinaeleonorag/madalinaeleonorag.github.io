@@ -6,13 +6,13 @@ svg {
 .accent-color {
   svg {
     path {
-      fill: var(--accent-hover);
-      stroke: var(--accent-hover);
+      fill: var(--md-sys-color-primary-container);
+      stroke: var(--md-sys-color-primary-container);
     }
 
     polygon {
-      fill: var(--accent-hover);
-      stroke: var(--accent-hover);
+      fill: var(--md-sys-color-primary-container);
+      stroke: var(--md-sys-color-primary-container);
     }
 
     &:hover {

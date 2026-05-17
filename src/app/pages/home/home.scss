@@ -11,7 +11,7 @@ section {
   height: 100vh;
   justify-content: center;
   text-align: center;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 
   @media (max-width: $breakpoint-md) {
     gap: var(--space-sm);
@@ -92,7 +92,7 @@ section {
     gap: var(--space-md);
 
     &.current-job .summary-logo {
-      animation: colorPulse 2s infinite;
+      animation: pulse 2s infinite;
     }
 
     .summary-logo {
@@ -146,7 +146,7 @@ section {
   flex-flow: wrap;
 }
 
-@keyframes colorPulse {
+@keyframes pulse {
   0% {
     transform: scale(1);
     opacity: 0.7;

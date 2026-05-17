@@ -39,6 +39,10 @@
 
   mat-form-field {
     width: 100%;
+    --mdc-outlined-text-field-focus-outline-color: var(--md-sys-color-primary) !important;
+    --mdc-outlined-text-field-focus-label-text-color: var(--md-sys-color-primary) !important;
+    --mdc-outlined-text-field-outline-color: var(--md-sys-color-outline-variant) !important;
+    --mdc-outlined-text-field-label-text-color: var(--md-sys-color-on-surface-variant) !important;
   }
 }
 

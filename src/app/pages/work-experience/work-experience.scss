@@ -1,15 +1,15 @@
 @use '../../../styles/breakpoints' as *;
 
 h2 {
-  margin: 5vh 0;
+  margin: var(--space-lg) 0;
   text-align: center;
 
   @media (max-width: $breakpoint-md) {
-    margin: 3vh 0;
+    margin: var(--space-lg) 0;
   }
 
   @media (max-width: $breakpoint-sm) {
-    margin: 2vh 0;
+    margin: var(--space-md) 0;
     font-size: 1.5rem;
   }
 }
@@ -17,8 +17,8 @@ h2 {
 .experience-wrapper {
   display: flex;
   flex-flow: column;
-  gap: var(--space-xl);
-  margin-bottom: var(--space-xl);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
 
   &:last-child {
     border-bottom: none;
@@ -27,8 +27,8 @@ h2 {
   .experience {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
-    padding-bottom: 10vh;
+    gap: var(--space-md);
+    padding-bottom: var(--space-lg);
 
     @media (max-width: $breakpoint-md) {
       padding-bottom: 5vh;
@@ -43,12 +43,12 @@ h2 {
       justify-content: space-between;
       align-items: center;
       padding-bottom: var(--space-md);
-      border-bottom: 2px solid var(--border-color);
+      border-bottom: 2px solid var(--md-sys-color-outline-variant);
       flex-wrap: wrap;
       gap: var(--space-md);
 
       &.current-job .experience__logo {
-        animation: colorPulse 2s infinite;
+        animation: pulse 2s infinite;
       }
 
       .header-main {
@@ -61,10 +61,10 @@ h2 {
           font-weight: 700;
 
           .role {
-            color: var(--text-primary);
+            color: var(--md-sys-color-on-surface);
           }
           .separator {
-            margin: 0 0.5rem;
+            margin: 0 var(--space-sm);
             color: var(--md-sys-color-primary);
           }
           .company {
@@ -102,7 +102,7 @@ h2 {
     flex-direction: column;
     gap: var(--space-md);
 
-    padding-top: var(--space-lg);
+    padding-top: var(--space-md);
     &:not(:first-child) {
       border-top: 1px dashed rgba(255, 255, 255, 0.1);
     }
@@ -118,7 +118,7 @@ h2 {
 
   .assignment-grid {
     display: grid;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     width: 100%;
 
     @media (min-width: $breakpoint-lg) {
@@ -133,7 +133,7 @@ h2 {
 
     .assignment-summary {
       font-size: 1.1rem;
-      color: var(--text-primary);
+      color: var(--md-sys-color-on-surface);
       margin-bottom: var(--space-md);
 
       width: 100%;
@@ -170,7 +170,7 @@ h2 {
   .assignment-meta {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     background: rgba(255, 255, 255, 0.02);
     padding: var(--space-md);
     border-radius: var(--border-radius);
@@ -187,6 +187,18 @@ h2 {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+    }
+
+    .impact-group {
+      margin-top: 1rem;
+    }
+
+    .impact-box {
+      font-size: 0.9rem;
+      border-left: 2px solid var(--md-sys-color-tertiary);
+      padding-left: 1rem;
+      color: var(--md-sys-color-on-surface-variant);
+      font-style: italic; // Opțional, dă un look de "quote" mai bun pentru impact
     }
   }
 
@@ -210,14 +222,17 @@ h2 {
   }
 }
 
-@keyframes colorPulse {
+@keyframes pulse {
   0% {
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+    transform: scale(1);
+    opacity: 0.7;
   }
   50% {
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+    transform: scale(1.15);
+    opacity: 1;
   }
   100% {
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+    transform: scale(1);
+    opacity: 0.7;
   }
 }

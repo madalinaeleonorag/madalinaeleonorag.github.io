@@ -11,15 +11,15 @@
 .breadcrumb {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-sm);
   font-size: 0.875rem;
   color: var(--md-sys-color-on-surface-variant);
-  margin: 2rem 0;
+  margin: var(--space-lg) 0;
   flex-wrap: wrap;
 
   @media (max-width: $breakpoint-sm) {
     font-size: 0.75rem;
-    margin: 1rem 0;
+    margin: var(--space-lg) 0;
   }
 
   &__active {
