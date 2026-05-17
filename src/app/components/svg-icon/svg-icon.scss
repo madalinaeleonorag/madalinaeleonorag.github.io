@@ -17,13 +17,13 @@ svg {
 
     &:hover {
       path {
-        fill: var(--accent-color);
-        stroke: var(--accent-color);
+        fill: var(--md-sys-color-primary);
+        stroke: var(--md-sys-color-primary);
       }
 
       polygon {
-        fill: var(--accent-color);
-        stroke: var(--accent-color);
+        fill: var(--md-sys-color-primary);
+        stroke: var(--md-sys-color-primary);
       }
     }
   }

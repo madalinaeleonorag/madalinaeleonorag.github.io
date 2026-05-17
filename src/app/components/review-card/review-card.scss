@@ -1,6 +1,6 @@
 .review-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--glass-border);
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: var(--border-radius);
   padding: 1.25rem;
   display: flex;
@@ -14,8 +14,7 @@
     text-align: left;
 
     ::ng-deep .highlight {
-      background: var(--accent-hover);
-      padding: 0 0.2rem;
+      background: var(--md-sys-color-primary-container);
     }
 
     ::ng-deep ul {
@@ -24,14 +23,14 @@
   }
 
   ::ng-deep strong {
-    color: var(--accent-color);
+    color: var(--md-sys-color-primary);
   }
 
   .author {
     display: flex;
     flex-direction: column;
     font-size: 0.8rem;
-    border-top: 1px solid var(--glass-border);
+    border-top: 1px solid var(--md-sys-color-outline-variant);
     padding-top: var(--space-sm);
     width: 100%;
     gap: var(--space-sm);

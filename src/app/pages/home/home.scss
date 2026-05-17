@@ -121,14 +121,14 @@ section {
     }
 
     .summary-period {
-      color: var(--text-secondary);
+      color: var(--md-sys-color-on-surface-variant);
       white-space: nowrap;
     }
 
     .summary-text {
       margin: 0;
       font-size: 0.95rem;
-      color: var(--text-secondary);
+      color: var(--md-sys-color-on-surface-variant);
       line-height: 1.5;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -191,7 +191,7 @@ section {
       opacity: 1;
 
       .icon {
-        --icon-fill-color: var(--text-secondary);
+        --icon-fill-color: var(--md-sys-color-on-surface-variant);
       }
 
       .label {
@@ -209,12 +209,12 @@ section {
     flex-grow: 1;
 
     ::ng-deep strong {
-      color: var(--accent-color);
+      color: var(--md-sys-color-primary);
     }
   }
 
   .author-info {
-    border-top: 1px solid var(--glass-border);
+    border-top: 1px solid var(--md-sys-color-outline-variant);
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
@@ -227,7 +227,7 @@ section {
 
     .author-role {
       font-size: 0.85rem;
-      color: var(--text-secondary);
+      color: var(--md-sys-color-on-surface-variant);
     }
   }
 }

@@ -39,12 +39,26 @@
 
   <mat-form-field appearance="outline" class="filter-group">
     <mat-label>From Date</mat-label>
-    <input matInput type="date" [ngModel]="startDate()" (ngModelChange)="startDate.set($event)" />
+    <input
+      matInput
+      [matDatepicker]="fromPicker"
+      [ngModel]="startDate()"
+      (ngModelChange)="startDate.set($event)"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="fromPicker"></mat-datepicker-toggle>
+    <mat-datepicker #fromPicker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="filter-group">
     <mat-label>To Date</mat-label>
-    <input matInput type="date" [ngModel]="endDate()" (ngModelChange)="endDate.set($event)" />
+    <input
+      matInput
+      [matDatepicker]="toPicker"
+      [ngModel]="endDate()"
+      (ngModelChange)="endDate.set($event)"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="toPicker"></mat-datepicker-toggle>
+    <mat-datepicker #toPicker></mat-datepicker>
   </mat-form-field>
 </div>
 

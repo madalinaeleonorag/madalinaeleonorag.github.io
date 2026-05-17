@@ -65,17 +65,17 @@ h2 {
           }
           .separator {
             margin: 0 0.5rem;
-            color: var(--accent-color);
+            color: var(--md-sys-color-primary);
           }
           .company {
-            color: var(--text-secondary);
+            color: var(--md-sys-color-on-surface-variant);
           }
         }
       }
 
       .header-period {
         font-weight: 500;
-        color: var(--text-secondary);
+        color: var(--md-sys-color-on-surface-variant);
         font-size: 1rem;
       }
 
@@ -111,7 +111,7 @@ h2 {
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.1rem;
-      color: var(--accent-color);
+      color: var(--md-sys-color-primary);
       font-weight: 600;
     }
   }
@@ -154,14 +154,14 @@ h2 {
       li {
         position: relative;
         padding-left: 1.5rem;
-        color: var(--text-secondary);
+        color: var(--md-sys-color-on-surface-variant);
         line-height: 1.6;
 
         &::before {
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--accent-color);
+          color: var(--md-sys-color-primary);
         }
       }
     }
@@ -179,7 +179,7 @@ h2 {
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--text-secondary);
+      color: var(--md-sys-color-on-surface-variant);
       margin-bottom: var(--space-sm);
     }
 
@@ -198,7 +198,7 @@ h2 {
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--text-secondary);
+      color: var(--md-sys-color-on-surface-variant);
       margin-bottom: var(--space-md);
     }
   }

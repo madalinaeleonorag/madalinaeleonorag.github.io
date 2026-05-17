@@ -8,6 +8,8 @@ import { ReviewCard } from '../../components/review-card/review-card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-reviews',
@@ -18,8 +20,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatDatepickerModule,
   ],
   templateUrl: './reviews.html',
+  providers: [provideNativeDateAdapter()],
   styleUrl: './reviews.scss',
 })
 export class Reviews {
