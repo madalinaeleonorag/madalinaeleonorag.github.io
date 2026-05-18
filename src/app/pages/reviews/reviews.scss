@@ -21,7 +21,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  padding-top: var(--space-md);
 
   @media (max-width: $breakpoint-lg) {
     grid-template-columns: repeat(3, 1fr);
@@ -36,14 +37,6 @@
     grid-template-columns: 1fr;
     padding: 1rem 1rem 0 1rem;
   }
-
-  mat-form-field {
-    width: 100%;
-    --mdc-outlined-text-field-focus-outline-color: var(--md-sys-color-primary) !important;
-    --mdc-outlined-text-field-focus-label-text-color: var(--md-sys-color-primary) !important;
-    --mdc-outlined-text-field-outline-color: var(--md-sys-color-outline-variant) !important;
-    --mdc-outlined-text-field-label-text-color: var(--md-sys-color-on-surface-variant) !important;
-  }
 }
 
 .reviews-wrapper {
@@ -51,4 +44,17 @@
   flex-flow: column;
   gap: var(--space-lg);
   margin-bottom: 10vh;
+}
+
+mat-form-field {
+  width: 100%;
+  --mdc-outlined-text-field-outline-color: var(--md-sys-color-outline) !important;
+  --mdc-outlined-text-field-label-text-color: var(--md-sys-color-on-surface-variant) !important;
+  --mdc-outlined-text-field-hover-outline-color: var(--md-sys-color-on-surface) !important;
+  --mdc-outlined-text-field-focus-outline-color: var(--md-sys-color-primary) !important;
+  --mdc-outlined-text-field-focus-label-text-color: var(--md-sys-color-primary) !important;
+  --mdc-outlined-text-field-input-text-color: var(--md-sys-color-on-surface) !important;
+  --mdc-outlined-text-field-caret-color: var(--md-sys-color-primary) !important;
+  --mat-select-arrow-color: var(--md-sys-color-on-surface-variant) !important;
+  --mat-select-focused-arrow-color: var(--md-sys-color-primary) !important;
 }

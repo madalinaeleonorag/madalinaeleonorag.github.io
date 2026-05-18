@@ -2,43 +2,66 @@ import { IReview } from '../interfaces/review';
 
 export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
-    company: 'Cognizant',
-    date: new Date('2024-11-15'),
-    isTop: true,
-    position: 'Manager',
-    category: 'Management',
-    reviewer: 'Etienne De Paepe',
-    preview: `We appreciate: your <strong>ownership</strong>, your involvement, your <strong>E2E view</strong>... how you take up a key position after replacing the old Tech Lead...`,
-    review: `Here is some feedback about your involvement in our team. Overall, we are very happy with your
-      contribution to our project and your role in the team. No real learning points could be found, which
-      is very good . We appreciate: your ownership, your involvement, your E2E view, testing of your
-      changes, the extra tasks you picked up outside of your role: UX design, use of new Kendo table
-      component, you being open for feedback and improvements, how you take initiative, your efficient
-      & fast way of working, you to be a fast learner, how you take up a key position after replacing the old
-      Tech Lead, you to think along with business about problems and solutions, you being a team
-      player`,
+    company: 'SS&C Technologies',
+    date: new Date('2026-02-01'),
+    position: 'Senior Frontend Developer',
+    category: 'Development',
+    reviewer: 'Tech Lead',
+    review: `Madalina proved a very good knowledge of Angular and front-end technologies, which she
+      successfully applied to our project. Although the complexity of the project is high, Madalina
+      integrated well into the team and started delivering soon after joining the project. She proved she
+      was a great team player.`,
   },
   {
-    company: 'Deloitte Digital',
-    date: new Date('2022-04-20'),
+    company: 'SS&C Technologies',
+    date: new Date('2026-02-01'),
     isTop: true,
-    position: 'Team Lead',
+    position: 'Tech Lead',
     category: 'Leadership',
-    reviewer: 'Andrei-Ioan Popescu',
-    preview: `...she managed to <strong>surpass everyone's expectations</strong>. I appreciate the fact that during refinements and clarifications, she <strong>challenges the approach</strong> and the input data.`,
-    review: `From early on, she was fully independent from a tech perspective, requiring assistance only to
-      understand the features she needed to implement. Even though she is a less experienced front-end
-      developer than the former one, seeing her work, I can confirm that she managed to surpass
-      everyone’s expectations. She communicates the blockers & issues clearly; she developed complex
-      features faster and with increased quality than before. She handled cloud configuration and
-      installed the applications that she developed with ease, even though this is out of her area of
-      expertise. She is asking everyone for information when she needs it, she is efficiently
-      communicating her concerns and thus, every story that she implemented was easily integrated
-      with the backend components and the platform. Moreover, I appreciate the fact that during
-      refinements and clarifications, she challenges the approach and the input data, and thus we
-      managed to increase the quality of the features’ description resulting in better structured stories
-      and acceptance criteria. I’m happy that I got the chance to work with her and I would definitely like
-      to continue doing this in the future.`,
+    reviewer: 'Tech Lead',
+    preview: `...can independently <strong>take over and deliver complex features</strong>... constantly pays attention to details...`,
+    review: `Madalina proved to be a highly reliable and skilled front-end developer. She can independently
+      take over and deliver complex features; she constantly pays attention to details and is always
+      making sure all the acceptance criteria are met. Her positive attitude and excellent communication
+      skills made her a great addition to the team.`,
+  },
+  {
+    company: 'SS&C Technologies',
+    date: new Date('2026-02-01'),
+    position: 'Tech Lead',
+    category: 'Leadership',
+    reviewer: 'Tech Lead',
+    review: `Madalina is a hard-working individual, highly motivated and organized. She has very good
+      technical skills and is eager to learn and try new things. From the soft skills point of view, she
+      communicates very well and proved to be a great team player.`,
+  },
+  {
+    company: 'SS&C Technologies',
+    date: new Date('2026-02-01'),
+    isTop: true,
+    position: 'Frontend Developer',
+    category: 'Development',
+    reviewer: 'Peer',
+    preview: `...good coding style... quickly integrate... she is <strong>great at estimating</strong> how long something will take...`,
+    review: `From the short period of time I worked with her, she is very good from a technical perspective.
+      Proactive, good coding style, understand quickly the logic of the code and is able to proceed with
+      her tasks without a lot of help. Also communicate well with the team, bringing great energy into the
+      teams she is working on, and she can quickly integrate. She knows exactly when to ask for help to
+      speed up the delivery, and she is great at estimating how long something will take, which makes
+      planning her task easy and smooth. Overall, it's a pleasure working with her.`,
+  },
+  {
+    company: 'SS&C Technologies',
+    date: new Date('2026-02-01'),
+    isTop: true,
+    position: 'Frontend Developer',
+    category: 'Development',
+    reviewer: 'Peer',
+    preview: `...reliable partner... clean code... Reliability on solving problems and <strong>unblocking others</strong>.`,
+    review: `Keep the desire and courage to try new technologies and also the will to learn new stuff. Clean
+      code. Good eye for requirements. Fast learner even when switching projects. She is a reliable
+      partner in the projects we are working together. Gives and receives feedback. Questions when
+      facing something are not clear. Reliability on solving problems and unblocking others.`,
   },
   {
     company: 'Cognizant',
@@ -87,68 +110,41 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       We are so happy with the way things are handled.`,
   },
   {
-    company: 'Deloitte Digital',
-    date: new Date('2022-01-28'),
+    company: 'Cognizant',
+    date: new Date('2024-11-15'),
     isTop: true,
-    position: 'Technical Lead',
-    category: 'Leadership',
-    reviewer: 'Dragos-Vasile Lungu',
-    preview: `She gave a <strong>huge boost to our Web app development</strong>... The quality of the code she has been writing, and the overall work quality has been <strong>impressive</strong>.`,
-    review: `She gave a huge boost to our Web app development; she came up with a very long list of
-      improvements to our existing app and managed to implement a lot of those items in just a couple
-      of weeks. The quality of the code she has been writing, and the overall work quality has been
-      impressive. I would always want her in my team, given the opportunity.`,
-  },
-  {
-    company: 'Deloitte Digital',
-    date: new Date('2022-04-06'),
     position: 'Manager',
     category: 'Management',
-    reviewer: 'Jack Taylor',
-    review: `Madalina instantly collaborated with the team and importantly understood our objectives quickly.
-      The repeated feedback from the development lead was how quickly our production increased –
-      thanks to Madalina. Madalina clearly has a strong skillset which benefited our FE team
-      significantly. Madalina worked hard to develop her colleagues and ensured they were
-      implementing best practice techniques.`,
-  },
-  {
-    company: 'IBM',
-    date: new Date('2021-06-22'),
-    isTop: true,
-    position: 'Frontend Developer',
-    category: 'Development',
-    reviewer: 'Theodor Palamaru',
-    preview: `Her determination to <strong>never give up</strong> and always learn and improve, is what <strong>sets her apart</strong> from many other developers out there.`,
-    review: `She quickly managed to learn and acquire quite an extensive set of skills. Her determination to
-      never give up and always learn and improve, is what sets her apart from many other developers out
-      there. It's been a pleasure working with her. She is currently riding the proverbial wave, and I am
-      sure she will achieve great things in the future. I highly recommend her to anyone looking to expand
-      their team(s).`,
+    reviewer: 'Etienne De Paepe',
+    preview: `We appreciate: your <strong>ownership</strong>, your involvement, your <strong>E2E view</strong>... how you take up a key position after replacing the old Tech Lead...`,
+    review: `Here is some feedback about your involvement in our team. Overall, we are very happy with your
+      contribution to our project and your role in the team. No real learning points could be found, which
+      is very good . We appreciate: your ownership, your involvement, your E2E view, testing of your
+      changes, the extra tasks you picked up outside of your role: UX design, use of new Kendo table
+      component, you being open for feedback and improvements, how you take initiative, your efficient
+      & fast way of working, you to be a fast learner, how you take up a key position after replacing the old
+      Tech Lead, you to think along with business about problems and solutions, you being a team
+      player`,
   },
   {
     company: 'Deloitte Digital',
-    date: new Date('2022-04-20'),
-    isTop: true,
-    position: 'Business Analyst',
+    date: new Date('2022-11-07'),
+    position: 'Senior Consultant',
     category: 'Business/Analysis',
-    reviewer: 'Kavitha Padmanabham',
-    preview: `<strong>Overnight she became an expert</strong> and point of contact for front-end applications. She has delivered all her tasks at <strong>great speed</strong>...`,
-    review: `Overnight she became an expert and point of contact for front-end applications. She has delivered
-      all her tasks at great speed and took on several topics instantly. The entire project is happy to have
-      her onboard.`,
+    reviewer: 'Cristina-Mihaela Antohe',
+    review: `She proves her great technical expertise and collaboration skills with every task that is assigned to
+      her and is supporting the project teams with business and technical information for successful
+      integrations.`,
   },
   {
-    company: 'Wooter Apparel',
-    date: new Date('2021-09-24'),
-    position: 'Full-Stack Developer',
-    category: 'Development',
-    reviewer: 'Emanuel Cepoi',
-    review: `For the past years I had the opportunity to work alongside Madalina on multiple personal and
-      commercial projects. She was able to develop features in an extremely elegant and creative way all
-      the time. Her ability to develop high quality products while under extreme pressure is something
-      that I look up to, not only that she's able to stay calm and professional in difficult situations. She's
-      also able to make everyone in the team feel that they are also capable of doing more than they
-      expect from themselves.`,
+    company: 'Deloitte Digital',
+    date: new Date('2022-11-10'),
+    position: 'Project Manager / Scrum Master',
+    category: 'Management',
+    reviewer: 'Pavol Tomek',
+    review: `Madalina is really valuable member, more of self-initiative in areas which are visibly not covered
+      well on project will help her to present herself with higher seniority, she is currently operating at the
+      next level.`,
   },
   {
     company: 'Deloitte Digital',
@@ -163,68 +159,6 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       support needed to get the job done.`,
   },
   {
-    company: 'SS&C Technologies',
-    date: new Date('2026-02-01'),
-    position: 'Senior Frontend Developer',
-    category: 'Development',
-    reviewer: 'Tech Lead',
-    review: `Madalina proved a very good knowledge of Angular and front-end technologies, which she
-      successfully applied to our project. Although the complexity of the project is high, Madalina
-      integrated well into the team and started delivering soon after joining the project. She proved she
-      was a great team player.`,
-  },
-  {
-    company: 'SS&C Technologies',
-    date: new Date('2026-02-01'),
-    isTop: true,
-    position: 'Tech Lead',
-    category: 'Leadership',
-    reviewer: 'Tech Lead',
-    preview: `...can independently <strong>take over and deliver complex features</strong>... constantly pays attention to details...`,
-    review: `Madalina proved to be a highly reliable and skilled front-end developer. She can independently
-      take over and deliver complex features; she constantly pays attention to details and is always
-      making sure all the acceptance criteria are met. Her positive attitude and excellent communication
-      skills made her a great addition to the team.`,
-  },
-  {
-    company: 'SS&C Technologies',
-    date: new Date('2026-02-01'),
-    position: 'Tech Lead',
-    category: 'Leadership',
-    reviewer: 'Tech Lead',
-    review: `Madalina is a hard-working individual, highly motivated and organized. She has very good
-      technical skills and is eager to learn and try new things. From the soft skills point of view, she
-      communicates very well and proved to be a great team player.`,
-  },
-  {
-    company: 'SS&C Technologies',
-    date: new Date('2026-02-01'),
-    isTop: true,
-    position: 'Peer/Team Member',
-    category: 'Peer',
-    reviewer: 'Peer',
-    preview: `...good coding style... quickly integrate... she is <strong>great at estimating</strong> how long something will take...`,
-    review: `From the short period of time I worked with her, she is very good from a technical perspective.
-      Proactive, good coding style, understand quickly the logic of the code and is able to proceed with
-      her tasks without a lot of help. Also communicate well with the team, bringing great energy into the
-      teams she is working on, and she can quickly integrate. She knows exactly when to ask for help to
-      speed up the delivery, and she is great at estimating how long something will take, which makes
-      planning her task easy and smooth. Overall, it's a pleasure working with her.`,
-  },
-  {
-    company: 'SS&C Technologies',
-    date: new Date('2026-02-01'),
-    isTop: true,
-    position: 'Peer/Team Member',
-    category: 'Peer',
-    reviewer: 'Peer',
-    preview: `...reliable partner... clean code... Reliability on solving problems and <strong>unblocking others</strong>.`,
-    review: `Keep the desire and courage to try new technologies and also the will to learn new stuff. Clean
-      code. Good eye for requirements. Fast learner even when switching projects. She is a reliable
-      partner in the projects we are working together. Gives and receives feedback. Questions when
-      facing something are not clear. Reliability on solving problems and unblocking others.`,
-  },
-  {
     company: 'Deloitte Digital',
     date: new Date('2022-05-02'),
     position: 'Senior Manager',
@@ -233,16 +167,6 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     review: `Feedback from both team and local technical lead is positive as Madalina started working on the
       project near stabilization phase but managed to get familiar in a short timeframe with the
       complexity of the project.`,
-  },
-  {
-    company: 'Deloitte Digital',
-    date: new Date('2022-11-07'),
-    position: 'Senior Consultant',
-    category: 'Business/Analysis',
-    reviewer: 'Cristina-Mihaela Antohe',
-    review: `She proves her great technical expertise and collaboration skills with every task that is assigned to
-      her and is supporting the project teams with business and technical information for successful
-      integrations.`,
   },
   {
     company: 'Deloitte Digital',
@@ -258,13 +182,49 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   },
   {
     company: 'Deloitte Digital',
-    date: new Date('2022-11-10'),
-    position: 'Project Manager / Scrum Master',
+    date: new Date('2022-04-20'),
+    isTop: true,
+    position: 'Business Analyst',
+    category: 'Business/Analysis',
+    reviewer: 'Kavitha Padmanabham',
+    preview: `<strong>Overnight she became an expert</strong> and point of contact for front-end applications. She has delivered all her tasks at <strong>great speed</strong>...`,
+    review: `Overnight she became an expert and point of contact for front-end applications. She has delivered
+      all her tasks at great speed and took on several topics instantly. The entire project is happy to have
+      her onboard.`,
+  },
+  {
+    company: 'Deloitte Digital',
+    date: new Date('2022-04-06'),
+    position: 'Manager',
     category: 'Management',
-    reviewer: 'Pavol Tomek',
-    review: `Madalina is really valuable member, more of self-initiative in areas which are visibly not covered
-      well on project will help her to present herself with higher seniority, she is currently operating at the
-      next level.`,
+    reviewer: 'Jack Taylor',
+    review: `Madalina instantly collaborated with the team and importantly understood our objectives quickly.
+      The repeated feedback from the development lead was how quickly our production increased –
+      thanks to Madalina. Madalina clearly has a strong skillset which benefited our FE team
+      significantly. Madalina worked hard to develop her colleagues and ensured they were
+      implementing best practice techniques.`,
+  },
+  {
+    company: 'Deloitte Digital',
+    date: new Date('2022-04-20'),
+    isTop: true,
+    position: 'Team Lead',
+    category: 'Leadership',
+    reviewer: 'Andrei-Ioan Popescu',
+    preview: `...she managed to <strong>surpass everyone's expectations</strong>. I appreciate the fact that during refinements and clarifications, she <strong>challenges the approach</strong> and the input data.`,
+    review: `From early on, she was fully independent from a tech perspective, requiring assistance only to
+      understand the features she needed to implement. Even though she is a less experienced front-end
+      developer than the former one, seeing her work, I can confirm that she managed to surpass
+      everyone’s expectations. She communicates the blockers & issues clearly; she developed complex
+      features faster and with increased quality than before. She handled cloud configuration and
+      installed the applications that she developed with ease, even though this is out of her area of
+      expertise. She is asking everyone for information when she needs it, she is efficiently
+      communicating her concerns and thus, every story that she implemented was easily integrated
+      with the backend components and the platform. Moreover, I appreciate the fact that during
+      refinements and clarifications, she challenges the approach and the input data, and thus we
+      managed to increase the quality of the features’ description resulting in better structured stories
+      and acceptance criteria. I’m happy that I got the chance to work with her and I would definitely like
+      to continue doing this in the future.`,
   },
   {
     company: 'Deloitte Digital',
@@ -282,6 +242,19 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       needed.`,
   },
   {
+    company: 'Deloitte Digital',
+    date: new Date('2022-01-28'),
+    isTop: true,
+    position: 'Technical Lead',
+    category: 'Leadership',
+    reviewer: 'Dragos-Vasile Lungu',
+    preview: `She gave a <strong>huge boost to our Web app development</strong>... The quality of the code she has been writing, and the overall work quality has been <strong>impressive</strong>.`,
+    review: `She gave a huge boost to our Web app development; she came up with a very long list of
+      improvements to our existing app and managed to implement a lot of those items in just a couple
+      of weeks. The quality of the code she has been writing, and the overall work quality has been
+      impressive. I would always want her in my team, given the opportunity.`,
+  },
+  {
     company: 'Vodafone',
     date: new Date('2021-11-25'),
     position: 'System Support Engineer',
@@ -295,6 +268,19 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       remains unresolved with Madalina!`,
   },
   {
+    company: 'Wooter Apparel',
+    date: new Date('2021-09-24'),
+    position: 'Full-Stack Developer',
+    category: 'Development',
+    reviewer: 'Emanuel Cepoi',
+    review: `For the past years I had the opportunity to work alongside Madalina on multiple personal and
+      commercial projects. She was able to develop features in an extremely elegant and creative way all
+      the time. Her ability to develop high quality products while under extreme pressure is something
+      that I look up to, not only that she's able to stay calm and professional in difficult situations. She's
+      also able to make everyone in the team feel that they are also capable of doing more than they
+      expect from themselves.`,
+  },
+  {
     company: 'IBM',
     date: new Date('2021-09-13'),
     position: 'Project Manager',
@@ -304,19 +290,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       and come up with a solution. It was a joy and I always had confidence while working with her. I
       strongly recommend her to any new opportunity and challenge.`,
   },
-  {
-    company: 'IBM',
-    date: new Date('2019-03-15'),
-    isTop: true,
-    position: 'Project Manager',
-    category: 'Management',
-    reviewer: 'Raluca Rusu',
-    preview: `...having in charge a very hard project and client... being <strong>in front of the client</strong> for direct communication and <strong>problem solving</strong>.`,
-    review: `Madalina had a very good start and path in the project, having in charge a very hard project and
-      client on a team, being in front of the client for direct communication and problem solving. I am
-      very satisfied with her abilities to create and maintain a good working relationship both with the
-      client and her team members, to adapt quickly to change and to help any time need it.`,
-  },
+
   {
     company: 'IBM',
     date: new Date('2021-09-02'),
@@ -341,6 +315,20 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   },
   {
     company: 'IBM',
+    date: new Date('2021-06-22'),
+    isTop: true,
+    position: 'Frontend Developer',
+    category: 'Development',
+    reviewer: 'Theodor Palamaru',
+    preview: `Her determination to <strong>never give up</strong> and always learn and improve, is what <strong>sets her apart</strong> from many other developers out there.`,
+    review: `She quickly managed to learn and acquire quite an extensive set of skills. Her determination to
+      never give up and always learn and improve, is what sets her apart from many other developers out
+      there. It's been a pleasure working with her. She is currently riding the proverbial wave, and I am
+      sure she will achieve great things in the future. I highly recommend her to anyone looking to expand
+      their team(s).`,
+  },
+  {
+    company: 'IBM',
     date: new Date('2020-12-16'),
     position: 'People Manager',
     category: 'Management',
@@ -348,5 +336,18 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     review: `Great job on the project Madalina, the feedback received for the project is very good. Also, I like
       your drive and attitude, and I hope you will continue to invest in your skills as you did until now, and
       more.`,
+  },
+  {
+    company: 'IBM',
+    date: new Date('2019-03-15'),
+    isTop: true,
+    position: 'Project Manager',
+    category: 'Management',
+    reviewer: 'Raluca Rusu',
+    preview: `...having in charge a very hard project and client... being <strong>in front of the client</strong> for direct communication and <strong>problem solving</strong>.`,
+    review: `Madalina had a very good start and path in the project, having in charge a very hard project and
+      client on a team, being in front of the client for direct communication and problem solving. I am
+      very satisfied with her abilities to create and maintain a good working relationship both with the
+      client and her team members, to adapt quickly to change and to help any time need it.`,
   },
 ];

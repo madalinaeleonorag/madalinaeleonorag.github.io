@@ -3,11 +3,11 @@ import { IReview } from '../../interfaces/review';
 import { SvgIcon } from '../svg-icon/svg-icon';
 import { HighlightPipe } from '../../pipes/highlight.pipe';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { NgClass } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-review-card',
-  imports: [SvgIcon, HighlightPipe, NgClass],
+  imports: [SvgIcon, HighlightPipe, NgClass, DatePipe],
   templateUrl: './review-card.html',
   styleUrl: './review-card.scss',
 })

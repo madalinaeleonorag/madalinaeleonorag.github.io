@@ -26,6 +26,9 @@
           <span>{{ review().company }}</span>
         </div>
       }
+      @if (showRole() && showCompany()) {
+        <i>({{ review().date | date: 'MMM yyyy' }})</i>
+      }
     </div>
   </div>
 </div>

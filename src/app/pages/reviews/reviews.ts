@@ -40,10 +40,12 @@ export class Reviews {
           this.selectedCompany.set(params['company']);
         }
         if (params['startDate']) {
-          this.startDate.set(this.formatToHTMLDate(params['startDate']));
+          const formatted = this.formatToHTMLDate(params['startDate']);
+          this.startDate.set(formatted ? new Date(formatted) : null);
         }
         if (params['endDate']) {
-          this.endDate.set(this.formatToHTMLDate(params['endDate']));
+          const formatted = this.formatToHTMLDate(params['endDate']);
+          this.endDate.set(formatted ? new Date(formatted) : null);
         }
       }
     });
@@ -92,8 +94,8 @@ export class Reviews {
   searchTerm = signal<string>('');
   selectedCompany = signal<string>('');
   selectedCategory = signal<string>('');
-  startDate = signal<string>('');
-  endDate = signal<string>('');
+  startDate = signal<Date | null>(null);
+  endDate = signal<Date | null>(null);
 
   availableCompanies = computed(() => [...new Set(this.ALL_REVIEWS.map((r) => r.company))]);
   availableCategories = computed(() => [...new Set(this.ALL_REVIEWS.map((r) => r.category))]);
@@ -103,8 +105,8 @@ export class Reviews {
     const company = this.selectedCompany();
     const category = this.selectedCategory();
 
-    const startTarget = this.parseDateString(this.startDate());
-    const endTarget = this.parseDateString(this.endDate());
+    const startTarget = this.startDate()?.getTime() || null;
+    const endTarget = this.endDate()?.getTime() || null;
 
     return this.ALL_REVIEWS.filter((review) => {
       if (company && review.company !== company) return false;
