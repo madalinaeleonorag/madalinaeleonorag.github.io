@@ -24,7 +24,7 @@ export class Home {
   readonly socialLinks = SOCIAL_LINKS;
   readonly expertise = EXPERTISE;
   readonly workExperience = WORK_EXPERIENCE;
-  readonly topReviews = STAKEHOLDER_REVIEWS.slice(0, 3);
+  readonly topReviews = STAKEHOLDER_REVIEWS.filter((review) => review.isTop).slice(0, 3);
 
   currentSlideIndex = signal<number>(0);
 
