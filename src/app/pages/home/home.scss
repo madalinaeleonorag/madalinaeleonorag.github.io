@@ -154,22 +154,15 @@
 
   .card-header {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: clamp(1rem, 2vw, 1.5rem);
-  }
-
-  .brand-area {
-    display: flex;
     flex-flow: column;
     align-items: center;
-    gap: 1rem;
+    gap: var(--space-sm);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
   }
 
   .cert-logo {
     width: auto;
     height: auto;
-    max-width: 48px;
     max-height: 48px;
   }
 

@@ -91,7 +91,7 @@
 <section id="credentials" class="page-section credentials-section">
   <div class="section-header">
     <h2>Education & Credentials</h2>
-    <p>Academic foundation and technical certifications listed chronologically.</p>
+    <p>Academic foundation and technical certifications.</p>
   </div>
 
   <div class="cards-grid">
@@ -101,22 +101,20 @@
         [class.academic-border]="item.type === 'education'"
       >
         <div class="card-header">
-          <div class="brand-area">
-            @if (item.type === 'education') {
-              <div class="academic-icon-placeholder">
-                <app-svg-icon type="school" [useAccentColor]="true" />
-              </div>
-            } @else {
-              <img
-                [src]="item.logo + '.png' | assetPath"
-                [alt]="item.subtitle + ' logo'"
-                class="cert-logo"
-                loading="lazy"
-              />
-            }
-            <span class="issuer-name">{{ item.subtitle }}</span>
-            <span class="credential-title">{{ item.title }}</span>
-          </div>
+          @if (item.type === 'education') {
+            <div class="academic-icon-placeholder">
+              <app-svg-icon type="school" [useAccentColor]="true" />
+            </div>
+          } @else {
+            <img
+              [src]="item.logo | assetPath"
+              [alt]="item.subtitle + ' logo'"
+              class="cert-logo"
+              loading="lazy"
+            />
+          }
+          <span class="issuer-name">{{ item.subtitle }}</span>
+          <span class="credential-title">{{ item.title }}</span>
         </div>
 
         <div class="card-footer">
