@@ -4,23 +4,17 @@
   display: flex;
   flex-flow: column;
   justify-content: center;
-  margin: 0 calc(var(--space-lg) + 24px + 5vw);
-  margin: 0 clamp(1rem, calc(24px + 5vw), calc(var(--space-lg) + 24px + 5vw));
 }
 
 .breadcrumb {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  font-size: 0.875rem;
+  padding: 0 var(--page-gutter);
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
   color: var(--md-sys-color-on-surface-variant);
   margin: var(--space-lg) 0;
   flex-wrap: wrap;
-
-  @media (max-width: $breakpoint-sm) {
-    font-size: 0.75rem;
-    margin: var(--space-lg) 0;
-  }
 
   &__active {
     font-weight: 500;

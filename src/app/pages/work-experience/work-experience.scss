@@ -1,17 +1,13 @@
 @use '../../../styles/breakpoints' as *;
 
-h2 {
-  margin: var(--space-lg) 0;
+:host {
+  padding: 0 var(--page-gutter);
+}
+
+.section-title {
+  margin: clamp(1.5rem, 4vw, 2rem) 0;
   text-align: center;
-
-  @media (max-width: $breakpoint-md) {
-    margin: var(--space-lg) 0;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    margin: var(--space-md) 0;
-    font-size: 1.5rem;
-  }
+  font-size: var(--font-h2);
 }
 
 .experience-wrapper {
@@ -28,11 +24,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    padding-bottom: var(--space-lg);
-
-    @media (max-width: $breakpoint-md) {
-      padding-bottom: 5vh;
-    }
+    padding-bottom: clamp(2rem, 5vh, 4rem);
 
     &:last-child {
       padding-bottom: 0;
@@ -57,14 +49,14 @@ h2 {
         gap: var(--space-md);
 
         .header-text {
-          font-size: 1.25rem;
+          font-size: clamp(1.1rem, 2vw, 1.25rem);
           font-weight: 700;
 
           .role {
             color: var(--md-sys-color-on-surface);
           }
           .separator {
-            margin: 0 var(--space-sm);
+            margin: 0 clamp(0.25rem, 0.5vw, 0.5rem);
             color: var(--md-sys-color-primary);
           }
           .company {
@@ -76,7 +68,7 @@ h2 {
       .header-period {
         font-weight: 500;
         color: var(--md-sys-color-on-surface-variant);
-        font-size: 1rem;
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
       }
 
       @media (max-width: $breakpoint-md) {
@@ -86,7 +78,7 @@ h2 {
     }
 
     &__logo {
-      --icon-size: 40px;
+      --icon-size: clamp(32px, 4vw, 40px);
       flex-shrink: 0;
     }
   }
@@ -101,14 +93,14 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-
     padding-top: var(--space-md);
+
     &:not(:first-child) {
       border-top: 1px dashed rgba(255, 255, 255, 0.1);
     }
 
     .assignment-label {
-      font-size: 0.85rem;
+      font-size: clamp(0.75rem, 1vw, 0.85rem);
       text-transform: uppercase;
       letter-spacing: 0.1rem;
       color: var(--md-sys-color-primary);
@@ -122,7 +114,7 @@ h2 {
     width: 100%;
 
     @media (min-width: $breakpoint-lg) {
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr clamp(280px, 25vw, 320px);
       align-items: start;
     }
   }
@@ -132,10 +124,9 @@ h2 {
     width: 100%;
 
     .assignment-summary {
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
       color: var(--md-sys-color-on-surface);
       margin-bottom: var(--space-md);
-
       width: 100%;
       max-width: 80ch;
       overflow-wrap: break-word;
@@ -146,14 +137,13 @@ h2 {
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-
+      gap: clamp(0.5rem, 1vw, 0.75rem);
       width: 100%;
       max-width: 80ch;
 
       li {
         position: relative;
-        padding-left: 1.5rem;
+        padding-left: clamp(1.25rem, 2vw, 1.5rem);
         color: var(--md-sys-color-on-surface-variant);
         line-height: 1.6;
 
@@ -176,7 +166,7 @@ h2 {
     border-radius: var(--border-radius);
 
     .meta-label {
-      font-size: 0.75rem;
+      font-size: clamp(0.7rem, 1vw, 0.75rem);
       font-weight: 700;
       text-transform: uppercase;
       color: var(--md-sys-color-on-surface-variant);
@@ -186,19 +176,19 @@ h2 {
     .chips-wrapper {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: clamp(0.25rem, 0.5vw, 0.5rem);
     }
 
     .impact-group {
-      margin-top: 1rem;
+      margin-top: clamp(0.75rem, 1.5vw, 1rem);
     }
 
     .impact-box {
-      font-size: 0.9rem;
+      font-size: clamp(0.85rem, 1.2vw, 0.9rem);
       border-left: 2px solid var(--md-sys-color-tertiary);
-      padding-left: 1rem;
+      padding-left: clamp(0.75rem, 1.5vw, 1rem);
       color: var(--md-sys-color-on-surface-variant);
-      font-style: italic; // Opțional, dă un look de "quote" mai bun pentru impact
+      font-style: italic;
     }
   }
 
@@ -207,7 +197,7 @@ h2 {
     padding-top: var(--space-md);
 
     .meta-label {
-      font-size: 0.75rem;
+      font-size: clamp(0.7rem, 1vw, 0.75rem);
       font-weight: 700;
       text-transform: uppercase;
       color: var(--md-sys-color-on-surface-variant);
@@ -218,7 +208,7 @@ h2 {
   .mini-reviews-grid {
     display: grid;
     gap: var(--space-md);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(clamp(240px, 30vw, 280px), 1fr));
   }
 }
 

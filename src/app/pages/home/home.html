@@ -8,7 +8,7 @@
   }
 </div>
 
-<section id="hero">
+<section id="hero" class="page-section hero-section">
   <h3>🚀 Building Scalable Enterprise Ecosystems</h3>
   <h1>Hi, I'm Madalina-Eleonora Gheorghe</h1>
   <h2>UI Engineer</h2>
@@ -39,7 +39,7 @@
   </div>
 </section>
 
-<section id="expertise">
+<section id="expertise" class="page-section expertise-section">
   <h2>Areas of Expertise</h2>
   <div class="cards-grid">
     @for (category of expertise; track category.title) {
@@ -57,12 +57,12 @@
   </div>
 </section>
 
-<section id="experience">
-  <div>
+<section id="experience" class="page-section experience-section">
+  <div class="section-header">
     <h2>Work Experience</h2>
     <p>A brief look at my professional journey.</p>
   </div>
-  <div class="experience">
+  <div class="experience-list">
     @for (job of workExperience; track job.company) {
       <article
         class="experience-summary"
@@ -88,8 +88,65 @@
   </button>
 </section>
 
-<section id="reviews">
-  <div>
+<section id="credentials" class="page-section credentials-section">
+  <div class="section-header">
+    <h2>Education & Credentials</h2>
+    <p>Academic foundation and technical certifications listed chronologically.</p>
+  </div>
+
+  <div class="cards-grid">
+    @for (item of timelineItems; track item.id) {
+      <article
+        class="glass-card credential-card"
+        [class.academic-border]="item.type === 'education'"
+      >
+        <div class="card-header">
+          <div class="brand-area">
+            @if (item.type === 'education') {
+              <div class="academic-icon-placeholder">
+                <app-svg-icon type="school" [useAccentColor]="true" />
+              </div>
+            } @else {
+              <img
+                [src]="item.logo"
+                [alt]="item.subtitle + ' logo'"
+                class="cert-logo"
+                loading="lazy"
+              />
+            }
+            <div>
+              <h4 class="issuer-name">{{ item.subtitle }}</h4>
+              <h3 class="credential-title">{{ item.title }}</h3>
+            </div>
+          </div>
+        </div>
+
+        @if (item.description) {
+          <p class="description">{{ item.description }}</p>
+        }
+
+        <div class="card-footer">
+          <span class="date-badge">{{ item.date }}</span>
+          @if (item.type === 'education') {
+            <span class="meta-text">Grade: {{ item.meta }}</span>
+          } @else {
+            <a
+              [href]="item.url || '#'"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="action-link"
+            >
+              Verify Certificate &rarr;
+            </a>
+          }
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section id="reviews" class="page-section reviews-section">
+  <div class="section-header">
     <h2>Recommendations & Reviews</h2>
     <p>What colleagues and clients say about working with me.</p>
   </div>
