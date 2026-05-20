@@ -94,40 +94,28 @@
     <p>Academic foundation and technical certifications.</p>
   </div>
 
-  <div class="cards-grid">
+  <div class="credentials-badge-grid">
     @for (item of timelineItems; track item.id) {
       <article
-        class="glass-card credential-card"
-        [class.academic-border]="item.type === 'education'"
+        class="glass-card credential-badge-card"
+        [class.academic-badge]="item.type === 'education'"
       >
-        <div class="card-header">
-          @if (item.type === 'education') {
-            <div class="academic-icon-placeholder">
-              <app-svg-icon type="school" [useAccentColor]="true" />
-            </div>
-          } @else {
-            <img
-              [src]="item.logo | assetPath"
-              [alt]="item.subtitle + ' logo'"
-              class="cert-logo"
-              loading="lazy"
-            />
-          }
-          <span class="issuer-name">{{ item.subtitle }}</span>
-          <span class="credential-title">{{ item.title }}</span>
-        </div>
+        <img
+          [src]="item.logo | assetPath"
+          [alt]="item.subtitle + ' logo'"
+          class="cert-logo-massive"
+          loading="lazy"
+        />
+
+        <h4 class="issuer-name">{{ item.subtitle }}</h4>
+        <h3 class="credential-title">{{ item.title }}</h3>
 
         <div class="card-footer">
           <span class="date-badge">{{ item.date }}</span>
           @if (item.type === 'education') {
             <span class="meta-text">Grade: {{ item.meta }}</span>
           } @else if (item.url) {
-            <a
-              [href]="item.url || '#'"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="action-link"
-            >
+            <a [href]="item.url" target="_blank" rel="noopener noreferrer" class="action-link">
               Verify Certificate &rarr;
             </a>
           }

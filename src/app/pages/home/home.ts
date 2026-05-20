@@ -64,7 +64,7 @@ export class Home {
         title: edu.degree,
         subtitle: edu.institution,
         meta: edu.grade,
-        logo: '',
+        logo: edu.logo,
         url: '',
       };
     });

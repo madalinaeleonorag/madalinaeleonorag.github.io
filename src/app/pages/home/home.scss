@@ -143,43 +143,36 @@
   }
 }
 
-.credential-card {
+.credentials-badge-grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.credential-badge-card {
   display: flex;
   flex-direction: column;
-  padding: clamp(1.25rem, 2vw, 1.5rem);
-  text-align: left;
+  align-items: center;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  text-align: center;
   text-decoration: none;
   height: 100%;
   box-sizing: border-box;
+  gap: var(--space-sm);
 
-  .card-header {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  img {
+    max-width: clamp(80px, 15vw, 120px);
+    max-height: clamp(60px, 10vh, 80px);
   }
 
-  .cert-logo {
-    width: auto;
-    height: auto;
-    max-height: 48px;
-  }
-
-  .academic-icon-placeholder {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-    border-radius: 8px;
+  .badge-content-area {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--md-sys-color-surface-container-high);
-    border: 1px solid var(--md-sys-color-outline-variant);
-
-    ::ng-deep .icon {
-      --icon-size: 24px;
-    }
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
   }
 
   .issuer-name {
@@ -187,30 +180,33 @@
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
-    margin: 0 0 0.2rem 0;
+    margin: 0;
+    font-weight: 600;
   }
 
   .credential-title {
     color: var(--md-sys-color-on-surface);
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+    font-weight: 700;
     margin: 0;
     line-height: 1.3;
-  }
-
-  .date-badge {
-    color: var(--md-sys-color-on-surface-variant);
-    font-size: 0.85rem;
-    white-space: nowrap;
+    padding-bottom: var(--space-md);
   }
 
   .card-footer {
     margin-top: auto;
-    padding-top: clamp(0.75rem, 1.5vw, 1rem);
+    padding-top: var(--space-md);
     border-top: 1px solid var(--md-sys-color-outline-variant);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+
+    .date-badge {
+      color: var(--md-sys-color-on-surface-variant);
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
 
     .action-link,
     .meta-text {
@@ -234,8 +230,13 @@
   }
 }
 
-.academic-border {
+.academic-badge {
   border: 1px solid var(--md-sys-color-primary);
+  background: linear-gradient(
+    180deg,
+    var(--md-sys-color-surface-container-low) 0%,
+    var(--md-sys-color-background) 100%
+  );
 }
 
 .sidenav {
