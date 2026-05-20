@@ -3,5 +3,4 @@ export interface Education {
   degree: string;
   period: string;
   grade: string;
-  description?: string;
 }

@@ -155,13 +155,13 @@
   .card-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     gap: 1rem;
     margin-bottom: clamp(1rem, 2vw, 1.5rem);
   }
 
   .brand-area {
     display: flex;
+    flex-flow: column;
     align-items: center;
     gap: 1rem;
   }
@@ -209,14 +209,6 @@
     color: var(--md-sys-color-on-surface-variant);
     font-size: 0.85rem;
     white-space: nowrap;
-  }
-
-  .description {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
-    color: var(--md-sys-color-on-surface-variant);
-    flex-grow: 1;
   }
 
   .card-footer {

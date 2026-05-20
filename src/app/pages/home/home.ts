@@ -10,10 +10,11 @@ import { ReviewCard } from '../../components/review-card/review-card';
 
 import { CERTIFICATIONS } from '../../database/certifications';
 import { EDUCATION } from '../../database/education';
+import { AssetPathPipe } from '../../pipes/asset-path-pipe';
 
 @Component({
   selector: 'app-home',
-  imports: [SvgIcon, Chip, RouterLink, ReviewCard],
+  imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -63,7 +64,6 @@ export class Home {
         title: edu.degree,
         subtitle: edu.institution,
         meta: edu.grade,
-        description: edu.description,
         logo: '',
         url: '',
       };

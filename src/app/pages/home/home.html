@@ -108,28 +108,22 @@
               </div>
             } @else {
               <img
-                [src]="item.logo"
+                [src]="item.logo + '.png' | assetPath"
                 [alt]="item.subtitle + ' logo'"
                 class="cert-logo"
                 loading="lazy"
               />
             }
-            <div>
-              <h4 class="issuer-name">{{ item.subtitle }}</h4>
-              <h3 class="credential-title">{{ item.title }}</h3>
-            </div>
+            <span class="issuer-name">{{ item.subtitle }}</span>
+            <span class="credential-title">{{ item.title }}</span>
           </div>
         </div>
-
-        @if (item.description) {
-          <p class="description">{{ item.description }}</p>
-        }
 
         <div class="card-footer">
           <span class="date-badge">{{ item.date }}</span>
           @if (item.type === 'education') {
             <span class="meta-text">Grade: {{ item.meta }}</span>
-          } @else {
+          } @else if (item.url) {
             <a
               [href]="item.url || '#'"
               target="_blank"
