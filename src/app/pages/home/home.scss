@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: clamp(0.5rem, 3vw, 2rem);
+  gap: clamp(var(--space-sm), var(--space-md), var(--space-md));
   padding: clamp(4rem, 6vh, 6rem) var(--page-gutter);
   width: 100%;
   box-sizing: border-box;
@@ -22,6 +22,41 @@
   min-height: 100vh;
   padding-top: 0;
   padding-bottom: 0;
+
+  .language-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      padding: var(--space-sm);
+      gap: var(--space-sm);
+    }
+
+    .lang-switch-wrapper {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+
+      .lang-switch {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        cursor: pointer;
+
+        app-svg-icon {
+          --icon-size: 20px;
+          filter: grayscale(0.7);
+
+          &.selected {
+            filter: none;
+            --icon-size: 24px;
+          }
+        }
+      }
+    }
+  }
 
   .hero__contact,
   .hero__download {
@@ -54,7 +89,7 @@
 .cards-grid {
   display: grid;
   gap: clamp(1.5rem, 3vw, 3rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
@@ -146,7 +181,7 @@
 .credentials-badge-grid {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.5rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;

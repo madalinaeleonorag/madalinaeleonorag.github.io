@@ -7,14 +7,14 @@ import { SOCIAL_LINKS } from '../../database/social-links';
 import { EXPERTISE } from '../../database/expertise';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 import { ReviewCard } from '../../components/review-card/review-card';
-
 import { CERTIFICATIONS } from '../../database/certifications';
 import { EDUCATION } from '../../database/education';
 import { AssetPathPipe } from '../../pipes/asset-path-pipe';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe],
+  imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe, NgClass],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -26,17 +26,20 @@ export class Home {
     { label: 'Credentials', icon: 'certificate', href: '#credentials' },
     { label: 'Reviews', icon: 'star', href: '#reviews' },
   ];
-
   readonly socialLinks = SOCIAL_LINKS;
   readonly expertise = EXPERTISE;
   readonly workExperience = WORK_EXPERIENCE;
   readonly topReviews = STAKEHOLDER_REVIEWS.filter((review) => review.isTop).slice(0, 3);
-
   readonly timelineItems = this.buildChronologicalTimeline();
 
   currentSlideIndex = signal<number>(0);
+  currentLang = signal<'en' | 'ro'>('en');
 
   private router = inject(Router);
+
+  onLanguageChange(language: 'en' | 'ro') {
+    this.currentLang.set(language);
+  }
 
   downloadFile(type: 'CV' | 'Recommendations') {
     const fileName =
