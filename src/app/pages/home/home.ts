@@ -10,11 +10,11 @@ import { ReviewCard } from '../../components/review-card/review-card';
 import { CERTIFICATIONS } from '../../database/certifications';
 import { EDUCATION } from '../../database/education';
 import { AssetPathPipe } from '../../pipes/asset-path-pipe';
-import { NgClass } from '@angular/common';
+import { FEATURED_PROJECTS } from '../../database/projects';
 
 @Component({
   selector: 'app-home',
-  imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe, NgClass],
+  imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -29,17 +29,13 @@ export class Home {
   readonly socialLinks = SOCIAL_LINKS;
   readonly expertise = EXPERTISE;
   readonly workExperience = WORK_EXPERIENCE;
+  readonly featuredProjects = FEATURED_PROJECTS;
   readonly topReviews = STAKEHOLDER_REVIEWS.filter((review) => review.isTop).slice(0, 3);
   readonly timelineItems = this.buildChronologicalTimeline();
 
   currentSlideIndex = signal<number>(0);
-  currentLang = signal<'en' | 'ro'>('en');
 
   private router = inject(Router);
-
-  onLanguageChange(language: 'en' | 'ro') {
-    this.currentLang.set(language);
-  }
 
   downloadFile(type: 'CV' | 'Recommendations') {
     const fileName =
@@ -48,6 +44,10 @@ export class Home {
         : 'Madalina-Eleonora-Gheorghe-Recommendations';
     const fileUrl = `/${fileName}.pdf`;
     window.open(fileUrl, '_blank');
+  }
+
+  openGitHub() {
+    window.open('https://github.com/madalinaeleonorag', '_blank', 'noopener,noreferrer');
   }
 
   goToReviewDetail(date: Date, reviewer?: string, position?: string): void {

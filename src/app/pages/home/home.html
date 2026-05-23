@@ -9,18 +9,6 @@
 </div>
 
 <section id="hero" class="page-section hero-section">
-  <div class="language-pill">
-    <p>Let's talk the same language</p>
-    <div class="lang-switch-wrapper">
-      <div class="lang-switch" (click)="onLanguageChange('en')">
-        <app-svg-icon type="en" [ngClass]="{ selected: currentLang() === 'en' }"> </app-svg-icon>
-      </div>
-      /
-      <div class="lang-switch" (click)="onLanguageChange('ro')">
-        <app-svg-icon type="ro" [ngClass]="{ selected: currentLang() === 'ro' }"> </app-svg-icon>
-      </div>
-    </div>
-  </div>
   <h3>🚀 Building Scalable Enterprise Ecosystems</h3>
   <h1>Hi, I'm Madalina-Eleonora</h1>
   <h2>UI Engineer</h2>
@@ -135,6 +123,67 @@
       </article>
     }
   </div>
+</section>
+
+<section id="projects" class="page-section projects-section">
+  <div class="section-header">
+    <h2>Featured Architecture</h2>
+    <p>Complex systems, academic research, and high-performance prototypes.</p>
+  </div>
+
+  <div class="projects-stack">
+    @for (project of featuredProjects; track project.id) {
+      <article class="glass-card project-showcase-card">
+        <div class="project-visual">
+          <img
+            [src]="project.imageUrl | assetPath"
+            [alt]="project.title + ' preview'"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-content">
+          <span class="project-type">{{ project.type }}</span>
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="tech-stack-row">
+            @for (tech of project.techStack; track tech) {
+              <span class="tech-pill">{{ tech }}</span>
+            }
+          </div>
+
+          <div class="project-actions">
+            @if (project.githubUrl) {
+              <a
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="action-link outline-link"
+              >
+                <app-svg-icon type="github" [useAccentColor]="true"></app-svg-icon>
+                View Repository
+              </a>
+            }
+            @if (project.liveUrl) {
+              <a
+                [href]="project.liveUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="action-link solid-link"
+              >
+                Live Demo &rarr;
+              </a>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+
+  <button class="btn-secondary" (click)="openGitHub()">
+    Explore the Sandbox on GitHub (30+ Repos)
+  </button>
 </section>
 
 <section id="reviews" class="page-section reviews-section">
