@@ -147,9 +147,9 @@
           <h3 class="project-title">{{ project.title }}</h3>
           <p class="project-description">{{ project.description }}</p>
 
-          <div class="tech-stack-row">
+          <div class="chips-wrapper">
             @for (tech of project.techStack; track tech) {
-              <span class="tech-pill">{{ tech }}</span>
+              <app-chip [label]="tech" />
             }
           </div>
 
