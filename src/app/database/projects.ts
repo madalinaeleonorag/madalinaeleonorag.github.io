@@ -14,8 +14,9 @@ export const FEATURED_PROJECTS: Project[] = [
       'Firestore',
       'Google Maps API',
     ],
-    imageUrl: 'university-rating.png',
+    imageUrl: 'university-rating.webp',
     githubUrl: 'https://github.com/madalinaeleonorag/UniversityRating',
+    liveUrl: 'https://universityraking.web.app/',
   },
   {
     id: 'wafflic',
@@ -24,8 +25,9 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       'A dynamic web application focused on complex state management and multi-API synchronization. Built to handle heavy real-time data streams efficiently using Firebase as the primary backend engine.',
     techStack: ['Angular', 'RxJS', 'Firebase', 'Multi-API Sync', 'REST Architecture'],
-    imageUrl: 'wafflic.png',
+    imageUrl: 'wafflic.webp',
     githubUrl: 'https://github.com/madalinaeleonorag/Waffic',
+    liveUrl: 'https://waffic1997.web.app/',
   },
   {
     id: 'hackathons',
@@ -34,7 +36,7 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       'Rapidly engineered, high-performance prototypes developed under extreme time constraints. Projects like RapJobs, PhotoBooking, and SmileSharing demonstrate the ability to quickly bootstrap robust UI architectures, integrate external services, and deliver polished UX/UI within 24-48 hours.',
     techStack: ['Angular', 'Rapid Prototyping', 'UX/UI Architecture', 'Third-party APIs'],
-    imageUrl: 'hackathons.png',
+    imageUrl: 'hackathons.webp',
     githubUrl:
       'https://github.com/madalinaeleonorag?tab=repositories&q=hackathon&type=&language=&sort=',
   },

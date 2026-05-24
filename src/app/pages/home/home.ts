@@ -24,6 +24,7 @@ export class Home {
     { label: 'Expertise', icon: 'build', href: '#expertise' },
     { label: 'Work Experience', icon: 'work', href: '#experience' },
     { label: 'Credentials', icon: 'certificate', href: '#credentials' },
+    { label: 'Personal Projects', icon: 'folder', href: '#projects' },
     { label: 'Reviews', icon: 'star', href: '#reviews' },
   ];
   readonly socialLinks = SOCIAL_LINKS;
@@ -43,11 +44,28 @@ export class Home {
         ? 'Madalina-Eleonora-Gheorghe-CV'
         : 'Madalina-Eleonora-Gheorghe-Recommendations';
     const fileUrl = `/${fileName}.pdf`;
+
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion_download', {
+        event_category: 'Engagement',
+        event_label: type,
+        value: 1,
+      });
+    } else {
+      console.log(`[Analytics] Tracked download event for: ${type}`);
+    }
+
     window.open(fileUrl, '_blank');
   }
 
-  openGitHub() {
-    window.open('https://github.com/madalinaeleonorag', '_blank', 'noopener,noreferrer');
+  openGitHub(url?: string) {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'click_external_github', {
+        event_category: 'Outbound Link',
+        event_label: 'Main Portfolio Footer Button',
+      });
+    }
+    window.open(url || 'https://github.com/madalinaeleonorag', '_blank', 'noopener,noreferrer');
   }
 
   goToReviewDetail(date: Date, reviewer?: string, position?: string): void {

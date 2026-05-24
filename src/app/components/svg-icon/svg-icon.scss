@@ -7,23 +7,19 @@ svg {
   svg {
     path {
       fill: var(--md-sys-color-primary-container);
-      stroke: var(--md-sys-color-primary-container);
     }
 
     polygon {
       fill: var(--md-sys-color-primary-container);
-      stroke: var(--md-sys-color-primary-container);
     }
 
     &:hover {
       path {
         fill: var(--md-sys-color-primary);
-        stroke: var(--md-sys-color-primary);
       }
 
       polygon {
         fill: var(--md-sys-color-primary);
-        stroke: var(--md-sys-color-primary);
       }
     }
   }
