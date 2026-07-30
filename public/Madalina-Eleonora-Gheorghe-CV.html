@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Madalina-Eleonora Gheorghe — CV</title>
+<style>
+  /* ---- Burgundy palette (single accent, used with restraint) ---- */
+  :root{
+    --burgundy:#7A1E2E;
+    --burgundy-soft:#9B4552;
+    --ink:#1c1c1c;
+    --muted:#555;
+    --rule:#e2d3d6;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0;
+    color:var(--ink);
+    font-family:"Calibri","Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-size:10.6pt;
+    line-height:1.42;
+  }
+
+  /* Screen: show a page-like sheet. Print: fill the page. */
+  .sheet{
+    max-width:800px;
+    margin:24px auto;
+    padding:40px 46px;
+    background:#fff;
+    box-shadow:0 1px 8px rgba(0,0,0,.12);
+  }
+
+  /* ---------- Header ---------- */
+  header{ text-align:center; margin-bottom:14px; }
+  h1{
+    font-size:23pt;
+    letter-spacing:.5px;
+    margin:0 0 6px;
+    color:var(--ink);
+    font-weight:700;
+  }
+  .tagline{
+    color:var(--burgundy);
+    font-size:10.8pt;
+    font-weight:600;
+    margin:0 0 8px;
+    letter-spacing:.2px;
+  }
+  .contact{ font-size:9.6pt; color:var(--muted); line-height:1.6; }
+  .contact a{ color:var(--burgundy); text-decoration:none; }
+  .contact .sep{ color:var(--rule); padding:0 5px; }
+  .contact .portfolio{ font-weight:700; }
+
+  /* ---------- Section headings ---------- */
+  h2{
+    font-size:11pt;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    color:var(--burgundy);
+    border-bottom:1.5px solid var(--burgundy);
+    padding-bottom:3px;
+    margin:18px 0 9px;
+    font-weight:700;
+  }
+
+  p.summary{ margin:0; text-align:justify; }
+
+  /* ---------- Skills ---------- */
+  ul.skills{ list-style:none; margin:0; padding:0; }
+  ul.skills li{ margin:0 0 4px; padding-left:0; }
+  ul.skills .k{ color:var(--burgundy); font-weight:700; }
+
+  /* ---------- Experience ---------- */
+  .role{ margin:0 0 12px; }
+  .role-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+  }
+  .role-title{ font-weight:700; font-size:10.8pt; }
+  .role-title .company{ color:var(--burgundy); }
+  .role-meta{ color:var(--muted); font-size:9.4pt; white-space:nowrap; }
+  .role-sub{ color:var(--muted); font-size:9.6pt; font-style:italic; margin:1px 0 5px; }
+
+  ul.bullets{ margin:4px 0 0; padding-left:17px; }
+  ul.bullets li{ margin:0 0 3px; }
+  strong{ font-weight:700; }
+
+  /* ---------- Education ---------- */
+  .edu-line{ display:flex; justify-content:space-between; gap:12px; margin:2px 0; }
+
+  .footer-note{
+    margin-top:14px; padding-top:8px;
+    border-top:1px solid var(--rule);
+    font-size:8.9pt; color:var(--muted); text-align:center;
+  }
+  .footer-note a{ color:var(--burgundy); text-decoration:none; }
+
+  /* ---------- Print ---------- */
+  @page{ size:A4; margin:13mm; }
+  @media print{
+    body{ font-size:10.2pt; }
+    .sheet{ max-width:none; margin:0; padding:0; box-shadow:none; }
+    .role, li{ page-break-inside:avoid; }
+    h2{ page-break-after:avoid; }
+    a{ color:var(--burgundy) !important; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <h1>Madalina-Eleonora Gheorghe</h1>
+    <p class="tagline">Senior UI Engineer · Angular &amp; TypeScript &nbsp;|&nbsp; UX-driven product thinking</p>
+    <div class="contact">
+      Bucharest, Romania
+      <span class="sep">|</span> <a href="mailto:madalinaeleonora.gheorghe@gmail.com">madalinaeleonora.gheorghe@gmail.com</a>
+      <span class="sep">|</span> +40 768 792 728
+      <br>
+      LinkedIn: <a href="https://linkedin.com/in/madalinaeleonorag">in/madalinaeleonorag</a>
+      <span class="sep">|</span>
+      <span class="portfolio">Portfolio: <a href="https://madalinaeleonorag.github.io">madalinaeleonorag.github.io</a></span>
+    </div>
+  </header>
+
+  <h2>Professional Summary</h2>
+  <p class="summary">
+    UI Engineer with <strong>7+ years</strong> building complex enterprise web applications in Angular and
+    TypeScript — micro-frontends, data-heavy interfaces, and design-token systems used by real people under
+    real pressure. What sets me apart from a purely &ldquo;how it&rsquo;s built&rdquo; engineer is where my
+    instinct goes first: how a product should <em>work and feel</em> for the person using it. I&rsquo;ve owned
+    UI/UX direction end to end — at Cognizant, holding full decision-making authority over a fraud platform&rsquo;s
+    UI/UX — and colleagues have twice called me the team&rsquo;s &ldquo;unofficial screen designer.&rdquo; I work
+    at the seam between engineering, UX and product: challenging requirements so stories come out better
+    structured, deciding what an interface needs to do, and making complex, permission-heavy workflows feel simple.
+  </p>
+
+  <h2>Core Expertise &amp; Skills</h2>
+  <ul class="skills">
+    <li><span class="k">Product &amp; UX:</span> UI/UX ownership, user flows &amp; states, requirement discovery, accessibility (hands-on WCAG/ARIA), Figma &amp; design tokens.</li>
+    <li><span class="k">Architecture &amp; Frontend:</span> Angular (v2&ndash;20+), TypeScript, Micro-Frontends (MFE), Module Federation, Reactive State (Signals, NgRx SignalStore), RxJS, React, AG Grid, Angular Material, GraphQL, Sass.</li>
+    <li><span class="k">Backend-adjacent, Testing &amp; CI/CD:</span> Java (basic), REST APIs, Git, Jenkins, OpenShift, Azure, Jasmine, Karma.</li>
+    <li><span class="k">Leadership:</span> E2E delivery, cross-team mentorship, sprint planning, stakeholder communication.</li>
+  </ul>
+
+  <h2>Professional Experience</h2>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title"><span class="company">SS&amp;C Technologies</span> — UI Engineer</span>
+      <span class="role-meta">Hybrid, Bucharest &nbsp;·&nbsp; Sep 2025 – Present</span>
+    </div>
+    <ul class="bullets">
+      <li>Collaborated with UI Leadership to build and deliver features across <strong>8</strong> distinct Micro-Frontends, supporting the transition of core enterprise platforms from a monolithic shell.</li>
+      <li>Executed the platform migration to <strong>Angular 20</strong>, replacing legacy lifecycles with modern reactive patterns using Signals, viewChild(), and inject().</li>
+      <li>Engineered dedicated NgRx stores to manage and persist complex search, filtering, and configuration states.</li>
+      <li>Maintained and evolved internal SDK contracts by updating OpenAPI specifications, ensuring strict cross-MFE type consistency and reliable backend alignment for generated clients.</li>
+      <li>Led the end-to-end engineering of critical system modules, including bulk data import/export workflows, advanced permission-administration flows, and GraphQL-driven data migrations.</li>
+      <li>Extended and maintained a shared component library (<strong>25+</strong> reusable elements), personally building complex components such as virtual-scrolling trees, data tables with dynamic inline filters, and multi-select autocompletes.</li>
+      <li>Applied and enforced the team&rsquo;s design standards — global grid, design tokens, and SCSS variables — to keep the UI consistent across all frontends.</li>
+      <li>Achieved full <strong>WCAG</strong> accessibility compliance by programming advanced ARIA attributes and rigorous focus management in dialogs.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title"><span class="company">Cognizant</span> — Frontend Developer &amp; Interim Team Lead</span>
+      <span class="role-meta">Remote &nbsp;·&nbsp; Jan 2023 – Sep 2025</span>
+    </div>
+    <ul class="bullets">
+      <li>Held full decision-making authority over the platform&rsquo;s UI/UX direction, balancing intuitive design for fraud agents with technical feasibility — acting as the team&rsquo;s unofficial screen designer.</li>
+      <li>Architected and developed an <strong>11-flow</strong> modular Angular application for a Banking Fraud Targeting Platform, implementing role-based access control (RBAC).</li>
+      <li>Integrated AG Grid to process and visualize <strong>50,000+</strong> records for bulk-action investigations and live monitoring.</li>
+      <li>Acted as Interim Team Lead, managing frontend architectural decisions, CI/CD pipeline deployments, and sprint planning.</li>
+      <li>Achieved <strong>zero</strong> production incidents from the first release.</li>
+      <li>Mentored team members on Angular best practices and Jasmine unit testing.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title"><span class="company">Deloitte Digital Romania</span> — Frontend Developer</span>
+      <span class="role-meta">Remote &nbsp;·&nbsp; Oct 2021 – Dec 2022</span>
+    </div>
+    <ul class="bullets">
+      <li>Acted as the sole frontend developer for a banking application, building client-profile and loan-management interfaces using React, TypeScript, and Mambu.</li>
+      <li>Took ownership of Java-based PDF report generation and resolved backend bugs to maintain continuous delivery during resource shortages.</li>
+      <li>Developed interactive UI modules for an insurance platform (Angular, RxJS), working closely with the product designer to map and improve application flows.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title"><span class="company">IBM</span> — Frontend Developer</span>
+      <span class="role-meta">Remote / Bucharest &nbsp;·&nbsp; Dec 2018 – Oct 2021</span>
+    </div>
+    <ul class="bullets">
+      <li>Managed frontend development for a micro-frontend e-commerce platform serving <strong>6</strong> distinct brands using Angular and AEM.</li>
+      <li>Implemented feature toggling for beta programs and led performance and ARIA accessibility optimization.</li>
+      <li>Investigated and resolved a critical production incident for the checkout system.</li>
+      <li>Built offline-first tablet applications for insurance field staff using Angular and Ionic, implementing local storage and automated synchronization.</li>
+      <li>Delivered a mobile vulnerability-assessment app and a centralized document platform with advanced metadata search.</li>
+      <li>Redesigned a purchasing-flow MVP using React and GraphQL with dynamic, step-dependent forms.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <div style="margin-bottom:2px;"><strong style="color:var(--burgundy);">Romanian-American University</strong> — Faculty of Managerial Informatics, Bucharest</div>
+  <div class="edu-line"><span>Master of Science in Economic Informatics &nbsp;·&nbsp; Grade: <strong>9.66/10</strong></span><span class="role-meta">2018 – 2020</span></div>
+  <div class="edu-line"><span>Bachelor of Science in Economic Informatics &nbsp;·&nbsp; Grade: <strong>9.50/10</strong></span><span class="role-meta">2015 – 2018</span></div>
+
+  <div class="footer-note">
+    Detailed project breakdowns, technical articles, and full performance reviews from Technical Leads &amp; Project Managers:
+    <a href="https://madalinaeleonorag.github.io">madalinaeleonorag.github.io</a>
+  </div>
+
+</div>
+</body>
+</html>
