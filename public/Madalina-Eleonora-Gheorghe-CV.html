@@ -104,7 +104,9 @@
   @media print{
     body{ font-size:10.2pt; }
     .sheet{ max-width:none; margin:0; padding:0; box-shadow:none; }
-    .role, li{ page-break-inside:avoid; }
+    /* A long role may split across pages; a single bullet must not. */
+    li{ page-break-inside:avoid; }
+    .role-header, .role-sub{ page-break-after:avoid; }
     h2{ page-break-after:avoid; }
     a{ color:var(--burgundy) !important; }
   }
@@ -137,14 +139,17 @@
     UI/UX — and colleagues have twice called me the team&rsquo;s &ldquo;unofficial screen designer.&rdquo; I work
     at the seam between engineering, UX and product: challenging requirements so stories come out better
     structured, deciding what an interface needs to do, and making complex, permission-heavy workflows feel simple.
+    I also automate the repetitive half of my delivery work with AI tooling, so my time goes to the decisions that
+    need judgment.
   </p>
 
   <h2>Core Expertise &amp; Skills</h2>
   <ul class="skills">
     <li><span class="k">Product &amp; UX:</span> UI/UX ownership, user flows &amp; states, requirement discovery, accessibility (hands-on WCAG/ARIA), Figma &amp; design tokens.</li>
-    <li><span class="k">Architecture &amp; Frontend:</span> Angular (v2&ndash;20+), TypeScript, Micro-Frontends (MFE), Module Federation, Reactive State (Signals, NgRx SignalStore), RxJS, React, AG Grid, Angular Material, GraphQL, Sass.</li>
-    <li><span class="k">Backend-adjacent, Testing &amp; CI/CD:</span> Java (basic), REST APIs, Git, Jenkins, OpenShift, Azure, Jasmine, Karma.</li>
-    <li><span class="k">Leadership:</span> E2E delivery, cross-team mentorship, sprint planning, stakeholder communication.</li>
+    <li><span class="k">Architecture &amp; Frontend:</span> Angular (v2&ndash;20+), TypeScript, Micro-Frontends (MFE), Module Federation, Nx, Reactive State (Signals, NgRx SignalStore), RxJS, React, AG Grid, Angular Material 3, GraphQL, Sass.</li>
+    <li><span class="k">Backend-adjacent, Testing &amp; CI/CD:</span> Java (basic), REST APIs, OpenAPI/SDK generation, Keycloak, Git, GitHub Actions, Docker, ArgoCD, Jest.</li>
+    <li><span class="k">AI-assisted development:</span> Claude Code (CLI agents), MCP tooling, AI-assisted refactoring &amp; code review.</li>
+    <li><span class="k">Leadership:</span> E2E delivery, technical interviewing &amp; hiring input, cross-team mentorship, sprint planning, stakeholder communication.</li>
   </ul>
 
   <h2>Professional Experience</h2>
@@ -156,13 +161,16 @@
     </div>
     <ul class="bullets">
       <li>Collaborated with UI Leadership to build and deliver features across <strong>8</strong> distinct Micro-Frontends, supporting the transition of core enterprise platforms from a monolithic shell.</li>
-      <li>Executed the platform migration to <strong>Angular 20</strong>, replacing legacy lifecycles with modern reactive patterns using Signals, viewChild(), and inject().</li>
-      <li>Engineered dedicated NgRx stores to manage and persist complex search, filtering, and configuration states.</li>
-      <li>Maintained and evolved internal SDK contracts by updating OpenAPI specifications, ensuring strict cross-MFE type consistency and reliable backend alignment for generated clients.</li>
-      <li>Led the end-to-end engineering of critical system modules, including bulk data import/export workflows, advanced permission-administration flows, and GraphQL-driven data migrations.</li>
-      <li>Extended and maintained a shared component library (<strong>25+</strong> reusable elements), personally building complex components such as virtual-scrolling trees, data tables with dynamic inline filters, and multi-select autocompletes.</li>
-      <li>Applied and enforced the team&rsquo;s design standards — global grid, design tokens, and SCSS variables — to keep the UI consistent across all frontends.</li>
-      <li>Achieved full <strong>WCAG</strong> accessibility compliance by programming advanced ARIA attributes and rigorous focus management in dialogs.</li>
+      <li>Migrated the areas I own to <strong>Angular 20</strong> reactive patterns, replacing legacy lifecycle hooks with Signals, viewChild(), and inject().</li>
+      <li>Built NgRx Signal stores to manage and persist complex search, filtering, and configuration state.</li>
+      <li>Maintained internal SDK contracts by updating OpenAPI specifications — keeping generated clients type-consistent across MFEs and aligned with backend changes.</li>
+      <li>Owned end-to-end delivery of several system modules: bulk data import/export workflows, permission-administration flows, and GraphQL-driven data migrations.</li>
+      <li><strong>Automated the repetitive half of my own workflow with AI tooling</strong> (Claude Code CLI, MCP-connected Jira/Confluence): scaffolding components, stores and specs, mechanical cross-MFE refactors, and drafting ticket and documentation updates from the terminal — output always reviewed by me.</li>
+      <li>Wrote <strong>repeatable golden-set checks</strong> to verify consistency across the 8 MFEs instead of inspecting each one by hand, and used AI-assisted reading to get into unfamiliar code faster before reviews.</li>
+      <li>Extended and maintained a shared component library (<strong>25+</strong> reusable elements), personally building the harder components: virtual-scrolling trees, data tables with dynamic inline filters, and multi-select autocompletes.</li>
+      <li>Applied the team&rsquo;s design standards — global grid, design tokens, and SCSS variables — to keep the UI consistent across all frontends.</li>
+      <li>Handled accessibility hands-on rather than retrofitting it: ARIA attributes, keyboard interaction, and focus management/restore in dialogs.</li>
+      <li><strong>Interviewed candidates for frontend roles</strong> on our teams — ran the technical portion and fed into hiring decisions.</li>
     </ul>
   </div>
 
