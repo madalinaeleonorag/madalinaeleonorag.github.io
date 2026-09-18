@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Madalina-Eleonora Gheorghe — CV</title>
-<meta name="author" content="Madalina-Eleonora Gheorghe">
-<meta name="description" content="Senior UI / Frontend Engineer — Angular, TypeScript, micro-frontends, design systems, accessibility. 7+ years enterprise frontend.">
 <style>
   /* ---- Burgundy palette (single accent, used with restraint) ---- */
   :root{
@@ -21,16 +19,8 @@
     margin:0; padding:0;
     color:var(--ink);
     font-family:"Calibri","Segoe UI","Helvetica Neue",Arial,sans-serif;
-    font-size:10.4pt;
-    line-height:1.37;
-
-    /* ATS-critical: Calibri substitutes fi/fl/ff/ffi ligatures, which Chrome writes
-       into the PDF as single glyphs (U+FB01 etc). Keyword search for "workflow",
-       "filter", "scaffolded" then fails. Turning ligatures off keeps the text
-       searchable as plain ASCII. */
-    font-variant-ligatures:none;
-    -webkit-font-variant-ligatures:none;
-    font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0;
+    font-size:10.6pt;
+    line-height:1.42;
   }
 
   /* Screen: show a page-like sheet. Print: fill the page. */
@@ -43,100 +33,76 @@
   }
 
   /* ---------- Header ---------- */
-  header{ text-align:center; margin-bottom:10px; }
+  header{ text-align:center; margin-bottom:14px; }
   h1{
-    font-size:22pt;
+    font-size:23pt;
     letter-spacing:.5px;
-    margin:0 0 4px;
+    margin:0 0 6px;
     color:var(--ink);
     font-weight:700;
   }
   .tagline{
     color:var(--burgundy);
-    font-size:10.6pt;
+    font-size:10.8pt;
     font-weight:600;
-    margin:0 0 5px;
+    margin:0 0 8px;
     letter-spacing:.2px;
   }
-  .contact{ font-size:9.4pt; color:var(--muted); line-height:1.55; }
+  .contact{ font-size:9.6pt; color:var(--muted); line-height:1.6; }
   .contact a{ color:var(--burgundy); text-decoration:none; }
   .contact .sep{ color:var(--rule); padding:0 5px; }
   .contact .portfolio{ font-weight:700; }
 
   /* ---------- Section headings ---------- */
   h2{
-    font-size:10.6pt;
+    font-size:11pt;
     text-transform:uppercase;
     letter-spacing:1.2px;
     color:var(--burgundy);
     border-bottom:1.5px solid var(--burgundy);
     padding-bottom:3px;
-    margin:12px 0 6px;
+    margin:18px 0 9px;
     font-weight:700;
   }
 
-  /* Not justified: on this measure justification packs the lines evenly and
-     reads dense. A ragged right edge is the free half of "less crowded". */
-  p.summary{ margin:0; }
+  p.summary{ margin:0; text-align:justify; }
 
   /* ---------- Skills ---------- */
   ul.skills{ list-style:none; margin:0; padding:0; }
-  /* Air between skill categories, deliberately generous. The SS&C section is
-     ALLOWED to overflow onto page 2 — that constraint was lifted. What still
-     matters is the 2-page total and which bullet overflows (see ul.bullets). */
-  ul.skills li{ margin:0 0 12px; padding-left:0; }
-  /* Bold, not burgundy: these sit directly under a burgundy heading and would
-     otherwise compete with it, and with the employer names in Experience.
-     Burgundy stays the navigation layer (headings, companies); bold is emphasis. */
-  ul.skills .k{ font-weight:700; }
-  /* ATS: a hyphenated keyword broken across a line extracts as "Micro- Frontends",
-     which no keyword search matches. Keep compound keywords on one line. */
-  .nb{ white-space:nowrap; }
+  ul.skills li{ margin:0 0 4px; padding-left:0; }
+  ul.skills .k{ color:var(--burgundy); font-weight:700; }
 
   /* ---------- Experience ---------- */
-  .role{ margin:0 0 7px; }
-  .role:last-of-type{ margin-bottom:0; }
+  .role{ margin:0 0 12px; }
   .role-header{
     display:flex;
     justify-content:space-between;
     align-items:baseline;
     gap:12px;
   }
-  .role-title{ font-weight:700; font-size:10.6pt; }
+  .role-title{ font-weight:700; font-size:10.8pt; }
   .role-title .company{ color:var(--burgundy); }
-  .role-meta{ color:var(--muted); font-size:9.2pt; white-space:nowrap; }
-  .role-sub{ color:var(--muted); font-size:9.4pt; font-style:italic; margin:1px 0 4px; }
+  .role-meta{ color:var(--muted); font-size:9.4pt; white-space:nowrap; }
+  .role-sub{ color:var(--muted); font-size:9.6pt; font-style:italic; margin:1px 0 5px; }
 
-  ul.bullets{ margin:3px 0 0; padding-left:16px; }
-  /* SS&C now overflows onto page 2 on purpose, so the question is WHICH bullet
-     goes over. The recognition bullet was moved above the design/mentoring one
-     precisely so the latter is the one that spills: a bullet landing above the
-     Cognizant header can be misread as Cognizant's, and that must not be the
-     recognition. Keep the recognition on page 1 when changing any of these:
-     skills gap, h2 margin, line-height, this margin, or page-1 wording.
-     ⚠️ MEASURED 18 Sep 2026: the constraint is WRAPPED LINES, not word count. A trial
-     variant at 1,270 words spilled to three pages while one at 1,279 fitted, because
-     only the second happened to shorten a bullet by a whole line. Always render and
-     count pages; never reason about this from a word total. Adding a keyword to the
-     skills list is the most expensive edit of all: those items carry a 12px gap, so
-     one extra wrapped line there costs a page every time. */
-  ul.bullets li{ margin:0 0 1.5px; }
+  ul.bullets{ margin:4px 0 0; padding-left:17px; }
+  ul.bullets li{ margin:0 0 3px; }
   strong{ font-weight:700; }
 
   /* ---------- Education ---------- */
-  .edu-line{ display:flex; justify-content:space-between; gap:12px; margin:1px 0; }
+  .edu-line{ display:flex; justify-content:space-between; gap:12px; margin:2px 0; }
 
   .footer-note{
-    margin-top:5px; padding-top:4px;
+    margin-top:14px; padding-top:8px;
     border-top:1px solid var(--rule);
-    font-size:8.7pt; color:var(--muted); text-align:center;
+    font-size:8.9pt; color:var(--muted); text-align:center;
   }
   .footer-note a{ color:var(--burgundy); text-decoration:none; }
 
   /* ---------- Print ---------- */
-  @page{ size:A4; margin:12mm; }
+  @page{ size:A4; margin:13mm; }
   @media print{
-    body{ font-size:9.8pt; }
+    body{ font-size:10.2pt; }
     .sheet{ max-width:none; margin:0; padding:0; box-shadow:none; }
     /* A long role may split across pages; a single bullet must not. */
     li{ page-break-inside:avoid; }
@@ -151,7 +117,7 @@
 
   <header>
     <h1>Madalina-Eleonora Gheorghe</h1>
-    <p class="tagline">Senior UI / Frontend Engineer · Angular &amp; TypeScript &nbsp;|&nbsp; UX-driven product thinking</p>
+    <p class="tagline">Senior UI Engineer · Angular &amp; TypeScript &nbsp;|&nbsp; UX-driven product thinking</p>
     <div class="contact">
       Bucharest, Romania
       <span class="sep">|</span> <a href="mailto:madalinaeleonora.gheorghe@gmail.com">madalinaeleonora.gheorghe@gmail.com</a>
@@ -165,23 +131,25 @@
 
   <h2>Professional Summary</h2>
   <p class="summary">
-    UI Engineer with <strong>7+ years</strong> of software engineering, building complex enterprise
-    web applications in Angular and TypeScript: micro-frontend estates, data-heavy administration interfaces, and the shared
-    component and design-token layers underneath them. What I reach for first is how a product should
-    <em>work and feel</em> for the person using it. I&rsquo;ve owned UI/UX direction end to end, and
-    colleagues have twice called me the team&rsquo;s &ldquo;unofficial screen designer&rdquo;. I challenge
-    requirements so stories come out better structured, and make complex, permission-heavy workflows
-    feel simple.
+    UI Engineer with <strong>7+ years</strong> building complex enterprise web applications in Angular and
+    TypeScript — micro-frontends, data-heavy interfaces, and design-token systems used by real people under
+    real pressure. What sets me apart from a purely &ldquo;how it&rsquo;s built&rdquo; engineer is where my
+    instinct goes first: how a product should <em>work and feel</em> for the person using it. I&rsquo;ve owned
+    UI/UX direction end to end — at Cognizant, holding full decision-making authority over a fraud platform&rsquo;s
+    UI/UX — and colleagues have twice called me the team&rsquo;s &ldquo;unofficial screen designer.&rdquo; I work
+    at the seam between engineering, UX and product: challenging requirements so stories come out better
+    structured, deciding what an interface needs to do, and making complex, permission-heavy workflows feel simple.
+    I also automate the repetitive half of my delivery work with AI tooling, so my time goes to the decisions that
+    need judgment.
   </p>
 
   <h2>Core Expertise &amp; Skills</h2>
   <ul class="skills">
-    <li><span class="k">Product &amp; UX:</span> UI/UX ownership, requirements analysis &amp; discovery, wireframing, user flows &amp; states, responsive design, accessibility (hands-on WCAG 2.1 / ARIA), Figma, design tokens &amp; theming.</li>
-    <li><span class="k">Architecture &amp; Frontend:</span> Angular (v2 to v21), TypeScript, JavaScript (ES6+), semantic HTML, CSS, Sass, <span class="nb">Micro-Frontends (MFE)</span>, Module Federation, Nx monorepos, reactive state (Signals, NgRx SignalStore), zoneless Angular, RxJS, WebSockets, React, AG Grid, Angular Material 3, shared component library and design system maintenance.</li>
-    <li><span class="k">Backend-adjacent, Testing &amp; CI/CD:</span> REST APIs, OpenAPI / SDK generation, npm library publishing (ng-packagr), Keycloak / OIDC, Java (basic), Jest, Jasmine, unit &amp; contract testing, code review, Git, BitBucket, GitHub Actions, Docker, ArgoCD, Jenkins.</li>
-    <li><span class="k">AI-assisted development:</span> Claude Code (CLI agents), MCP tooling, AI-assisted refactoring and code review.</li>
-    <li><span class="k">Leadership &amp; ways of working:</span> E2E delivery ownership, Agile / Scrum, sprint planning, technical interviewing &amp; hiring input, cross-team mentoring, stakeholder communication.</li>
-    <li><span class="k">Languages:</span> Romanian (native), English (full professional proficiency).</li>
+    <li><span class="k">Product &amp; UX:</span> UI/UX ownership, user flows &amp; states, requirement discovery, accessibility (hands-on WCAG/ARIA), Figma &amp; design tokens.</li>
+    <li><span class="k">Architecture &amp; Frontend:</span> Angular (v2&ndash;20+), TypeScript, Micro-Frontends (MFE), Module Federation, Nx, Reactive State (Signals, NgRx SignalStore), RxJS, React, AG Grid, Angular Material 3, GraphQL, Sass.</li>
+    <li><span class="k">Backend-adjacent, Testing &amp; CI/CD:</span> Java (basic), REST APIs, OpenAPI/SDK generation, Keycloak, Git, GitHub Actions, Docker, ArgoCD, Jest.</li>
+    <li><span class="k">AI-assisted development:</span> Claude Code (CLI agents), MCP tooling, AI-assisted refactoring &amp; code review.</li>
+    <li><span class="k">Leadership:</span> E2E delivery, technical interviewing &amp; hiring input, cross-team mentorship, sprint planning, stakeholder communication.</li>
   </ul>
 
   <h2>Professional Experience</h2>
@@ -191,16 +159,18 @@
       <span class="role-title"><span class="company">SS&amp;C Technologies</span> — UI Engineer</span>
       <span class="role-meta">Hybrid, Bucharest &nbsp;·&nbsp; Sep 2025 – Present</span>
     </div>
-    <div class="role-sub">Digital Technology and Development team. Five financial-services administration products on one shared UI foundation, as the organisation consolidates from a separate codebase per client to one configurable platform serving all of them.</div>
     <ul class="bullets">
-      <li><strong>Code owner of the access-and-permissions platform (RBAC)</strong>, in production and used across our organisation to enrol and administer who can reach our products, each person reaching all of it or only part of it according to their own role. Refactored and improved it, took it to <strong>Angular 21</strong> and reworked the interface.</li>
-      <li><strong>Eleven Angular applications behind one shell</strong> (Nx, Module Federation, each area loading only for a user entitled to it), replacing a monolith that could not be maintained. <strong>Six of the eleven I built from scratch</strong>, the other five I inherited and improved.</li>
-      <li>Built the <strong>permission-import</strong> feature that makes configuring a new client easier. Importing is destructive, so users were afraid to use it; it now shows exactly what it will change before changing anything. Also built <strong>delegated access</strong>, <span class="nb">multi-factor-authentication</span> management, and the configuration behind <strong>in-app notifications</strong>. Redesigned the notification widget the lead started: a design per notification status, and important ones that cannot be deleted.</li>
-      <li><strong>Moved the table filters into the table.</strong> Screen space was the constraint, so the filter went into each column header instead of a row of boxes above the grid, across all the existing tables.</li>
-      <li>Consolidating components copy-pasted across <strong>seven applications</strong> into one themable kit of <strong>33</strong> components with <span class="nb">virtual scrolling</span>, carrying ~<strong>1,050</strong> tests, having made the case by measuring it: forks larger than the originals they simplified, pairs kept byte-identical by hand. Migrated Angular Material M2 to <strong>Angular Material 3</strong> unprompted.</li>
-      <li><strong>Rebuilt the last application left in the legacy codebase so it could finally be archived</strong>, reconstructing unfinished behaviour from the original documentation. Co-maintain the platform&rsquo;s <strong>TypeScript SDK</strong>, generated from <strong>14 OpenAPI specifications</strong> into four published npm packages.</li>
-      <li><strong>Recognised in a call across the whole services group</strong> for having been through every one of the projects and improved them, and named one of the people it relies on.</li>
-      <li>Extended the product design from our designer&rsquo;s first draft of header and sidenav placement: designed the screens it did not cover, then applied and refined the result across the estate, with accessibility written into each component (ARIA, keyboard, per-row table labels, focus restore). Ran the technical interview for <strong>two</strong> partner-vendor engineers joining the team, mentor engineers, and <strong>automate the repetitive half of the delivery work I own with AI tooling</strong> as a personal workflow.</li>
+      <li>Collaborated with UI Leadership to build and deliver features across <strong>8</strong> distinct Micro-Frontends, supporting the transition of core enterprise platforms from a monolithic shell.</li>
+      <li>Migrated the areas I own to <strong>Angular 20</strong> reactive patterns, replacing legacy lifecycle hooks with Signals, viewChild(), and inject().</li>
+      <li>Built NgRx Signal stores to manage and persist complex search, filtering, and configuration state.</li>
+      <li>Maintained internal SDK contracts by updating OpenAPI specifications — keeping generated clients type-consistent across MFEs and aligned with backend changes.</li>
+      <li>Owned end-to-end delivery of several system modules: bulk data import/export workflows, permission-administration flows, and GraphQL-driven data migrations.</li>
+      <li><strong>Automated the repetitive half of my own workflow with AI tooling</strong> (Claude Code CLI, MCP-connected Jira/Confluence): scaffolding components, stores and specs, mechanical cross-MFE refactors, and drafting ticket and documentation updates from the terminal — output always reviewed by me.</li>
+      <li>Wrote <strong>repeatable golden-set checks</strong> to verify consistency across the 8 MFEs instead of inspecting each one by hand, and used AI-assisted reading to get into unfamiliar code faster before reviews.</li>
+      <li>Extended and maintained a shared component library (<strong>25+</strong> reusable elements), personally building the harder components: virtual-scrolling trees, data tables with dynamic inline filters, and multi-select autocompletes.</li>
+      <li>Applied the team&rsquo;s design standards — global grid, design tokens, and SCSS variables — to keep the UI consistent across all frontends.</li>
+      <li>Handled accessibility hands-on rather than retrofitting it: ARIA attributes, keyboard interaction, and focus management/restore in dialogs.</li>
+      <li><strong>Interviewed candidates for frontend roles</strong> on our teams — ran the technical portion and fed into hiring decisions.</li>
     </ul>
   </div>
 
@@ -209,12 +179,13 @@
       <span class="role-title"><span class="company">Cognizant</span> — Frontend Developer &amp; Interim Team Lead</span>
       <span class="role-meta">Remote &nbsp;·&nbsp; Jan 2023 – Sep 2025</span>
     </div>
-    <div class="role-sub">Banking fraud-targeting platform and employee access-management system</div>
     <ul class="bullets">
-      <li>Started a fraud-detection platform for a <strong>Belgian retail bank</strong> with the tech lead: <strong>11</strong> Angular screens where the bank&rsquo;s security agents review suspicious transactions and decide whether to allow, block or telephone the customer. Integrated AG Grid for bulk reclassification across <strong>50,000+</strong> records, guarded by business rules in both frontend and backend so an agent could not get it wrong, with role-based access control (RBAC) throughout and WebSockets for live status changes.</li>
-      <li>Won UI/UX decision authority by arguing the agent&rsquo;s first-time perspective against flows the business analysts had mapped from their own, which ended with me in the feedback sessions with agents and their department managers. A manager review listed UX design among the tasks I took on outside the role.</li>
-      <li>Interim Team Lead after the tech lead&rsquo;s departure: frontend architecture decisions, an Angular version upgrade, CI/CD deployments, sprint planning, and release ownership from the third release onwards with <strong>zero</strong> production incidents across the releases I owned. Brought two under-delivering colleagues from one story in two weeks to one in three days.</li>
-      <li>Also started an employee access-management system with the same lead, took it to MVP, and stayed its point of reference for difficult Angular and business decisions after it moved to another team. Mentored on Angular practice and Jasmine unit testing throughout.</li>
+      <li>Held full decision-making authority over the platform&rsquo;s UI/UX direction, balancing intuitive design for fraud agents with technical feasibility — acting as the team&rsquo;s unofficial screen designer.</li>
+      <li>Architected and developed an <strong>11-flow</strong> modular Angular application for a Banking Fraud Targeting Platform, implementing role-based access control (RBAC).</li>
+      <li>Integrated AG Grid to process and visualize <strong>50,000+</strong> records for bulk-action investigations and live monitoring.</li>
+      <li>Acted as Interim Team Lead, managing frontend architectural decisions, CI/CD pipeline deployments, and sprint planning.</li>
+      <li>Achieved <strong>zero</strong> production incidents from the first release.</li>
+      <li>Mentored team members on Angular best practices and Jasmine unit testing.</li>
     </ul>
   </div>
 
@@ -224,31 +195,34 @@
       <span class="role-meta">Remote &nbsp;·&nbsp; Oct 2021 – Dec 2022</span>
     </div>
     <ul class="bullets">
-      <li>Sole frontend developer for <strong>11 months</strong> on an internal banking application (React, TypeScript, Mambu), building client-profile, loan creation and refinancing, and onboarding workflows. Took over the Java PDF transaction-history reports the bank&rsquo;s staff relied on, making the API changes myself when backend developers were unavailable, then paginating the document and adding the bank&rsquo;s legally required header and footer.</li>
-      <li>Built the purchase and <strong>mid-term adjustment</strong> flows for an insurance product MVP (Angular, RxJS): upgrading a live policy and paying only the difference, upgrades only. Improved the product&rsquo;s consistency and usability through daily work with the designer as the frontend&rsquo;s feasibility voice.</li>
+      <li>Acted as the sole frontend developer for a banking application, building client-profile and loan-management interfaces using React, TypeScript, and Mambu.</li>
+      <li>Took ownership of Java-based PDF report generation and resolved backend bugs to maintain continuous delivery during resource shortages.</li>
+      <li>Developed interactive UI modules for an insurance platform (Angular, RxJS), working closely with the product designer to map and improve application flows.</li>
     </ul>
   </div>
 
   <div class="role">
     <div class="role-header">
-      <span class="role-title"><span class="company">IBM</span> — Frontend Developer <span style="font-weight:400;color:var(--muted);">(joined as intern)</span></span>
-      <span class="role-meta">Bucharest &nbsp;·&nbsp; Dec 2018 – Oct 2021</span>
+      <span class="role-title"><span class="company">IBM</span> — Frontend Developer</span>
+      <span class="role-meta">Remote / Bucharest &nbsp;·&nbsp; Dec 2018 – Oct 2021</span>
     </div>
     <ul class="bullets">
-      <li>Product-browsing and cart team on an AEM-driven e-commerce platform serving <strong>6</strong> grocery brands for <strong>Albertsons</strong> (Angular, TypeScript, plain JavaScript), integrating with other teams&rsquo; applications through shared browser storage. Built roughly <strong>90%</strong> of the coupon experience across search, product and mini-cart surfaces, with pricing and order totals recalculating in real time, plus store-location logic driving stock, delivery pricing and pickup availability. Everything shipped behind advertising-controlled <strong>feature toggles</strong>, so most components ran as two live versions at once. ARIA, keyboard and screen-reader (VoiceOver) accessibility were client-mandated and tester-verified on every ticket.</li>
-      <li>One of 7&ndash;8 developers on an offline-capable tablet application for <strong>Munich Re</strong> repair technicians (Angular, Ionic, Capacitor): verify that an appliance is covered, record the repair, photograph proof and capture a legally valid customer signature, on unreliable connections in customers&rsquo; homes. Also built the frontend for a company-wide document platform searching inside <strong>10,000+</strong> files, and hand-remediated dependency vulnerabilities in an ageing device-compliance app. Three on-site trips to Munich.</li>
-      <li>Mentored juniors, onboarded new joiners into the wider IBM iX practice, and was the US client&rsquo;s point of contact, working US hours from Romania.</li>
+      <li>Managed frontend development for a micro-frontend e-commerce platform serving <strong>6</strong> distinct brands using Angular and AEM.</li>
+      <li>Implemented feature toggling for beta programs and led performance and ARIA accessibility optimization.</li>
+      <li>Investigated and resolved a critical production incident for the checkout system.</li>
+      <li>Built offline-first tablet applications for insurance field staff using Angular and Ionic, implementing local storage and automated synchronization.</li>
+      <li>Delivered a mobile vulnerability-assessment app and a centralized document platform with advanced metadata search.</li>
+      <li>Redesigned a purchasing-flow MVP using React and GraphQL with dynamic, step-dependent forms.</li>
     </ul>
   </div>
 
-  <h2>Education &amp; Awards</h2>
+  <h2>Education</h2>
   <div style="margin-bottom:2px;"><strong style="color:var(--burgundy);">Romanian-American University</strong> — Faculty of Managerial Informatics, Bucharest</div>
-  <div class="edu-line"><span>Master of Science, Computer Science for Economics &nbsp;·&nbsp; Grade: <strong>9.66/10</strong></span><span class="role-meta">2018 – 2020</span></div>
-  <div class="edu-line"><span>Bachelor of Science, Computer Science for Economics &nbsp;·&nbsp; Grade: <strong>9.50/10</strong></span><span class="role-meta">2015 – 2018</span></div>
-  <div style="margin-top:3px;"><strong>Awards:</strong> 1st place, Web &amp; Mobile Challenge, DevHacks &nbsp;·&nbsp; 2nd place, RAU DevHack hackathon</div>
+  <div class="edu-line"><span>Master of Science in Economic Informatics &nbsp;·&nbsp; Grade: <strong>9.66/10</strong></span><span class="role-meta">2018 – 2020</span></div>
+  <div class="edu-line"><span>Bachelor of Science in Economic Informatics &nbsp;·&nbsp; Grade: <strong>9.50/10</strong></span><span class="role-meta">2015 – 2018</span></div>
 
   <div class="footer-note">
-    Per-project detail and full performance reviews:
+    Detailed project breakdowns, technical articles, and full performance reviews from Technical Leads &amp; Project Managers:
     <a href="https://madalinaeleonorag.github.io">madalinaeleonorag.github.io</a>
   </div>
 
