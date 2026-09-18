@@ -44,11 +44,11 @@ export class Home {
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'conversion_download', {
         event_category: 'Engagement',
-        event_label: type,
+        event_label: fileName,
         value: 1,
       });
     } else {
-      console.log(`[Analytics] Tracked download event for: ${type}`);
+      console.log(`[Analytics] Tracked download event for: ${fileName}`);
     }
 
     window.open(fileUrl, '_blank');
