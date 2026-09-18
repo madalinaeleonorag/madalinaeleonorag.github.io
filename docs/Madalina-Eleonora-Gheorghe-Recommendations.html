@@ -2,48 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Madalina-Eleonora Gheorghe — Professional Recommendations &amp; Performance Reviews</title>
-<meta name="author" content="Madalina-Eleonora Gheorghe">
-<meta name="description" content="Recommendations and performance reviews for Madalina-Eleonora Gheorghe, Senior UI Engineer — Cognizant, Deloitte Digital and IBM.">
+<title>Madalina-Eleonora Gheorghe — Recommendations</title>
 <style>
-  /* Rebuilt 18 Sep 2026 from the published PDF, which had no source file left on disk.
-     Palette, Calibri and the 13mm page margin were measured back out of that PDF, as were
-     the panel borders (1px rule on three sides, 3px burgundy on the left) and the 2px rule
-     down the left of every quote. Two entries were removed on her decision: Emanuel Cepoi
-     (Wooter Apparel) and Mihaela Gales (Vodafone) — neither was a colleague at a company she
-     worked for, and a company label on a recommendation reads as "we worked together there".
-     The cover line lost its "and beyond" with them.
-     ⚠️ Quotes are other people's words: transcribed exactly, including American spellings
-     ("favorite", "organized") and the one em-dash inside Iris Vanstraelen's review. Do not
-     edit inside a quotation. "Alpha" stays — it is Deloitte's publicly described Alpha
-     Platform, not an internal codename. */
   :root{
     --burgundy:#7A1E2E;
     --burgundy-soft:#9B4552;
     --ink:#1c1c1c;
     --muted:#555;
     --rule:#e2d3d6;
+    --wash:#faf5f6;
   }
-
   *{ box-sizing:border-box; }
-
   html,body{
     margin:0; padding:0;
     color:var(--ink);
     font-family:"Calibri","Segoe UI","Helvetica Neue",Arial,sans-serif;
-    font-size:10.2pt;
-    line-height:1.42;
-
-    /* Same ATS fix as both CVs: Calibri substitutes fi/fl/ff/ffi ligatures and Chrome writes
-       them into the PDF as single U+FB0x glyphs, so "find", "difficult", "efficient" stop
-       being searchable. */
-    font-variant-ligatures:none;
-    -webkit-font-variant-ligatures:none;
-    font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0;
+    font-size:10.6pt;
+    line-height:1.45;
   }
-
   .sheet{
-    max-width:820px;
+    max-width:800px;
     margin:24px auto;
     padding:40px 46px;
     background:#fff;
@@ -51,18 +29,20 @@
   }
 
   /* ---------- Header ---------- */
-  header{ text-align:center; margin-bottom:14px; }
+  header{ text-align:center; margin-bottom:6px; }
   .eyebrow{
-    font-size:8.6pt;
-    letter-spacing:2.6px;
     text-transform:uppercase;
-    color:var(--muted);
-    margin:0 0 8px;
+    letter-spacing:2px;
+    font-size:8.6pt;
+    color:var(--burgundy-soft);
+    font-weight:700;
+    margin:0 0 6px;
   }
   h1{
     font-size:22pt;
     letter-spacing:.5px;
-    margin:0 0 4px;
+    margin:0 0 5px;
+    color:var(--ink);
     font-weight:700;
   }
   .tagline{
@@ -70,84 +50,83 @@
     font-size:10.6pt;
     font-weight:600;
     margin:0 0 8px;
-    letter-spacing:.2px;
   }
   .intro{
-    font-size:9.6pt;
     color:var(--muted);
+    font-size:9.6pt;
+    font-style:italic;
+    max-width:560px;
     margin:0 auto;
-    max-width:86%;
   }
 
-  /* ---------- Highlights panel ---------- */
+  /* ---------- Highlights band ---------- */
   .highlights{
+    margin:20px 0 6px;
+    padding:16px 20px;
+    background:var(--wash);
     border:1px solid var(--rule);
-    border-left:3px solid var(--burgundy);
-    padding:12px 16px 4px;
-    margin:16px 0 4px;
+    border-left:4px solid var(--burgundy);
+    border-radius:2px;
   }
-  .highlights .label{
-    font-size:8.4pt;
-    letter-spacing:2.4px;
+  .highlights .htitle{
     text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:8.4pt;
     color:var(--burgundy);
     font-weight:700;
     margin:0 0 10px;
   }
-  .pull{ margin:0 0 12px; }
-  .pull p{
-    margin:0 0 4px;
-    font-style:italic;
-    font-size:10.4pt;
-  }
+  .pull{ margin:0 0 11px; }
+  .pull:last-child{ margin-bottom:0; }
+  .pull q{ font-style:italic; font-size:10.4pt; quotes:"\201C" "\201D"; }
+  .pull q:before{ content:open-quote; color:var(--burgundy-soft); }
+  .pull q:after{ content:close-quote; color:var(--burgundy-soft); }
+  .pull .attr{ display:block; margin-top:3px; font-size:9pt; color:var(--muted); font-style:normal; }
+  .pull .attr b{ color:var(--ink); }
 
-  /* ---------- Sections ---------- */
+  /* ---------- Section headings ---------- */
   h2{
     font-size:11pt;
     text-transform:uppercase;
-    letter-spacing:1.2px;
+    letter-spacing:1px;
     color:var(--burgundy);
-    border-bottom:1px solid var(--burgundy);
+    border-bottom:1.5px solid var(--burgundy);
     padding-bottom:3px;
-    margin:18px 0 10px;
+    margin:22px 0 10px;
     font-weight:700;
+    display:flex; align-items:center; gap:9px;
   }
   h2 .num{
-    font-size:9pt;
-    font-weight:700;
-    margin-right:9px;
+    display:inline-flex; align-items:center; justify-content:center;
+    width:18px; height:18px; border-radius:50%;
+    background:var(--burgundy); color:#fff;
+    font-size:9pt; font-weight:700; letter-spacing:0;
+    flex:none;
   }
 
-  /* ---------- Individual reviews ---------- */
-  .rev{
-    border-left:2px solid var(--rule);
-    padding-left:12px;
-    margin:0 0 12px;
-  }
-  .rev p{ margin:0; }
-  .rev .lead-in{ font-weight:700; }
-  .attrib{
-    font-size:9.2pt;
-    color:var(--muted);
-    margin-top:5px;
-  }
-  .attrib .who{ color:var(--burgundy-soft); font-weight:700; }
+  /* ---------- Quotes ---------- */
+  .quote{ margin:0 0 13px; padding-left:14px; border-left:2px solid var(--rule); }
+  .quote p{ margin:0 0 4px; }
+  .quote .attr{ font-size:9.2pt; color:var(--muted); }
+  .quote .attr b{ color:var(--burgundy-soft); }
+  .quote ul{ margin:5px 0 5px; padding-left:18px; }
+  .quote ul li{ margin:0 0 3px; }
 
   .footer-note{
-    margin-top:14px; padding-top:5px;
+    margin-top:18px; padding-top:8px;
     border-top:1px solid var(--rule);
-    font-size:8.7pt; color:var(--muted); text-align:center;
+    font-size:8.9pt; color:var(--muted); text-align:center;
   }
   .footer-note a{ color:var(--burgundy); text-decoration:none; }
 
   /* ---------- Print ---------- */
   @page{ size:A4; margin:13mm; }
   @media print{
-    body{ font-size:9.8pt; }
+    body{ font-size:10.2pt; }
     .sheet{ max-width:none; margin:0; padding:0; box-shadow:none; }
-    .rev, .pull{ page-break-inside:avoid; }
-    .highlights{ page-break-inside:avoid; }
+    .quote, .pull{ page-break-inside:avoid; }
     h2{ page-break-after:avoid; }
+    .highlights{ page-break-inside:avoid; }
     a{ color:var(--burgundy) !important; }
   }
 </style>
@@ -158,281 +137,173 @@
   <header>
     <p class="eyebrow">Professional Recommendations &amp; Performance Reviews</p>
     <h1>Madalina-Eleonora Gheorghe</h1>
-    <p class="tagline">Senior UI Engineer &middot; UX-driven product thinking</p>
-    <p class="intro">
-      A collection of feedback from Technical Leads, Application &amp; Project Managers, and team
-      members across major enterprise projects at Cognizant, Deloitte Digital and IBM.
-    </p>
+    <p class="tagline">Senior UI Engineer · UX-driven product thinking</p>
+    <p class="intro">A collection of feedback from Technical Leads, Application &amp; Project Managers, and team members across major enterprise projects at Cognizant, Deloitte Digital, IBM and beyond.</p>
   </header>
 
   <div class="highlights">
-    <p class="label">Highlights</p>
+    <p class="htitle">Highlights</p>
 
     <div class="pull">
-      <p>&ldquo;Not only you help us with designing and developing screens for our end user, you also
-      think with us to find the best suitable solution which is smart and user friendly &mdash; and even
-      propose solutions we did not think of ourselves that meet the business requirements. This is more
-      than we would expect from a front-end developer.&rdquo;</p>
-      <p class="attrib"><span class="who">Kathleen Renard</span>, Process Manager &middot; Cognizant</p>
+      <q>Not only you help us with designing and developing screens for our end user, you also think with us to find the best suitable solution which is smart and user friendly — and even propose solutions we did not think of ourselves that meet the business requirements. This is more than we would expect from a front-end developer.</q>
+      <span class="attr"><b>Kathleen Renard</b>, Process Manager · Cognizant</span>
     </div>
 
     <div class="pull">
-      <p>&ldquo;We appreciate your ownership, your E2E view, the extra tasks you picked up outside of
-      your role: UX design&hellip; how you take up a key position after replacing the old Tech Lead, you
-      to think along with business about problems and solutions.&rdquo;</p>
-      <p class="attrib"><span class="who">Etienne De Paepe</span>, Manager &middot; Cognizant</p>
+      <q>We appreciate your ownership, your E2E view, the extra tasks you picked up outside of your role: UX design… how you take up a key position after replacing the old Tech Lead, you to think along with business about problems and solutions.</q>
+      <span class="attr"><b>Etienne De Paepe</b>, Manager · Cognizant</span>
     </div>
 
     <div class="pull">
-      <p>&ldquo;During refinements and clarifications, she challenges the approach and the input data,
-      and thus we managed to increase the quality of the features&rsquo; description &mdash; resulting in
-      better structured stories and acceptance criteria.&rdquo;</p>
-      <p class="attrib"><span class="who">Andrei-Ioan Popescu</span>, Team Lead &middot; Deloitte Digital</p>
+      <q>During refinements and clarifications, she challenges the approach and the input data, and thus we managed to increase the quality of the features' description — resulting in better structured stories and acceptance criteria.</q>
+      <span class="attr"><b>Andrei-Ioan Popescu</b>, Team Lead · Deloitte Digital</span>
     </div>
   </div>
 
-  <!-- Section order changed 19 Sep 2026 at her request: Ownership &amp; Strategic Problem Solving
-       now leads, Technical Excellence follows. The first section a reader actually reads is the
-       positioning claim, and hers is judgement and ownership, not code output. ⚠️ If the site's
-       reviews page groups by the same four categories, reorder it there too so the two match. -->
-  <h2><span class="num">1</span>Ownership &amp; Strategic Problem Solving</h2>
+  <h2><span class="num">1</span> Technical Excellence &amp; Code Quality</h2>
 
-  <div class="rev">
-    <p>&ldquo;Madalina proved to be a highly reliable and skilled front-end developer. She can
-    independently take over and deliver complex features; she constantly pays attention to details and is
-    always making sure all the acceptance criteria are met. Her positive attitude and excellent
-    communication skills made her a great addition to the team.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Tech Lead</span> (Feb 2026)</p>
+  <div class="quote">
+    <p>"Madalina proved a very good knowledge of Angular and front-end technologies, which she successfully applied to our project. Although the complexity of the project is high, Madalina integrated well into the team and started delivering soon after joining the project. She proved she was a great team player."</p>
+    <div class="attr">— <b>Senior Frontend Developer</b> (Feb 2026)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;I can only sum up positive things about how I experienced you in your job as frontend
-    developer and unofficial screen designer:</p>
-    <p><span class="lead-in">Eager to learn</span> &mdash; you pick up new aspects of your job and gather
-    the necessary information, be it an international standard or a specific functionality of a tool, so we
-    could opt for different solutions to solve a problem in the front-end design or development.</p>
-    <p><span class="lead-in">Focused</span> &mdash; your focus is always 100% on the job.</p>
-    <p><span class="lead-in">Looking for smart solutions</span> &mdash; not only you help us with designing
-    and developing screens for our end user, you also think with us to find the best suitable solution
-    which is smart and user friendly, and even propose solutions we did not think of ourselves that meet
-    the business requirements. This is more than we would expect from a front-end developer.</p>
-    <p><span class="lead-in">Drive</span> &mdash; you have a big drive to do your job as a professional
-    with high quality standards and finding solutions for the end users.</p>
-    <p><span class="lead-in">Hard worker</span> &mdash; you keep on picking up tasks and help us realize a
-    large set of requirements release after release.</p>
-    <p><span class="lead-in">Strong communication skills</span> &mdash; you communicate very transparently,
-    directly and to the point.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Kathleen Renard</span>, Process Manager &middot; Cognizant (Nov 2024)</p>
+  <div class="quote">
+    <p>"You are my favorite developer. I don't think you can further improve — I'm not kidding, you are very quick in picking up new stories, you ask good questions so we as application manager can fill in the blanks we haven't thought about. The work is excellent as well. It's a very difficult topic to work on; we have created a whole new application. You have taken a lot of initiative. There aren't many bugs and the ones we have are quickly resolved. You are always thinking about finding good customer solutions, so I'm very happy with you. I can't see any improvements that you can make. We are so happy with the way things are handled."</p>
+    <div class="attr">— <b>Iris Vanstraelen</b>, Application Manager · Cognizant (Nov 14, 2024)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Overall, we are very happy with your contribution to our project and your role in the team.
-    No real learning points could be found, which is very good. We appreciate: your ownership, your
-    involvement, your E2E view, testing of your changes, the extra tasks you picked up outside of your
-    role: UX design, use of new Kendo table component, you being open for feedback and improvements, how
-    you take initiative, your efficient &amp; fast way of working, you being a fast learner, how you take up
-    a key position after replacing the old Tech Lead, you to think along with business about problems and
-    solutions, you being a team player.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Etienne De Paepe</span>, Manager &middot; Cognizant (Nov 15, 2024)</p>
+  <div class="quote">
+    <p>"She tackled new features with ease, always on time and with the highest possible quality. She's a vocal team member and she's always deeply involved in discovering all the requirements of what she needs to implement. Madalina's strong commitment to having all the details in has helped the team get a better understanding of the tasks. I'm confident that she can provide people with the support needed to get the job done."</p>
+    <div class="attr">— <b>Andrei-Ioan Popescu</b>, Team Lead · Deloitte Digital (Oct 19, 2022)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;She proves her great technical expertise and collaboration skills with every task that is
-    assigned to her and is supporting the project teams with business and technical information for
-    successful integrations.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Cristina-Mihaela Antohe</span>, Senior Consultant &middot; Deloitte Digital (Nov 7, 2022)</p>
+  <div class="quote">
+    <p>"Feedback from both team and local technical lead is positive as Madalina started working on the project near stabilization phase but managed to get familiar in a short timeframe with the complexity of the project."</p>
+    <div class="attr">— <b>Silvana-Roberta Helal</b>, Senior Manager · Deloitte Digital (May 2, 2022)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;From early on, she was fully independent from a tech perspective, requiring assistance only
-    to understand the features she needed to implement. Even though she is a less experienced front-end
-    developer than the former one, seeing her work, I can confirm that she managed to surpass
-    everyone&rsquo;s expectations. She communicates the blockers &amp; issues clearly; she developed complex
-    features faster and with increased quality than before. She handled cloud configuration and installed
-    the applications she developed with ease, even though this is out of her area of expertise. Moreover,
-    during refinements and clarifications, she challenges the approach and the input data, and thus we
-    managed to increase the quality of the features&rsquo; description resulting in better structured stories
-    and acceptance criteria. I&rsquo;m happy that I got the chance to work with her and I would definitely
-    like to continue doing this in the future.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Andrei-Ioan Popescu</span>, Team Lead &middot; Deloitte Digital (Apr 20, 2022)</p>
+  <div class="quote">
+    <p>"She gave a huge boost to our Web app development; she came up with a very long list of improvements to our existing app and managed to implement a lot of those items in just a couple of weeks. The quality of the code she has been writing, and the overall work quality has been impressive. I would always want her in my team, given the opportunity."</p>
+    <div class="attr">— <b>Dragos-Vasile Lungu</b>, Technical Lead · Deloitte Digital (Jan 28, 2022)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Madalina could quickly take over the tasks assigned to her and deliver them with a very good
-    quality on the agreed time. Madalina is also a team player, and she knows when she needs to raise her
-    hand when an issue appears.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Diego Frison Aladren</span>, Solution Lead &middot; Deloitte Digital (Apr 20, 2022)</p>
+  <div class="quote">
+    <p>"For the past years I had the opportunity to work alongside Madalina on multiple personal and commercial projects. She was able to develop features in an extremely elegant and creative way all the time. Her ability to develop high quality products while under extreme pressure is something that I look up to — not only that she's able to stay calm and professional in difficult situations. She's also able to make everyone in the team feel that they are also capable of doing more than they expect from themselves."</p>
+    <div class="attr">— <b>Emanuel Cepoi</b>, Full-Stack Developer · Wooter Apparel (Sep 24, 2021)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Overnight she became an expert and point of contact for front-end applications. She has
-    delivered all her tasks at great speed and took on several topics instantly. The entire project is
-    happy to have her onboard.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Kavitha Padmanabham</span>, Business Analyst &middot; Deloitte Digital (Apr 20, 2022)</p>
+  <h2><span class="num">2</span> Ownership &amp; Strategic Problem Solving</h2>
+
+  <div class="quote">
+    <p>"Madalina proved to be a highly reliable and skilled front-end developer. She can independently take over and deliver complex features; she constantly pays attention to details and is always making sure all the acceptance criteria are met. Her positive attitude and excellent communication skills made her a great addition to the team."</p>
+    <div class="attr">— <b>Tech Lead</b> (Feb 2026)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Madalina is always reliable and helps her team members, able to understand the requirements
-    and come up with a solution. It was a joy and I always had confidence while working with her. I
-    strongly recommend her to any new opportunity and challenge.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Raluca Rusu</span>, Project Manager &middot; IBM (Sep 13, 2021)</p>
+  <div class="quote">
+    <p>"I can only sum up positive things about how I experienced you in your job as frontend developer and unofficial screen designer:</p>
+    <ul>
+      <li><b>Eager to learn</b> — you pick up new aspects of your job and gather the necessary information, be it an international standard or a specific functionality of a tool, so we could opt for different solutions to solve a problem in the front-end design or development.</li>
+      <li><b>Focused</b> — your focus is always 100% on the job.</li>
+      <li><b>Looking for smart solutions</b> — not only you help us with designing and developing screens for our end user, you also think with us to find the best suitable solution which is smart and user friendly, and even propose solutions we did not think of ourselves that meet the business requirements. This is more than we would expect from a front-end developer.</li>
+      <li><b>Drive</b> — you have a big drive to do your job as a professional with high quality standards and finding solutions for the end users.</li>
+      <li><b>Hard worker</b> — you keep on picking up tasks and help us realize a large set of requirements release after release.</li>
+      <li><b>Strong communication skills</b> — you communicate very transparently, directly and to the point."</li>
+    </ul>
+    <div class="attr">— <b>Kathleen Renard</b>, Process Manager · Cognizant (Nov 2024)</div>
   </div>
 
-  <h2><span class="num">2</span>Technical Excellence &amp; Code Quality</h2>
-
-  <div class="rev">
-    <p>&ldquo;Madalina proved a very good knowledge of Angular and front-end technologies, which she
-    successfully applied to our project. Although the complexity of the project is high, Madalina
-    integrated well into the team and started delivering soon after joining the project. She proved she
-    was a great team player.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Senior Frontend Developer</span> (Feb 2026)</p>
+  <div class="quote">
+    <p>"Overall, we are very happy with your contribution to our project and your role in the team. No real learning points could be found, which is very good. We appreciate: your ownership, your involvement, your E2E view, testing of your changes, the extra tasks you picked up outside of your role: UX design, use of new Kendo table component, you being open for feedback and improvements, how you take initiative, your efficient &amp; fast way of working, you being a fast learner, how you take up a key position after replacing the old Tech Lead, you to think along with business about problems and solutions, you being a team player."</p>
+    <div class="attr">— <b>Etienne De Paepe</b>, Manager · Cognizant (Nov 15, 2024)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;You are my favorite developer. I don&rsquo;t think you can further improve &mdash; I&rsquo;m
-    not kidding, you are very quick in picking up new stories, you ask good questions so we as application
-    manager can fill in the blanks we haven&rsquo;t thought about. The work is excellent as well. It&rsquo;s
-    a very difficult topic to work on; we have created a whole new application. You have taken a lot of
-    initiative. There aren&rsquo;t many bugs and the ones we have are quickly resolved. You are always
-    thinking about finding good customer solutions, so I&rsquo;m very happy with you. I can&rsquo;t see any
-    improvements that you can make. We are so happy with the way things are handled.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Iris Vanstraelen</span>, Application Manager &middot; Cognizant (Nov 14, 2024)</p>
+  <div class="quote">
+    <p>"She proves her great technical expertise and collaboration skills with every task that is assigned to her and is supporting the project teams with business and technical information for successful integrations."</p>
+    <div class="attr">— <b>Cristina-Mihaela Antohe</b>, Senior Consultant · Deloitte Digital (Nov 7, 2022)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;She tackled new features with ease, always on time and with the highest possible quality.
-    She&rsquo;s a vocal team member and she&rsquo;s always deeply involved in discovering all the
-    requirements of what she needs to implement. Madalina&rsquo;s strong commitment to having all the
-    details in has helped the team get a better understanding of the tasks. I&rsquo;m confident that she
-    can provide people with the support needed to get the job done.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Andrei-Ioan Popescu</span>, Team Lead &middot; Deloitte Digital (Oct 19, 2022)</p>
+  <div class="quote">
+    <p>"From early on, she was fully independent from a tech perspective, requiring assistance only to understand the features she needed to implement. Even though she is a less experienced front-end developer than the former one, seeing her work, I can confirm that she managed to surpass everyone's expectations. She communicates the blockers &amp; issues clearly; she developed complex features faster and with increased quality than before. She handled cloud configuration and installed the applications she developed with ease, even though this is out of her area of expertise. Moreover, during refinements and clarifications, she challenges the approach and the input data, and thus we managed to increase the quality of the features' description resulting in better structured stories and acceptance criteria. I'm happy that I got the chance to work with her and I would definitely like to continue doing this in the future."</p>
+    <div class="attr">— <b>Andrei-Ioan Popescu</b>, Team Lead · Deloitte Digital (Apr 20, 2022)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Feedback from both team and local technical lead is positive as Madalina started working on
-    the project near stabilization phase but managed to get familiar in a short timeframe with the
-    complexity of the project.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Silvana-Roberta Helal</span>, Senior Manager &middot; Deloitte Digital (May 2, 2022)</p>
+  <div class="quote">
+    <p>"Madalina could quickly take over the tasks assigned to her and deliver them with a very good quality on the agreed time. Madalina is also a team player, and she knows when she needs to raise her hand when an issue appears."</p>
+    <div class="attr">— <b>Diego Frison Aladren</b>, Solution Lead · Deloitte Digital (Apr 20, 2022)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;She gave a huge boost to our Web app development; she came up with a very long list of
-    improvements to our existing app and managed to implement a lot of those items in just a couple of
-    weeks. The quality of the code she has been writing, and the overall work quality has been impressive.
-    I would always want her in my team, given the opportunity.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Dragos-Vasile Lungu</span>, Technical Lead &middot; Deloitte Digital (Jan 28, 2022)</p>
+  <div class="quote">
+    <p>"Overnight she became an expert and point of contact for front-end applications. She has delivered all her tasks at great speed and took on several topics instantly. The entire project is happy to have her onboard."</p>
+    <div class="attr">— <b>Kavitha Padmanabham</b>, Business Analyst · Deloitte Digital (Apr 20, 2022)</div>
   </div>
 
-  <h2><span class="num">3</span>Mentorship, Leadership &amp; Team Empowerment</h2>
-
-  <div class="rev">
-    <p>&ldquo;Madalina is a really valuable member; more self-initiative in areas which are visibly not
-    covered well on the project will help her present herself with higher seniority &mdash; she is currently
-    operating at the next level.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Pavol Tomek</span>, Project Manager / Scrum Master &middot; Deloitte Digital (Nov 10, 2022)</p>
+  <div class="quote">
+    <p>"Madalina is a very practical person. Working on various projects with her, I was able to see how flexible she can be, especially with the help of her vast knowledge in the IT field. In addition to intelligence, I noticed that she also has leadership qualities that have been very helpful in any project. Attention to detail characterizes her, so it's hard not to get things going almost perfectly with her. She is a charismatic, dynamic person with very precise decision-making power. Nothing remains unresolved with Madalina!"</p>
+    <div class="attr">— <b>Mihaela Gales</b>, System Support Engineer · Vodafone (Nov 25, 2021)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Madalina instantly collaborated with the team and importantly understood our objectives
-    quickly. The repeated feedback from the development lead was how quickly our production increased
-    &mdash; thanks to Madalina. Madalina clearly has a strong skillset which benefited our FE team
-    significantly. Madalina worked hard to develop her colleagues and ensured they were implementing
-    best-practice techniques.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Jack Taylor</span>, Manager &middot; Deloitte Digital (Apr 6, 2022)</p>
+  <div class="quote">
+    <p>"Madalina is always reliable and helps her team members, able to understand the requirements and come up with a solution. It was a joy and I always had confidence while working with her. I strongly recommend her to any new opportunity and challenge."</p>
+    <div class="attr">— <b>Raluca Rusu</b>, Project Manager · IBM (Sep 13, 2021)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;During her time spent on Alpha space, Madalina has shown a lot of flexibility and maturity.
-    Even though she had to change teams and industries, from banking to insurance, her experience has been
-    extremely appreciated by our main stakeholders and there have been multiple requests to keep her on
-    Alpha. From a technical perspective, she delivers extremely fast and at a high quality. For example,
-    she managed to bring visible improvements to the web app in just a couple of weeks, as well as
-    mentoring more junior team members. If given the opportunity to match her expertise and desired role,
-    she has the ability to make a huge difference; she has the skills and determination needed.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Isabela Pecete</span>, Project Manager &middot; Deloitte Digital (Feb 7, 2022)</p>
+  <h2><span class="num">3</span> Mentorship, Leadership &amp; Team Empowerment</h2>
+
+  <div class="quote">
+    <p>"Madalina is a really valuable member; more self-initiative in areas which are visibly not covered well on the project will help her present herself with higher seniority — she is currently operating at the next level."</p>
+    <div class="attr">— <b>Pavol Tomek</b>, Project Manager / Scrum Master · Deloitte Digital (Nov 10, 2022)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Madalina was my mentor during my internship period at IBM iX. She was friendly and open from
-    the start and rapidly developed a learning plan for me. We had a great mentor-mentee relationship
-    during that time, and she was always eager to show me new front-end tricks and quirks. The proactivity
-    which she possesses inspired me a lot through my internship period.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Madalin Tuca</span>, Frontend Developer &middot; IBM (Sep 2, 2021)</p>
+  <div class="quote">
+    <p>"Madalina instantly collaborated with the team and importantly understood our objectives quickly. The repeated feedback from the development lead was how quickly our production increased — thanks to Madalina. Madalina clearly has a strong skillset which benefited our FE team significantly. Madalina worked hard to develop her colleagues and ensured they were implementing best-practice techniques."</p>
+    <div class="attr">— <b>Jack Taylor</b>, Manager · Deloitte Digital (Apr 6, 2022)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Madalina had a very good start and path in the project, having in charge a very hard project
-    and client on a team, being in front of the client for direct communication and problem solving. I am
-    very satisfied with her abilities to create and maintain a good working relationship both with the
-    client and her team members, to adapt quickly to change and to help any time it&rsquo;s needed.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Raluca Rusu</span>, Project Manager &middot; IBM (Feb 15, 2019)</p>
+  <div class="quote">
+    <p>"During her time spent on Alpha space, Madalina has shown a lot of flexibility and maturity. Even though she had to change teams and industries, from banking to insurance, her experience has been extremely appreciated by our main stakeholders and there have been multiple requests to keep her on Alpha. From a technical perspective, she delivers extremely fast and at a high quality. For example, she managed to bring visible improvements to the web app in just a couple of weeks, as well as mentoring more junior team members. If given the opportunity to match her expertise and desired role, she has the ability to make a huge difference; she has the skills and determination needed."</p>
+    <div class="attr">— <b>Isabela Pecete</b>, Project Manager · Deloitte Digital (Feb 7, 2022)</div>
   </div>
 
-  <h2><span class="num">4</span>Peers &amp; Additional Feedback</h2>
-
-  <div class="rev">
-    <p>&ldquo;From the short period of time I worked with her, she is very good from a technical
-    perspective. Proactive, good coding style, understands quickly the logic of the code and is able to
-    proceed with her tasks without a lot of help. She communicates well with the team, bringing great
-    energy into the teams she works on, and she can quickly integrate. She knows exactly when to ask for
-    help to speed up delivery, and she is great at estimating how long something will take, which makes
-    planning easy and smooth. Overall, it&rsquo;s a pleasure working with her.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Peer / Team Member</span> (Jan 2026)</p>
+  <div class="quote">
+    <p>"Madalina was my mentor during my internship period at IBM iX. She was friendly and open from the start and rapidly developed a learning plan for me. We had a great mentor-mentee relationship during that time, and she was always eager to show me new front-end tricks and quirks. The proactivity which she possesses inspired me a lot through my internship period."</p>
+    <div class="attr">— <b>Madalin Tuca</b>, Frontend Developer · IBM (Sep 2, 2021)</div>
   </div>
 
-  <!-- Dated Jan 2026, not Feb: this and the entry above are both verbatim from the January 2026
-       360 spreadsheet, which she confirmed was the only feedback round at that point.
-       ⛔ Removed 18 Sep 2026: "She is a reliable partner in the projects we work on together."
-       It sat between the two sentences below in the published version, and it is in no source —
-       not in the spreadsheet (every cell re-checked), not in the LinkedIn export. An unsourced
-       sentence inside an attributed quotation is exactly what a reader checking this file would
-       catch. Restore it only with a document behind it, and then as its own entry with its own date. -->
-  <div class="rev">
-    <p>&ldquo;Keep the desire and courage to try new technologies and the will to learn new stuff. Clean
-    code. Good eye for requirements. Fast learner even when switching projects. Gives and receives
-    feedback. Questions when facing something that isn&rsquo;t clear. Reliability on solving problems and
-    unblocking others.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Peer / Team Member</span> (Jan 2026)</p>
+  <div class="quote">
+    <p>"Madalina had a very good start and path in the project, having in charge a very hard project and client on a team, being in front of the client for direct communication and problem solving. I am very satisfied with her abilities to create and maintain a good working relationship both with the client and her team members, to adapt quickly to change and to help any time it's needed."</p>
+    <div class="attr">— <b>Raluca Rusu</b>, Project Manager · IBM (Feb 15, 2019)</div>
   </div>
 
-  <!-- Added 18 Sep 2026 from the January 2026 360 review spreadsheet (~/Downloads/Madalina Gheorghe -
-       Review.xlsx). This is its third respondent, the only one of the three whose answers were on no
-       artifact — the other two are the two Peer / Team Member entries above. ⛔ That respondent's
-       "Start" answer names an internal SS&C team and is excluded; only the Keep answers are used. -->
-  <div class="rev">
-    <p>&ldquo;She does a really good job &mdash; eager to learn, fast to understand, writes beautiful and
-    thoughtful code. Knows the times when to struggle to find answers and when to ask for help. Offering
-    help, gives and receives feedback well, making good (or bad) jokes, giving on point updates.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Peer / Team Member</span> (Jan 2026)</p>
+  <h2><span class="num">4</span> Peers &amp; Additional Feedback</h2>
+
+  <div class="quote">
+    <p>"From the short period of time I worked with her, she is very good from a technical perspective. Proactive, good coding style, understands quickly the logic of the code and is able to proceed with her tasks without a lot of help. She communicates well with the team, bringing great energy into the teams she works on, and she can quickly integrate. She knows exactly when to ask for help to speed up delivery, and she is great at estimating how long something will take, which makes planning easy and smooth. Overall, it's a pleasure working with her."</p>
+    <div class="attr">— <b>Peer / Team Member</b> (Feb 2026)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Madalina is a hard-working individual, highly motivated and organized. She has very good
-    technical skills and is eager to learn and try new things. From the soft-skills point of view, she
-    communicates very well and proved to be a great team player.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Tech Lead</span> (Feb 2026)</p>
+  <div class="quote">
+    <p>"Keep the desire and courage to try new technologies and the will to learn new stuff. Clean code. Good eye for requirements. Fast learner even when switching projects. She is a reliable partner in the projects we work on together. Gives and receives feedback. Questions when facing something that isn't clear. Reliability on solving problems and unblocking others."</p>
+    <div class="attr">— <b>Peer / Team Member</b> (Feb 2026)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Appreciate your guidance and helping bring new talent to our wider iX IBM team, and also
-    your constant strong contribution to our project delivery. Keep up the good work!&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Alexandra-Luminita Tanef</span>, Project Manager &middot; IBM (Aug 6, 2021)</p>
+  <div class="quote">
+    <p>"Madalina is a hard-working individual, highly motivated and organized. She has very good technical skills and is eager to learn and try new things. From the soft-skills point of view, she communicates very well and proved to be a great team player."</p>
+    <div class="attr">— <b>Tech Lead</b> (Feb 2026)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;She quickly managed to learn and acquire quite an extensive set of skills. Her determination
-    to never give up and always learn and improve is what sets her apart from many other developers out
-    there. It&rsquo;s been a pleasure working with her. She is currently riding the proverbial wave, and I
-    am sure she will achieve great things in the future. I highly recommend her to anyone looking to expand
-    their team(s).&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Theodor Palamaru</span>, Frontend Developer &middot; IBM (Jun 22, 2021)</p>
+  <div class="quote">
+    <p>"Appreciate your guidance and helping bring new talent to our wider iX IBM team, and also your constant strong contribution to our project delivery. Keep up the good work!"</p>
+    <div class="attr">— <b>Alexandra-Luminita Tanef</b>, Project Manager · IBM (Aug 6, 2021)</div>
   </div>
 
-  <div class="rev">
-    <p>&ldquo;Great job on the project, Madalina &mdash; the feedback received for the project is very good.
-    Also, I like your drive and attitude, and I hope you will continue to invest in your skills as you did
-    until now, and more.&rdquo;</p>
-    <p class="attrib">&mdash; <span class="who">Sorina Radulescu</span>, People Manager &middot; IBM (Dec 16, 2020)</p>
+  <div class="quote">
+    <p>"She quickly managed to learn and acquire quite an extensive set of skills. Her determination to never give up and always learn and improve is what sets her apart from many other developers out there. It's been a pleasure working with her. She is currently riding the proverbial wave, and I am sure she will achieve great things in the future. I highly recommend her to anyone looking to expand their team(s)."</p>
+    <div class="attr">— <b>Theodor Palamaru</b>, Frontend Developer · IBM (Jun 22, 2021)</div>
+  </div>
+
+  <div class="quote">
+    <p>"Great job on the project, Madalina — the feedback received for the project is very good. Also, I like your drive and attitude, and I hope you will continue to invest in your skills as you did until now, and more."</p>
+    <div class="attr">— <b>Sorina Radulescu</b>, People Manager · IBM (Dec 16, 2020)</div>
   </div>
 
   <div class="footer-note">
