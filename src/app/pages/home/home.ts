@@ -38,12 +38,8 @@ export class Home {
 
   private router = inject(Router);
 
-  downloadFile(type: 'CV' | 'Recommendations') {
-    const fileName =
-      type === 'CV'
-        ? 'Madalina-Eleonora-Gheorghe-CV'
-        : 'Madalina-Eleonora-Gheorghe-Recommendations';
-    const fileUrl = `/${fileName}.pdf`;
+  downloadFile(fileName: string) {
+    const fileUrl = `/Madalina-Eleonora-Gheorghe-${fileName}.pdf`;
 
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'conversion_download', {
