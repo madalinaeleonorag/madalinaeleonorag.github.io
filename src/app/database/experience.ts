@@ -3,36 +3,33 @@ import { IWorkExperience } from '../interfaces/work-experience';
 export const WORK_EXPERIENCE: IWorkExperience[] = [
   {
     company: 'SS&C Technologies',
-    role: 'UI Engineer',
+    role: 'UX & Product Transition',
     logo: 'SSNC',
     assignments: [
       {
         startDate: 'Sep 2025',
         endDate: 'Present',
         techStack: [
+          'Product Strategy',
+          'UX Learning',
+          'Design Thinking',
           'Angular 20+',
           'TypeScript',
           'Signals',
           'NgRx',
           'Micro-Frontends (MFE)',
-          'RxJS',
-          'GraphQL',
-          'OpenAPI',
-          'Sass',
-          'WCAG A11y Standards',
+          'Cross-Functional Delivery',
         ],
         summary:
-          'Driving frontend architecture across core enterprise platforms, transitioning legacy monoliths into scalable micro-frontend ecosystems.',
+          'Building a strong foundation in product and UX while continuing to apply technical and user-centered thinking in enterprise digital work.',
         descriptionPoints: [
-          '<b>Micro-Frontend Architecture</b>: Collaborated with UI Leadership to architect and deliver 8 distinct Micro-Frontends from scratch, successfully transitioning core enterprise platforms from a monolithic shell.',
-          '<b>Angular 20 & Reactive Modernization</b>: Executed the platform migration to Angular 20, replacing legacy lifecycles with modern reactive patterns using Signals, viewChild(), and inject(). Engineered dedicated NgRx stores to manage and persist complex search, filtering, and configuration states.',
-          '<b>SDK & API Integration</b>: Maintained and evolved internal SDK contracts by updating OpenAPI specifications, ensuring strict cross-MFE type consistency and reliable backend alignment for generated clients.',
-          '<b>Complex Feature Engineering</b>: Led the end-to-end engineering of critical system modules, including bulk data import/export workflows, advanced permission administration flows, and GraphQL-driven data migrations.',
-          '<b>Design System & UI Standards</b>: Developed a centralized shared component library featuring over 25 reusable elements, including Virtual Scrolling Trees and Data Tables with dynamic inline filters. Enforced strict adherence to design layouts via a global grid system, design tokens, and SCSS variables.',
-          '<b>WCAG Compliance & Quality</b>: Achieved full WCAG accessibility compliance across the platform by programming advanced ARIA attributes and rigorous focus management in dialogs. Substantially raised unit test coverage to drive codebase hardening and stability.',
+          '<b>Transition into Product & UX</b>: Actively expanding knowledge in product thinking, user research, prioritization, and strategic decision-making while staying grounded in real-world digital delivery.',
+          '<b>Experience Design & Governance</b>: Continue shaping user-centered workflows, improving usability, and building accessibility-first patterns that support better product outcomes.',
+          '<b>Delivery & Architecture Alignment</b>: Work closely with engineering and stakeholders to connect business goals with feasible, scalable product execution.',
+          '<b>Learning by Doing</b>: Use hands-on experience in enterprise systems, user journeys, and cross-functional collaboration to grow toward product ownership and UX leadership.',
         ],
         stakeholderImpact:
-          'Achieved rapid architectural integration, independently taking over complex modules and serving as a reliable technical unblocker for cross-functional peers to scale the MFE infrastructure.',
+          'Bridges technical execution with an evolving product and UX mindset, creating space for growth while continuing to deliver meaningful digital outcomes.',
       },
     ],
   },
