@@ -3,33 +3,194 @@ import { IWorkExperience } from '../interfaces/work-experience';
 export const WORK_EXPERIENCE: IWorkExperience[] = [
   {
     company: 'SS&C Technologies',
-    role: 'UX & Product Transition',
+    role: 'UI Engineer',
     logo: 'SSNC',
+    // Stated, not derived from assignment order.
+    startDate: 'Sep 2025',
+    endDate: 'Present',
     assignments: [
       {
-        startDate: 'Sep 2025',
+        title: 'Access & Permissions Platform (RBAC)',
+        startDate: 'Nov 2025',
         endDate: 'Present',
         techStack: [
-          'Product Strategy',
-          'UX Learning',
-          'Design Thinking',
-          'Angular 20+',
+          'Angular 21',
           'TypeScript',
           'Signals',
-          'NgRx',
+          'NgRx SignalStore',
           'Micro-Frontends (MFE)',
-          'Cross-Functional Delivery',
+          'Module Federation',
+          'Nx',
+          'RxJS',
+          'OpenAPI',
+          'Keycloak / OIDC',
+          'Angular Material',
+          'Sass',
+          'Figma',
+          'Jest',
+          'GitHub Actions',
+          'WCAG / ARIA',
         ],
         summary:
-          'Building a strong foundation in product and UX while continuing to apply technical and user-centered thinking in enterprise digital work.',
+          'The application everyone in the organisation uses to enrol and administer the people and client companies who have access to our products, and to change a role when it is wrong. The application is itself governed by the thing it administers: what any one person can do inside it depends on their own role, so some reach all of the functionality and others only the part their role allows. Production holds the real client companies and every enrolled user, so seeing the true state of someone’s access is the whole job: it is also where a report that somebody cannot reach one of the products gets answered. It is the furthest along of the five products I work across, and like the rest of them still taking improvements and new feature requests. It is the main assignment, and the code I own.',
         descriptionPoints: [
-          '<b>Transition into Product & UX</b>: Actively expanding knowledge in product thinking, user research, prioritization, and strategic decision-making while staying grounded in real-world digital delivery.',
-          '<b>Experience Design & Governance</b>: Continue shaping user-centered workflows, improving usability, and building accessibility-first patterns that support better product outcomes.',
-          '<b>Delivery & Architecture Alignment</b>: Work closely with engineering and stakeholders to connect business goals with feasible, scalable product execution.',
-          '<b>Learning by Doing</b>: Use hands-on experience in enterprise systems, user journeys, and cross-functional collaboration to grow toward product ownership and UX leadership.',
+          // The programme context lives here because IWorkExperience has no company-level
+          // description field. It is what makes the five products one piece of work rather
+          // than five unrelated assignments, and the full CV carries it in its role subtitle.
+          // ⛔ Never name the acquired Romanian company — the CV header says SS&C and that is enough.
+          '<b>The project already existed and could not be maintained.</b> Organisational changes brought these applications to Romania, so the Romanian organisation inherited a codebase that was unreadable and inefficient. The lead and the architect had already decided, before I joined the team, that rewriting and carrying on would cost less than repairing it. I arrived into that rewrite, and everything else here is the work of carrying it out. It is one part of a larger transition: for years every client got its own copy of the same application, and the direction now is one configurable platform serving all of them instead of separate codebases to keep in step. Around 90 people in the Romanian organisation work on the same estate.',
+          '<b>The rewrite is eleven applications behind one shell</b> in place of a single monolith, with each area loading only for a user entitled to it. The lead gave me one example of what a remote application should look like and we went from there. Six of the eleven I built from scratch; the other five I inherited from other people, then fixed and improved. There is now no part of it I have not worked in.',
+          '<b>A few months ago the lead said in front of the team that I am the code owner</b>, and he no longer touches the code there. I had refactored and improved most of the application by then, taken it to Angular 21 and reworked the interface.',
+          '<b>The golden set</b>: a permission-import feature so that configuring a brand-new client is a clone rather than a rebuild — import an existing client’s permission set as a file, then adjust it. The harder problem was that nobody wanted to use it. Importing is destructive, and enough had been broken by earlier imports that repairing the damage had become its own recurring job. The import now shows exactly what it will change before changing anything, which is what got it used.',
+          '<b>Built the delegated-access programme end to end on the frontend</b>: one person acting for another under constrained entitlements: a permissions question as much as an implementation one. Multi-factor-authentication management is another of the sub-applications I built out, over Keycloak and OIDC.',
+          '<b>The hardest part was never the development.</b> It was learning what the business words mean — what a ManCo is, what the product is, how capabilities link together. The code was the part I already knew how to do.',
         ],
         stakeholderImpact:
-          'Bridges technical execution with an evolving product and UX mindset, creating space for growth while continuing to deliver meaningful digital outcomes.',
+          'Came into an unfamiliar architecture, took over modules other people had left unfinished, and ended up the person the code belongs to. Recognised in a call across the whole services group for having been through every one of the projects and improved them, and named one of the people it relies on.',
+      },
+      {
+        title: 'Shared component kit, layout library & Material 3 theming',
+        startDate: 'Nov 2025',
+        endDate: 'Present',
+        techStack: [
+          'Angular 21',
+          'TypeScript',
+          'Angular Material 3',
+          'Design Tokens',
+          'Virtual Scrolling',
+          'Sass',
+          'ng-packagr',
+          'Jest',
+          'Module Federation',
+        ],
+        summary:
+          'The Material components behind the permissions platform, built alongside it from the start and improved since for ARIA and keyboard behaviour. Seven applications had been copy-pasting them from each other, so in September 2026 I started pulling them out into one source of truth, where a fix happens once instead of in every copy. It is deliberately an interim library of our own, until the company-wide component library now in progress is stable enough to install. On a design agreed with the lead.',
+        descriptionPoints: [
+          '<b>Moved the table filters into the table.</b> The problem was screen space: filters sat in a row of text boxes above the table and we needed those lines back for data, so the filter went into each column header instead. It touched every table in the application and all of it had to be retested, which is why I converted one table first and showed it working rather than asking for the change in the abstract. People liked it, and we agreed together to convert the rest.',
+          '<b>The consolidation argument only became winnable once I measured it.</b> Six findings, all checkable by anyone who doubted me. Among them: seven components whose "simplified" forks were <i>larger</i> than the original; three pairs sitting byte-identical in different applications and kept in step by hand; and forks that had gained useful features and never sent them home, so one application was quietly holding a better version than the one everyone treated as canonical. That last part is what made it more than a tidiness argument.',
+          '<b>The kit is 33 components carrying ~1,050 tests between them</b> — built over the life of the permissions platform and now being reconciled into one place rather than rewritten, merging duplicate types instead of importing them twice. The blocker was a dialog service referenced in 60 files that everyone assumed was too entangled to touch; I split its generic half from its domain-coupled half and costed the migration at ten import lines, and that number is what got it agreed. Virtual scrolling started with the lead; I carried it into the other lists and trees across the estate that were large enough to need it.',
+          // Attribution, RECALL §6: the data grid was the lead's first version, written inside one
+          // project; she is the person who moved it into its own library and built it up, and the tree
+          // and the autocompletes are hers outright. All of this went missing when the old "personally
+          // built the harder components" claim was cut for overstating the grid — the genuine half went
+          // with it. The dynamic inline column filters are confirmed hers (18 Sep 2026) and are the
+          // same work the filters-into-the-header point above describes.
+          '<b>Moved the estate’s data grid into a library of its own.</b> The lead had written the first version inside one project and it had been copy-pasted into several more; I moved it out, then built it up from there, the dynamic inline column filters included. Wrote the kit’s tree and its autocomplete components, some of which the lead improved afterwards.',
+          '<b>Designed the one component the estate did not have</b>: inline-editable table cells. Nothing saves optimistically, so the table and the page can never disagree about a value. The input goes read-only rather than disabled while saving, because a disabled input drops focus and a rejected save would reopen with the caret nowhere useful. And a verdict arriving after the user has pressed Escape is discarded rather than applied to a field they have walked away from.',
+          '<b>Migrated Angular Material M2 to M3 behind a two-layer token system, unprompted</b> — the lead and I improve the applications we work in whenever it can be done without breaking anything, so he saw this one after it was done. Every token falls back to a Material system property and then to a literal, because an application that has not installed a theme should still render correctly rather than render broken. 69 colour tokens mapped deliberately, including the families Material has no equivalent for.',
+          '<b>A cleanup nobody enforces comes back</b>, so the kit ships with the tests that keep it true: 356 assertions that no stylesheet has reintroduced a colour literal or reached into another application, and 48 checked against every generated theme to catch a mistyped token name — which otherwise looks exactly like a deliberate fallback. Extracted five copy-pasted forks of the grid and layout SCSS into one framework-free published library, and cut a remote’s runtime entry bundle by 68.6% (508 kB to 160 kB).',
+        ],
+        stakeholderImpact:
+          'Turned "our components have drifted" from a recurring complaint into a measured case with a costed migration path, and got a whole-application interface change agreed by building one working example instead of arguing for it.',
+      },
+      {
+        title: 'Reference-data & content administration applications',
+        startDate: 'Aug 2026',
+        endDate: 'Present',
+        techStack: [
+          'Angular 21',
+          'TypeScript',
+          'Signals',
+          'NgRx SignalStore',
+          'Micro-Frontends (MFE)',
+          'Angular Material 3',
+          'Design Tokens',
+          'Sass',
+          'Jest',
+        ],
+        summary:
+          'Administration interfaces for reference data, published content and taxonomy across the client-facing products. The lead owns the content-management application and I contribute updates and fixes there; I own the reference-data side and the estate’s single source of truth for applications and resources.',
+        descriptionPoints: [
+          '<b>Rebuilt the last thing standing in the legacy codebase.</b> One reference-data application was all that remained in the old permissions codebase. It was not in use any more, or not yet, but it could not simply be deleted, so I asked the architect what should happen to it: fold it into the permissions platform, or stand it up on its own. He decided it should be an application of its own. Parts of it had never been finished and there was nobody left to ask what they were meant to do, so I went back to the original documentation and rebuilt the missing behaviour from that. Finishing it is what lets the legacy codebase finally be archived: there is nothing left to migrate out of it.',
+          '<b>Built the estate’s single source of truth for applications and resources.</b> The idea was the architect’s, raised in a daily call. I ran a spike to work out what it would need, built it in spare time, and own the code now.',
+          '<b>Rebuilt the content-list, tag and category pages</b> off two third-party rendering libraries and onto our own components, which removed both dependencies and gave those pages the estate’s standard paging, filtering and accessibility behaviour without writing any of it again.',
+        ],
+      },
+      {
+        // History: was 'Multi-tenant configuration platform' (invented name, two
+        // overstated points, both cut), then a one-point block for the
+        // data-transformation MFE alone. Merged 18 Sep 2026 on her answer that the
+        // notifications configuration is a SECOND micro-frontend in the same
+        // admin-only panel. ⛔ The panel's repository name is internal — never
+        // publish it. ⛔ No 'delivered'/'finished' here. ⛔ The notification WIDGET
+        // was started by the lead; she refactored and designed it. Never write that
+        // she built it.
+        title: 'Administrator configuration panel',
+        startDate: 'Nov 2025',
+        endDate: 'Sep 2026',
+        techStack: [
+          'Angular 20',
+          'TypeScript',
+          'Signals',
+          'Micro-Frontends (MFE)',
+          'Module Federation',
+          'Sass',
+        ],
+        summary:
+          'Where application administrators configure the platform, one micro-frontend per configuration area. Used by administrators only, not by the people the products serve.',
+        descriptionPoints: [
+          '<b>Data-transformation configuration: the first feature at the company, built with the lead</b> (Nov 2025). Set up a new micro-frontend from nothing and built the configuration of how a client’s data is transformed on its way through the platform. The extensions it needed later went to another developer, by which point I was in full-time development on the permissions platform.',
+          '<b>Built the frontend of the notifications configuration micro-frontend</b> (Jun–Sep 2026): creating a notification type, and the event that fires it.',
+          'The notification widget itself sits in the applications rather than in the panel. <b>The lead started it; I refactored and redesigned it</b>: a different design for each notification status, its own redirect target so opening one goes straight to the thing it is about, and an animation as a new one arrives. Each notification carries a read and a delete action, except an important one, which renders differently and cannot be deleted.',
+        ],
+      },
+      {
+        title: 'Platform TypeScript SDK',
+        startDate: 'Jan 2026',
+        endDate: 'Present',
+        techStack: [
+          'TypeScript',
+          'OpenAPI',
+          'openapi-generator-cli',
+          'Angular',
+          'ng-packagr',
+          'GitHub Actions',
+          'npm publishing',
+        ],
+        summary:
+          'The typed client every application in the estate talks to the backend through, generated from OpenAPI specifications. The lead built it; I co-maintain it and run it day to day. Everyone builds against it, so when it stops, everyone stops.',
+        descriptionPoints: [
+          '<b>Keep it releasing on every merge</b> rather than on someone remembering: 14 OpenAPI specifications become four published packages, so no consumer waits on a manual publish.',
+          '<b>Added specifications and clients as new backend surface arrived</b>, including delegated access and device registration, keeping generated types consistent across every application that depends on them.',
+        ],
+      },
+      {
+        // Cross-estate, not a product. Kept as its own block rather than filed
+        // under one application, because the work applies to all of them.
+        title: 'Design & accessibility',
+        startDate: 'Nov 2025',
+        endDate: 'Present',
+        techStack: [
+          'Figma',
+          'WCAG 2.1 / ARIA',
+          'VoiceOver',
+          'Angular Material 3',
+          'Design Tokens',
+        ],
+        summary:
+          'The design language the estate shares, and the accessibility behaviour built into the components that carry it.',
+        descriptionPoints: [
+          '<b>Product design.</b> Our designer produced a first draft for one application, covering where the header and sidenav should sit. I took it from there: designed the screens the draft did not cover, applied the language across every other application in the estate, and refined the original as the products grew.',
+          '<b>Accessibility, as I build.</b> ARIA attributes, keyboard interaction, per-row labels on data tables so a screen reader announces which row an action belongs to, and focus management and restore in dialogs, written with the component rather than retrofitted. What a consuming application still has to do itself is documented per component, so the next person cannot miss it.',
+        ],
+      },
+      {
+        title: 'Mentoring, interviewing & practice',
+        startDate: 'Nov 2025',
+        endDate: 'Present',
+        techStack: [
+          'Claude Code (CLI agents)',
+          'MCP-connected Jira & Confluence',
+          'Obsidian',
+        ],
+        summary:
+          'The part of the job that is not a product: who I bring in, who I teach, and how I stay fast in code I did not write.',
+        descriptionPoints: [
+          '<b>Interviewing & hiring.</b> Ran the technical interview for two partner-vendor engineers joining the team in August 2026, and fed into the hiring decision.',
+          '<b>Mentoring.</b> Mentoring engineers on our India-based team since new joiners arrived in August 2026, and the person peers come to when a change crosses code they do not know.',
+          '<b>A verified engineering knowledge base.</b> Dense reference notes on the whole estate, every claim traceable to a file and line and re-checked rather than assumed. It is how I get productive in an unfamiliar application in hours, and the only reason the six measurements behind the consolidation argument existed at all.',
+          '<b>AI-assisted delivery.</b> Automate the repetitive half of the work with AI tooling (Claude Code CLI, MCP-connected Jira and Confluence): scaffolding, mechanical cross-application refactors, reading unfamiliar code faster before a review, and drafting ticket and documentation updates.',
+        ],
       },
     ],
   },
@@ -37,8 +198,12 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
     company: 'Cognizant',
     role: 'Frontend Developer & Interim Team Lead',
     logo: 'Cognizant',
+    // Stated, not derived from assignment order.
+    startDate: 'Jan 2023',
+    endDate: 'Sep 2025',
     assignments: [
       {
+        title: 'Banking fraud-detection platform',
         startDate: 'Jan 2023',
         endDate: 'Sep 2025',
         techStack: [
@@ -46,26 +211,72 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'TypeScript',
           'RxJS',
           'WebSockets',
-          'Sass',
-          'OpenShift',
-          'Jenkins',
-          'Nexus',
-          'BitBucket',
           'AG Grid',
           'Kendo UI',
+          'i18n (4 languages)',
+          'WCAG 2.1',
+          'Sass',
           'Jasmine',
+          'Jenkins',
+          'OpenShift',
+          'Nexus',
+          'BitBucket',
         ],
+        // ⛔ The platform's own name and its five queue names are the CLIENT's internal
+        // names — never published. She already decided not to name the bank, and the
+        // platform's codename is the more searchable half of that pair. Everything below
+        // uses standard fraud-operations vocabulary (account takeover, device enrolment,
+        // dual control), which says nothing specific about this bank's defences.
+        // ⚠️ "Belgian" is not a language: the fourth locale is Dutch.
         summary:
-          'Led the end-to-end frontend architecture and development of two mission-critical enterprise applications from the ground up: a real-time Banking Fraud Targeting Platform and an Employee Access Management System.',
+          'Around 11 Angular screens used by a Belgian retail bank’s security agents, in four languages. Two jobs: watch whether the volume of fraud is inside a safe limit and escalate if it is not, and work the review queues of suspicious transactions — human-initiated fraud, automated attacks run by scripts and websites, new device enrolments, and the cases needing two agents to approve — deciding on each one whether to allow it, block it, or telephone the customer. I started it with the tech lead, whose part of the screens was the first two queues; I built every screen after that, ran the frontend after she left, and was Interim Team Lead by the end.',
         descriptionPoints: [
-          '<b>Application Architecture</b>: Architected a highly scalable, 11-flow modular Angular application. Designed the system with a strong focus on component reusability, strict Role-Based Access Control (RBAC), and long-term maintainability.',
-          '<b>High-Volume Data Processing</b>: Engineered robust bulk-action investigation interfaces capable of seamlessly handling 50,000+ records via AG Grid, combined with live monitoring dashboards for proactive fraud intervention.',
-          '<b>Technical Leadership & Delivery</b>: Served as Lead Frontend Developer and Interim Team Lead. Managed architectural decisions, sprint planning, and cross-team coordination, achieving zero production incidents from the very first release.',
-          `<b>UX/UI & Product Ownership</b>: Held full decision-making authority over the platform's UI/UX direction, balancing intuitive design for fraud agents with technical feasibility.`,
-          '<b>Quality & Mentorship</b>: Fostered a culture of engineering excellence by establishing Angular best practices, driving Jasmine unit testing adoption, and mentoring peers.',
+          // Scope corrected 18 Sep 2026 in her own words: "the screens started by my former lead was
+          // only the first 2 tables with ATO and HTO, everything else was done by me". The old text
+          // said she started it with the lead and left the split open, which reads as an even one. It
+          // was two screens out of around eleven. Both halves of the sentence stay true.
+          '<b>Started the application with the tech lead and learned it from her, and her part of the screens was the first two queues.</b> Every screen after those is one I built. She was the team’s only lead, covering both frontend and backend, so she was constantly in meetings and ownership of the code came to me as I went. When she left on maternity leave I was the only person who knew both the codebase and the business rules — which is why speaking for the frontend in business meetings came naturally rather than as a promotion I had to argue for.',
+          '<b>Every transaction closed as one of four recorded outcomes</b>: confirmed fraud, cancelled by the customer, referred to the customer’s branch, or false positive. Each opened a slide-in with its own checks and an email template already filled in from the case, because the notes written and the messages sent were tracked against the transaction. An agent finished a case without leaving the queue.',
+          '<b>Case ownership and workload.</b> An agent could take a transaction themselves or be assigned one; the two-agent cases had to be assigned explicitly; and a manager could move transactions off an agent who was out for the day onto someone else. Managers and team leads also had their own investigation screen over the same data, with bulk selection, bulk actions and filtering across up to a year of history.',
+          // ⚠️ The police clause is the most sensitive sentence in this file. Stated in
+          // engineering terms only — no claim that access was time-limited, expiring or
+          // audited, because she has not confirmed that. If she would rather not carry it,
+          // delete from "and a screen where" to the end of the point.
+          '<b>Any transaction opened the whole customer</b> — a detail page holding that customer’s transactions and their statuses, the beneficiary’s details and address, the device used, how their contact details had changed over time, and their relationships to other customers of the bank. Plus a search screen across all of it, and a screen where an authorised police investigator could be granted scoped access to one person’s history for an investigation.',
+          // Corrected 18 Sep 2026, the same evening it was written. The first version said these
+          // screens "were not handed down as specifications", which overstates: "the specifications
+          // were mostly coming from the BA team and owner, but discussed with me and contradicted when
+          // needed". The requirements were other people's; the argument over them and the design of
+          // the screens that answered them are hers. ⛔ Do not restore the stronger version.
+          '<b>The specifications came from the business analysts and the product owner, and I designed the screens that answered them</b>, contradicting a requirement where it did not hold up. The large data-grid screens came out of that: the police-investigation screen, the managers’ and team leads’ investigation screen with its bulk selection and year-wide filtering, the search across everything, and the customer detail page. Working out what each of them had to show, and for whom, was as much of the work as building them.',
+          '<b>Bulk reclassification through AG Grid, validated three times over</b>: higher-role agents could change the classification of many transactions at once, but a transaction that should not be reclassified was not, even with manual override — checked first by the automatic system, then by business rules in the frontend, then again in the backend. The interface also tracked whether the customer had been called. An agent could not get it wrong, which was the entire point.',
+          '<b>Role-based access control across the application</b>, deciding <i>with the business</i> which roles should reach which screens. That is a permissions conversation as much as a technical one, and I was in it.',
+          '<b>Won the UI/UX decision authority rather than being handed it.</b> The business analysts had mapped the flows from their own point of view; I argued the position of a brand-new agent with no background in that business, alongside the technical view of what belonged where. Many calls, pros and cons on each. It ended with the business pulling me into the sessions with the actual agents and their department managers so I could get feedback first-hand. A process manager described me as the team’s "unofficial screen designer"; a manager review listed UX design among the tasks I took on outside the role. The disagreements were real and so was the relationship: a meeting spent arguing over who had it right ended with the same people from the client over coffee afterwards.',
+          // WCAG confirmed by her 18 Sep 2026 as the "international standard" the client's
+          // process manager described her going off to learn. ⛔ It stays a research-and-argue
+          // claim — never upgrade it to compliance, audit or certification.
+          '<b>Learned WCAG for this work and argued the screens from it.</b> Where a decision needed an international standard, or a tool’s real capabilities rather than what everyone assumed they were, I went and read them and came back with what they allowed.',
+          '<b>Guidance built into the interface</b>, because the application had to be usable by newly enrolled agents and by people transferred in from other departments — descriptions and indications throughout, treated as a requirement rather than a nicety. It ran in four languages (English, French, German and Dutch), with every string routed through i18n files.',
+          '<b>WebSockets on the screens that needed them</b>, so agents saw a fraud status change or a moving statistic as it happened instead of waiting on a refresh.',
+          '<b>Release owner from the third release onwards</b> — releases ran every two to three months, at 5am on a Saturday. No production incidents across the releases I owned, few defects reached the client at all, and those that did were fixed quickly.',
+          '<b>Interim Team Lead</b>: frontend architecture decisions, an Angular version upgrade, CI/CD deployments, sprint planning, and writing refinement descriptions clearly enough that colleagues were not guessing. Two colleagues went from delivering one story in two weeks to one story in three days.',
+          '<b>Mentoring and code review</b>: Angular practice and Jasmine unit testing, plus consistent review to hold quality as the team changed shape. I finished as the only frontend developer on the application, with one backend colleague and a new joiner I was bringing up to speed.',
         ],
         stakeholderImpact:
-          'Assumed End-to-End ownership and Tech Lead responsibilities, driving the delivery of a new application. Actively guided business stakeholders toward smarter, user-friendly solutions beyond initial requirements.',
+          'Became the person who held the product knowledge for a platform the bank’s fraud operation depends on, and was trusted by the client’s business side to decide how it should work — to the point of being included in feedback sessions with the agents who use it.',
+      },
+      {
+        title: 'Employee access-management system',
+        startDate: '2024',
+        endDate: 'Sep 2025',
+        techStack: ['Angular', 'TypeScript', 'RxJS', 'Sass', 'Jasmine', 'Jenkins', 'OpenShift'],
+        summary:
+          'The second application the tech lead and I started from nothing: administering employees — checking a user, granting or replacing a role, editing their details. We grew it to a working MVP, after which it moved to a separate team under a new lead.',
+        descriptionPoints: [
+          '<b>Started it with the tech lead and took it to MVP</b> — the same pairing that had built the fraud platform, so the patterns and the ways of working carried across.',
+          '<b>Stayed its point of reference after the handover</b>: kept helping the new team, and the new lead in particular, with difficult Angular problems and with business decisions that needed someone who knew why the application worked the way it did.',
+          '<b>Covered the application while that team was away for a month</b> — the responsible person for it, as the only one who still knew all of it.',
+        ],
       },
     ],
   },
@@ -73,42 +284,70 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
     company: 'Deloitte Digital',
     role: 'Frontend Developer',
     logo: 'Deloitte',
+    // Stated, not derived from assignment order.
+    startDate: 'Oct 2021',
+    endDate: 'Dec 2022',
     assignments: [
       {
+        title: 'Internal banking application — sole frontend developer',
         startDate: 'Feb 2022',
         endDate: 'Dec 2022',
-        techStack: ['React', 'TypeScript', 'Mambu', 'Thymeleaf', 'AWS Services', 'Java'],
+        techStack: ['React', 'TypeScript', 'Mambu', 'Java', 'AWS Services', 'Thymeleaf'],
         summary:
-          'Served as the sole frontend developer for an internal banking application, building robust client and loan management workflows while navigating the strict architectural constraints of the Mambu interface.',
+          'Client and loan management for the staff of a banking client, built on Mambu’s core-banking platform and inside its constraints. The project had been started by someone else; I picked it up and carried it, and was the only frontend developer on it for eleven months. Also the first time I worked in React.',
         descriptionPoints: [
-          '<b>Standalone Frontend Delivery</b>: Designed and implemented critical banking features from scratch using React and TypeScript, collaborating closely with all involved roles to ensure seamless integration.',
-          '<b>Workflow Optimization</b>: Refactored and enhanced complex UI flows enabling agents to efficiently manage client profiles, process loan creations/refinancing, and drive client onboarding.',
-          '<b>Full-Stack Accountability</b>: Bridged the gap between frontend and backend teams by taking ownership of the Java-based PDF banking report generation code.',
-          '<b>Proactive Troubleshooting</b>: Demonstrated technical versatility by proactively investigating and resolving various backend bugs when backend developers were unavailable, ensuring continuous and stable delivery.',
+          '<b>The only frontend developer for eleven months</b>, on a project already underway when I joined. That meant working directly with every other role rather than through a frontend team — and being effectively unreviewed on frontend specifics, since code review came from backend-focused colleagues or from a principal frontend lead who did not touch the code.',
+          '<b>Built the client-profile, loan-creation, refinancing and onboarding workflows.</b> The loan work was flow, validation and state rather than computation — all the financial calculation sat in the backend.',
+          '<b>Took over the Java PDF transaction-history reports</b> the bank’s staff relied on. API changes were needed and the backend developers were occupied, so I made them myself. Then took on the document itself, which was not good enough: pagination, alignment, and the header and footer the bank is legally required to carry. Nobody asked for that second part.',
+          '<b>Mambu was the year’s real difficulty, twofold</b>: learning React while working inside a platform whose interface constrained what the frontend could look like, and then making that interface as good as it could be within those limits.',
+          // From Andrei-Ioan Popescu's Apr 2022 review: "She handled cloud configuration and installed
+          // the applications she developed with ease, even though this is out of her area of expertise."
+          '<b>Configured the cloud environment and installed the applications there myself</b> (AWS). Outside the frontend remit and outside what I knew when I started; it stood between the work and the people waiting for it, so I learned it. Other teams also came to me for the business and technical detail their own integrations needed.',
+          '<b>Challenged the requirements and the input data</b> rather than implementing them as written — mostly validation rules, and making sure a screen was usable at first glance by someone who had never seen it. A team lead singled this out in a review.',
         ],
         stakeholderImpact:
-          'Became the core point of contact for front-end applications overnight. Significantly boosted production speed and app quality while proactively challenging technical approaches to refine business requirements and architecture.',
+          'Became the single point of contact for the frontend of a banking application within weeks of joining it, and extended past the frontend when the alternative was the work not getting done.',
       },
       {
+        // Named at her request 18 Sep 2026: this was the Alpha Platform team, Deloitte's own
+        // publicly described product — verifiable, and not the banking client she chose not to
+        // name. ⛔ Alpha belongs to THIS assignment only, not to the internal banking one.
+        title: 'Insurance purchase & cover-upgrade platform — Deloitte’s Alpha Platform',
         startDate: 'Oct 2021',
         endDate: 'Jan 2022',
         techStack: ['Angular', 'TypeScript', 'RxJS', 'Sass'],
         summary:
-          'Contributed to an insurance platform by delivering responsive, interactive features that allowed users to efficiently manage active policies directly from their profiles.',
+          'An MVP on the Alpha Platform team, for a product Deloitte intended to own rather than deliver for a client: buying an insurance policy through a guided flow, and — if the cover turned out not to reach far enough — upgrading a policy already in force and paying only the difference. Two frontend developers, four to five backend, one designer.',
         descriptionPoints: [
-          '<b>Dynamic UI Implementation</b>: Engineered interactive modules enabling users to create, view, edit, and deactivate policies, including handling complex Mid-Term policy adjustments.',
-          '<b>UX/UI Collaboration</b>: Worked tightly with the product designer to map out and improve application flows, directly enhancing the overall user experience.',
-          '<b>Cross-Functional Communication</b>: Maintained efficient and proactive communication with both frontend and backend engineering teams, ensuring smooth project delivery and a highly collaborative environment.',
+          '<b>Built the purchase flow and the mid-term adjustment flow</b>: mid-term adjustment is upgrading a live policy part-way through its term, paying the difference rather than starting again. Upgrades only — the flow did not support downgrades or cancellation.',
+          '<b>Worked with the designer every day as the frontend’s feasibility voice</b>, feeding back what was and was not possible so the two of us improved the product together. The result was more consistent and easier to use than either of us would have got to alone — and this is the earliest point where design input was an explicit part of the job rather than something I did on the side.',
+          '<b>Built for end users, not specialists.</b> Whether the eventual audience was agents or customers directly was never settled while I was on it, so we made it simple enough for someone with no insurance background.',
+          // From two Deloitte reviews (Dragos-Vasile Lungu, Technical Lead, Jan 2022; Isabela Pecete,
+          // Project Manager, Feb 2022): a long list of improvements to the existing app, a lot of it
+          // implemented in a couple of weeks, plus mentoring of more junior team members. The same
+          // "audit it, then work the list" pattern as the SS&C consolidation argument, four years earlier.
+          // Pinned down by her 18 Sep 2026: the mentoring was on this project, and it was the
+          // colleague who did not know Angular. The point-of-contact role was wider than one
+          // project — "i was someone who was asked about angular from time to time, a point of
+          // contact for that, not exactly in one single project". Corroborated by the Deloitte BA's
+          // Apr 2022 review: "Overnight she became an expert and point of contact for front-end
+          // applications."
+          '<b>Went through the existing application and wrote up everything that could be better</b>, a long list of it, then implemented a lot of those items inside a couple of weeks. Taught Angular to the colleague on the team who did not know it while doing that, on practice as much as on code. The Angular questions came from outside this project too: across the year at Deloitte I was the person people asked, which was never a title and was how it worked anyway.',
+          'The MVP finished and I moved to another project; I do not know what happened to the product afterwards.',
         ],
       },
     ],
   },
   {
     company: 'IBM',
-    role: 'Frontend Developer',
+    role: 'Frontend Developer (joined as intern)',
     logo: 'IBM',
+    // Stated, not derived from assignment order.
+    startDate: 'Dec 2018',
+    endDate: 'Oct 2021',
     assignments: [
       {
+        title: 'E-commerce platform & CMS — 6 grocery brands, Albertsons',
         startDate: 'Apr 2020',
         endDate: 'Oct 2021',
         techStack: [
@@ -122,49 +361,53 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'Jenkins',
         ],
         summary:
-          'Part of a micro-frontend team for a major US retailer, managing frontend development of a comprehensive e-commerce platform serving 6 distinct websites with a shared core application and brand-customized configurations.',
+          'One AEM-based CMS driving six brand websites for a major US grocery group, built by roughly 40 developers in Romania working alongside a similar number on the client side. I was on the product-browsing and cart team: product lists and carousels, add-to-cart, the product detail page, and the mini-cart in the site header.',
         descriptionPoints: [
-          '<b>Operational Architecture</b>: Contributed to the design and implementation of feature toggling (flags) for beta programs, enabling controlled experimentation and safe, phased rollout of new functionalities.',
-          '<b>Efficiency and Performance</b>: Managed performance optimization across all 6 brands, ensuring responsiveness, efficiency on poor connections, and full ARIA, keyboard navigation, and screen reader accessibility.',
-          '<b>Critical Incident Leadership</b>: Proactively collaborated with the backend and frontend teams to investigate and resolve a critical live incident where the checkout system went down in production for one of the brand sites.',
-          '<b>Engineering Process</b>: Took ownership of daily builds, led product feature demos for stakeholders, and provided on-call production support while adapting to US time zones.',
-          '<b>Feature Development</b>: Implemented high-impact features including omnichannel support (stock checking, delivery/in-store pickup), "What You See Is What You Get" real-time discount feedback (with animations), and a personalized reorder feature.',
+          '<b>Built roughly 90% of the coupon experience</b>, the feature shoppers touched most. On a search or category page a product with eligible offers shows an "x coupons available" link; opening it slides in the offers with their terms ("20% off when you buy three"), and applying one strikes through the original price and shows the new one beside it. The same control repeats on the product page and inside the mini-cart, where applying a coupon turns green with a check, updates the order total in real time, and reports how many products the offer covers. Coupons could also be redeemed by code from the site or from the customer’s profile. The same machinery carried <b>BOGO</b> (buy one, get one) offers, where applying the code added a second unit at no charge.',
+          '<b>Store-location logic</b> driving stock availability, delivery pricing and in-store pickup — the omnichannel behaviour that decides what a customer is even allowed to order.',
+          '<b>Everything shipped behind feature toggles controlled by the advertising side</b>, which meant most components existed as two live versions at once and both had to work. It doubles the surface to maintain, which is why a toggle’s lifetime matters.',
+          '<b>Separate applications that met in the browser.</b> I used to call this a micro-frontend team, but it predates Module Federation — teams owned separate applications that integrated through shared browser storage rather than through a runtime contract. The modern term implies infrastructure we did not have.',
+          '<b>One CMS drove six brands</b>, so a change landed everywhere simultaneously and a bug could reproduce on one brand and not another. Working out the blast radius before changing anything was the daily discipline.',
+          '<b>Wrote some functionality in plain JavaScript rather than Angular</b>, either because it was a small AEM-authored component or because it was simply the leanest option: US shoppers on poor connections had to get a working page regardless of signal. Performance was tracked in the network panel, on total payload and CSS and JavaScript weight.',
+          '<b>Accessibility was client-mandated and independently verified</b>: ARIA, keyboard navigation and screen-reader behaviour (VoiceOver) were checked by testers on every ticket. Externally verified, not self-assessed.',
+          '<b>Helped diagnose a production checkout outage</b>: another team had given a CSS class the same name as one of ours, style encapsulation stopped holding, and a button disappeared on one brand’s site, so shoppers could not pay for around an hour. I was on call, and found the cause working through it with the senior developers. Scoped styles and token contracts are a correctness problem, not a tidiness one.',
+          '<b>Also delivered</b> a personalised reorder feature, real-time discount feedback with animations, daily build ownership, and feature demos for stakeholders.',
+          '<b>Mentored one to two junior developers</b> and wrote the learning plan for an IBM iX intern, onboarded new joiners into the wider IBM iX practice, and was the point of contact for the client’s US team, working US hours from Romania for the duration. Separately, taught a colleague enough Vue.js to start a new project in it, and contributed to a web-analytics project by reviewing colleagues’ code and building reusable components.',
         ],
         stakeholderImpact:
-          'Managed direct technical communication with demanding clients while actively mentoring junior developers and successfully onboarding new talent into the wider IBM iX ecosystem.',
+          'Held the client-facing technical relationship for a US retail group from another continent and time zone, while mentoring juniors and onboarding new developers into the practice.',
       },
       {
-        startDate: 'Mar 2020',
-        endDate: 'Mar 2020',
-        techStack: ['React.js', 'GraphQL', 'Material UI'],
-        summary:
-          'Delivered a fast-paced, high-stakes MVP for the retail recycling sector, building a dynamic purchasing platform that successfully converted a prospect into a long-term company partner.',
-        descriptionPoints: [
-          '<b>Strategic MVP Delivery</b>: Redesigned the purchasing flow from scratch using dynamic, step-dependent forms that adapt based on prior inputs, serving as the core technical proof-of-concept for the client.',
-        ],
-      },
-      {
+        title: 'Munich Re — offline tablet app, document platform & device compliance',
         startDate: 'Mar 2019',
         endDate: 'Mar 2020',
-        techStack: ['Angular', 'Ionic', 'TypeScript', 'Capacitor', 'RxJs', 'Sass', 'Unit Testing'],
+        techStack: ['Angular', 'Ionic', 'Capacitor', 'TypeScript', 'RxJS', 'Sass', 'Jamf', 'Unit Testing'],
         summary:
-          'Navigated both highly autonomous and team-based enterprise projects, taking full technical ownership of several critical applications. Delivered secure internal knowledge bases and offline-capable mobile/tablet tools used by insurance field staff.',
+          'Three applications for a reinsurance client, learning Angular from close to nothing at the start of it. The main one was a tablet application used by repair technicians in customers’ homes, on connections that could not be relied on.',
         descriptionPoints: [
-          '<b>End-to-End Ownership</b>: Developed a mobile app for work phone enrollment, ensuring vulnerability assessment and strict compliance tracking.',
-          '<b>Internal Tooling & Security</b>: Built a Wikipedia-style internal application to securely centralize company documents, featuring an advanced search filter for complex document content and metadata.',
-          '<b>Offline-First Architecture</b>: Created a modern, fully responsive tablet application optimized for field staff operating on low-speed or unstable connections. Engineered robust local storage that automatically synced changes once connectivity was restored.',
-          '<b>Feature Integration</b>: Enabled field agents to seamlessly add photos of repaired items, create new insurance entries, and view detailed insurance histories by item or customer.',
-          '<b>Client Alignment</b>: Regularly presented new features during demo sessions and conducted multiple onsite visits to the client in Munich, Germany, maintaining a strong, collaborative technical partnership.',
+          '<b>One of seven to eight developers on the tablet application</b>: a technician arrives at a customer’s house, checks whether the appliance is covered, pulls up the policy details, records what was repaired, photographs the proof, and captures a customer signature that has to be legally valid. All of it has to work with no connection and reconcile later. <i>The offline storage-and-sync layer was designed by our UI architect, not by me</i> — I built against it rather than building it, and I would not claim to know its internals.',
+          '<b>A demanding designer, which was the point.</b> The client had their own designer who set a high bar and gave us genuinely difficult designs to build. Working to that standard, a design was a specification, not a suggestion.',
+          // Resolved 18 Sep 2026: "in munich re the collection of data was the second assignment after
+          // the assurance app". The assurance app is the tablet product above; the device-compliance
+          // app was already built when she took it over, so the document platform is the only new
+          // build left, and "every document the company held" is literally a collection of data. Her
+          // earliest design ownership therefore dates to 2019–2020, in her first job.
+          '<b>Built the frontend for a company-wide document platform</b> — every document the company held, research included, well over 10,000 of them, searchable by metadata <i>and</i> by content inside the files. Filtering ran on the backend; I built the interface over it. <b>I also designed it entirely</b>, with small inputs from the lead, which makes this the earliest thing I owned the look and behaviour of as well as the code.',
+          '<b>Took over an ageing device-compliance application</b> (Jamf-based) that checked enrolled company phones — weak passwords included. It already existed and had aged badly, so the work was refactoring it and remediating its dependency vulnerabilities, which I did by hand, package by package. It took a long time and there was no clever way to do it.',
+          '<b>Three on-site trips to Munich</b>, three to five days each: development discussions, demos, face-to-face time with the product owner and the client, and working alongside the Munich Re developers. I never watched a technician use the app in the field, but we had the devices and tested on them.',
+          '<b>Unit tests on all of it</b> — every application I worked on here had them.',
         ],
       },
       {
+        title: 'Internship — learning Angular and joining the client team',
         startDate: 'Dec 2018',
         endDate: 'Feb 2019',
+        techStack: ['Angular', 'Ionic', 'TypeScript', 'RxJS'],
         summary:
-          'Rapidly onboarded to a new project and delivered a critical feature within the first two weeks, demonstrating exceptional adaptability and technical versatility.',
-        techStack: ['Angular', 'Ionic', 'TypeScript', 'RxJs'],
+          'Started with training in Angular, Ionic and the rest of the stack. By the second or third month I was picking up small tickets on the Munich Re tablet application and taking part in the daily calls — so the internship and the role that followed are one continuous piece of work on the same project.',
         descriptionPoints: [
-          'Quickly acquired necessary technologies to align with project requirements and ensure a smooth onboarding process. Contributed to client project by handling initial development tasks and integrating into the team workflow.',
+          '<b>Learned Angular here, from close to zero.</b> No JavaScript at that point, only Vue.js projects from student competitions and some courses. Angular and Ionic both came from this period.',
+          '<b>Ended the internship with an offer already signalled</b>: the feedback I had been given said the client was satisfied with the work I had done, and I moved onto a permanent contract on the same engagement.',
         ],
       },
     ],
