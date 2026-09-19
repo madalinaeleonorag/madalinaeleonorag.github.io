@@ -27,7 +27,13 @@
   --page-gutter: clamp(1rem, 5vw, 3rem);
 
   --transition-normal: 0.2s;
-  --border-radius: 8px;
+  --border-radius: 12px;
+  --surface-glow: rgba(122, 30, 46, 0.14);
+  --surface-elevated: linear-gradient(
+    180deg,
+    rgba(33, 24, 26, 0.98) 0%,
+    rgba(22, 17, 18, 0.98) 100%
+  );
 }
 
 *,
@@ -43,7 +49,10 @@ html {
 }
 
 body {
-  background-color: var(--md-sys-color-background);
+  background:
+    radial-gradient(circle at top left, rgba(122, 30, 46, 0.18), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(155, 69, 82, 0.1), transparent 22%),
+    var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
   font-family:
     'Inter',
@@ -111,7 +120,10 @@ a {
   color: var(--md-sys-color-primary);
 
   &:hover {
-    color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
   }
 }
 
@@ -151,6 +163,7 @@ button {
 
     &:hover {
       background-color: var(--md-sys-color-surface-container-low);
+      border-color: var(--md-sys-color-primary);
     }
   }
 }
@@ -199,16 +212,24 @@ h3 {
 }
 
 .glass-card {
-  background: var(--md-sys-color-surface-container-low);
-  border: 1px solid var(--md-sys-color-outline-variant);
+  background: var(--surface-elevated);
+  border: 1px solid rgba(122, 30, 46, 0.22);
   border-radius: var(--border-radius);
   padding: clamp(1rem, 2.5vw, 1.5rem);
   display: flex;
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
 
   transition:
     transform var(--transition-normal) ease,
-    background var(--transition-normal) ease;
+    background var(--transition-normal) ease,
+    border-color var(--transition-normal) ease,
+    box-shadow var(--transition-normal) ease;
+
+  &:hover {
+    border-color: rgba(122, 30, 46, 0.38);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+  }
 }
