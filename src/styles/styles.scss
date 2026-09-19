@@ -49,11 +49,8 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top left, rgba(122, 30, 46, 0.18), transparent 26%),
-    radial-gradient(circle at bottom right, rgba(155, 69, 82, 0.1), transparent 22%),
-    var(--md-sys-color-background);
-  color: var(--md-sys-color-on-background);
+  background: #171416;
+  color: #f5f1f2;
   font-family:
     'Inter',
     system-ui,

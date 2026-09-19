@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Mădălina-Eleonora Gheorghe favicon</title>
+  <desc id="desc">Dark app background with a burgundy M monogram and subtle border</desc>
+  <rect width="64" height="64" rx="14" fill="#171416"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="rgba(122,30,46,0.55)" stroke-width="1.2"/>
+  <path d="M16 48V16H22L32 31L42 16H48V48H42V24L34 38H30L22 24V48H16Z" fill="#7A1E2E"/>
+</svg>

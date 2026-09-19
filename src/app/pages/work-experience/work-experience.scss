@@ -93,10 +93,14 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    padding-top: var(--space-md);
+    padding: clamp(0.9rem, 2vw, 1.2rem);
+    background: rgba(18, 15, 17, 0.22);
+    border: 1px solid rgba(122, 30, 46, 0.22);
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 
     &:not(:first-child) {
-      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: clamp(0.9rem, 2vw, 1.2rem);
     }
 
     .assignment-label {
@@ -112,6 +116,10 @@
     display: grid;
     gap: var(--space-lg);
     width: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
 
     @media (min-width: $breakpoint-lg) {
       grid-template-columns: minmax(0, 1.8fr) minmax(220px, 320px);
@@ -151,7 +159,7 @@
       li {
         position: relative;
         padding-left: clamp(1.25rem, 2vw, 1.5rem);
-        color: var(--md-sys-color-on-surface-variant);
+        color: var(--md-sys-color-on-surface);
         line-height: 1.6;
 
         &::before {
@@ -168,9 +176,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    background: rgba(255, 255, 255, 0.02);
-    padding: var(--space-md);
-    border-radius: var(--border-radius);
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
 
     @media (min-width: $breakpoint-lg) {
       position: sticky;
@@ -207,7 +216,7 @@
 
   .assignment-reviews {
     margin-top: var(--space-md);
-    padding-top: var(--space-md);
+    padding-top: 0;
 
     .meta-label {
       font-size: clamp(0.7rem, 1vw, 0.75rem);

@@ -1,36 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img"
     aria-labelledby="title desc">
     <title id="title">Mădălina-Eleonora Gheorghe portfolio preview</title>
-    <desc id="desc">UX and product transition portfolio preview with learning, strategy, and digital experience
-        branding.</desc>
+    <desc id="desc">Premium burgundy and dark portfolio preview for UX and product transition.</desc>
     <defs>
         <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0b1220" />
-            <stop offset="100%" stop-color="#111827" />
+            <stop offset="0%" stop-color="#171414" />
+            <stop offset="50%" stop-color="#1d1b1d" />
+            <stop offset="100%" stop-color="#0f0f11" />
         </linearGradient>
-        <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#f8fafc" />
-            <stop offset="100%" stop-color="#e2e8f0" />
+        <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#a4283b" stop-opacity="0.92" />
+            <stop offset="100%" stop-color="#7a1e2e" stop-opacity="0.9" />
+        </linearGradient>
+        <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#211b1d" />
+            <stop offset="100%" stop-color="#171417" />
         </linearGradient>
     </defs>
 
     <rect width="1200" height="630" fill="url(#bg)" />
-    <circle cx="245" cy="170" r="76" fill="#eff6ff" opacity="0.12" />
-    <circle cx="980" cy="500" r="120" fill="#2563eb" opacity="0.12" />
+    <circle cx="150" cy="120" r="220" fill="#7a1e2e" opacity="0.12" />
+    <circle cx="1020" cy="560" r="220" fill="#7a1e2e" opacity="0.10" />
+    <circle cx="980" cy="150" r="90" fill="#7a1e2e" opacity="0.22" />
 
-    <rect x="120" y="90" width="960" height="450" rx="36" fill="url(#card)" />
-    <rect x="160" y="132" width="880" height="18" rx="9" fill="#cbd5e1" opacity="0.9" />
-    <rect x="160" y="170" width="470" height="18" rx="9" fill="#cbd5e1" opacity="0.7" />
+    <rect x="105" y="95" width="990" height="440" rx="32" fill="url(#panel)" stroke="#d9c5c8" stroke-opacity="0.18" />
 
-    <text x="600" y="285" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="62"
-        font-weight="700" fill="#0f172a">Mădălina-Eleonora</text>
-    <text x="600" y="358" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="68"
-        font-weight="800" fill="#0f172a">UX &amp; Product Transition</text>
+    <rect x="155" y="136" width="118" height="10" rx="5" fill="#7a1e2e" />
+    <rect x="290" y="136" width="320" height="10" rx="5" fill="#e8dfe1" opacity="0.45" />
+    <rect x="155" y="170" width="220" height="10" rx="5" fill="#e8dfe1" opacity="0.28" />
 
-    <rect x="350" y="392" width="500" height="8" rx="4" fill="#2563eb" opacity="0.9" />
-    <text x="600" y="470" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30"
-        font-weight="600" fill="#334155">Learning product strategy • UX thinking • digital experience</text>
+    <rect x="840" y="137" width="180" height="120" rx="28" fill="url(#glow)" opacity="0.88" />
+    <path d="M905 177 L945 143 L985 177 L945 211 Z" fill="#f5ecee" opacity="0.92" />
+    <circle cx="945" cy="177" r="18" fill="#7a1e2e" opacity="0.9" />
 
-    <circle cx="1002" cy="156" r="30" fill="#2563eb" />
-    <circle cx="1002" cy="156" r="18" fill="#f8fafc" />
+    <text x="600" y="280" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="60"
+        font-weight="700" fill="#f2ecec">Mădălina-Eleonora</text>
+    <text x="600" y="350" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="72"
+        font-weight="800" fill="#f7dfe5">UX &amp; Product Transition</text>
+
+    <rect x="440" y="388" width="320" height="6" rx="3" fill="#7a1e2e" />
+    <text x="600" y="457" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="28"
+        font-weight="600" fill="#dfd8d9" opacity="0.9">Learning product strategy • UX thinking • digital
+        experience</text>
+    <text x="600" y="495" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22"
+        font-weight="500" fill="#d1b9bf" opacity="0.9">Design systems • product discovery • business-aligned
+        delivery</text>
 </svg>
