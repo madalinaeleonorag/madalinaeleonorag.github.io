@@ -76,9 +76,10 @@
             <h4 class="summary-title">
               {{ job.role }}
             </h4>
-            <span class="summary-period"
-              >{{ job.assignments[0].startDate }} — {{ job.assignments[0].endDate }}</span
-            >
+            <span class="summary-period">
+              {{ job.startDate || job.assignments[0]?.startDate }} —
+              {{ job.endDate || job.assignments[0]?.endDate }}
+            </span>
           </div>
         </div>
       </article>

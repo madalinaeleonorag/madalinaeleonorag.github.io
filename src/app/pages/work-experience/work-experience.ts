@@ -1,8 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { WORK_EXPERIENCE } from '../../database/experience';
-import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
+import { getReviewsForAssignment } from '../../database/reviews';
 import { IAssignment, IWorkExperience } from '../../interfaces/work-experience';
-import { IReview } from '../../interfaces/review';
 import { Chip } from '../../components/chip/chip';
 import { SvgIcon } from '../../components/svg-icon/svg-icon';
 import { Router } from '@angular/router';
@@ -21,7 +20,12 @@ export class WorkExperience {
     return WORK_EXPERIENCE.map((job) => {
       const enrichedAssignments = job.assignments.map((assignment) => ({
         ...assignment,
-        topReviews: this.getTopReviewsForAssignment(job.company, assignment),
+        topReviews: getReviewsForAssignment(
+          job.company,
+          assignment.startDate,
+          assignment.endDate,
+          3,
+        ),
       }));
       return { ...job, assignments: enrichedAssignments };
     });
@@ -49,27 +53,5 @@ export class WorkExperience {
         endDate: assignment.endDate,
       },
     });
-  }
-
-  private getTopReviewsForAssignment(company: string, assignment: IAssignment): IReview[] {
-    const parseDate = (dateStr: string): number => {
-      if (!dateStr || dateStr.toLowerCase() === 'present') {
-        return new Date().getTime();
-      }
-      return new Date(`${dateStr} 1`).getTime();
-    };
-
-    const startTime = parseDate(assignment.startDate);
-    const endTime = parseDate(assignment.endDate);
-
-    return STAKEHOLDER_REVIEWS.filter((review) => {
-      const reviewTime = review.date.getTime();
-
-      const isSameCompany = review.company === company;
-      const isInPeriod = reviewTime >= startTime && reviewTime <= endTime;
-      const isTop = review.isTop === true;
-
-      return isSameCompany && isInPeriod && isTop;
-    }).slice(0, 3);
   }
 }

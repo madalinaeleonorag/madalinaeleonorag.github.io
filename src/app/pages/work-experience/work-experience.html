@@ -12,7 +12,8 @@
           </div>
         </div>
         <div class="header-period">
-          {{ getOverallStartDate(job) }} — {{ getOverallEndDate(job) }}
+          {{ job.startDate || getOverallStartDate(job) }} —
+          {{ job.endDate || getOverallEndDate(job) }}
         </div>
       </header>
 
@@ -28,6 +29,9 @@
 
             <div class="assignment-grid">
               <div class="assignment-main">
+                @if (assignment.title) {
+                  <h3 class="assignment-title">{{ assignment.title }}</h3>
+                }
                 @if (assignment.summary) {
                   <p class="assignment-summary">{{ assignment.summary }}</p>
                 }

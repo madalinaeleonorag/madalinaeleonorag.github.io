@@ -1,5 +1,59 @@
 import { IReview } from '../interfaces/review';
 
+export function getReviewsForAssignment(
+  company: string,
+  startDate: string,
+  endDate: string,
+  limit = 3,
+): IReview[] {
+  const parseDate = (dateStr: string): number => {
+    if (!dateStr || dateStr.toLowerCase() === 'present') {
+      return new Date().getTime();
+    }
+
+    return new Date(`${dateStr} 1`).getTime();
+  };
+
+  const startTime = parseDate(startDate);
+  const endTime = parseDate(endDate);
+
+  return STAKEHOLDER_REVIEWS.filter((review) => {
+    const reviewTime = review.date.getTime();
+
+    return (
+      review.company === company &&
+      review.isTop === true &&
+      reviewTime >= startTime &&
+      reviewTime <= endTime
+    );
+  })
+    .sort((a, b) => {
+      const priorityA = getReviewPriority(a);
+      const priorityB = getReviewPriority(b);
+
+      if (priorityB !== priorityA) {
+        return priorityB - priorityA;
+      }
+
+      return b.date.getTime() - a.date.getTime();
+    })
+    .slice(0, limit);
+}
+
+function getReviewPriority(review: IReview): number {
+  const position = (review.position ?? '').toLowerCase();
+
+  if (position.includes('manager') || position.includes('lead') || position.includes('director')) {
+    return 3;
+  }
+
+  if (position.includes('developer') || position.includes('engineer')) {
+    return 2;
+  }
+
+  return 1;
+}
+
 export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'SS&C Technologies',
@@ -255,37 +309,13 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       impressive. I would always want her in my team, given the opportunity.`,
   },
   {
-    company: 'Vodafone',
-    date: new Date('2021-11-25'),
-    position: 'System Support Engineer',
-    category: 'Development',
-    reviewer: 'Mihaela Gales',
-    review: `Madalina is a very practical person. Working on various projects with her, I was able to see how
-      flexible she can be, especially with the help of her vast knowledge in the IT field. In addition to
-      intelligence, I noticed that she also has leadership qualities that have been very helpful in any
-      project. Attention to detail characterizes her, so it's hard not to get things going almost perfectly
-      with her. She is a charismatic, dynamic person with very precise decision-making power. Nothing
-      remains unresolved with Madalina!`,
-  },
-  {
-    company: 'Wooter Apparel',
-    date: new Date('2021-09-24'),
-    position: 'Full-Stack Developer',
-    category: 'Development',
-    reviewer: 'Emanuel Cepoi',
-    review: `For the past years I had the opportunity to work alongside Madalina on multiple personal and
-      commercial projects. She was able to develop features in an extremely elegant and creative way all
-      the time. Her ability to develop high quality products while under extreme pressure is something
-      that I look up to, not only that she's able to stay calm and professional in difficult situations. She's
-      also able to make everyone in the team feel that they are also capable of doing more than they
-      expect from themselves.`,
-  },
-  {
     company: 'IBM',
     date: new Date('2021-09-13'),
+    isTop: true,
     position: 'Project Manager',
     category: 'Management',
     reviewer: 'Raluca Rusu',
+    preview: `...always reliable and helps her team members... <strong>strongly recommend her</strong> to any new opportunity and challenge.`,
     review: `Madalina is always reliable and helps her team members, able to understand the requirements
       and come up with a solution. It was a joy and I always had confidence while working with her. I
       strongly recommend her to any new opportunity and challenge.`,
@@ -307,9 +337,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'IBM',
     date: new Date('2021-08-06'),
+    isTop: true,
     position: 'Project Manager',
     category: 'Management',
     reviewer: 'Alexandra-Luminita Tanef',
+    preview: `Appreciate your guidance and helping bring new talent to our wider iX IBM team... <strong>strong contribution</strong> to project delivery.`,
     review: `Appreciate your guidance and helping bring new talent to our wider iX IBM team and also constant
       strong contribution to our project delivery. Keep up the good work!`,
   },
@@ -330,9 +362,11 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
     company: 'IBM',
     date: new Date('2020-12-16'),
+    isTop: true,
     position: 'People Manager',
     category: 'Management',
     reviewer: 'Sorina Radulescu',
+    preview: `Great job on the project... <strong>strong drive and attitude</strong>... continue to invest in your skills.`,
     review: `Great job on the project Madalina, the feedback received for the project is very good. Also, I like
       your drive and attitude, and I hope you will continue to invest in your skills as you did until now, and
       more.`,
