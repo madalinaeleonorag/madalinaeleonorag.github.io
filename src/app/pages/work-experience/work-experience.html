@@ -1,7 +1,7 @@
 <h2>Work Experience</h2>
 <div class="experience-wrapper">
   @for (job of enrichedWorkExperience(); track job.company) {
-    <div class="experience">
+    <div class="experience" [id]="slugify(job.company)">
       <header class="experience__header" [class.current-job]="isCurrentJob(job)">
         <div class="header-main">
           <app-svg-icon [type]="job.logo" class="experience__logo" />

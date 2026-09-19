@@ -70,6 +70,25 @@ export class Home {
     });
   }
 
+  getWorkExperienceLink(company: string): string {
+    return `/work-experience#${this.slugify(company)}`;
+  }
+
+  goToCompany(company: string, event?: Event): void {
+    event?.preventDefault();
+    this.router.navigate(['/work-experience'], { fragment: this.slugify(company) });
+  }
+
+  slugify(value: string): string {
+    return value
+      .toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
+  }
+
   private buildChronologicalTimeline() {
     const mappedEdu = EDUCATION.map((edu, index) => {
       const year = parseInt(edu.period.split('-')[1]?.trim() || edu.period.split('-')[0]?.trim());

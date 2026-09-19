@@ -65,24 +65,28 @@
   </div>
   <div class="experience-list">
     @for (job of workExperience; track job.company) {
-      <article
+      <a
         class="experience-summary"
+        [href]="getWorkExperienceLink(job.company)"
+        (click)="goToCompany(job.company, $event)"
         [class.current-job]="job.assignments[0].endDate === 'Present'"
+        [attr.aria-label]="'Open ' + job.company + ' in work experience'"
       >
         <app-svg-icon [type]="job.logo" class="summary-logo" />
 
         <div class="summary-content">
           <div class="summary-header">
+            <span class="summary-company">{{ job.company }}</span>
             <h4 class="summary-title">
               {{ job.role }}
             </h4>
-            <span class="summary-period">
-              {{ job.startDate || job.assignments[0]?.startDate }} —
-              {{ job.endDate || job.assignments[0]?.endDate }}
-            </span>
           </div>
+          <span class="summary-period">
+            {{ job.startDate || job.assignments[0]?.startDate }} —
+            {{ job.endDate || job.assignments[0]?.endDate }}
+          </span>
         </div>
-      </article>
+      </a>
     }
   </div>
   <button class="btn-secondary" routerLink="work-experience">
