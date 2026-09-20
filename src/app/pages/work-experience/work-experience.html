@@ -11,18 +11,15 @@
             <span class="company">{{ job.company }}</span>
           </div>
         </div>
-        <div class="header-period">
-          {{ job.startDate || getOverallStartDate(job) }} —
-          {{ job.endDate || getOverallEndDate(job) }}
-        </div>
+        <div class="header-period">{{ job.startDate }} — {{ job.endDate }}</div>
       </header>
 
       <div class="experience__assignments">
-        @for (assignment of job.assignments; track assignment.startDate; let i = $index) {
+        @for (assignment of job.assignments; track assignment.title; let i = $index) {
           <div class="assignment-entry">
             @if (job.assignments.length > 1) {
               <p class="assignment-label">
-                Assignment {{ job.assignments.length - i }}: {{ assignment.startDate }} -
+                Assignment {{ i + 1 }}: {{ assignment.startDate }} -
                 {{ assignment.endDate }}
               </p>
             }
@@ -75,7 +72,7 @@
               <div class="assignment-reviews">
                 <p class="meta-label">Featured Recommendations</p>
                 <div class="mini-reviews-grid">
-                  @for (review of assignment.topReviews; track review.reviewer) {
+                  @for (review of assignment.topReviews; track $index) {
                     <app-review-card [review]="review" [showRole]="true"></app-review-card>
                   }
                 </div>

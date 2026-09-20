@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Chip } from '../../components/chip/chip';
 import { SvgIcon } from '../../components/svg-icon/svg-icon';
 import { Router, RouterLink } from '@angular/router';
@@ -14,6 +14,7 @@ import { FEATURED_PROJECTS } from '../../database/projects';
 
 @Component({
   selector: 'app-home',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe],
   templateUrl: './home.html',
   styleUrl: './home.scss',
@@ -31,13 +32,12 @@ export class Home {
   readonly expertise = EXPERTISE;
   readonly workExperience = WORK_EXPERIENCE;
   readonly featuredProjects = FEATURED_PROJECTS;
-  readonly topReviews = STAKEHOLDER_REVIEWS.filter((review) => review.isTop).slice(0, 3);
+  readonly topReviews = STAKEHOLDER_REVIEWS.filter((review) => review.featuredOnHomepage);
   readonly timelineItems = this.buildChronologicalTimeline();
 
   currentSlideIndex = signal<number>(0);
 
   private router = inject(Router);
-
   downloadFile(fileName: string) {
     const fileUrl = `/Madalina-Eleonora-Gheorghe-${fileName}.pdf`;
 

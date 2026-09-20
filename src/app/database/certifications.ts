@@ -13,7 +13,6 @@ export const CERTIFICATIONS: Certification[] = [
     name: 'Figma UI UX Design Essentials',
     organization: 'Udemy',
     issueDate: 'Sep 2025',
-    url: 'https://www.credly.com/badges/7ee5d7d4-7bd5-46dc-bda5-4ec8b63270a3',
   },
   {
     logo: 'Cognizant.webp',
@@ -34,7 +33,7 @@ export const CERTIFICATIONS: Certification[] = [
     name: 'Watson and Cloud Foundations',
     organization: 'IBM',
     issueDate: 'Jan 2021',
-    url: 'https://www.credly.com/badges/11c2db76-b461-4bf9-8a12-9a42663d404',
+    url: 'https://www.credly.com/badges/11c2db76-b461-4bf9-8a12-9a42663d404f',
   },
   {
     logo: 'IBM-Mentor__282_29.webp',

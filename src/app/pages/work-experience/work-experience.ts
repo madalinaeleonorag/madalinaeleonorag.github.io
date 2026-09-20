@@ -2,6 +2,7 @@ import { AfterViewInit, Component, computed, inject } from '@angular/core';
 import { WORK_EXPERIENCE } from '../../database/experience';
 import { getReviewsForAssignment } from '../../database/reviews';
 import { IAssignment, IWorkExperience } from '../../interfaces/work-experience';
+import { IReview } from '../../interfaces/review';
 import { Chip } from '../../components/chip/chip';
 import { SvgIcon } from '../../components/svg-icon/svg-icon';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -39,6 +40,7 @@ export class WorkExperience implements AfterViewInit {
 
   enrichedWorkExperience = computed(() => {
     return WORK_EXPERIENCE.map((job) => {
+      const shownReviews = new Set<IReview>();
       const enrichedAssignments = job.assignments.map((assignment) => ({
         ...assignment,
         topReviews: getReviewsForAssignment(
@@ -46,24 +48,18 @@ export class WorkExperience implements AfterViewInit {
           assignment.startDate,
           assignment.endDate,
           3,
+          shownReviews,
         ),
       }));
+      enrichedAssignments.forEach((assignment) => {
+        assignment.topReviews.forEach((review) => shownReviews.add(review));
+      });
       return { ...job, assignments: enrichedAssignments };
     });
   });
 
-  getOverallStartDate(job: IWorkExperience) {
-    const arr = job.assignments;
-    return arr.length ? arr[arr.length - 1].startDate : '';
-  }
-
-  getOverallEndDate(job: IWorkExperience) {
-    const arr = job.assignments;
-    return arr.length ? arr[0].endDate : '';
-  }
-
   isCurrentJob(job: IWorkExperience) {
-    return this.getOverallEndDate(job) === 'Present';
+    return job.endDate === 'Present';
   }
 
   slugify(value: string): string {

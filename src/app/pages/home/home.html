@@ -187,9 +187,9 @@
     <p>What colleagues and clients say about working with me.</p>
   </div>
   <div class="cards-grid">
-    @for (review of topReviews; track review.reviewer) {
+    @for (review of topReviews; track $index) {
       <app-review-card [review]="review" [showCompany]="true"></app-review-card>
     }
   </div>
-  <button class="btn-secondary" routerLink="reviews">Read All Reviews</button>
+  <button class="btn-primary" routerLink="reviews">Read All Reviews</button>
 </section>

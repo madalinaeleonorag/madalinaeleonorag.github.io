@@ -7,4 +7,5 @@ export interface IReview {
   preview?: string;
   review: string;
   isTop?: boolean;
+  featuredOnHomepage?: boolean;
 }

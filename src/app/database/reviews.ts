@@ -5,17 +5,10 @@ export function getReviewsForAssignment(
   startDate: string,
   endDate: string,
   limit = 3,
+  excludedReviews: ReadonlySet<IReview> = new Set(),
 ): IReview[] {
-  const parseDate = (dateStr: string): number => {
-    if (!dateStr || dateStr.toLowerCase() === 'present') {
-      return new Date().getTime();
-    }
-
-    return new Date(`${dateStr} 1`).getTime();
-  };
-
-  const startTime = parseDate(startDate);
-  const endTime = parseDate(endDate);
+  const startTime = parseDateBoundary(startDate, false);
+  const endTime = parseDateBoundary(endDate, true);
 
   return STAKEHOLDER_REVIEWS.filter((review) => {
     const reviewTime = review.date.getTime();
@@ -23,6 +16,7 @@ export function getReviewsForAssignment(
     return (
       review.company === company &&
       review.isTop === true &&
+      !excludedReviews.has(review) &&
       reviewTime >= startTime &&
       reviewTime <= endTime
     );
@@ -38,6 +32,52 @@ export function getReviewsForAssignment(
       return b.date.getTime() - a.date.getTime();
     })
     .slice(0, limit);
+}
+
+function parseDateBoundary(dateString: string, endOfMonth: boolean): number {
+  if (!dateString || dateString.toLowerCase() === 'present') {
+    return endOfMonth ? Number.POSITIVE_INFINITY : 0;
+  }
+
+  const yearOnlyMatch = dateString.match(/^(\d{4})$/);
+  if (yearOnlyMatch) {
+    const year = Number(yearOnlyMatch[1]);
+    return Date.UTC(year, endOfMonth ? 11 : 0, endOfMonth ? 31 : 1);
+  }
+
+  const monthMatch = dateString.match(/^([A-Za-z]+)\s+(\d{4})$/);
+  if (monthMatch) {
+    const monthIndex = [
+      'jan',
+      'feb',
+      'mar',
+      'apr',
+      'may',
+      'jun',
+      'jul',
+      'aug',
+      'sep',
+      'oct',
+      'nov',
+      'dec',
+    ].indexOf(monthMatch[1].slice(0, 3).toLowerCase());
+    const year = Number(monthMatch[2]);
+
+    if (monthIndex >= 0) {
+      const day = endOfMonth ? new Date(Date.UTC(year, monthIndex + 1, 0)).getUTCDate() : 1;
+      return Date.UTC(
+        year,
+        monthIndex,
+        day,
+        endOfMonth ? 23 : 0,
+        endOfMonth ? 59 : 0,
+        endOfMonth ? 59 : 0,
+        endOfMonth ? 999 : 0,
+      );
+    }
+  }
+
+  return endOfMonth ? Number.POSITIVE_INFINITY : 0;
 }
 
 function getReviewPriority(review: IReview): number {
@@ -121,6 +161,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Cognizant',
     date: new Date('2024-11-01'),
     isTop: true,
+    featuredOnHomepage: true,
     position: 'Process Manager',
     category: 'Management',
     reviewer: 'Kathleen Renard',
@@ -167,6 +208,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Cognizant',
     date: new Date('2024-11-15'),
     isTop: true,
+    featuredOnHomepage: true,
     position: 'Manager',
     category: 'Management',
     reviewer: 'Etienne De Paepe',
@@ -262,6 +304,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
     isTop: true,
+    featuredOnHomepage: true,
     position: 'Team Lead',
     category: 'Leadership',
     reviewer: 'Andrei-Ioan Popescu',

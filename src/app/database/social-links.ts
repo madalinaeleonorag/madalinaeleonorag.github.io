@@ -8,9 +8,4 @@ export const SOCIAL_LINKS = [
     type: 'github',
     url: 'https://github.com/madalinaeleonorag',
   },
-  // TODO maybe change medium with another more dev related platform
-  {
-    type: 'medium',
-    url: 'https://madalinaeleonorag.medium.com/',
-  },
 ];
