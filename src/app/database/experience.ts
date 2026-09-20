@@ -429,4 +429,28 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
       },
     ],
   },
+  {
+    company: 'Renault Group',
+    role: 'Intern, Drive Your Future programme',
+    logo: 'Renault',
+    // Stated, not derived from assignment order.
+    startDate: 'Jun 2017',
+    endDate: 'Sep 2017',
+    assignments: [
+      {
+        title: 'Tool for processing consumption data',
+        startDate: 'Jun 2017',
+        endDate: 'Sep 2017',
+        techStack: ['MATLAB', 'Vehicle Test Data', 'Data Processing', 'Statistics', 'Reporting'],
+        summary:
+          'Processing the data that came back from cars under test, at Renault Group\u2019s engineering centre in Bucharest. A stipend contract taken through Drive Your Future, the group internship programme, under a partnership between Politehnica University and Renault Technologie Roumanie. Full time, five days a week, 19 June to 30 September 2017, between the second and third year of the bachelor\u2019s degree.',
+        descriptionPoints: [
+          '<b>The objective written into the contract was a tool for processing consumption data.</b> What arrived was everything the cars recorded: speed, altitude, fuel consumption, how many times a door had been opened, anything the vehicle could measure, from cars being tested in different countries.',
+          '<b>Eight scripts by the end of it</b>, and other departments started using them to aggregate their own data. The contract asked for one tool.',
+          '<b>Presented the extracted and synthesised results to the teams in France, in English.</b> Running the scripts was half of it; the presentations were the other half.',
+          '<b>Found why the durations were coming out wrong.</b> The procedure recording how long a road run lasted started at some number of seconds instead of at zero for torque, engine regime and speed, because some of the cars were already doing 30 km/h at time zero. The logs did not begin at rest, and the procedure assumed they did. Reports had been built on those durations already, and saying so meant contradicting the people whose procedure it was.',
+        ],
+      },
+    ],
+  },
 ];
