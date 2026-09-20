@@ -11,12 +11,13 @@ export const CERTIFICATIONS: Certification[] = [
   {
     logo: 'Figma.webp',
     name: 'Figma UI UX Design Essentials',
-    organization: 'Figma',
+    organization: 'Udemy',
     issueDate: 'Sep 2025',
+    url: 'https://www.credly.com/badges/7ee5d7d4-7bd5-46dc-bda5-4ec8b63270a3',
   },
   {
     logo: 'Cognizant.webp',
-    name: 'GitHub Copilot - Angular developers knowledge based assessment',
+    name: 'GitHub Copilot for Angular developers',
     organization: 'Cognizant',
     issueDate: 'May 2024',
     url: 'https://www.linkedin.com/in/madalinaeleonorag/details/certifications/1717160635838/single-media-viewer/?profileId=ACoAAB_DQGcBXVHwN-mZVSXz5qc1eTGlcwIJ9kI',
