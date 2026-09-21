@@ -2,6 +2,7 @@ import { Component, computed, signal, effect, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
+import { WORK_EXPERIENCE } from '../../database/experience';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReviewCard } from '../../components/review-card/review-card';
@@ -29,13 +30,14 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 export class Reviews {
   private readonly route = inject(ActivatedRoute);
   private readonly queryParams = toSignal(this.route.queryParams, {
-    initialValue: { company: '', startDate: '', endDate: '' },
+    initialValue: { assignmentId: '', company: '', startDate: '', endDate: '' },
   });
 
   constructor() {
     effect(() => {
       const params = this.queryParams();
       if (params) {
+        this.selectedAssignmentId.set(params['assignmentId'] ?? '');
         if (params['company']) {
           this.selectedCompany.set(params['company']);
         }
@@ -92,6 +94,7 @@ export class Reviews {
   ALL_REVIEWS = STAKEHOLDER_REVIEWS;
 
   searchTerm = signal<string>('');
+  selectedAssignmentId = signal<string>('');
   selectedCompany = signal<string>('');
   selectedCategory = signal<string>('');
   startDate = signal<Date | null>(null);
@@ -99,6 +102,21 @@ export class Reviews {
 
   availableCompanies = computed(() => [...new Set(this.ALL_REVIEWS.map((r) => r.company))]);
   availableCategories = computed(() => [...new Set(this.ALL_REVIEWS.map((r) => r.category))]);
+
+  reviewsForSelectedAssignment = computed(() => {
+    const assignmentId = this.selectedAssignmentId();
+
+    if (!assignmentId) {
+      return this.ALL_REVIEWS;
+    }
+
+    const assignment = WORK_EXPERIENCE.flatMap((job) => job.assignments).find(
+      (item) => item.id === assignmentId,
+    );
+    const reviewIds = new Set(assignment?.reviewIds ?? []);
+
+    return this.ALL_REVIEWS.filter((review) => reviewIds.has(review.id));
+  });
 
   filteredReviews = computed(() => {
     const term = this.searchTerm().toLowerCase();
@@ -108,7 +126,7 @@ export class Reviews {
     const startTarget = this.startDate()?.getTime() || null;
     const endTarget = this.endDate()?.getTime() || null;
 
-    return this.ALL_REVIEWS.filter((review) => {
+    return this.reviewsForSelectedAssignment().filter((review) => {
       if (company && review.company !== company) return false;
       if (category && review.category !== category) return false;
 

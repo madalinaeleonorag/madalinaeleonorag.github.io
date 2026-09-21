@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, computed, inject } from '@angular/core';
 import { WORK_EXPERIENCE } from '../../database/experience';
-import { getReviewsForAssignment } from '../../database/reviews';
+import { REVIEW_BY_ID } from '../../database/reviews';
 import { IAssignment, IWorkExperience } from '../../interfaces/work-experience';
 import { IReview } from '../../interfaces/review';
 import { Chip } from '../../components/chip/chip';
@@ -40,20 +40,13 @@ export class WorkExperience implements AfterViewInit {
 
   enrichedWorkExperience = computed(() => {
     return WORK_EXPERIENCE.map((job) => {
-      const shownReviews = new Set<IReview>();
       const enrichedAssignments = job.assignments.map((assignment) => ({
         ...assignment,
-        topReviews: getReviewsForAssignment(
-          job.company,
-          assignment.startDate,
-          assignment.endDate,
-          3,
-          shownReviews,
-        ),
+        topReviews: (assignment.reviewIds ?? [])
+          .map((reviewId) => REVIEW_BY_ID[reviewId])
+          .filter((review): review is IReview => Boolean(review))
+          .slice(0, 3),
       }));
-      enrichedAssignments.forEach((assignment) => {
-        assignment.topReviews.forEach((review) => shownReviews.add(review));
-      });
       return { ...job, assignments: enrichedAssignments };
     });
   });
@@ -72,12 +65,10 @@ export class WorkExperience implements AfterViewInit {
       .replace(/-+/g, '-');
   }
 
-  viewReviews(job: IWorkExperience, assignment: IAssignment) {
+  viewReviews(assignment: IAssignment) {
     this.router.navigate(['/reviews'], {
       queryParams: {
-        company: job.company,
-        startDate: assignment.startDate,
-        endDate: assignment.endDate,
+        assignmentId: assignment.id,
       },
     });
   }

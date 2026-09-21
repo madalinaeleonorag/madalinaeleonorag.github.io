@@ -62,9 +62,11 @@
                   </div>
                 }
 
-                <button class="btn-secondary" (click)="viewReviews(job, assignment)">
-                  View Reviews
-                </button>
+                @if (assignment.topReviews.length) {
+                  <button class="btn-secondary" (click)="viewReviews(assignment)">
+                    View Reviews
+                  </button>
+                }
               </aside>
             </div>
 

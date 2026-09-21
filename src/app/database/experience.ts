@@ -10,9 +10,15 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
     endDate: 'Present',
     assignments: [
       {
+        id: 'ssnc-access-permissions',
         title: 'Access & Permissions Platform (RBAC)',
         startDate: 'Nov 2025',
         endDate: 'Present',
+        reviewIds: [
+          'ssnc-tech-lead',
+          'ssnc-frontend-developer-estimation',
+          'ssnc-frontend-developer-unblocking',
+        ],
         techStack: [
           'Angular 21',
           'TypeScript',
@@ -51,6 +57,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'Came into an unfamiliar architecture, took over modules other people had left unfinished, and ended up the person the code belongs to. Recognised in a call across the whole services group for having been through every one of the projects and improved them, and named one of the people it relies on.',
       },
       {
+        id: 'ssnc-component-kit',
         title: 'Shared component kit, layout library & Material 3 theming',
         startDate: 'Nov 2025',
         endDate: 'Present',
@@ -88,6 +95,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'Turned "our components have drifted" from a recurring complaint into a measured case with a costed migration path, and got a whole-application interface change agreed by building one working example instead of arguing for it.',
       },
       {
+        id: 'ssnc-reference-data',
         title: 'Reference-data & content administration applications',
         startDate: 'Aug 2026',
         endDate: 'Present',
@@ -114,6 +122,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         ],
       },
       {
+        id: 'ssnc-configuration-panel',
         // History: was 'Multi-tenant configuration platform' (invented name, two
         // overstated points, both cut), then a one-point block for the
         // data-transformation MFE alone. Merged 18 Sep 2026 on her answer that the
@@ -144,6 +153,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         ],
       },
       {
+        id: 'ssnc-typescript-sdk',
         title: 'Platform TypeScript SDK',
         startDate: 'Jan 2026',
         endDate: 'Present',
@@ -165,6 +175,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         ],
       },
       {
+        id: 'ssnc-design-accessibility',
         // Cross-estate, not a product. Kept as its own block rather than filed
         // under one application, because the work applies to all of them.
         title: 'Design & accessibility',
@@ -179,6 +190,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         ],
       },
       {
+        id: 'ssnc-mentoring-practice',
         title: 'Mentoring, interviewing & practice',
         startDate: 'Nov 2025',
         endDate: 'Present',
@@ -203,9 +215,15 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
     endDate: 'Sep 2025',
     assignments: [
       {
+        id: 'cognizant-fraud-platform',
         title: 'Banking fraud-detection platform',
         startDate: 'Jan 2023',
         endDate: 'Sep 2025',
+        reviewIds: [
+          'cognizant-process-manager',
+          'cognizant-application-manager',
+          'cognizant-manager',
+        ],
         techStack: [
           'Angular 17+',
           'TypeScript',
@@ -268,6 +286,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'Became the person who held the product knowledge for a platform the bank’s fraud operation depends on, and was trusted by the client’s business side to decide how it should work — to the point of being included in feedback sessions with the agents who use it.',
       },
       {
+        id: 'cognizant-access-management',
         title: 'Employee access-management system',
         startDate: '2024',
         endDate: 'Sep 2025',
@@ -291,9 +310,21 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
     endDate: 'Dec 2022',
     assignments: [
       {
+        id: 'deloitte-banking-application',
         title: 'Internal banking application — sole frontend developer',
         startDate: 'Feb 2022',
         endDate: 'Dec 2022',
+        reviewIds: [
+          'deloitte-senior-consultant',
+          'deloitte-project-manager-scrum-master',
+          'deloitte-team-lead-october',
+          'deloitte-senior-manager',
+          'deloitte-solution-lead',
+          'deloitte-business-analyst',
+          'deloitte-manager',
+          'deloitte-team-lead-april',
+          'deloitte-project-manager-february',
+        ],
         techStack: ['React', 'TypeScript', 'Mambu', 'Java', 'AWS Services', 'Thymeleaf'],
         summary:
           'Client and loan management for the staff of a banking client, built on Mambu’s core-banking platform and inside its constraints. The project had been started by someone else; I picked it up and carried it, and was the only frontend developer on it for eleven months. Also the first time I worked in React.',
@@ -311,12 +342,14 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'Became the single point of contact for the frontend of a banking application within weeks of joining it, and extended past the frontend when the alternative was the work not getting done.',
       },
       {
+        id: 'deloitte-alpha-platform',
         // Named at her request 18 Sep 2026: this was the Alpha Platform team, Deloitte's own
         // publicly described product — verifiable, and not the banking client she chose not to
         // name. ⛔ Alpha belongs to THIS assignment only, not to the internal banking one.
         title: 'Insurance purchase & cover-upgrade platform — Deloitte’s Alpha Platform',
         startDate: 'Oct 2021',
         endDate: 'Jan 2022',
+        reviewIds: ['deloitte-technical-lead'],
         techStack: ['Angular', 'TypeScript', 'RxJS', 'Sass'],
         summary:
           'An MVP on the Alpha Platform team, for a product Deloitte intended to own rather than deliver for a client: buying an insurance policy through a guided flow, and — if the cover turned out not to reach far enough — upgrading a policy already in force and paying only the difference. Two frontend developers, four to five backend, one designer.',
@@ -349,9 +382,16 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
     endDate: 'Oct 2021',
     assignments: [
       {
+        id: 'ibm-ecommerce-platform',
         title: 'E-commerce platform & CMS — 6 grocery brands, Albertsons',
         startDate: 'Apr 2020',
         endDate: 'Oct 2021',
+        reviewIds: [
+          'ibm-project-manager-2021',
+          'ibm-frontend-developer-mentor',
+          'ibm-project-manager-2021-june',
+          'ibm-frontend-developer-june',
+        ],
         techStack: [
           'Angular',
           'TypeScript',
@@ -383,9 +423,11 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'Held the client-facing technical relationship for a US retail group from another continent and time zone, while mentoring juniors and onboarding new developers into the practice.',
       },
       {
+        id: 'ibm-munich-re',
         title: 'Munich Re — offline tablet app, document platform & device compliance',
         startDate: 'Mar 2019',
         endDate: 'Mar 2020',
+        reviewIds: ['ibm-people-manager', 'ibm-project-manager-2019'],
         techStack: [
           'Angular',
           'Ionic',
@@ -416,6 +458,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         ],
       },
       {
+        id: 'ibm-internship',
         title: 'Internship — learning Angular and joining the client team',
         startDate: 'Dec 2018',
         endDate: 'Feb 2019',
@@ -438,6 +481,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
     endDate: 'Sep 2017',
     assignments: [
       {
+        id: 'renault-consumption-data',
         title: 'Tool for processing consumption data',
         startDate: 'Jun 2017',
         endDate: 'Sep 2017',

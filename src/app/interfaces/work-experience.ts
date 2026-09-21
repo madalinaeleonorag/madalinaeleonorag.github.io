@@ -1,6 +1,7 @@
 import { IReview } from './review';
 
 export interface IAssignment {
+  id: string;
   descriptionPoints?: string[];
   endDate: string;
   stakeholderImpact?: string;
@@ -8,6 +9,7 @@ export interface IAssignment {
   summary?: string;
   techStack?: string[];
   title: string;
+  reviewIds?: string[];
   topReviews?: IReview[];
 }
 

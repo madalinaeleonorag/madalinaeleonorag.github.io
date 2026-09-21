@@ -1,4 +1,5 @@
 export interface IReview {
+  id: string;
   company: string;
   date: Date;
   position: string;

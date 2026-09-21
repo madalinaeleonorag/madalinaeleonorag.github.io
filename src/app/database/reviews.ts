@@ -1,101 +1,8 @@
 import { IReview } from '../interfaces/review';
 
-export function getReviewsForAssignment(
-  company: string,
-  startDate: string,
-  endDate: string,
-  limit = 3,
-  excludedReviews: ReadonlySet<IReview> = new Set(),
-): IReview[] {
-  const startTime = parseDateBoundary(startDate, false);
-  const endTime = parseDateBoundary(endDate, true);
-
-  return STAKEHOLDER_REVIEWS.filter((review) => {
-    const reviewTime = review.date.getTime();
-
-    return (
-      review.company === company &&
-      review.isTop === true &&
-      !excludedReviews.has(review) &&
-      reviewTime >= startTime &&
-      reviewTime <= endTime
-    );
-  })
-    .sort((a, b) => {
-      const priorityA = getReviewPriority(a);
-      const priorityB = getReviewPriority(b);
-
-      if (priorityB !== priorityA) {
-        return priorityB - priorityA;
-      }
-
-      return b.date.getTime() - a.date.getTime();
-    })
-    .slice(0, limit);
-}
-
-function parseDateBoundary(dateString: string, endOfMonth: boolean): number {
-  if (!dateString || dateString.toLowerCase() === 'present') {
-    return endOfMonth ? Number.POSITIVE_INFINITY : 0;
-  }
-
-  const yearOnlyMatch = dateString.match(/^(\d{4})$/);
-  if (yearOnlyMatch) {
-    const year = Number(yearOnlyMatch[1]);
-    return Date.UTC(year, endOfMonth ? 11 : 0, endOfMonth ? 31 : 1);
-  }
-
-  const monthMatch = dateString.match(/^([A-Za-z]+)\s+(\d{4})$/);
-  if (monthMatch) {
-    const monthIndex = [
-      'jan',
-      'feb',
-      'mar',
-      'apr',
-      'may',
-      'jun',
-      'jul',
-      'aug',
-      'sep',
-      'oct',
-      'nov',
-      'dec',
-    ].indexOf(monthMatch[1].slice(0, 3).toLowerCase());
-    const year = Number(monthMatch[2]);
-
-    if (monthIndex >= 0) {
-      const day = endOfMonth ? new Date(Date.UTC(year, monthIndex + 1, 0)).getUTCDate() : 1;
-      return Date.UTC(
-        year,
-        monthIndex,
-        day,
-        endOfMonth ? 23 : 0,
-        endOfMonth ? 59 : 0,
-        endOfMonth ? 59 : 0,
-        endOfMonth ? 999 : 0,
-      );
-    }
-  }
-
-  return endOfMonth ? Number.POSITIVE_INFINITY : 0;
-}
-
-function getReviewPriority(review: IReview): number {
-  const position = (review.position ?? '').toLowerCase();
-
-  if (position.includes('manager') || position.includes('lead') || position.includes('director')) {
-    return 3;
-  }
-
-  if (position.includes('developer') || position.includes('engineer')) {
-    return 2;
-  }
-
-  return 1;
-}
-
 export const STAKEHOLDER_REVIEWS: IReview[] = [
   {
+    id: 'ssnc-senior-frontend-developer',
     company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     position: 'Senior Frontend Developer',
@@ -107,6 +14,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       was a great team player.`,
   },
   {
+    id: 'ssnc-tech-lead',
     company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     isTop: true,
@@ -120,6 +28,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       skills made her a great addition to the team.`,
   },
   {
+    id: 'ssnc-tech-lead-teamwork',
     company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     position: 'Tech Lead',
@@ -130,6 +39,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       communicates very well and proved to be a great team player.`,
   },
   {
+    id: 'ssnc-frontend-developer-estimation',
     company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     isTop: true,
@@ -145,6 +55,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       planning her task easy and smooth. Overall, it's a pleasure working with her.`,
   },
   {
+    id: 'ssnc-frontend-developer-unblocking',
     company: 'SS&C Technologies',
     date: new Date('2026-02-01'),
     isTop: true,
@@ -158,6 +69,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       facing something are not clear. Reliability on solving problems and unblocking others.`,
   },
   {
+    id: 'cognizant-process-manager',
     company: 'Cognizant',
     date: new Date('2024-11-01'),
     isTop: true,
@@ -189,6 +101,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       It was a pleasure working with you. I wish you all the best.`,
   },
   {
+    id: 'cognizant-application-manager',
     company: 'Cognizant',
     date: new Date('2024-11-14'),
     isTop: true,
@@ -205,6 +118,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       We are so happy with the way things are handled.`,
   },
   {
+    id: 'cognizant-manager',
     company: 'Cognizant',
     date: new Date('2024-11-15'),
     isTop: true,
@@ -223,6 +137,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       player`,
   },
   {
+    id: 'deloitte-senior-consultant',
     company: 'Deloitte Digital',
     date: new Date('2022-11-07'),
     position: 'Senior Consultant',
@@ -233,6 +148,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       integrations.`,
   },
   {
+    id: 'deloitte-project-manager-scrum-master',
     company: 'Deloitte Digital',
     date: new Date('2022-11-10'),
     position: 'Project Manager / Scrum Master',
@@ -243,6 +159,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       next level.`,
   },
   {
+    id: 'deloitte-team-lead-october',
     company: 'Deloitte Digital',
     date: new Date('2022-10-19'),
     position: 'Team Lead',
@@ -255,6 +172,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       support needed to get the job done.`,
   },
   {
+    id: 'deloitte-senior-manager',
     company: 'Deloitte Digital',
     date: new Date('2022-05-02'),
     position: 'Senior Manager',
@@ -265,6 +183,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       complexity of the project.`,
   },
   {
+    id: 'deloitte-solution-lead',
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
     position: 'Solution Lead',
@@ -277,6 +196,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       value of her profile.`,
   },
   {
+    id: 'deloitte-business-analyst',
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
     isTop: true,
@@ -289,6 +209,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       her onboard.`,
   },
   {
+    id: 'deloitte-manager',
     company: 'Deloitte Digital',
     date: new Date('2022-04-06'),
     position: 'Manager',
@@ -301,6 +222,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       implementing best practice techniques.`,
   },
   {
+    id: 'deloitte-team-lead-april',
     company: 'Deloitte Digital',
     date: new Date('2022-04-20'),
     isTop: true,
@@ -324,6 +246,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       to continue doing this in the future.`,
   },
   {
+    id: 'deloitte-project-manager-february',
     company: 'Deloitte Digital',
     date: new Date('2022-02-07'),
     position: 'Project Manager',
@@ -339,6 +262,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       needed.`,
   },
   {
+    id: 'deloitte-technical-lead',
     company: 'Deloitte Digital',
     date: new Date('2022-01-28'),
     isTop: true,
@@ -352,6 +276,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       impressive. I would always want her in my team, given the opportunity.`,
   },
   {
+    id: 'ibm-project-manager-2021',
     company: 'IBM',
     date: new Date('2021-09-13'),
     isTop: true,
@@ -365,6 +290,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
   },
 
   {
+    id: 'ibm-frontend-developer-mentor',
     company: 'IBM',
     date: new Date('2021-09-02'),
     isTop: true,
@@ -378,6 +304,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       proactivity which she possesses inspired me a lot through my internship period.`,
   },
   {
+    id: 'ibm-project-manager-2021-june',
     company: 'IBM',
     date: new Date('2021-08-06'),
     isTop: true,
@@ -389,6 +316,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       strong contribution to our project delivery. Keep up the good work!`,
   },
   {
+    id: 'ibm-frontend-developer-june',
     company: 'IBM',
     date: new Date('2021-06-22'),
     isTop: true,
@@ -403,6 +331,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       their team(s).`,
   },
   {
+    id: 'ibm-people-manager',
     company: 'IBM',
     date: new Date('2020-12-16'),
     isTop: true,
@@ -415,6 +344,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       more.`,
   },
   {
+    id: 'ibm-project-manager-2019',
     company: 'IBM',
     date: new Date('2019-03-15'),
     isTop: true,
@@ -428,3 +358,7 @@ export const STAKEHOLDER_REVIEWS: IReview[] = [
       client and her team members, to adapt quickly to change and to help any time need it.`,
   },
 ];
+
+export const REVIEW_BY_ID: Readonly<Record<string, IReview>> = Object.fromEntries(
+  STAKEHOLDER_REVIEWS.map((review) => [review.id, review]),
+);
