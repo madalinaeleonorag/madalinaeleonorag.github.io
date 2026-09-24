@@ -41,6 +41,8 @@
   display: flex;
   flex-flow: column;
   gap: var(--space-lg);
+  width: min(100%, 1200px);
+  margin-inline: auto;
   margin-bottom: clamp(3rem, 10vh, 6rem);
 }
 
