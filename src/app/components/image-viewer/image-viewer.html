@@ -1,0 +1,32 @@
+<dialog
+  #dialog
+  class="viewer"
+  aria-label="Image viewer"
+  (close)="onClosed()"
+  (click)="onBackdropClick($event)"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+>
+  @if (viewer.current(); as image) {
+    <button type="button" class="viewer__close" aria-label="Close image" (click)="close()">&times;</button>
+
+    <figure class="viewer__figure" (click)="onBackdropClick($event)">
+      <img [src]="image.src" [alt]="image.alt" />
+      @if (image.caption || viewer.images().length > 1) {
+        <figcaption>
+          @if (image.caption) {
+            <span>{{ image.caption }}</span>
+          }
+          @if (viewer.images().length > 1) {
+            <span class="viewer__count" aria-live="polite">{{ viewer.index() + 1 }} / {{ viewer.images().length }}</span>
+          }
+        </figcaption>
+      }
+    </figure>
+
+    @if (viewer.images().length > 1) {
+      <button type="button" class="viewer__nav viewer__nav--prev" aria-label="Previous image" (click)="viewer.step(-1)">&#8249;</button>
+      <button type="button" class="viewer__nav viewer__nav--next" aria-label="Next image" (click)="viewer.step(1)">&#8250;</button>
+    }
+  }
+</dialog>

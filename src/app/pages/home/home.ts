@@ -10,13 +10,14 @@ import { ReviewCard } from '../../components/review-card/review-card';
 import { CERTIFICATIONS } from '../../database/certifications';
 import { EDUCATION } from '../../database/education';
 import { AssetPathPipe } from '../../pipes/asset-path-pipe';
+import { Zoomable } from '../../components/image-viewer/zoomable';
 import { FEATURED_PROJECTS } from '../../database/projects';
 import { Analytics } from '../../services/analytics';
 
 @Component({
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe],
+  imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe, Zoomable],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

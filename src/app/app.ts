@@ -2,11 +2,12 @@ import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter, map, startWith } from 'rxjs';
+import { ImageViewerDialog } from './components/image-viewer/image-viewer';
 import { Analytics } from './services/analytics';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, ImageViewerDialog],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

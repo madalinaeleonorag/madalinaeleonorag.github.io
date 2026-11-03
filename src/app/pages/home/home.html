@@ -110,6 +110,8 @@
           [src]="item.logo | assetPath"
           [alt]="item.subtitle + ' logo'"
           class="cert-logo-massive"
+          appZoomable
+          [zoomCaption]="item.title"
           loading="lazy"
         />
 
@@ -145,6 +147,8 @@
             <img
               [src]="project.imageUrl | assetPath"
               [alt]="project.title + ' preview'"
+              appZoomable="projects"
+              [zoomCaption]="project.title"
               loading="lazy"
             />
           } @else {

@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { MatTabsModule } from '@angular/material/tabs';
 import { Chip } from '../../components/chip/chip';
+import { Zoomable } from '../../components/image-viewer/zoomable';
 import { AssetPathPipe } from '../../pipes/asset-path-pipe';
 import { DOSESYNC } from '../../database/dosesync';
 
@@ -14,7 +15,7 @@ const TAB_FRAGMENTS = ['app', 'product', 'architecture'];
 @Component({
   selector: 'app-dosesync',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatTabsModule, NgTemplateOutlet, Chip, AssetPathPipe],
+  imports: [MatTabsModule, NgTemplateOutlet, Chip, AssetPathPipe, Zoomable],
   templateUrl: './dosesync.html',
   styleUrl: './dosesync.scss',
 })

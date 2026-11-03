@@ -12,14 +12,15 @@ export const DOSESYNC = {
   title: 'DoseSync',
   slogan: "Medication scheduling for treatment plans that don't fit a simple daily reminder.",
   tagline: 'Offline-first · Privacy-first · Android (iOS later)',
-  status: 'MVP 0 running on my Android phone',
-  techStack: ['Angular 21', 'Signals', 'Ionic', 'Capacitor', 'TypeScript', 'Vitest'],
+  status: 'MVP 0 and MVP 1 features running on my Android phone',
+  techStack: ['Angular 21', 'Signals', 'Ionic', 'Capacitor', 'TypeScript', 'SQLCipher', 'Vitest'],
   githubUrl: 'https://github.com/madalinaeleonorag/DoseSync',
 
+  // Screenshots use made-up demo medications, never real health data.
   hero: {
-    image: '',
-    alt: 'DoseSync Today view on an Android phone',
-    caption: 'Hero screenshot',
+    image: 'dosesync/today.webp',
+    alt: 'DoseSync Today view: 5 of 6 doses done, the next dose with Taken and Skip buttons, and an upcoming appointment',
+    caption: 'Today: the next dose first, then upcoming appointments',
   } as CaseStudyImage,
 
   // "The App" tab: written for people who might use DoseSync, not for recruiters
@@ -59,14 +60,24 @@ export const DOSESYNC = {
       { title: 'Safe as-needed doses', text: 'A daily limit and a minimum gap between doses, with a clear warning.', ready: true },
       { title: 'Skip and missed doses', text: 'Skip a dose on purpose, or see clearly which ones were not recorded.', ready: true },
       { title: 'Backup you control', text: 'Save everything to a file and restore it on a new phone.', ready: true },
-      { title: 'Taken, Snooze, Skip from the notification', text: 'Answer a reminder without opening the app.', ready: false },
+      { title: 'Taken, Snooze, Skip from the notification', text: 'Answer a reminder without opening the app. Medication names can be hidden on the lock screen.', ready: true },
+      { title: 'Pause and catch up', text: 'Pause a treatment without changing your history, and record a dose you took earlier at the real time.', ready: true },
+      { title: 'Runs out around…', text: 'An estimated date for each medicine, so you can refill in time.', ready: true },
+      { title: 'History', text: 'How many doses you took over the last 7 or 30 days, per medicine and day by day.', ready: true },
+      { title: 'Plan a trip', text: 'How much of each medicine to pack, and whether you have enough at home. Tick "flying" and the medicine you take for flights is packed too.', ready: true },
+      { title: 'Appointments', text: 'Doctor visits and tests on Today and in the calendar, with a reminder the evening before and two hours before.', ready: true },
+      { title: 'Travel across time zones', text: 'Keep taking doses at home time, or switch to local time.', ready: true },
+      { title: 'Your look, your size', text: 'Several color themes or your own color, light and dark mode, text size that follows your phone, larger buttons, and a simple layout with labelled tabs.', ready: true },
+      { title: 'Romanian and English', text: 'The whole app, including reminders.', ready: true },
+      { title: 'PIN and fingerprint lock', text: 'Optional. Forgot the PIN? Your phone’s own screen lock lets you back in. Your data is also encrypted on the phone.', ready: true },
       { title: 'Record for your doctor', text: 'A one-page PDF of what you took and skipped.', ready: false },
-      { title: 'Romanian and English', text: 'With large text and zoom support.', ready: false },
+      { title: 'Home-screen widgets', text: 'Next dose and cycle estimate at a glance.', ready: false },
     ],
 
     privacy: [
       'No account and no sign-up.',
-      'Your data stays on your phone. Nothing is sent to a server.',
+      'Your data stays on your phone, encrypted. Nothing is sent to a server.',
+      'An optional PIN or fingerprint keeps others out of the app.',
       'No ads, no tracking, no selling of data.',
       'Back up and restore your data yourself, whenever you want.',
     ],
@@ -75,7 +86,8 @@ export const DOSESYNC = {
       { q: 'Is it free?', a: 'Yes. Core features will stay free, with no limit on the number of medicines.' },
       { q: 'Do I need an account?', a: 'No. Open the app and start adding your medicines.' },
       { q: 'Will it tell me what dose to take?', a: 'No. DoseSync follows the plan you enter from your prescription. It does not give medical advice or change your treatment.' },
-      { q: 'What if I change phones?', a: 'You will be able to export your data to a file and import it on the new phone.' },
+      { q: 'What if I change phones?', a: 'Export your data to a file in Settings and restore it on the new phone. DoseSync is left out of Android backups on purpose, so your health data never goes to the cloud.' },
+      { q: 'What if I forget my PIN?', a: 'Open DoseSync with the PIN, pattern or password you use to unlock your phone, then choose a new PIN. On a phone without a screen lock, you answer which of your medicines you take.' },
       { q: 'How can I try it?', a: 'A closed beta on Google Play is coming. Write to me and I will add you to the tester list.' },
     ],
   },
@@ -161,37 +173,43 @@ export const DOSESYNC = {
   ],
 
   screens: [
-    { image: '', alt: 'Today view', caption: 'Today: next doses first, completed doses below' },
-    { image: '', alt: 'Medication editor', caption: 'Medication editor with schedule rules' },
-    { image: '', alt: 'Medication drawer', caption: 'Drawer: stock and low-stock alerts' },
-    { image: '', alt: 'Calendar', caption: 'Calendar: review any day' },
+    { image: 'dosesync/calendar.webp', alt: 'Month calendar with dose dots, predicted period days and an appointment marker', caption: 'Calendar with cycle estimate and appointments' },
+    { image: 'dosesync/editor.webp', alt: 'Medication editor with name, strength, dose, instructions and color', caption: 'Medication editor' },
+    { image: 'dosesync/drawer.webp', alt: 'Medication drawer with stock counts, low-stock badges and runs-out dates', caption: 'Drawer: stock and “runs out around”' },
+    { image: 'dosesync/history.webp', alt: 'History with 92% taken over 7 days and a bar per medication', caption: 'History and adherence' },
+    { image: 'dosesync/trip.webp', alt: 'Trip planner with Flying ticked twice and a packing list with stock checks', caption: 'Trip planner with situations' },
+    { image: 'dosesync/dark.webp', alt: 'Today view in the dark Burgundy theme', caption: 'Dark mode' },
+    { image: 'dosesync/simple.webp', alt: 'Today view in the simple layout with labelled tabs and larger text', caption: 'Simple layout, larger text' },
   ] as CaseStudyImage[],
 
   roadmap: [
     {
       phase: 'MVP 0',
       title: 'Works for me',
-      status: 'In progress',
+      status: 'Done',
       items: [
         'Rule engine: daily, weekdays, day-of-month, interval, seasonal, cycle and PRN',
         'Today view, calendar and medication drawer',
-        'Native reminders for the next 30 days',
-        'Stock counter with low-stock threshold; undo restores stock',
+        'Native reminders with Taken, Snooze and Skip actions',
+        'Stock counter with low-stock notification; undo restores stock',
         'Taken, skipped and missed states; PRN daily maximum and minimum gap',
-        'JSON backup and restore',
-        'Encrypted storage (next)',
+        'Encrypted storage (SQLCipher) and JSON backup',
+        'Romanian and English from the first screen',
       ],
     },
     {
       phase: 'MVP 1',
       title: 'Google Play release',
-      status: 'Planned',
+      status: 'In progress',
       items: [
         'Cycle tracking with next-start estimate',
         'Tolerance windows and missed-dose handling',
         'Pause without altering history; retroactive logging',
         'Time zone handling when traveling',
-        'Romanian and English; large text and zoom',
+        'Depletion estimate and daily adherence timeline',
+        'Optional PIN or biometric lock',
+        'Color and shape per medication; themes, light and dark mode, text size and a simple layout',
+        'Closed test on Google Play',
       ],
     },
     {
@@ -201,7 +219,8 @@ export const DOSESYNC = {
       items: [
         'One-page PDF record',
         'Audit trail when a regimen changes',
-        'Travel pack quantity calculator',
+        'Travel pack quantity calculator (done early, with situations such as flying)',
+        'Home-screen widgets',
         'Optional cloud backup and caregiver sharing, after a privacy review',
       ],
     },
@@ -211,6 +230,7 @@ export const DOSESYNC = {
       status: 'Later',
       items: [
         'Medication lookup from the EMA product information API',
+        'Prescriptions and pharmacies (simple appointments were done early)',
         'Food and medication warnings from leaflet text, with source shown',
       ],
     },
@@ -283,17 +303,18 @@ type Recurrence =
 
   privacy: [
     { title: 'No server', text: 'No account, no analytics. Medication data never leaves the device.' },
-    { title: 'Encrypted storage', text: 'SQLite encrypted with a key in secure storage; Preferences only for non-sensitive settings.' },
-    { title: 'User-owned backup', text: 'JSON export and import; Android auto-backup excluded or encrypted.' },
+    { title: 'Encrypted storage', text: 'SQLCipher database with its key in the Android Keystore. Loaded into Signals at startup and written through. The move from the old storage reads the data back before deleting the original.' },
+    { title: 'User-owned backup', text: 'JSON export and import; Android cloud backup and device transfer excluded.' },
+    { title: 'App lock', text: 'Optional PIN stored only as a salted PBKDF2 hash, with fingerprint or face unlock and a growing wait after wrong tries. A forgotten PIN is recovered with the phone’s own screen lock, so older users are never locked out of their data.' },
     { title: 'GDPR-ready path', text: 'Health data is a special category (Art. 9); cloud features need consent and a security review.' },
   ],
 
   currentState: [
     {
       label: 'Built',
-      text: 'A pure TypeScript rule engine tested against the reference regimen; Signals state; taken, skipped and missed doses; PRN safety checks; native reminders with Taken, Snooze and Skip actions; JSON backup. 59 unit tests.',
+      text: 'A pure TypeScript rule engine tested against the reference regimen; Signals state; taken, skipped and missed doses; PRN safety checks; native reminders with Taken, Snooze and Skip actions; encrypted SQLite storage; PIN and biometric lock; pause, retroactive logging, supply estimate, adherence history, trip planner with per-trip situations, appointments with reminders; time zones; Romanian and English; light and dark themes with fixed status colors, contrast-tested, and text that scales with the phone. 106 unit tests.',
     },
-    { label: 'Not yet', text: 'Data is still in unencrypted on-device storage. Encrypted SQLite and Romanian/English translations are next.' },
+    { label: 'Not yet', text: 'The model is still one flat Medication rather than separate Regimens, and there is no PDF record yet. Next: the Google Play closed test.' },
   ],
 
   release: [
