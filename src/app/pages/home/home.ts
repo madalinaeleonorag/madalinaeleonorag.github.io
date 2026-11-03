@@ -11,6 +11,7 @@ import { CERTIFICATIONS } from '../../database/certifications';
 import { EDUCATION } from '../../database/education';
 import { AssetPathPipe } from '../../pipes/asset-path-pipe';
 import { FEATURED_PROJECTS } from '../../database/projects';
+import { Analytics } from '../../services/analytics';
 
 @Component({
   selector: 'app-home',
@@ -38,29 +39,16 @@ export class Home {
   currentSlideIndex = signal<number>(0);
 
   private router = inject(Router);
+  private analytics = inject(Analytics);
+
   downloadFile(fileName: string) {
     const fileUrl = `/Madalina-Eleonora-Gheorghe-${fileName}.pdf`;
-
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'conversion_download', {
-        event_category: 'Engagement',
-        event_label: fileName,
-        value: 1,
-      });
-    } else {
-      console.log(`[Analytics] Tracked download event for: ${fileName}`);
-    }
-
+    this.analytics.trackEvent(`download-${fileName}`, `Downloaded ${fileName}`);
     window.open(fileUrl, '_blank');
   }
 
   openGitHub(url?: string) {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'click_external_github', {
-        event_category: 'Outbound Link',
-        event_label: 'Main Portfolio Footer Button',
-      });
-    }
+    this.analytics.trackEvent('outbound-link', url || 'GitHub profile');
     window.open(url || 'https://github.com/madalinaeleonorag', '_blank', 'noopener,noreferrer');
   }
 

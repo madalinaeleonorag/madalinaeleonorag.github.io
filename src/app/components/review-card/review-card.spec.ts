@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReviewCard } from './review-card';
+import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
 
 describe('ReviewCard', () => {
   let component: ReviewCard;
@@ -12,6 +13,7 @@ describe('ReviewCard', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(ReviewCard);
+    fixture.componentRef.setInput('review', STAKEHOLDER_REVIEWS[0]);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

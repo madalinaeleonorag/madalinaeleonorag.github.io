@@ -2,6 +2,7 @@ import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter, map, startWith } from 'rxjs';
+import { Analytics } from './services/analytics';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,10 @@ import { filter, map, startWith } from 'rxjs';
 })
 export class App {
   private router = inject(Router);
+
+  constructor() {
+    inject(Analytics).init();
+  }
 
   private urlSignal = toSignal(
     this.router.events.pipe(

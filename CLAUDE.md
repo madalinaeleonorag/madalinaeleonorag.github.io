@@ -21,6 +21,10 @@ Deployment: GitHub Pages serves `docs/` from `master`. The workflow in `.github/
 - Routes in `src/app/app.routes.ts`; every subpage sets `data: { breadcrumb: '...' }` for the back-link bar in `app.html`.
 - Images go in `public/assets/` and are referenced with the `assetPath` pipe (`'name.webp'` → `/assets/name.webp`).
 
+## Analytics
+
+`src/app/services/analytics.ts` uses GoatCounter (cookieless, no consent banner). It counts a page view on every route change and custom events through `Analytics.trackEvent()` (CV downloads, outbound links). It is off when `GOATCOUNTER_CODE` is empty and on localhost. Do not add Google Analytics or other cookie-based tracking without also adding a consent banner (EU visitors).
+
 ## Conventions
 
 - Standalone components, `ChangeDetectionStrategy.OnPush`, new control flow (`@if`, `@for`).
