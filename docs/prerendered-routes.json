@@ -1,6 +1,7 @@
 {
   "routes": {
     "/": {},
+    "/projects/dosesync": {},
     "/reviews": {},
     "/work-experience": {}
   }
