@@ -1,0 +1,445 @@
+<ng-template #shot let-item>
+  <figure class="shot">
+    @if (item.image) {
+      <img [src]="item.image | assetPath" [alt]="item.alt" loading="lazy" />
+    } @else {
+      <div class="shot__placeholder" role="img" [attr.aria-label]="item.alt + ' (placeholder)'">
+        <span>Screenshot placeholder</span>
+      </div>
+    }
+    <figcaption>{{ item.caption }}</figcaption>
+  </figure>
+</ng-template>
+
+<header class="hero">
+  <div class="hero__text">
+    <span class="eyebrow">{{ project.app.availability }}</span>
+    <h1>{{ project.title }}</h1>
+    <p class="hero__slogan">{{ project.slogan }}</p>
+    <p class="hero__tagline">{{ project.tagline }}</p>
+  </div>
+  <div class="hero__visual">
+    <ng-container *ngTemplateOutlet="shot; context: { $implicit: project.hero }" />
+  </div>
+</header>
+
+<mat-tab-group
+  class="tabs"
+  mat-stretch-tabs="false"
+  animationDuration="0ms"
+  [selectedIndex]="selectedTab()"
+  (selectedIndexChange)="selectTab($event)"
+>
+  <!-- The App: for people who might use DoseSync -->
+  <mat-tab label="The App">
+    <div class="tab-body">
+      <section class="block">
+        <h2>{{ project.app.headline }}</h2>
+        <p>{{ project.app.intro }}</p>
+      </section>
+
+      <section class="block">
+        <h2>Is DoseSync right for you?</h2>
+        <div class="grid grid--2">
+          <article class="card card--active">
+            <h3>A good fit if</h3>
+            <ul class="list list--check">
+              @for (item of project.app.goodFit; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Not for you yet if</h3>
+            <ul class="list list--cross">
+              @for (item of project.app.notYet; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>How it works</h2>
+        <div class="grid grid--3">
+          @for (step of project.app.steps; track step.title; let i = $index) {
+            <article class="card">
+              <span class="number">{{ i + 1 }}</span>
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.text }}</p>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>See it</h2>
+        <div class="screens">
+          @for (screen of project.screens; track screen.caption) {
+            <ng-container *ngTemplateOutlet="shot; context: { $implicit: screen }" />
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>What it does</h2>
+        <div class="grid grid--3">
+          @for (feature of project.app.features; track feature.title) {
+            <article class="card">
+              <span class="badge" [class.badge--soon]="!feature.ready">
+                {{ feature.ready ? 'Available' : 'Coming soon' }}
+              </span>
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.text }}</p>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Your data stays yours</h2>
+        <ul class="list list--check">
+          @for (item of project.app.privacy; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Questions</h2>
+        <div class="faq">
+          @for (item of project.app.faq; track item.q) {
+            <details>
+              <summary>{{ item.q }}</summary>
+              <p>{{ item.a }}</p>
+            </details>
+          }
+        </div>
+      </section>
+
+      <section class="cta">
+        <h2>Want to try DoseSync?</h2>
+        <p>Join the Android beta and help shape the app before it launches.</p>
+        <a class="cta__button" [href]="project.app.betaUrl">Join the beta</a>
+        <p class="disclaimer">
+          DoseSync is a reminder and logging tool. It does not diagnose, recommend doses or replace
+          advice from your doctor or pharmacist.
+        </p>
+      </section>
+    </div>
+  </mat-tab>
+
+  <!-- Product -->
+  <mat-tab label="Product">
+    <div class="tab-body">
+      <section class="block">
+        <span class="eyebrow">Product case study · {{ project.status }}</span>
+        <h2>Overview</h2>
+        @for (paragraph of project.summary; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+      </section>
+
+      <section class="block">
+        <h2>The problem</h2>
+        <p>
+          Most medication apps are built for one or two pills a day at fixed times. Once a plan
+          becomes asymmetric, they fall short.
+        </p>
+        <ul class="list">
+          @for (item of project.problems; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Who it's for</h2>
+        <div class="grid grid--2">
+          @for (user of project.users; track user.title) {
+            <article class="card">
+              <h3>{{ user.title }}</h3>
+              <p>{{ user.text }}</p>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>The stress test: a real regimen</h2>
+        <p>
+          Each row must be expressible without special-casing in the UI or the notification code.
+          Names are placeholders.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Medication</th>
+                <th>Pattern</th>
+                <th>Rule building blocks</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of project.regimen; track row.medication) {
+                <tr>
+                  <td>{{ row.medication }}</td>
+                  <td>{{ row.pattern }}</td>
+                  <td class="accent">{{ row.blocks }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Market analysis</h2>
+        <p>I reviewed many existing apps. They fall into three groups, each with a different gap.</p>
+        <div class="grid grid--3">
+          @for (group of project.market; track group.type) {
+            <article class="card">
+              <h3>{{ group.type }}</h3>
+              <p class="label">Does well</p>
+              <p>{{ group.strengths }}</p>
+              <p class="label">Gap</p>
+              <p>{{ group.gap }}</p>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Principles</h2>
+        <div class="grid grid--2">
+          @for (principle of project.principles; track principle.title; let i = $index) {
+            <article class="card">
+              <span class="number">0{{ i + 1 }}</span>
+              <h3>{{ principle.title }}</h3>
+              <p>{{ principle.text }}</p>
+            </article>
+          }
+        </div>
+        <h3 class="subheading">What DoseSync will not do</h3>
+        <ul class="list list--cross">
+          @for (item of project.antiFeatures; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Key screens</h2>
+        <div class="screens">
+          @for (screen of project.screens; track screen.caption) {
+            <ng-container *ngTemplateOutlet="shot; context: { $implicit: screen }" />
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Roadmap</h2>
+        <div class="grid grid--4">
+          @for (step of project.roadmap; track step.phase) {
+            <article class="card" [class.card--active]="step.status === 'In progress'">
+              <span class="label">{{ step.phase }} · {{ step.status }}</span>
+              <h3>{{ step.title }}</h3>
+              <ul class="list list--compact">
+                @for (item of step.items; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </article>
+          }
+        </div>
+      </section>
+    </div>
+  </mat-tab>
+
+  <!-- Architecture & development -->
+  <mat-tab label="Architecture & Development">
+    <div class="tab-body">
+      <section class="block">
+        <h2>System overview</h2>
+        <p>{{ project.architectureIntro }}</p>
+        <div class="chips-wrapper">
+          @for (tech of project.techStack; track tech) {
+            <app-chip [label]="tech" />
+          }
+        </div>
+
+        <div class="c4" aria-label="Container diagram: all data stays on the device">
+          <div class="c4__actor">
+            <strong>Patient</strong>
+            <span>Manages and follows a treatment plan</span>
+          </div>
+          <div class="c4__device">
+            <span class="label">DoseSync mobile app · all data on the device</span>
+            <div class="c4__box">
+              <strong>Angular 21 + Ionic SPA</strong>
+              <span>Today view, forms, Signals state. Rule engine runs here, fully offline.</span>
+            </div>
+            <span class="c4__arrow">calls plugins ↓</span>
+            <div class="c4__box">
+              <strong>Capacitor native bridge</strong>
+              <span>Notifications, storage, biometrics</span>
+            </div>
+            <span class="c4__arrow">reads and writes ↓</span>
+            <div class="c4__box c4__box--db">
+              <strong>Encrypted SQLite</strong>
+              <span>Medications, regimens, dose history, settings. Source of truth.</span>
+            </div>
+          </div>
+          <div class="c4__external">
+            <div class="c4__box c4__box--ext">
+              <strong>OS notifications</strong>
+              <span>Show reminders, return Taken / Snooze / Skip</span>
+            </div>
+            <div class="c4__box c4__box--ext">
+              <strong>EMA API (later)</strong>
+              <span>Optional lookup; search term only</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Layers</h2>
+        <p>Everything the app decides lives in the domain layer, so it can be tested without a device.</p>
+        <div class="layers">
+          @for (layer of project.layers; track layer.name) {
+            <div class="layer" [class.layer--highlight]="layer.highlight">
+              <strong>{{ layer.name }}</strong>
+              <span>{{ layer.text }}</span>
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Rule engine</h2>
+        <p>
+          The engine separates <strong>what</strong> is taken (the medication) from
+          <strong>when</strong> it may or should be taken (the regimen). A regimen is built from
+          composable parts, not one rule type per case.
+        </p>
+        <pre class="code"><code>{{ project.regimenModel }}</code></pre>
+
+        <div class="grid grid--2">
+          @for (fn of project.engineFunctions; track fn.name) {
+            <article class="card">
+              <code class="fn">{{ fn.name }}</code>
+              <p>{{ fn.text }}</p>
+            </article>
+          }
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card">
+            <h3>Dose lifecycle</h3>
+            <div class="lifecycle">
+              @for (state of project.lifecycle; track state; let first = $first) {
+                <span class="state" [class.state--start]="first">{{ state }}</span>
+              }
+            </div>
+            <p>
+              Missed is set automatically after the tolerance window. Taken can be undone, which
+              also restores stock. Before a PRN dose is logged, the engine checks the daily maximum
+              and minimum gap and warns instead of silently allowing an overdose.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Events that force a re-plan</h3>
+            <ul class="list list--compact">
+              @for (event of project.replanEvents; track event) {
+                <li>{{ event }}</li>
+              }
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Designing for unreliable notifications</h2>
+        <p>
+          OS alarms are far more dependable than background JavaScript, but not guaranteed on every
+          device. The design assumes failure modes and tests for them.
+        </p>
+        <ul class="list">
+          @for (item of project.notifications; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Privacy and security</h2>
+        <div class="grid grid--4">
+          @for (item of project.privacy; track item.title) {
+            <article class="card">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.text }}</p>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Where the code is today</h2>
+        <div class="grid grid--2">
+          @for (item of project.currentState; track item.label) {
+            <article class="card">
+              <span class="label">{{ item.label }}</span>
+              <p>{{ item.text }}</p>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Release and validation</h2>
+        <div class="grid grid--2">
+          <article class="card">
+            <h3>Google Play path</h3>
+            <ol class="list list--compact">
+              @for (step of project.release; track step) {
+                <li>{{ step }}</li>
+              }
+            </ol>
+          </article>
+          <article class="card">
+            <h3>Closed beta goals</h3>
+            <ol class="list list--compact">
+              @for (goal of project.betaGoals; track goal) {
+                <li>{{ goal }}</li>
+              }
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Risks and how I plan for them</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Risk</th>
+                <th>Plan</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of project.risks; track row.risk) {
+                <tr>
+                  <td>{{ row.risk }}</td>
+                  <td>{{ row.plan }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </mat-tab>
+</mat-tab-group>

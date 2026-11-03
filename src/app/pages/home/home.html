@@ -141,11 +141,15 @@
     @for (project of featuredProjects; track project.id) {
       <article class="glass-card project-showcase-card">
         <div class="project-visual">
-          <img
-            [src]="project.imageUrl | assetPath"
-            [alt]="project.title + ' preview'"
-            loading="lazy"
-          />
+          @if (project.imageUrl) {
+            <img
+              [src]="project.imageUrl | assetPath"
+              [alt]="project.title + ' preview'"
+              loading="lazy"
+            />
+          } @else {
+            <div class="project-visual__placeholder">Image placeholder</div>
+          }
         </div>
 
         <div class="project-content">
@@ -160,6 +164,11 @@
           </div>
 
           <div class="project-actions">
+            @if (project.caseStudyUrl) {
+              <button class="btn-primary" [routerLink]="project.caseStudyUrl">
+                Read Case Study &rarr;
+              </button>
+            }
             @if (project.githubUrl) {
               <button class="btn-secondary" (click)="openGitHub(project.githubUrl)">
                 View Repository

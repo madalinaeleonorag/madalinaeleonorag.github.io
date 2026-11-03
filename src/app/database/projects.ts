@@ -2,6 +2,16 @@ import { Project } from '../interfaces/project';
 
 export const FEATURED_PROJECTS: Project[] = [
   {
+    id: 'dosesync',
+    title: 'DoseSync',
+    type: 'Product Case Study · In Progress',
+    description:
+      "An offline-first, privacy-first medication app for treatment plans that don't fit a simple daily reminder. From problem discovery and market analysis to a composable schedule rule engine and native reminders, running as an MVP on Android.",
+    techStack: ['Angular 21', 'Signals', 'Ionic', 'Capacitor', 'Product Discovery'],
+    imageUrl: '',
+    caseStudyUrl: '/projects/dosesync',
+  },
+  {
     id: 'university-rating',
     title: 'UniversityRating',
     type: "Master's Thesis Architecture",

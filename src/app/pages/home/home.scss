@@ -308,6 +308,14 @@
         display: block;
         transition: transform var(--transition-slow);
       }
+
+      &__placeholder {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        color: var(--md-sys-color-on-surface-variant);
+        font-size: 0.9rem;
+      }
     }
 
     .project-content {

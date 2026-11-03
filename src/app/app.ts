@@ -26,4 +26,13 @@ export class App {
 
     return basePath === '/' || basePath === '';
   });
+
+  breadcrumb = computed(() => {
+    this.urlSignal();
+    let route = this.router.routerState.snapshot.root;
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+    return route.data['breadcrumb'] ?? '';
+  });
 }
