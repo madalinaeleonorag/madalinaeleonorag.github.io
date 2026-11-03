@@ -56,7 +56,9 @@ export const DOSESYNC = {
       { title: 'Calendar', text: 'Look at any day to see what was planned and what you took.', ready: true },
       { title: 'Stock and refills', text: 'See how many pills are left and get warned before you run out.', ready: true },
       { title: 'Reminders', text: 'Phone notifications for the next 30 days, planned automatically.', ready: true },
-      { title: 'Safe as-needed doses', text: 'A daily limit and a minimum gap between doses, with a clear warning.', ready: false },
+      { title: 'Safe as-needed doses', text: 'A daily limit and a minimum gap between doses, with a clear warning.', ready: true },
+      { title: 'Skip and missed doses', text: 'Skip a dose on purpose, or see clearly which ones were not recorded.', ready: true },
+      { title: 'Backup you control', text: 'Save everything to a file and restore it on a new phone.', ready: true },
       { title: 'Taken, Snooze, Skip from the notification', text: 'Answer a reminder without opening the app.', ready: false },
       { title: 'Record for your doctor', text: 'A one-page PDF of what you took and skipped.', ready: false },
       { title: 'Romanian and English', text: 'With large text and zoom support.', ready: false },
@@ -175,7 +177,9 @@ export const DOSESYNC = {
         'Today view, calendar and medication drawer',
         'Native reminders for the next 30 days',
         'Stock counter with low-stock threshold; undo restores stock',
-        'Encrypted storage and JSON backup (next)',
+        'Taken, skipped and missed states; PRN daily maximum and minimum gap',
+        'JSON backup and restore',
+        'Encrypted storage (next)',
       ],
     },
     {
@@ -285,8 +289,11 @@ type Recurrence =
   ],
 
   currentState: [
-    { label: 'Built', text: '8 schedule types, Today view, calendar, drawer with stock, native reminders, unit tests for store and reminders.' },
-    { label: 'Not yet', text: 'The prototype uses unencrypted browser storage. Encrypted SQLite and the pure rule engine module are the next refactor.' },
+    {
+      label: 'Built',
+      text: 'A pure TypeScript rule engine tested against the reference regimen; Signals state; taken, skipped and missed doses; PRN safety checks; native reminders with Taken, Snooze and Skip actions; JSON backup. 59 unit tests.',
+    },
+    { label: 'Not yet', text: 'Data is still in unencrypted on-device storage. Encrypted SQLite and Romanian/English translations are next.' },
   ],
 
   release: [
