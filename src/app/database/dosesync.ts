@@ -124,7 +124,7 @@ export const DOSESYNC = {
         features: [
           { title: 'Your look, your size', text: 'Five color themes or your own color, light and dark, text that follows your phone, and larger buttons.', ready: true },
           { title: 'Simple layout', text: 'Tabs with words at the bottom and words on the main buttons, for anyone who prefers them to icons.', ready: true },
-          { title: 'Romanian and English', text: 'The whole app, including reminders.', ready: true },
+          { title: 'Six languages', text: 'Romanian, English, French, German, Italian and Spanish across the whole app, including reminders. It starts in your phone’s language.', ready: true },
           { title: 'Welcome tour', text: 'A one-minute introduction on first launch: language, colors, layout and where everything is.', ready: true },
         ],
       },
@@ -296,7 +296,7 @@ export const DOSESYNC = {
         'Stock counter with low-stock notification; undo restores stock',
         'Taken, skipped and missed states; PRN daily maximum and minimum gap',
         'Encrypted storage (SQLCipher) and JSON backup',
-        'Romanian and English from the first screen',
+        'Romanian, English, French, German, Italian and Spanish from the first screen',
       ],
     },
     {

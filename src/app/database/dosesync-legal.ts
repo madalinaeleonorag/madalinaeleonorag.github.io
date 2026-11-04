@@ -62,7 +62,7 @@ const privacyEn: LegalDocument = {
         'Only when you choose to:',
         'Backup file. "Export backup" creates a file with all your DoseSync information and lets you choose where to save or send it. The file is not encrypted, so keep it somewhere safe.',
         'Feedback and contact. If you write to the developer from the About screen, your own email app sends the message. The developer then receives your email address and what you wrote, uses them only to reply and to improve DoseSync, and deletes them within two years, or sooner if you ask. The legal bases are answering your request (Article 6(1)(b) GDPR) and the legitimate interest of improving the app (Article 6(1)(f)). Please do not include health details you want to keep private; if you do, they are used only to answer you.',
-        'Links. The About screen links to Google Play, LinkedIn and the developer’s website. They open outside DoseSync and their own privacy policies apply. The website counts visits with GoatCounter, without cookies and without collecting personal data.',
+        'Links. The About screen links to Google Play, LinkedIn, the developer’s website and, if shown, an optional donation page. They open outside DoseSync and their own privacy policies apply. The website counts visits with GoatCounter, without cookies and without collecting personal data.',
       ],
     },
     {
@@ -138,7 +138,7 @@ const privacyRo: LegalDocument = {
         'Doar când alegi tu:',
         'Fișierul de copie. „Exportă copia” creează un fișier cu toate informațiile din DoseSync și te lasă să alegi unde îl salvezi sau cui îl trimiți. Fișierul nu este criptat, așa că păstrează-l într-un loc sigur.',
         'Păreri și contact. Dacă îi scrii dezvoltatorului din ecranul Despre, mesajul este trimis de propria ta aplicație de e-mail. Dezvoltatorul primește adresa ta de e-mail și ce ai scris, le folosește doar pentru a-ți răspunde și a îmbunătăți DoseSync și le șterge în cel mult doi ani sau mai devreme, dacă ceri. Temeiurile legale sunt răspunsul la solicitarea ta (articolul 6 alineatul (1) litera (b) din GDPR) și interesul legitim de a îmbunătăți aplicația (articolul 6 alineatul (1) litera (f)). Te rog să nu incluzi detalii de sănătate pe care vrei să le păstrezi private; dacă o faci, sunt folosite doar pentru a-ți răspunde.',
-        'Linkuri. Ecranul Despre conține linkuri către Google Play, LinkedIn și site-ul dezvoltatorului. Acestea se deschid în afara DoseSync și se aplică propriile lor politici de confidențialitate. Site-ul numără vizitele cu GoatCounter, fără cookie-uri și fără a colecta date personale.',
+        'Linkuri. Ecranul Despre conține linkuri către Google Play, LinkedIn, site-ul dezvoltatorului și, dacă apare, o pagină opțională de donații. Acestea se deschid în afara DoseSync și se aplică propriile lor politici de confidențialitate. Site-ul numără vizitele cu GoatCounter, fără cookie-uri și fără a colecta date personale.',
       ],
     },
     {
