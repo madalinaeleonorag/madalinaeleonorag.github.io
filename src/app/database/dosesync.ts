@@ -51,28 +51,114 @@ export const DOSESYNC = {
       { title: 'Tap Taken', text: 'DoseSync logs the time and updates how many are left. Made a mistake? Undo it.' },
     ],
 
-    features: [
-      { title: 'Flexible schedules', text: 'Every day, chosen weekdays, chosen days of the month, every few hours, seasonal, cycle-based, once, or only when needed.', ready: true },
-      { title: 'Today at a glance', text: 'What to take next comes first. What you already took moves down and is crossed out.', ready: true },
-      { title: 'Calendar', text: 'Look at any day to see what was planned and what you took.', ready: true },
-      { title: 'Stock and refills', text: 'See how many pills are left and get warned before you run out.', ready: true },
-      { title: 'Reminders', text: 'Phone notifications for the next 30 days, planned automatically.', ready: true },
-      { title: 'Safe as-needed doses', text: 'A daily limit and a minimum gap between doses, with a clear warning.', ready: true },
-      { title: 'Skip and missed doses', text: 'Skip a dose on purpose, or see clearly which ones were not recorded.', ready: true },
-      { title: 'Backup you control', text: 'Save everything to a file and restore it on a new phone.', ready: true },
-      { title: 'Taken, Snooze, Skip from the notification', text: 'Answer a reminder without opening the app. Medication names can be hidden on the lock screen.', ready: true },
-      { title: 'Pause and catch up', text: 'Pause a treatment without changing your history, and record a dose you took earlier at the real time.', ready: true },
-      { title: 'Runs out around…', text: 'An estimated date for each medicine, so you can refill in time.', ready: true },
-      { title: 'History', text: 'How many doses you took over the last 7 or 30 days, per medicine and day by day.', ready: true },
-      { title: 'Plan a trip', text: 'How much of each medicine to pack, and whether you have enough at home. Tick "flying" and the medicine you take for flights is packed too.', ready: true },
-      { title: 'Appointments', text: 'Doctor visits and tests on Today and in the calendar, with a reminder the evening before and two hours before.', ready: true },
-      { title: 'Travel across time zones', text: 'Keep taking doses at home time, or switch to local time.', ready: true },
-      { title: 'Your look, your size', text: 'Several color themes or your own color, light and dark mode, text size that follows your phone, larger buttons, and a simple layout with labelled tabs.', ready: true },
-      { title: 'Romanian and English', text: 'The whole app, including reminders.', ready: true },
-      { title: 'PIN and fingerprint lock', text: 'Optional. Forgot the PIN? Your phone’s own screen lock lets you back in. Your data is also encrypted on the phone.', ready: true },
-      { title: 'Record for your doctor', text: 'A one-page PDF of what you took and skipped.', ready: false },
-      { title: 'Home-screen widgets', text: 'Next dose and cycle estimate at a glance.', ready: false },
+    // "What it does", grouped so each category can show its own screenshots. The last group has no screenshots.
+    featureGroups: [
+      {
+        title: 'Your day at a glance',
+        text: 'Open the app and see what to take now. One tap records it; skipping asks why, so you and your doctor know.',
+        shots: [
+          { image: 'dosesync/today.webp', alt: "Today view: 5 of 6 doses done, the next dose with Taken and Skip, and an appointment in two days", caption: "Today: the next dose first" },
+          { image: 'dosesync/reasons.webp', alt: "A list asking why a dose is skipped: doctor’s advice, side effects, feeling unwell, ran out, away from home, other", caption: "Skipping asks for a reason" },
+        ],
+        features: [
+          { title: 'Today at a glance', text: 'Doses grouped by morning, lunch, evening and night. The next one is always at the top.', ready: true },
+          { title: 'Taken, or skipped with a reason', text: 'Record a dose in one tap, or say why you skipped it. Undo is always there for five seconds.', ready: true },
+          { title: 'Taken earlier…', text: 'Forgot to tap? Record the dose at the time you actually took it.', ready: true },
+          { title: 'Reminders that work from the notification', text: 'Taken, Snooze and Skip right from the reminder, with names hidden on the lock screen if you like.', ready: true },
+        ],
+      },
+      {
+        title: 'Schedules that fit real treatment plans',
+        text: 'Most apps assume one pill a day. DoseSync follows the plan your doctor actually wrote.',
+        shots: [
+          { image: 'dosesync/editor-when.webp', alt: "Medication editor: every day at 08:00, 14:00 and 23:00, counted as missed after 4 hours, with start and end dates", caption: "Several times a day, with a course length" },
+          { image: 'dosesync/calendar.webp', alt: "Month calendar with dose dots, the next period estimate in pink and an appointment marker", caption: "Calendar with a cycle estimate" },
+        ],
+        features: [
+          { title: 'Flexible schedules', text: 'Every day, chosen weekdays, days of the month, every few hours, seasonal, once, or only when needed.', ready: true },
+          { title: 'Courses that follow your cycle', text: 'Mark day 1 of your period and a 10-day course starts from it. The next start is estimated, never assumed.', ready: true },
+          { title: 'Pause without losing history', text: 'Stop a treatment for a while and resume it later. Past records stay as they were.', ready: true },
+          { title: 'Safe as-needed doses', text: 'A daily maximum and a minimum gap, with a clear warning before you log one too many.', ready: true },
+        ],
+      },
+      {
+        title: 'Stock and refills',
+        text: 'Know what is in the drawer before it runs out.',
+        shots: [{ image: 'dosesync/drawer.webp', alt: "Medication drawer with stock counts, low-stock badges and the date each one runs out", caption: "Drawer: counts and “runs out around”" }],
+        features: [
+          { title: 'Stock that counts itself', text: 'Every dose you take is subtracted, and undo puts it back.', ready: true },
+          { title: 'Runs out around…', text: 'An estimated date for each medication, including courses that follow your cycle.', ready: true },
+          { title: 'Low-stock reminder', text: 'A notification when a count reaches the level you chose.', ready: true },
+        ],
+      },
+      {
+        title: 'Trips and appointments',
+        text: 'Life does not stop for a treatment plan, so DoseSync plans around it.',
+        shots: [
+          { image: 'dosesync/trip.webp', alt: "Trip planner with Flying ticked twice and a packing list checked against the drawer", caption: "Plan a trip, including flights" },
+          { image: 'dosesync/appointment-form.webp', alt: "Appointment form with title, date, time, place and notes", caption: "Appointments with reminders" },
+        ],
+        features: [
+          { title: 'Plan a trip', text: 'How much of each medication to pack, and whether you have enough. Tick “flying” and the medication you take for flights is packed too.', ready: true },
+          { title: 'Appointments', text: 'Doctor visits and tests on Today and in the calendar, with reminders the evening before and two hours before.', ready: true },
+          { title: 'Time zones', text: 'Abroad, keep taking doses at home time or move them to local time.', ready: true },
+        ],
+      },
+      {
+        title: 'A record for you and your doctor',
+        text: 'Facts instead of memory, without tracking anything else.',
+        shots: [{ image: 'dosesync/history.webp', alt: "History with 93% taken over 7 days, counted from first use, and a bar per medication", caption: "History and adherence" }],
+        features: [
+          { title: 'History', text: 'Taken, skipped and missed over 7 or 30 days, per medication and day by day.', ready: true },
+          { title: 'Record for your doctor', text: 'A one-page PDF of what you took and skipped.', ready: false },
+        ],
+      },
+      {
+        title: 'Comfortable for everyone',
+        text: 'Large, clear and calm, whether you love modern apps or prefer words on every button.',
+        shots: [
+          { image: 'dosesync/simple.webp', alt: "Today in the simple layout: larger text and labelled tabs at the bottom", caption: "Simple layout with larger text" },
+          { image: 'dosesync/dark.webp', alt: "Today in the dark Burgundy theme", caption: "Dark mode" },
+          { image: 'dosesync/tour.webp', alt: "Welcome tour slide: choose light or dark and the text size", caption: "A short welcome tour" },
+        ],
+        features: [
+          { title: 'Your look, your size', text: 'Five color themes or your own color, light and dark, text that follows your phone, and larger buttons.', ready: true },
+          { title: 'Simple layout', text: 'Tabs with words at the bottom and words on the main buttons, for anyone who prefers them to icons.', ready: true },
+          { title: 'Romanian and English', text: 'The whole app, including reminders.', ready: true },
+          { title: 'Welcome tour', text: 'A one-minute introduction on first launch: language, colors, layout and where everything is.', ready: true },
+        ],
+      },
+      {
+        title: 'Private and secure',
+        text: 'Health information belongs to you, so it never leaves your phone unless you send it.',
+        shots: [
+          { image: 'dosesync/lock.webp', alt: "Lock screen with a large number pad and a link for a forgotten PIN", caption: "Optional PIN lock" },
+          { image: 'dosesync/security.webp', alt: "Settings: encrypted on this phone, PIN lock, fingerprint, and how to get back in after forgetting the PIN", caption: "Encryption and lock settings" },
+        ],
+        features: [
+          { title: 'Encrypted on your phone', text: 'An encrypted database, left out of cloud backups. No account, no ads, no tracking.', ready: true },
+          { title: 'PIN and fingerprint lock', text: 'Optional. Forgot the PIN? The phone’s own screen lock lets you back in.', ready: true },
+          { title: 'Backups you control', text: 'Save everything to a file, protected with a password if you like, and restore it on a new phone.', ready: true },
+        ],
+      },
+      {
+        title: 'Others',
+        text: '',
+        shots: [],
+        features: [
+          { title: 'About and honest feedback', text: 'Why the app exists, and a one-tap way to send a review, good or bad.', ready: true },
+          { title: 'Color and shape for each medication', text: 'Recognise each one at a glance, next to its name.', ready: true },
+          { title: 'Home-screen widgets', text: 'Next dose and cycle estimate without opening the app.', ready: false },
+          { title: 'Interaction and timing warnings', text: 'A gentle warning when two medications should not be taken close together.', ready: false },
+        ],
+      },
     ],
+
+    // Shown under the title. Set live to true once the app is published.
+    playStore: {
+      url: 'https://play.google.com/store/apps/details?id=com.dosesync.app',
+      live: false,
+    },
 
     privacy: [
       'No account and no sign-up.',
@@ -173,13 +259,29 @@ export const DOSESYNC = {
   ],
 
   screens: [
-    { image: 'dosesync/calendar.webp', alt: 'Month calendar with dose dots, predicted period days and an appointment marker', caption: 'Calendar with cycle estimate and appointments' },
-    { image: 'dosesync/editor.webp', alt: 'Medication editor with name, strength, dose, instructions and color', caption: 'Medication editor' },
-    { image: 'dosesync/drawer.webp', alt: 'Medication drawer with stock counts, low-stock badges and runs-out dates', caption: 'Drawer: stock and “runs out around”' },
-    { image: 'dosesync/history.webp', alt: 'History with 92% taken over 7 days and a bar per medication', caption: 'History and adherence' },
-    { image: 'dosesync/trip.webp', alt: 'Trip planner with Flying ticked twice and a packing list with stock checks', caption: 'Trip planner with situations' },
-    { image: 'dosesync/dark.webp', alt: 'Today view in the dark Burgundy theme', caption: 'Dark mode' },
-    { image: 'dosesync/simple.webp', alt: 'Today view in the simple layout with labelled tabs and larger text', caption: 'Simple layout, larger text' },
+    { image: 'dosesync/calendar.webp', alt: "Month calendar with dose dots, predicted period days and an appointment marker", caption: "Calendar with cycle estimate and appointments" },
+    { image: 'dosesync/editor.webp', alt: "Medication editor with name, strength, dose, instructions and color", caption: "Medication editor" },
+    { image: 'dosesync/drawer.webp', alt: "Medication drawer with stock counts, low-stock badges and runs-out dates", caption: "Drawer: stock and “runs out around”" },
+    { image: 'dosesync/history.webp', alt: "History with 93% taken over 7 days and a bar per medication", caption: "History and adherence" },
+    { image: 'dosesync/trip.webp', alt: "Trip planner with Flying ticked twice and a packing list with stock checks", caption: "Trip planner with situations" },
+    { image: 'dosesync/dark.webp', alt: "Today view in the dark Burgundy theme", caption: "Dark mode" },
+    { image: 'dosesync/simple.webp', alt: "Today view in the simple layout with labelled tabs and larger text", caption: "Simple layout, larger text" },
+  ] as CaseStudyImage[],
+
+  // "More screens" carousel at the end of The App tab.
+  gallery: [
+    { image: 'dosesync/today.webp', alt: "Today view with the next dose and an upcoming appointment", caption: "Today" },
+    { image: 'dosesync/appointments.webp', alt: "Today view scrolled to the appointments section", caption: "Appointments on Today" },
+    { image: 'dosesync/editor.webp', alt: "Medication editor: name, strength, dose and color", caption: "Adding a medication" },
+    { image: 'dosesync/settings.webp', alt: "Settings: layout, light or dark, text size and color themes", caption: "Appearance settings" },
+    { image: 'dosesync/about.webp', alt: "About screen: why the app exists and how to send an honest review", caption: "About and feedback" },
+    { image: 'dosesync/reasons.webp', alt: "Skip reasons list", caption: "Why a dose was skipped" },
+    { image: 'dosesync/calendar.webp', alt: "Month calendar with cycle estimate", caption: "Calendar" },
+    { image: 'dosesync/drawer.webp', alt: "Medication drawer", caption: "Drawer" },
+    { image: 'dosesync/history.webp', alt: "History and adherence", caption: "History" },
+    { image: 'dosesync/trip.webp', alt: "Trip planner", caption: "Trip planner" },
+    { image: 'dosesync/dark.webp', alt: "Dark mode", caption: "Dark mode" },
+    { image: 'dosesync/lock.webp', alt: "Lock screen", caption: "Lock screen" },
   ] as CaseStudyImage[],
 
   roadmap: [

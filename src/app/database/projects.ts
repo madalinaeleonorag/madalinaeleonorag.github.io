@@ -8,7 +8,7 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       "An offline-first, privacy-first medication app for treatment plans that don't fit a simple daily reminder. From problem discovery and market analysis to a composable schedule rule engine and native reminders, running as an MVP on Android.",
     techStack: ['Angular 21', 'Signals', 'Ionic', 'Capacitor', 'Product Discovery'],
-    imageUrl: '',
+    imageUrl: 'dosesync/preview.webp',
     caseStudyUrl: '/projects/dosesync',
   },
   {

@@ -26,4 +26,16 @@ export const routes: Routes = [
     title: 'DoseSync: medication scheduling for complex treatment plans',
     data: { breadcrumb: 'DoseSync' },
   },
+  {
+    path: 'projects/dosesync/privacy',
+    loadComponent: () => import('./pages/dosesync-legal/dosesync-legal').then((m) => m.DoseSyncLegal),
+    title: 'DoseSync privacy policy',
+    data: { breadcrumb: 'DoseSync privacy policy', document: 'privacy' },
+  },
+  {
+    path: 'projects/dosesync/terms',
+    loadComponent: () => import('./pages/dosesync-legal/dosesync-legal').then((m) => m.DoseSyncLegal),
+    title: 'DoseSync terms of use',
+    data: { breadcrumb: 'DoseSync terms of use', document: 'terms' },
+  },
 ];

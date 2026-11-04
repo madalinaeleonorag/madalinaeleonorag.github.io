@@ -1,0 +1,30 @@
+<article class="legal" [attr.lang]="language()">
+  <header>
+    <span class="eyebrow">DoseSync</span>
+    <h1>{{ document().title }}</h1>
+    <div class="languages" role="group" aria-label="Language / Limba">
+      <button type="button" lang="en" [attr.aria-pressed]="language() === 'en'" (click)="language.set('en')">English</button>
+      <button type="button" lang="ro" [attr.aria-pressed]="language() === 'ro'" (click)="language.set('ro')">Română</button>
+    </div>
+    <p class="updated">{{ updated() }}</p>
+    <p class="intro">{{ document().intro }}</p>
+  </header>
+
+  @for (section of document().sections; track section.heading; let number = $index) {
+    <section>
+      <h2>{{ number + 1 }}. {{ section.heading }}</h2>
+      @for (paragraph of section.paragraphs; track $index) {
+        <p>{{ paragraph }}</p>
+      }
+    </section>
+  }
+
+  <footer>
+    <p>{{ copyright }}</p>
+    <p>
+      <a [routerLink]="otherDocument.path">{{ otherDocument.label }}</a>
+      ·
+      <a routerLink="/projects/dosesync">DoseSync case study</a>
+    </p>
+  </footer>
+</article>

@@ -1,0 +1,82 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--page-gutter) var(--space-xl);
+}
+
+.legal {
+  line-height: 1.7;
+
+  h1 {
+    margin: 0.25rem 0 0.75rem;
+  }
+
+  h2 {
+    margin: var(--space-lg) 0 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0 0 0.75rem;
+  }
+}
+
+.eyebrow {
+  color: var(--md-sys-color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+.languages {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+
+  button {
+    min-height: 44px;
+    padding: 0 1rem;
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+
+    &[aria-pressed='true'] {
+      border-color: var(--md-sys-color-primary);
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--md-sys-color-primary);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.updated {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
+}
+
+.intro {
+  font-size: 1.1rem;
+}
+
+footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
+
+  a {
+    color: var(--md-sys-color-primary);
+  }
+}
