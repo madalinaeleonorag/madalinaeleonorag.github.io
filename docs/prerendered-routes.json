@@ -2,6 +2,8 @@
   "routes": {
     "/": {},
     "/projects/dosesync": {},
+    "/projects/dosesync/privacy": {},
+    "/projects/dosesync/terms": {},
     "/reviews": {},
     "/work-experience": {}
   }
