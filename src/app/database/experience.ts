@@ -40,17 +40,21 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'WCAG / ARIA',
         ],
         summary:
-          'The application everyone in the organisation uses to enrol and administer the people and client companies who have access to our products, and to change a role when it is wrong. The application is itself governed by the thing it administers: what any one person can do inside it depends on their own role, so some reach all of the functionality and others only the part their role allows. Production holds the real client companies and every enrolled user, so seeing the true state of someone’s access is the whole job: it is also where a report that somebody cannot reach one of the products gets answered. It is the furthest along of the five products I work across, and like the rest of them still taking improvements and new feature requests. It is the main assignment, and the code I own.',
+          'The application everyone in the organisation uses to enrol and administer the people and client companies who have access to our products, and to change a role when it is wrong. The application is itself governed by the thing it administers: what any one person can do inside it depends on their own role, so some reach all of the functionality and others only the part their role allows. Production holds the real client companies and every enrolled user, so seeing the true state of someone’s access is the whole job: it is also where a report that somebody cannot reach one of the products gets answered. It is the furthest along of the products I work across, and like the rest of them still taking improvements and new feature requests. It was the first assignment and the largest, and it is code I own.',
         descriptionPoints: [
           // The programme context lives here because IWorkExperience has no company-level
-          // description field. It is what makes the five products one piece of work rather
-          // than five unrelated assignments, and the full CV carries it in its role subtitle.
+          // description field. It is what makes the products one piece of work rather
+          // than unrelated assignments, and the full CV carries it in its role subtitle.
           // ⛔ Never name the acquired Romanian company — the CV header says SS&C and that is enough.
-          '<b>The project already existed and could not be maintained.</b> Organisational changes brought these applications to Romania, so the Romanian organisation inherited a codebase that was unreadable and inefficient. The lead and the architect had already decided, before I joined the team, that rewriting and carrying on would cost less than repairing it. I arrived into that rewrite, and everything else here is the work of carrying it out. It is one part of a larger transition: for years every client got its own copy of the same application, and the direction now is one configurable platform serving all of them instead of separate codebases to keep in step. Around 90 people in the Romanian organisation work on the same estate.',
+          '<b>The project already existed and could not be maintained.</b> Organisational changes brought these applications to Romania, so the Romanian organisation inherited a codebase that was unreadable and inefficient. The lead and the architect had already decided, before I joined the team, that rewriting and carrying on would cost less than repairing it. I arrived into that rewrite, and everything else here is the work of carrying it out. It is one part of a larger transition: for years every client got its own copy of the same application, and the direction now is one configurable platform serving all of them instead of separate codebases to keep in step. Around 90 people in the Romanian organisation work on the same estate, and under the lead I am the main developer on every product listed here.',
           '<b>The rewrite is eleven applications behind one shell</b> in place of a single monolith, with each area loading only for a user entitled to it. The lead gave me one example of what a remote application should look like and we went from there. Six of the eleven I built from scratch; the other five I inherited from other people, then fixed and improved. There is now no part of it I have not worked in.',
           '<b>A few months ago the lead said in front of the team that I am the code owner</b>, and he no longer touches the code there. I had refactored and improved most of the application by then, taken it to Angular 21 and reworked the interface.',
           '<b>The golden set</b>: a permission-import feature so that configuring a brand-new client is a clone rather than a rebuild — import an existing client’s permission set as a file, then adjust it. The harder problem was that nobody wanted to use it. Importing is destructive, and enough had been broken by earlier imports that repairing the damage had become its own recurring job. The import now shows exactly what it will change before changing anything, which is what got it used.',
           '<b>Built the delegated-access programme end to end on the frontend</b>: one person acting for another under constrained entitlements: a permissions question as much as an implementation one. Multi-factor-authentication management is another of the sub-applications I built out, over Keycloak and OIDC.',
+          // Added 6 Nov 2026. Source: the RBAC-1449 sweep (PRs #254/#255, 3–4 Nov) and #237,
+          // #245–#249. The API-key bug predates her PR; it is the one item already live in production.
+          '<b>Ran a correctness sweep across the whole application after the October release cut-off.</b> Five tabs save by replacing the full list, and each was building that list from the visible page only, so saving from page two silently dropped everything on page one. Each now builds the payload from every page, and a failed read can no longer turn into an empty save. The same pass found that saving any part of an API key wiped either its roles or its filter groups, a bug already in production. Split the fixes so the data-loss half could be tested first and six smaller corrections ride the next release.',
+          '<b>Added the Users tab to role editing</b>: who holds a role, and unassigning them from there, on the backend’s paginated endpoints. Closed the late-October dependency-advisory wave the same month: 35 alerts, with npm audit back to zero critical, high and moderate.',
           '<b>The hardest part was never the development.</b> It was learning what the business words mean — what a ManCo is, what the product is, how capabilities link together. The code was the part I already knew how to do.',
         ],
         stakeholderImpact:
@@ -87,6 +91,9 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           // with it. The dynamic inline column filters are confirmed hers (18 Sep 2026) and are the
           // same work the filters-into-the-header point above describes.
           '<b>Moved the estate’s data grid into a library of its own.</b> The lead had written the first version inside one project and it had been copy-pasted into several more; I moved it out, then built it up from there, the dynamic inline column filters included. Wrote the kit’s tree and its autocomplete components, some of which the lead improved afterwards.',
+          // Added 6 Nov 2026. Every component named here is her own commit in the kit's repository
+          // (Sep–Oct 2026); the rename is RBAC PRs #233–#235, 13 + 7 + 12 components.
+          '<b>Since September the kit has been where new components land first</b>, then vendored into the applications that need them: a dialog the others are now built on, a rich-text editor, a segmented button toggle, a collapsible section, and a reorderable list that works from the keyboard. Clickable table rows became keyboard-operable the same way. In the permissions platform, renamed the 32 components it carries from their old prefix to the kit’s own, in three batches small enough to review.',
           '<b>Designed the one component the estate did not have</b>: inline-editable table cells. Nothing saves optimistically, so the table and the page can never disagree about a value. The input goes read-only rather than disabled while saving, because a disabled input drops focus and a rejected save would reopen with the caret nowhere useful. And a verdict arriving after the user has pressed Escape is discarded rather than applied to a field they have walked away from.',
           '<b>Migrated Angular Material M2 to M3 behind a two-layer token system, unprompted</b> — the lead and I improve the applications we work in whenever it can be done without breaking anything, so he saw this one after it was done. Every token falls back to a Material system property and then to a literal, because an application that has not installed a theme should still render correctly rather than render broken. 69 colour tokens mapped deliberately, including the families Material has no equivalent for.',
           '<b>A cleanup nobody enforces comes back</b>, so the kit includes the tests that keep it true: 356 assertions that no stylesheet has reintroduced a colour literal or reached into another application, and 48 checked against every generated theme to catch a mistyped token name — which otherwise looks exactly like a deliberate fallback. Extracted five copy-pasted forks of the grid and layout SCSS into one framework-free published library, and cut a remote’s runtime entry bundle by 68.6% (508 kB to 160 kB).',
@@ -110,15 +117,93 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'Content Management',
           'Taxonomy',
           'Accessibility Testing',
+          'Playwright / axe-core',
+          'Sass',
+          'Jest',
+        ],
+        // 6 Nov 2026: the CMS sentence changed. It used to say she contributes updates and fixes;
+        // since August she has written most of the commits in that repository (257 of 364 from
+        // 15 Sep). The lead still owns it — do not write that she does.
+        summary:
+          'Administration interfaces for reference data, published content and taxonomy across the client-facing products. The lead owns the content-management portal, and since August 2026 I have been its main developer; I own the estate’s single source of truth for applications and resources.',
+        descriptionPoints: [
+          // 6 Nov 2026: the reference-data application will be removed (her answer). The rebuild
+          // happened and stays; the ownership claim came out of the summary. ⛔ Never write that
+          // she owns it or that it is in use.
+          '<b>Rebuilt the last thing standing in the legacy codebase.</b> One reference-data application was all that remained in the old permissions codebase. It was not in use any more, or not yet, but it could not simply be deleted, so I asked the architect what should happen to it: fold it into the permissions platform, or stand it up on its own. He decided it should be an application of its own. Parts of it had never been finished and there was nobody left to ask what they were meant to do, so I went back to the original documentation and rebuilt the missing behaviour from that. Completing it is what lets the legacy codebase finally be archived: there is nothing left to migrate out of it.',
+          '<b>Built the estate’s single source of truth for applications and resources.</b> The idea was the architect’s, raised in a daily call. I ran a spike to work out what it would need, built it in spare time, and own the code now.',
+          '<b>Rebuilt the content-list, tag and category pages</b> off two third-party rendering libraries and onto our own components, which removed both dependencies and gave those pages the estate’s standard paging, filtering and accessibility behaviour without writing any of it again.',
+          // Added 6 Nov 2026, from raven-cms commits Sep–Oct 2026 (DS-1747, DS-1828, DS-1746, DS-1777).
+          '<b>Made the content editor refuse what the backend would reject</b> before the user presses Save. Content in several languages flags the default-language tab and names the fields still missing there; a required taxonomy field with no terms disables Save rather than raising an error after the click; a content type that already has content can no longer be edited out from under it. Built the Languages page and matched every form’s length limits to the backend’s.',
+          '<b>Taxonomy search now asks the server</b> instead of filtering whatever happened to be loaded, cancels a search the user has typed past, and says so when a result list has been cut at 200.',
+          '<b>Brought the portal into line with the permissions platform</b>: the same deploy and release workflows, lint and accessibility rules, an axe-core scan in the end-to-end tests, a real 404 page instead of a silent redirect to the dashboard, and every subscription tied to a lifetime. Along the way, fixed images returning 403 on a page refresh, cut the image-fetch concurrency that was starving every other request, and dropped 1.27 MB of unused images from every build.',
+        ],
+      },
+      {
+        // Added 6 Nov 2026. A vendor team built the first version (Wipro: ⛔ never name them);
+        // reassigned to her on 26 Sep 2026 (DS-1582). 218 of the 234 commits since are hers.
+        // ⛔ The Dockerfile/entrypoint bug in Oct was found by the lead in review of HER PR —
+        // never claim she found it. ⛔ The backend service is not reachable on dev yet, so
+        // nothing here may say it works end to end.
+        id: 'ssnc-document-designer',
+        title: 'Document template designer',
+        startDate: 'Sep 2026',
+        endDate: 'Present',
+        techStack: [
+          'Angular 21',
+          'TypeScript',
+          'Signals',
+          'PDF.js',
+          'Micro-Frontends (MFE)',
+          'Module Federation',
+          'Nx',
+          'Angular Material 3',
+          'Design Tokens',
+          'Keyboard Interaction',
+          'WCAG / ARIA',
+          'OpenAPI',
+          'Docker',
+          'GitHub Actions',
+          'Jest',
+        ],
+        summary:
+          'An editor for turning a PDF into a reusable template: upload the source document, drag fields onto the page, set what each one holds, then publish it and generate filled documents from it, one at a time or in bulk from a CSV. A vendor team built the first version; it was reassigned to me in September 2026 and I have carried it since.',
+        descriptionPoints: [
+          '<b>Keyboard access to a canvas.</b> A template with 40 fields meant 40 tab stops. The placed fields are now one tab stop with two modes, browse and edit, the way a tree grid works, and the arrow keys move to the nearest field in that direction rather than the next one in the DOM. Fields sit anywhere on a two-dimensional page, so DOM order means nothing to a sighted keyboard user.',
+          '<b>Moved it onto the estate’s component kit and theme.</b> Eight hand-rolled Material wrappers and the app’s own dialogs replaced with kit components, every ng-deep override taken out of the feature styles, and 22 colour literals turned into tokens.',
+          '<b>Reworked the editor itself</b>: a resizable side panel, X and Y editable in PDF points, zoom allowed while fields are placed by recalculating their screen positions instead of locking zoom, keyboard placement from the field list, a guard against leaving with unsaved changes, and the editor controls hidden when the PDF fails to load, so nothing can be saved over a blank page.',
+          '<b>A stylesheet over budget did not need splitting.</b> The ticket proposed breaking the component into children; the real cause was CSS left behind by a feature removed months before. Removing it took the file from 4.65 kB to 2.22 kB, with no split.',
+          '<b>Brought its container, deploy workflows and lint rules into line with the permissions platform</b>, gated every screen on a chosen product and management company, and in November 2026 moved every call onto the generated SDK client in place of four hand-written services.',
+        ],
+      },
+      {
+        // Added 6 Nov 2026. The lead wrote the design spec and PR #1 (shell + configuration
+        // list, 26–27 Oct); every commit after that is hers (110 of 115). Replaces an internal
+        // console someone else wrote. ⛔ Not deployed to any shared environment yet: no
+        // 'live', 'in use', 'delivered'. ⛔ The repository and product names are internal.
+        id: 'ssnc-configuration-console',
+        title: 'Platform configuration console',
+        startDate: 'Oct 2026',
+        endDate: 'Present',
+        techStack: [
+          'Angular 20',
+          'TypeScript',
+          'Signals',
+          'Micro-Frontends (MFE)',
+          'Module Federation',
+          'Nx',
+          'OpenAPI',
+          'Keyboard Interaction',
           'Sass',
           'Jest',
         ],
         summary:
-          'Administration interfaces for reference data, published content and taxonomy across the client-facing products. The lead owns the content-management application and I contribute updates and fixes there; I own the reference-data side and the estate’s single source of truth for applications and resources.',
+          'One place to browse and change the configuration of every application in every environment, replacing an older internal console and built to load inside the administrator panel as well as on its own. The lead set up the shell and the configuration list; I have built everything on top of them since.',
         descriptionPoints: [
-          '<b>Rebuilt the last thing standing in the legacy codebase.</b> One reference-data application was all that remained in the old permissions codebase. It was not in use any more, or not yet, but it could not simply be deleted, so I asked the architect what should happen to it: fold it into the permissions platform, or stand it up on its own. He decided it should be an application of its own. Parts of it had never been finished and there was nobody left to ask what they were meant to do, so I went back to the original documentation and rebuilt the missing behaviour from that. Completing it is what lets the legacy codebase finally be archived: there is nothing left to migrate out of it.',
-          '<b>Built the estate’s single source of truth for applications and resources.</b> The idea was the architect’s, raised in a daily call. I ran a spike to work out what it would need, built it in spare time, and own the code now.',
-          '<b>Rebuilt the content-list, tag and category pages</b> off two third-party rendering libraries and onto our own components, which removed both dependencies and gave those pages the estate’s standard paging, filtering and accessibility behaviour without writing any of it again.',
+          '<b>Property editing across 1,191 configurations</b>: secrets hidden, add and edit dialogs, moving a property to another management company, and guardrails in the dialogs that refuse invalid JSON and warn when a value names another environment, a tenant’s app mode or a variant reference.',
+          '<b>Comparing environments</b>, with a show-only-differences view that knows which key names are environment-specific, plus the bulk tools the old console had: export, bulk edit or upload, copy from another environment, and key search.',
+          '<b>An overview and keyboard use</b>, now in review: counts and an application-by-environment table on the home page, ⌘K to open any configuration, ⌘↵ to save, double-click a value to edit it.',
+          '<b>Found the history feature broken on the backend before building on it.</b> Older properties returned a server error, because rows loaded by migration had no audit records; newer ones returned a 200 carrying truncated, invalid JSON from a serialisation cycle. Took history out of the interface until the backend can serve it, and filed twelve backend tickets covering these bugs and the gaps the console needs closed.',
         ],
       },
       {
@@ -131,9 +216,12 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         // publish it. ⛔ No 'delivered'/'finished' here. ⛔ The notification WIDGET
         // was started by the lead; she refactored and designed it. Never write that
         // she built it.
+        // 6 Nov 2026: endDate Sep 2026 → Present. Her notifications commits run to 26 Oct.
+        // ⛔ The portal display-rule editors (RAV tickets, Oct–Nov 2026) stay off: her call.
+        // ⛔ Mailjet is the vendor behind "an external email provider" — keep it generic.
         title: 'Administrator configuration panel',
         startDate: 'Nov 2025',
-        endDate: 'Sep 2026',
+        endDate: 'Present',
         techStack: [
           'Angular 20',
           'TypeScript',
@@ -148,7 +236,7 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
           'Where application administrators configure the platform, one micro-frontend per configuration area. Used by administrators only, not by the people the products serve.',
         descriptionPoints: [
           '<b>Data-transformation configuration: the first feature at the company, built with the lead</b> (Nov 2025). Set up a new micro-frontend from nothing and built the configuration of how a client’s data is transformed on its way through the platform. The extensions it needed later went to another developer, by which point I was in full-time development on the permissions platform.',
-          '<b>Built the frontend of the notifications configuration micro-frontend</b> (Jun–Sep 2026): creating a notification type, and the event that fires it.',
+          '<b>Built the frontend of the notifications configuration micro-frontend</b> (Jun 2026 onwards): creating a notification type, and the event that fires it. Since added events created from an external email provider’s template, per-channel delivery counts on each sent notification’s status, and the event catalogue sorted newest first.',
           'The notification widget itself sits in the applications rather than in the panel. <b>The lead started it; I refactored and redesigned it</b>: a different design for each notification status, its own redirect target so opening one goes straight to the thing it is about, and an animation as a new one arrives. Each notification carries a read and a delete action, except an important one, which renders differently and cannot be deleted.',
         ],
       },
@@ -170,8 +258,9 @@ export const WORK_EXPERIENCE: IWorkExperience[] = [
         summary:
           'The typed client every application in the estate talks to the backend through, generated from OpenAPI specifications. The lead built it; I co-maintain it and run it day to day. Everyone builds against it, so when it stops, everyone stops.',
         descriptionPoints: [
-          '<b>Keep it releasing on every merge</b> rather than on someone remembering: 14 OpenAPI specifications become four published packages, so no consumer waits on a manual publish.',
-          '<b>Added specifications and clients as new backend surface arrived</b>, including delegated access and device registration, keeping generated types consistent across every application that depends on them.',
+          // 6 Nov 2026: 14 → 18, counted in openapi-specs/ on master.
+          '<b>Keep it releasing on every merge</b> rather than on someone remembering: 18 OpenAPI specifications become four published packages, so no consumer waits on a manual publish.',
+          '<b>Added specifications and clients as new backend surface arrived</b>, including delegated access, device registration and the document designer’s service, and refreshed the permissions, reporting and next-best-action specifications from the live services as they changed, keeping generated types consistent across every application that depends on them.',
         ],
       },
       {
