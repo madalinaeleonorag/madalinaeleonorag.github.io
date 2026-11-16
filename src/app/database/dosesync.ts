@@ -64,7 +64,7 @@ export const DOSESYNC = {
           { title: 'Today at a glance', text: 'Doses grouped by morning, lunch, evening and night. The next one is always at the top.', ready: true },
           { title: 'Taken, or skipped with a reason', text: 'Record a dose in one tap, or say why you skipped it. Undo is always there for five seconds.', ready: true },
           { title: 'Taken earlier…', text: 'Forgot to tap? Record the dose at the time you actually took it.', ready: true },
-          { title: 'Reminders that work from the notification', text: 'Taken, Snooze and Skip right from the reminder, with names hidden on the lock screen if you like.', ready: true },
+          { title: 'Reminders that work from the notification', text: 'Taken, Snooze and Skip right from the reminder, with names hidden on the lock screen if you like. An unanswered reminder rings again every 5 minutes, or stays on screen until you answer.', ready: true },
         ],
       },
       {
