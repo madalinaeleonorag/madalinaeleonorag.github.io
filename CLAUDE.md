@@ -14,7 +14,7 @@ Deployment: GitHub Pages serves `docs/` from `master`. The workflow in `.github/
 
 ## Structure
 
-- `src/app/pages/`: `home` (single long page with sections and side nav), `work-experience`, `reviews`, `dosesync` (case study).
+- `src/app/pages/`: `home` (single long page with sections and side nav), `work-experience`, `reviews`, `dosesync` (case study), `project-case-study` (thesis projects).
 - `src/app/database/`: all content as typed TypeScript data. Change text here, not in templates.
 - `src/app/interfaces/`: types for that content.
 - `src/app/components/`: `chip`, `review-card`, `svg-icon`.
@@ -39,3 +39,12 @@ Deployment: GitHub Pages serves `docs/` from `master`. The workflow in `.github/
 - All content is in `src/app/database/dosesync.ts`. An empty `image` field renders a placeholder; real screenshots go in `public/assets/dosesync/`.
 - The source of truth is `../DoseSync/docs/product-vision.md` plus the DoseSync code. Keep the case study consistent with both, and keep the "Where the code is today" section honest about what is built vs. planned.
 - The DoseSync repo is private, so the page does not link to it.
+
+## Thesis case studies
+
+`/projects/waffic` (bachelor's, 2018) and `/projects/university-rating` (master's, 2020) share one data-driven page, `src/app/pages/project-case-study`, picked by `data.caseStudy` in the route. Tabs: **Product**, **Architecture & Development** and **Thesis** (shown only when `thesis` is set), linkable with `#product`, `#architecture`, `#thesis`.
+
+- Content is in `src/app/database/waffic.ts` and `university-rating.ts`, typed by `src/app/interfaces/case-study.ts`. Screenshots are in `public/assets/waffic/` and `public/assets/university-rating/`.
+- Sources: the public repos (Waffic is Vue 2 + Vuex, not Angular; UniversityRating is Angular 8, published as "UniView") and the thesis documents (both in Romanian). Keep "Looking back" honest about the weaknesses of the student code.
+- Never publish screenshots that show real people's names, emails or birth dates (the admin messages, user search and profile screens).
+- Layout shared with DoseSync lives in `src/styles/_case-study.scss`; each page adds only its own rules.

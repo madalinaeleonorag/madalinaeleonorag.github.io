@@ -27,6 +27,20 @@ export const routes: Routes = [
     data: { breadcrumb: 'DoseSync' },
   },
   {
+    path: 'projects/waffic',
+    loadComponent: () =>
+      import('./pages/project-case-study/project-case-study').then((m) => m.ProjectCaseStudy),
+    title: 'Waffic: weather and traffic in one web app | Bachelor’s thesis',
+    data: { breadcrumb: 'Waffic', caseStudy: 'waffic' },
+  },
+  {
+    path: 'projects/university-rating',
+    loadComponent: () =>
+      import('./pages/project-case-study/project-case-study').then((m) => m.ProjectCaseStudy),
+    title: 'UniversityRating: university reviews with AI moderation | Master’s thesis',
+    data: { breadcrumb: 'UniversityRating', caseStudy: 'university-rating' },
+  },
+  {
     path: 'projects/dosesync/privacy',
     loadComponent: () => import('./pages/dosesync-legal/dosesync-legal').then((m) => m.DoseSyncLegal),
     title: 'DoseSync privacy policy',

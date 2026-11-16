@@ -1,0 +1,293 @@
+<ng-template #shot let-item let-group="group">
+  <figure class="shot">
+    @if (item.image) {
+      <img [src]="item.image | assetPath" [alt]="item.alt" [appZoomable]="group || key" [zoomCaption]="item.caption" loading="lazy" />
+    } @else {
+      <div class="shot__placeholder" role="img" [attr.aria-label]="item.alt + ' (placeholder)'">
+        <span>Screenshot placeholder</span>
+      </div>
+    }
+    <figcaption>{{ item.caption }}</figcaption>
+  </figure>
+</ng-template>
+
+<header class="hero">
+  <div class="hero__text">
+    <span class="eyebrow">{{ project.eyebrow }}</span>
+    <h1>{{ project.title }}</h1>
+    <p class="hero__slogan">{{ project.slogan }}</p>
+    <p class="hero__tagline">{{ project.tagline }}</p>
+    <div class="links">
+      @for (link of project.links; track link.url; let first = $first) {
+        <a class="link" [class.link--primary]="first" [href]="link.url" target="_blank" rel="noopener" (click)="trackLink(link.url)">
+          {{ link.label }} &#8599;
+        </a>
+      }
+    </div>
+  </div>
+  <div class="hero__visual">
+    <ng-container *ngTemplateOutlet="shot; context: { $implicit: project.hero }" />
+  </div>
+</header>
+
+<mat-tab-group
+  class="tabs"
+  mat-stretch-tabs="false"
+  animationDuration="0ms"
+  [selectedIndex]="selectedTab()"
+  (selectedIndexChange)="selectTab($event)"
+>
+  <!-- Product -->
+  <mat-tab label="Product">
+    <div class="tab-body">
+      <section class="block">
+        <h2>Overview</h2>
+        @for (paragraph of project.summary; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+      </section>
+
+      <section class="block">
+        <h2>The idea</h2>
+        <p>{{ project.idea.intro }}</p>
+        <ul class="list">
+          @for (item of project.idea.points; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Who uses it</h2>
+        <div class="grid grid--3">
+          @for (role of project.roles; track role.title) {
+            <article class="card">
+              <h3>{{ role.title }}</h3>
+              <p>{{ role.text }}</p>
+              <ul class="list list--check list--compact">
+                @for (item of role.can; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>What it does</h2>
+        @for (group of project.featureGroups; track group.title; let odd = $odd) {
+          <article class="feature-group" [class.feature-group--reverse]="odd" [class.feature-group--plain]="!group.shots.length">
+            <div class="feature-group__text">
+              <h3>{{ group.title }}</h3>
+              @if (group.text) {
+                <p>{{ group.text }}</p>
+              }
+              <ul class="feature-list">
+                @for (feature of group.features; track feature.title) {
+                  <li>
+                    <strong>{{ feature.title }}</strong>
+                    <span>{{ feature.text }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+            @if (group.shots.length) {
+              <div class="feature-group__shots" [class.feature-group__shots--single]="group.shots.length === 1">
+                @for (screen of group.shots; track screen.image) {
+                  <ng-container *ngTemplateOutlet="shot; context: { $implicit: screen, group: key + '-features' }" />
+                }
+              </div>
+            }
+          </article>
+        }
+      </section>
+
+      <section class="block" aria-labelledby="gallery-title">
+        <div class="gallery-head">
+          <h2 id="gallery-title">More screens</h2>
+          <div class="gallery-nav">
+            <button type="button" aria-label="Previous screens" (click)="scrollGallery(track, -1)">&#8249;</button>
+            <button type="button" aria-label="Next screens" (click)="scrollGallery(track, 1)">&#8250;</button>
+          </div>
+        </div>
+        <div class="gallery" #track tabindex="0" role="region" [attr.aria-label]="'More ' + project.title + ' screens, scroll sideways'">
+          @for (screen of project.gallery; track screen.image + screen.caption) {
+            <div class="gallery__item">
+              <ng-container *ngTemplateOutlet="shot; context: { $implicit: screen, group: key + '-gallery' }" />
+            </div>
+          }
+        </div>
+        <p class="hint">Tap any screen to open it full size.</p>
+      </section>
+    </div>
+  </mat-tab>
+
+  <!-- Architecture & development -->
+  <mat-tab label="Architecture & Development">
+    <div class="tab-body">
+      <section class="block">
+        <h2>System overview</h2>
+        <p>{{ project.architectureIntro }}</p>
+        <div class="chips-wrapper">
+          @for (tech of project.techStack; track tech) {
+            <app-chip [label]="tech" />
+          }
+        </div>
+
+        <div class="c4" [attr.aria-label]="project.diagram.label">
+          <div class="c4__actors">
+            @for (actor of project.diagram.actors; track actor.title) {
+              <div class="c4__actor">
+                <strong>{{ actor.title }}</strong>
+                <span>{{ actor.text }}</span>
+              </div>
+            }
+          </div>
+          <div class="c4__middle">
+            <div class="c4__device">
+              <span class="label">{{ project.diagram.client.label }}</span>
+              @for (box of project.diagram.client.boxes; track box.title) {
+                <div class="c4__box">
+                  <strong>{{ box.title }}</strong>
+                  <span>{{ box.text }}</span>
+                </div>
+              }
+            </div>
+            <span class="c4__arrow">reads, writes and listens ↓</span>
+            <div class="c4__device">
+              <span class="label">{{ project.diagram.backend.label }}</span>
+              @for (box of project.diagram.backend.boxes; track box.title; let first = $first) {
+                <div class="c4__box" [class.c4__box--db]="first">
+                  <strong>{{ box.title }}</strong>
+                  <span>{{ box.text }}</span>
+                </div>
+              }
+            </div>
+          </div>
+          <div class="c4__external">
+            <span class="label">Called from the browser</span>
+            @for (box of project.diagram.external; track box.title) {
+              <div class="c4__box c4__box--ext">
+                <strong>{{ box.title }}</strong>
+                <span>{{ box.text }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Layers</h2>
+        <div class="layers">
+          @for (layer of project.layers; track layer.name) {
+            <div class="layer" [class.layer--highlight]="layer.highlight">
+              <strong>{{ layer.name }}</strong>
+              <span>{{ layer.text }}</span>
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Data model</h2>
+        <p>{{ project.dataModel.intro }}</p>
+        <div class="data-model" [class.data-model--with-image]="project.dataModel.image">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Collection</th>
+                  <th>Holds</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (row of project.dataModel.rows; track row.name) {
+                  <tr>
+                    <td class="accent"><code>{{ row.name }}</code></td>
+                    <td>{{ row.holds }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          @if (project.dataModel.image; as image) {
+            <div class="data-model__image">
+              <ng-container *ngTemplateOutlet="shot; context: { $implicit: image, group: key + '-architecture' }" />
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Key flows</h2>
+        <div class="grid grid--2">
+          @for (flow of project.flows; track flow.title) {
+            <article class="card">
+              <h3>{{ flow.title }}</h3>
+              <ol class="list list--compact">
+                @for (step of flow.steps; track step) {
+                  <li>{{ step }}</li>
+                }
+              </ol>
+            </article>
+          }
+        </div>
+      </section>
+
+      @if (project.codeSample; as sample) {
+        <section class="block">
+          <h2>{{ sample.title }}</h2>
+          <p>{{ sample.intro }}</p>
+          <pre class="code"><code>{{ sample.code }}</code></pre>
+        </section>
+      }
+
+      <section class="block">
+        <h2>Looking back</h2>
+        <p>
+          Built as a student project, it worked and was graded, but it was never hardened for real users.
+          This is what I would change today.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Then</th>
+                <th>Today</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of project.lookingBack; track row.then) {
+                <tr>
+                  <td>{{ row.then }}</td>
+                  <td>{{ row.today }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </mat-tab>
+
+  <!-- Thesis: only once the thesis content is filled in -->
+  @if (project.thesis; as thesis) {
+    <mat-tab label="Thesis">
+      <div class="tab-body">
+        <section class="block">
+          <span class="eyebrow">{{ project.eyebrow }}</span>
+          <h2>{{ thesis.title }}</h2>
+        </section>
+        @for (section of thesis.sections; track section.heading) {
+          <section class="block">
+            <h2>{{ section.heading }}</h2>
+            @for (paragraph of section.paragraphs; track $index) {
+              <p>{{ paragraph }}</p>
+            }
+          </section>
+        }
+      </div>
+    </mat-tab>
+  }
+</mat-tab-group>
