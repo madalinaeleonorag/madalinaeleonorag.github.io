@@ -10,7 +10,6 @@ export const UNIVERSITY_RATING: CaseStudy = {
   slogan: 'Compare Romanian universities and study programmes, with reviews checked by AI before they go live.',
   tagline: 'Angular · Firestore · Azure Text Analytics · Google Maps',
   links: [
-    { label: 'Live demo', url: 'https://universityraking.web.app/' },
     { label: 'Source code', url: 'https://github.com/madalinaeleonorag/UniversityRating' },
   ],
   hero: {

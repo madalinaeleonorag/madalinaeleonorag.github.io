@@ -10,7 +10,6 @@ export const WAFFIC: CaseStudy = {
   slogan: 'Weather and traffic for the road ahead, on one screen.',
   tagline: 'Vue.js · Firebase · Google Maps · AccuWeather',
   links: [
-    { label: 'Live demo', url: 'https://waffic1997.web.app/' },
     { label: 'Source code', url: 'https://github.com/madalinaeleonorag/Waffic' },
   ],
   hero: {
@@ -118,7 +117,7 @@ export const WAFFIC: CaseStudy = {
 
   // Architecture & Development tab
   architectureIntro:
-    'A single-page application with no server code of its own. Vue components talk directly to Firebase (Authentication and the Realtime Database) and call Google Maps and AccuWeather from the browser. The production build is made with webpack, includes a web app manifest and a service worker, and is served from Firebase Hosting.',
+    'A single-page application with no server code of its own. Vue components talk directly to Firebase (Authentication and the Realtime Database) and call Google Maps and AccuWeather from the browser. The production build is made with webpack, includes a web app manifest and a service worker, and was served from Firebase Hosting.',
   diagram: {
     label: 'Container diagram: a Vue single-page app on Firebase, calling map and weather APIs from the browser',
     actors: [

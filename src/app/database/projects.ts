@@ -20,7 +20,6 @@ export const FEATURED_PROJECTS: Project[] = [
     techStack: ['Angular', 'TypeScript', 'Azure Text Analytics (AI)', 'Firestore', 'Google Maps API'],
     imageUrl: 'university-rating.webp',
     githubUrl: 'https://github.com/madalinaeleonorag/UniversityRating',
-    liveUrl: 'https://universityraking.web.app/',
     caseStudyUrl: '/projects/university-rating',
   },
   {
@@ -32,7 +31,6 @@ export const FEATURED_PROJECTS: Project[] = [
     techStack: ['Vue.js', 'Vuex', 'Firebase', 'Google Maps API', 'AccuWeather API'],
     imageUrl: 'wafflic.webp',
     githubUrl: 'https://github.com/madalinaeleonorag/Waffic',
-    liveUrl: 'https://waffic1997.web.app/',
     caseStudyUrl: '/projects/waffic',
   },
   {
