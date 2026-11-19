@@ -1,9 +1,29 @@
-@use '../styles/breakpoints' as *;
-
 .app-wrapper {
   display: flex;
   flex-flow: column;
   justify-content: center;
+}
+
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2000;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform var(--transition-normal) ease;
+
+  &:focus {
+    transform: none;
+  }
 }
 
 .breadcrumb {

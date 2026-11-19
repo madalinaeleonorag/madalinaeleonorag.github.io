@@ -1,0 +1,114 @@
+@let current = job();
+<article class="experience" [attr.aria-labelledby]="'job-title'">
+  <header class="experience__header" [class.current-job]="current.current">
+    <div class="header-main">
+      <app-svg-icon [type]="current.logo" class="experience__logo" />
+      <h1 class="header-text" id="job-title">
+        <span class="role hdr-text">{{ current.role }}</span>
+        <span class="separator" aria-hidden="true">@</span>
+        <span class="company">{{ current.company }}</span>
+      </h1>
+    </div>
+    <div class="header-period">
+      {{ current.start }} — {{ current.end }}
+      <span class="header-position">Role {{ position() }}</span>
+    </div>
+  </header>
+
+  <div class="experience__assignments">
+    @for (assignment of current.assignments; track assignment.id; let i = $index) {
+      <section class="assignment-entry" [attr.aria-label]="assignment.title">
+        @if (current.assignments.length > 1) {
+          <p class="assignment-label">
+            Assignment {{ i + 1 }}: {{ assignment.startDate }} - {{ assignment.endDate }}
+          </p>
+        }
+
+        <div class="assignment-grid">
+          <div class="assignment-main">
+            @if (assignment.title) {
+              <h2 class="assignment-title">{{ assignment.title }}</h2>
+            }
+            @if (assignment.summary) {
+              <p class="assignment-summary">{{ assignment.summary }}</p>
+            }
+            @if (assignment.descriptionPoints?.length) {
+              <ul class="assignment-description">
+                @for (point of assignment.descriptionPoints; track point) {
+                  <li [innerHTML]="point"></li>
+                }
+              </ul>
+            }
+          </div>
+
+          <aside class="assignment-meta">
+            @if (assignment.techStack?.length) {
+              <div class="tech-group">
+                <p class="meta-label">Technologies</p>
+                <div class="chips-wrapper">
+                  @for (tech of assignment.techStack; track tech) {
+                    <app-chip [label]="tech" />
+                  }
+                </div>
+              </div>
+            }
+
+            @if (assignment.stakeholderImpact) {
+              <div class="impact-group">
+                <p class="meta-label">Impact</p>
+                <div class="impact-box">
+                  {{ assignment.stakeholderImpact }}
+                </div>
+              </div>
+            }
+
+            @if (assignment.topReviews.length) {
+              <a
+                class="btn btn-secondary"
+                routerLink="/reviews"
+                [queryParams]="{ assignmentId: assignment.id }"
+              >
+                View all reviews
+              </a>
+            }
+          </aside>
+        </div>
+
+        @if (assignment.topReviews.length) {
+          <div class="assignment-reviews">
+            <p class="meta-label">Featured recommendations</p>
+            <div class="mini-reviews-grid">
+              @for (review of assignment.topReviews; track review.id) {
+                <app-review-card [review]="review" [showRole]="true"></app-review-card>
+              }
+            </div>
+          </div>
+        }
+      </section>
+    }
+  </div>
+</article>
+
+<nav class="pager" aria-label="Other roles">
+  @if (previous(); as prev) {
+    <a class="pager__link pager__link--prev" [routerLink]="['/work-experience', prev.slug]" rel="prev">
+      <span class="pager__label"><span aria-hidden="true">←</span> Previous</span>
+      <span class="pager__role">{{ prev.role }}</span>
+      <span class="pager__company">{{ prev.company }} · {{ prev.start }} – {{ prev.end }}</span>
+    </a>
+  } @else {
+    <span class="pager__spacer"></span>
+  }
+
+  <a class="pager__all" routerLink="/work-experience">All roles</a>
+
+  @if (next(); as nxt) {
+    <a class="pager__link pager__link--next" [routerLink]="['/work-experience', nxt.slug]" rel="next">
+      <span class="pager__label">Next <span aria-hidden="true">→</span></span>
+      <span class="pager__role">{{ nxt.role }}</span>
+      <span class="pager__company">{{ nxt.company }} · {{ nxt.start }} – {{ nxt.end }}</span>
+    </a>
+  } @else {
+    <span class="pager__spacer"></span>
+  }
+</nav>

@@ -1,0 +1,25 @@
+<ul class="experience-list">
+  @for (job of jobs; track job.company) {
+    <li>
+      <a
+        class="experience-summary"
+        [routerLink]="['/work-experience', job.slug]"
+        [class.current-job]="job.current"
+      >
+        <app-svg-icon [type]="job.logo" class="summary-logo" />
+        <span class="summary-content">
+          <span class="summary-company">{{ job.company }}</span>
+          <span class="summary-title">{{ job.role }}</span>
+          <span class="summary-period">
+            {{ job.start }} – {{ job.end }}
+            @if (job.current) {
+              <span class="summary-now">Current</span>
+            }
+          </span>
+        </span>
+        <span class="summary-arrow" aria-hidden="true">→</span>
+      </a>
+    </li>
+  }
+</ul>
+<a class="btn btn-secondary" routerLink="/work-experience">Explore full experience &amp; reviews</a>

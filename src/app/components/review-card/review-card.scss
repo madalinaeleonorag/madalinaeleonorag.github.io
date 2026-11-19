@@ -9,6 +9,11 @@
   height: 100%;
   box-sizing: border-box;
   text-align: center;
+  margin: 0;
+
+  blockquote {
+    margin: 0;
+  }
 
   .quote-preview {
     margin-bottom: auto;
@@ -19,6 +24,7 @@
 
     ::ng-deep .highlight {
       background: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
     }
 
     ::ng-deep ul {
@@ -47,12 +53,14 @@
 
     .author-details {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: var(--space-sm);
+      gap: 0.25rem var(--space-sm);
 
       .company-info {
         display: flex;
+        white-space: nowrap;
         align-items: center;
         justify-content: center;
         gap: var(--space-sm);

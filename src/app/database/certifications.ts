@@ -2,7 +2,7 @@ import { Certification } from '../interfaces/certification';
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    logo: '8ee20edb-6c22-45e1-9572-9fe06b0394f0.webp',
+    logo: 'oreilly-web-accessibility.webp',
     name: 'Web Accessibility Basics',
     organization: "O'Reilly",
     issueDate: 'Feb 2026',
@@ -46,7 +46,7 @@ export const CERTIFICATIONS: Certification[] = [
     logo: 'Badges_v8-07_Practitioner.webp',
     name: 'Enterprise Design Thinking Practitioner',
     organization: 'IBM',
-    issueDate: 'MMar 2020',
+    issueDate: 'Mar 2020',
     url: 'https://www.credly.com/badges/f28084ab-7407-4d30-8f84-e612adc40402',
   },
 ];

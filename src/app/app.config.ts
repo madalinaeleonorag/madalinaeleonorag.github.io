@@ -1,20 +1,30 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withInMemoryScrolling,
+  withViewTransitions,
+} from '@angular/router';
+import {
+  provideClientHydration,
+  withEventReplay,
+  withIncrementalHydration,
+} from '@angular/platform-browser';
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(
       routes,
-      withViewTransitions(),
+      withViewTransitions({ skipInitialTransition: true }),
+      // Query params bind to component inputs of the same name (used by the Reviews filters).
+      withComponentInputBinding(),
       // New pages open at the top; Back restores the previous position.
-      // Anchor scrolling keeps fragment-only changes (DoseSync tabs) from jumping to the top.
+      // Anchor scrolling keeps fragment-only changes (case study tabs) from jumping to the top.
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' }),
     ),
-    provideClientHydration(withEventReplay()),
-    provideAnimationsAsync(),
+    // Prerendered HTML is reused; `@defer (hydrate on ...)` blocks load their JavaScript only when needed.
+    provideClientHydration(withEventReplay(), withIncrementalHydration()),
   ],
 };

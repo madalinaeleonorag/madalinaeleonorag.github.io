@@ -3,33 +3,52 @@
 :host {
   display: block;
   padding: 0 var(--page-gutter);
+  width: min(100%, 1200px + 2 * 48px);
+  margin-inline: auto;
 }
 
 .reviews-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: flex-end;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
 
-  .results-count {
-    font-size: clamp(0.85rem, 1vw, 0.95rem);
+  h1 {
+    font-size: var(--font-h2);
     color: var(--md-sys-color-primary);
-    font-weight: 100;
   }
 }
 
-.filters-dashboard {
+.assignment-filter {
+  margin: var(--space-sm) 0 0;
+}
+
+.link-button {
+  all: unset;
+  cursor: pointer;
+  color: var(--md-sys-color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+
+  &:focus-visible {
+    outline: 3px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.filters {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: 2fr repeat(4, 1fr);
   gap: var(--space-md);
-  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background: var(--md-sys-color-surface-container-low);
 
   @media (max-width: $breakpoint-lg) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (max-width: $breakpoint-md) {
     grid-template-columns: repeat(2, 1fr);
+
+    .field--search {
+      grid-column: 1 / -1;
+    }
   }
 
   @media (max-width: $breakpoint-sm) {
@@ -37,24 +56,93 @@
   }
 }
 
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+
+  &__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  input,
+  select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.55rem 0.85rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--md-sys-color-outline);
+    background: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+    font: inherit;
+    font-size: 0.95rem;
+    transition:
+      border-color var(--transition-normal) ease,
+      box-shadow var(--transition-normal) ease;
+
+    &:hover {
+      border-color: var(--md-sys-color-on-surface-variant);
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--md-sys-color-primary);
+      box-shadow: 0 0 0 3px rgb(var(--brand-rgb) / 0.55);
+    }
+  }
+
+  input::placeholder {
+    color: var(--md-sys-color-on-surface-variant);
+    opacity: 0.7;
+  }
+
+  select {
+    appearance: none;
+    padding-right: 2.25rem;
+    background-image:
+      linear-gradient(45deg, transparent 50%, currentColor 50%),
+      linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position:
+      calc(100% - 1.1rem) 52%,
+      calc(100% - 0.75rem) 52%;
+    background-size: 0.35rem 0.35rem;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+}
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+  min-height: 44px;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.results-count {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 .reviews-wrapper {
   display: flex;
   flex-flow: column;
   gap: var(--space-lg);
-  width: min(100%, 1200px);
-  margin-inline: auto;
   margin-bottom: clamp(3rem, 10vh, 6rem);
 }
 
-mat-form-field {
-  width: 100%;
-  --mdc-outlined-text-field-outline-color: var(--md-sys-color-outline) !important;
-  --mdc-outlined-text-field-label-text-color: var(--md-sys-color-on-surface-variant) !important;
-  --mdc-outlined-text-field-hover-outline-color: var(--md-sys-color-on-surface) !important;
-  --mdc-outlined-text-field-focus-outline-color: var(--md-sys-color-primary) !important;
-  --mdc-outlined-text-field-focus-label-text-color: var(--md-sys-color-primary) !important;
-  --mdc-outlined-text-field-input-text-color: var(--md-sys-color-on-surface) !important;
-  --mdc-outlined-text-field-caret-color: var(--md-sys-color-primary) !important;
-  --mat-select-arrow-color: var(--md-sys-color-on-surface-variant) !important;
-  --mat-select-focused-arrow-color: var(--md-sys-color-primary) !important;
+.empty {
+  text-align: center;
+  margin: var(--space-xl) auto;
 }

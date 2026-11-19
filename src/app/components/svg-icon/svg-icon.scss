@@ -1,26 +1,23 @@
-svg {
+:host {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+svg,
+img {
   width: var(--icon-size, 24px);
   height: var(--icon-size, 24px);
 }
 
-.accent-color {
-  svg {
-    path {
-      fill: var(--md-sys-color-primary-container);
-    }
+svg {
+  fill: var(--icon-fill-color, currentColor);
+  transition: fill var(--transition-normal) ease;
+}
 
-    polygon {
-      fill: var(--md-sys-color-primary-container);
-    }
+img {
+  object-fit: contain;
+}
 
-    &:hover {
-      path {
-        fill: var(--md-sys-color-primary);
-      }
-
-      polygon {
-        fill: var(--md-sys-color-primary);
-      }
-    }
-  }
+:host(.accent-color) svg {
+  fill: var(--icon-fill-color, var(--md-sys-color-primary));
 }

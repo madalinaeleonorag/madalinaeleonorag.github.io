@@ -1,0 +1,49 @@
+@let current = theme.selected();
+
+<button
+  type="button"
+  class="trigger"
+  popovertarget="theme-panel"
+  [attr.aria-label]="'Theme colour: ' + current.name + '. Change'"
+  [title]="'Theme: ' + current.name"
+>
+  <span class="trigger__swatch" [style.background]="swatch(current.hex, current.secondHex)"></span>
+</button>
+
+<div id="theme-panel" class="panel" popover>
+  <fieldset>
+    <legend>
+      <span class="panel__title">Theme colour</span>
+      <span class="panel__subtitle">Pantone Color of the Year</span>
+    </legend>
+
+    <div class="options">
+      @for (color of theme.colors; track color.id) {
+        <label class="option" [class.option--signature]="!color.year">
+          <input
+            type="radio"
+            name="theme-color"
+            class="visually-hidden"
+            [value]="color.id"
+            [checked]="color.id === current.id"
+            (change)="theme.select(color.id)"
+          />
+          <span
+            class="option__swatch"
+            [style.background]="swatch(color.hex, color.secondHex)"
+          ></span>
+          <span class="option__text">
+            <span class="option__name">
+              {{ color.name }}
+              @if (color.secondName) {
+                <span class="option__second">+ {{ color.secondName }}</span>
+              }
+            </span>
+            <span class="option__code">{{ color.code }}</span>
+          </span>
+          <span class="option__year">{{ color.year }}</span>
+        </label>
+      }
+    </div>
+  </fieldset>
+</div>

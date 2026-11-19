@@ -1,20 +1,44 @@
-@use '@angular/material' as mat;
 @use './breakpoints' as *;
-@include mat.core();
 
-@include mat.theme(
-  (
-    color: (
-      theme-type: dark,
-      primary: mat.$red-palette,
-      tertiary: mat.$red-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  )
-);
-
+// Colour tokens (the site is dark only). These are the Signature Burgundy theme; a Pantone
+// theme chosen in the theme picker overrides them on <html> (generated in app/theme/palette.ts).
+// Primary is a light tint, readable as text on the dark surfaces (about 7.7:1); the brand
+// colour itself is primary-container, used for fills with on-primary-container text.
+// Never hard-code colours in components: use these tokens, rgb(var(--tint-rgb) / alpha) for
+// translucent backgrounds behind text, and rgb(var(--brand-rgb) / alpha) for borders and glows.
 :root {
+  color-scheme: dark;
+
+  --md-sys-color-primary: rgb(242 139 155);
+  --md-sys-color-on-primary: rgb(74 12 24);
+  --md-sys-color-primary-container: rgb(122 30 46);
+  --md-sys-color-primary-container-hover: rgb(150 44 62);
+  --md-sys-color-on-primary-container: rgb(255 218 223);
+  --md-sys-color-tertiary: rgb(192 157 135);
+  --md-sys-color-background: rgb(18 14 15);
+  --md-sys-color-on-surface: rgb(240 229 232);
+  --md-sys-color-on-surface-variant: rgb(214 195 198);
+  --md-sys-color-outline: rgb(150 126 130);
+  --md-sys-color-outline-variant: rgb(79 62 67);
+  --md-sys-color-surface-container-lowest: rgb(12 9 10);
+  --md-sys-color-surface-container-low: rgb(25 19 20);
+  --md-sys-color-surface-container: rgb(32 24 26);
+  --md-sys-color-surface-container-high: rgb(42 34 36);
+  --md-sys-color-surface-container-highest: rgb(52 43 45);
+
+  --brand-rgb: 122 30 46;
+  --accent-2-rgb: 160 50 70;
+  // For translucent backgrounds behind text (never pale, unlike --brand-rgb with light themes).
+  --tint-rgb: 122 30 46;
+
+  // Shape scale: pills for anything you press, generous corners for containers, and inner
+  // elements one step smaller than their container so the curves stay concentric.
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 999px;
+
   --font-h1: clamp(2.5rem, 5vw + 1rem, 4.5rem);
   --font-h2: clamp(1.5rem, 3vw + 0.5rem, 2.25rem);
   --font-body: clamp(1rem, 0.9vw + 0.8rem, 1.125rem);
@@ -27,12 +51,15 @@
   --page-gutter: clamp(1rem, 5vw, 3rem);
 
   --transition-normal: 0.2s;
-  --border-radius: 12px;
-  --surface-glow: rgba(122, 30, 46, 0.14);
+  --transition-slow: 0.5s;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  // Containers (cards, panels). Buttons, chips and fields use --radius-full.
+  --border-radius: var(--radius-lg);
+  --surface-glow: rgb(var(--tint-rgb) / 0.22);
   --surface-elevated: linear-gradient(
     180deg,
-    rgba(33, 24, 26, 0.98) 0%,
-    rgba(22, 17, 18, 0.98) 100%
+    var(--md-sys-color-surface-container) 0%,
+    var(--md-sys-color-surface-container-low) 100%
   );
 }
 
@@ -44,65 +71,24 @@
 
 html {
   font-size: 100%;
-  scroll-behavior: smooth;
   height: 100%;
+  scroll-padding-top: var(--space-lg);
 }
 
 body {
-  background: #171416;
-  color: #f5f1f2;
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-surface);
+  transition: background-color var(--transition-slow) ease;
   font-family:
-    'Inter',
+    'Inter Variable',
     system-ui,
     -apple-system,
+    'Segoe UI',
     sans-serif;
+  font-optical-sizing: auto;
   margin: 0;
   line-height: 1.6;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backdrop-filter: blur(0);
-  z-index: 999;
-  pointer-events: none;
-  transition: backdrop-filter var(--transition-normal);
-}
-
-body:has(.sidenav__link:hover)::before {
-  backdrop-filter: blur(3px);
-}
-
-.mat-mdc-select-panel {
-  background-color: var(--md-sys-color-surface-container-high) !important;
-  border: 1px solid var(--md-sys-color-outline-variant) !important;
-
-  .mat-mdc-option {
-    color: var(--md-sys-color-on-surface) !important;
-
-    &.mdc-list-item--selected {
-      background-color: var(--md-sys-color-primary-container) !important;
-
-      .mdc-list-item__primary-text {
-        color: var(--md-sys-color-on-primary-container) !important;
-        font-weight: 600;
-      }
-    }
-
-    &:hover:not(.mdc-list-item--selected) {
-      background-color: var(--md-sys-color-surface-container-highest) !important;
-    }
-  }
-}
-
-.mat-datepicker-content {
-  background-color: var(--md-sys-color-surface-container-high) !important;
-  color: var(--md-sys-color-on-surface) !important;
-  border: 1px solid var(--md-sys-color-outline-variant);
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -113,29 +99,52 @@ svg {
 
 a {
   text-decoration: none;
-  color: inherit;
   color: var(--md-sys-color-primary);
 
   &:hover {
-    color: var(--md-sys-color-primary);
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2em;
   }
 }
 
-button {
+:focus-visible {
+  outline: 3px solid var(--md-sys-color-primary);
+  outline-offset: 3px;
+}
+
+// Buttons, and links that look like buttons (.btn). Navigation and downloads use <a class="btn">.
+button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
   font-family: inherit;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  font-weight: 600;
+  font-size: clamp(0.875rem, 0.8rem + 0.25vw, 0.95rem);
+  line-height: 1.4;
+  min-height: 44px;
   cursor: pointer;
   width: fit-content;
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--border-radius);
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-full);
   border: 1px solid var(--md-sys-color-primary);
-  transition: all var(--transition-normal) ease;
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  transition:
+    background-color var(--transition-normal) ease,
+    border-color var(--transition-normal) ease,
+    color var(--transition-normal) ease,
+    transform var(--transition-normal) ease;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 
   @media (max-width: $breakpoint-sm) {
     width: 100%;
@@ -143,20 +152,20 @@ button {
   }
 
   &.btn-primary {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-    border: 1px solid var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border-color: var(--md-sys-color-primary-container);
+    box-shadow: 0 8px 24px rgb(var(--brand-rgb) / 0.35);
 
     &:hover {
-      background-color: var(--md-sys-color-primary-container);
+      background-color: var(--md-sys-color-primary-container-hover);
+      border-color: var(--md-sys-color-primary-container-hover);
       color: var(--md-sys-color-on-primary-container);
     }
   }
 
   &.btn-secondary {
-    background-color: transparent;
-    color: var(--md-sys-color-primary);
-    border: 1px solid var(--md-sys-color-outline);
+    border-color: var(--md-sys-color-outline);
 
     &:hover {
       background-color: var(--md-sys-color-surface-container-low);
@@ -171,72 +180,180 @@ p {
   line-height: 1.8;
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   max-width: 75ch;
+  text-wrap: pretty;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin-top: 0;
   margin-bottom: 0;
   font-weight: 700;
   line-height: 1.2;
+  text-wrap: balance;
 }
 
 h1 {
   font-size: var(--font-h1);
+  letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: var(--font-h2);
   color: var(--md-sys-color-primary);
+  letter-spacing: -0.01em;
 }
 
 h3 {
   font-size: clamp(1.25rem, 1rem + 1.25vw, 1.75rem);
 }
 
-.cards-grid {
-  display: grid;
-  gap: var(--space-lg);
-  grid-template-columns: repeat(3, 1fr);
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-
-  @media (max-width: $breakpoint-md) {
-    grid-template-columns: 1fr;
+// Brighter-than-white headings on HDR screens. CSS colours stop at SDR white, so the text is
+// painted with a white JPEG that carries a gain map (public/assets/hdr-white.jpg, up to 4x
+// SDR white); HDR-capable browsers (Chrome 137+, Safari 26) show it brighter. Everywhere else,
+// and if the image fails to load, the normal colour stays (the background colour under the
+// image is clipped to the text as well).
+@media (dynamic-range: high) {
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .hdr-text {
+      background-color: var(--md-sys-color-on-surface);
+      background-image: url('/assets/hdr-white.jpg');
+      background-position: center;
+      background-size: cover;
+      -webkit-background-clip: text;
+      background-clip: text;
+      // A utility: it must win over the colour a component sets on its heading.
+      color: transparent !important;
+    }
   }
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cards-grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Cards with a soft brand-coloured light that follows the pointer.
+// --spot-x / --spot-y are set by the pointer listener in app.ts.
 .glass-card {
+  position: relative;
+  isolation: isolate;
   background: var(--surface-elevated);
-  border: 1px solid rgba(122, 30, 46, 0.22);
+  border: 1px solid rgb(var(--brand-rgb) / 0.22);
   border-radius: var(--border-radius);
   padding: clamp(1rem, 2.5vw, 1.5rem);
   display: flex;
   flex-direction: column;
   height: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
-
+  box-shadow: 0 12px 28px rgb(0 0 0 / 0.22);
   transition:
     transform var(--transition-normal) ease,
-    background var(--transition-normal) ease,
     border-color var(--transition-normal) ease,
     box-shadow var(--transition-normal) ease;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+      420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgb(var(--tint-rgb) / 0.35),
+      transparent 60%
+    );
+    transition: opacity var(--transition-slow) ease;
+  }
+
   &:hover {
-    border-color: rgba(122, 30, 46, 0.38);
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    border-color: rgb(var(--brand-rgb) / 0.55);
+    box-shadow: 0 18px 36px rgb(0 0 0 / 0.28);
+
+    &::before {
+      opacity: 1;
+    }
   }
 }
 
 // Images that open full screen (see components/image-viewer).
 img.zoomable {
   cursor: zoom-in;
+}
 
-  &:focus-visible {
-    outline: 3px solid var(--md-sys-color-primary);
-    outline-offset: 3px;
+// Elements fade and rise into place as they scroll into view. CSS only: no JavaScript, and
+// browsers without scroll-driven animations simply show everything.
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal,
+    .glass-card,
+    .block {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Route changes use the View Transitions API (withViewTransitions in app.config.ts).
+// Project images carry a view-transition-name, so they move into the case study hero.
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.45s;
+  animation-timing-function: var(--ease-out);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

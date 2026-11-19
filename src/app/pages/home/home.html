@@ -1,208 +1,165 @@
-<div class="sidenav">
-  @for (link of sidenavLinks; track $index) {
-    <a [href]="link.href" class="sidenav__link">
-      <span class="label">{{ link.label }}</span>
-      &nbsp;
-      <app-svg-icon [type]="link.icon" [useAccentColor]="true" class="icon" />
-    </a>
-  }
-</div>
+<nav class="section-nav" aria-label="Page sections">
+  <ul>
+    @for (section of sections; track section.id) {
+      <li>
+        <a
+          class="section-nav__link"
+          [href]="'#' + section.id"
+          [attr.aria-current]="activeSection() === section.id ? 'location' : null"
+          (click)="scrollTo(section.id, $event)"
+        >
+          <app-svg-icon [type]="section.icon" class="section-nav__icon" />
+          <span class="section-nav__label">{{ section.label }}</span>
+          <span class="section-nav__short" aria-hidden="true">{{ section.short }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+</nav>
 
 <section id="hero" class="page-section hero-section">
-  <h3>🚀 Learning Product & UX With a Strong Technical Lens</h3>
-  <h1>Hi, I'm Madalina-Eleonora</h1>
-  <h2>UX & Product Transition</h2>
-  <p>
+  <div class="hero__glow" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <p class="hero__eyebrow">Learning Product &amp; UX With a Strong Technical Lens</p>
+  <h1 class="hdr-text">Hi, I'm <span class="hero__name">Madalina-Eleonora</span></h1>
+  <p class="hero__role">UX &amp; Product Transition</p>
+  <p class="hero__intro">
     I’m currently in a transition phase, expanding my product and UX skills while continuing to
     build on my engineering background. My focus is on product strategy, design thinking, and
     creating digital experiences that balance user needs, business value, and scalable delivery.
   </p>
 
-  <div class="chips-wrapper">
-    <app-chip label="UX Strategy" />
-    <app-chip label="Product Thinking" />
-    <app-chip label="Design Systems" />
-    <app-chip label="Learning & Growth" />
-  </div>
-  <div class="hero__contact">
-    @for (social of socialLinks; track $index) {
-      <a [href]="social.url" target="_blank" rel="noopener noreferrer">
-        <app-svg-icon [type]="social.type" [useAccentColor]="true"></app-svg-icon>
-      </a>
+  <ul class="chips-wrapper" aria-label="Focus areas">
+    <li><app-chip label="UX Strategy" /></li>
+    <li><app-chip label="Product Thinking" /></li>
+    <li><app-chip label="Design Systems" /></li>
+    <li><app-chip label="Learning & Growth" /></li>
+  </ul>
+
+  <ul class="hero__contact">
+    @for (social of socialLinks; track social.type) {
+      <li>
+        <a
+          [href]="social.url"
+          [attr.target]="social.type === 'email' ? null : '_blank'"
+          rel="noopener noreferrer"
+          [attr.aria-label]="social.label"
+          [title]="social.label"
+          (click)="trackOutbound(social.url)"
+        >
+          <app-svg-icon [type]="social.type" [useAccentColor]="true" />
+        </a>
+      </li>
     }
+  </ul>
+
+  <div class="hero__actions">
+    <a class="btn btn-primary" href="#projects" (click)="scrollTo('projects', $event)">
+      See my case studies
+    </a>
+    <a
+      class="btn btn-secondary"
+      href="/Madalina-Eleonora-Gheorghe-CV.pdf"
+      download
+      (click)="trackDownload('CV')"
+    >
+      Download CV
+    </a>
   </div>
-  <div class="hero__download">
-    <button class="btn-primary" (click)="downloadFile('CV')">Download CV</button>
-    <button class="btn-secondary" (click)="downloadFile('CV-Full')">Download CV Full</button>
-    <button class="btn-secondary" (click)="downloadFile('Recommendations')">
-      Download Recommendations
-    </button>
-  </div>
+  <p class="hero__more-downloads">
+    Also available:
+    <a href="/Madalina-Eleonora-Gheorghe-CV-Full.pdf" download (click)="trackDownload('CV-Full')">
+      full CV
+    </a>
+    ·
+    <a
+      href="/Madalina-Eleonora-Gheorghe-Recommendations.pdf"
+      download
+      (click)="trackDownload('Recommendations')"
+    >
+      recommendations
+    </a>
+    (PDF)
+  </p>
+
+  <a class="hero__scroll" href="#expertise" (click)="scrollTo('expertise', $event)">
+    <span class="visually-hidden">Scroll to Areas of Expertise</span>
+  </a>
 </section>
 
-<section id="expertise" class="page-section expertise-section">
-  <h2>Areas of Expertise</h2>
+<section id="expertise" class="page-section expertise-section" aria-labelledby="expertise-title">
+  <h2 id="expertise-title">Areas of Expertise</h2>
   <div class="cards-grid">
     @for (category of expertise; track category.title) {
-      <div class="glass-card expertise__category">
-        <app-svg-icon [type]="category.icon" [useAccentColor]="true" class="icon" />
+      <article class="glass-card expertise__category">
+        <span class="expertise__icon">
+          <app-svg-icon [type]="category.icon" [useAccentColor]="true" />
+        </span>
         <h3>{{ category.title }}</h3>
         <p>{{ category.description }}</p>
-        <div class="chips-wrapper">
+        <ul class="chips-wrapper" [attr.aria-label]="category.title + ' skills'">
           @for (tech of category.techStack; track tech) {
-            <app-chip [label]="tech" />
+            <li><app-chip [label]="tech" /></li>
           }
-        </div>
-      </div>
+        </ul>
+      </article>
     }
   </div>
 </section>
 
-<section id="experience" class="page-section experience-section">
-  <div class="section-header">
-    <h2>Work Experience</h2>
+<!-- The sections below are prerendered, and their JavaScript loads when they scroll into view. -->
+<section id="experience" class="page-section" aria-labelledby="experience-title">
+  <header class="section-header">
+    <h2 id="experience-title">Work Experience</h2>
     <p>A brief look at my professional journey.</p>
-  </div>
-  <div class="experience-list">
-    @for (job of workExperience; track job.company) {
-      <a
-        class="experience-summary"
-        [href]="getWorkExperienceLink(job.company)"
-        (click)="goToCompany(job.company, $event)"
-        [class.current-job]="job.assignments[0].endDate === 'Present'"
-        [attr.aria-label]="'Open ' + job.company + ' in work experience'"
-      >
-        <app-svg-icon [type]="job.logo" class="summary-logo" />
-
-        <div class="summary-content">
-          <div class="summary-header">
-            <span class="summary-company">{{ job.company }}</span>
-            <h4 class="summary-title">
-              {{ job.role }}
-            </h4>
-          </div>
-          <span class="summary-period">
-            {{ job.startDate || job.assignments[0]?.startDate }} —
-            {{ job.endDate || job.assignments[0]?.endDate }}
-          </span>
-        </div>
-      </a>
-    }
-  </div>
-  <button class="btn-secondary" routerLink="work-experience">
-    Explore Full Experience & Reviews
-  </button>
+  </header>
+  @defer (on viewport; hydrate on viewport) {
+    <app-home-experience />
+  } @placeholder {
+    <div class="section-placeholder" style="min-height: 320px"></div>
+  }
 </section>
 
-<section id="credentials" class="page-section credentials-section">
-  <div class="section-header">
-    <h2>Education & Credentials</h2>
-    <p>Academic foundation and technical certifications.</p>
-  </div>
-
-  <div class="credentials-badge-grid">
-    @for (item of timelineItems; track item.id) {
-      <article
-        class="glass-card credential-badge-card"
-        [class.academic-badge]="item.type === 'education'"
-      >
-        <img
-          [src]="item.logo | assetPath"
-          [alt]="item.subtitle + ' logo'"
-          class="cert-logo-massive"
-          appZoomable
-          [zoomCaption]="item.title"
-          loading="lazy"
-        />
-
-        <h4 class="issuer-name">{{ item.subtitle }}</h4>
-        <h3 class="credential-title">{{ item.title }}</h3>
-
-        <div class="card-footer">
-          <span class="date-badge">{{ item.date }}</span>
-          @if (item.type === 'education') {
-            <span class="meta-text">Grade: {{ item.meta }}</span>
-          } @else if (item.url) {
-            <a [href]="item.url" target="_blank" rel="noopener noreferrer" class="action-link">
-              Verify Certificate &rarr;
-            </a>
-          }
-        </div>
-      </article>
-    }
-  </div>
+<section id="projects" class="page-section" aria-labelledby="projects-title">
+  <header class="section-header">
+    <h2 id="projects-title">Projects &amp; Case Studies</h2>
+    <p>A product case study in progress, my two thesis projects and hackathon prototypes.</p>
+  </header>
+  @defer (on viewport; hydrate on viewport) {
+    <app-home-projects />
+  } @placeholder {
+    <div class="section-placeholder" style="min-height: 1600px"></div>
+  }
 </section>
 
-<section id="projects" class="page-section projects-section">
-  <div class="section-header">
-    <h2>Featured Architecture</h2>
-    <p>Complex systems, academic research, and high-performance prototypes.</p>
-  </div>
-
-  <div class="projects-stack">
-    @for (project of featuredProjects; track project.id) {
-      <article class="glass-card project-showcase-card">
-        <div class="project-visual">
-          @if (project.imageUrl) {
-            <img
-              [src]="project.imageUrl | assetPath"
-              [alt]="project.title + ' preview'"
-              appZoomable="projects"
-              [zoomCaption]="project.title"
-              loading="lazy"
-            />
-          } @else {
-            <div class="project-visual__placeholder">Image placeholder</div>
-          }
-        </div>
-
-        <div class="project-content">
-          <span class="project-type">{{ project.type }}</span>
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-description">{{ project.description }}</p>
-
-          <div class="chips-wrapper">
-            @for (tech of project.techStack; track tech) {
-              <app-chip [label]="tech" />
-            }
-          </div>
-
-          <div class="project-actions">
-            @if (project.caseStudyUrl) {
-              <button class="btn-primary" [routerLink]="project.caseStudyUrl">
-                Read Case Study &rarr;
-              </button>
-            }
-            @if (project.githubUrl) {
-              <button class="btn-secondary" (click)="openGitHub(project.githubUrl)">
-                View Repository
-              </button>
-            }
-            @if (project.liveUrl) {
-              <button class="btn-primary" (click)="openGitHub(project.liveUrl)">
-                Live Demo &rarr;
-              </button>
-            }
-          </div>
-        </div>
-      </article>
-    }
-  </div>
-
-  <button class="btn-secondary" (click)="openGitHub()">
-    Explore the Sandbox on GitHub (30+ Repos)
-  </button>
-</section>
-
-<section id="reviews" class="page-section reviews-section">
-  <div class="section-header">
-    <h2>Recommendations & Reviews</h2>
+<section id="reviews" class="page-section" aria-labelledby="reviews-title">
+  <header class="section-header">
+    <h2 id="reviews-title">Recommendations &amp; Reviews</h2>
     <p>What colleagues and clients say about working with me.</p>
-  </div>
-  <div class="cards-grid">
-    @for (review of topReviews; track $index) {
-      <app-review-card [review]="review" [showCompany]="true"></app-review-card>
-    }
-  </div>
-  <button class="btn-primary" routerLink="reviews">Read All Reviews</button>
+  </header>
+  @defer (on viewport; hydrate on viewport) {
+    <app-home-reviews />
+  } @placeholder {
+    <div class="section-placeholder" style="min-height: 480px"></div>
+  }
+</section>
+
+<section
+  id="credentials"
+  class="page-section credentials-section"
+  aria-labelledby="credentials-title"
+>
+  <header class="section-header">
+    <h2 id="credentials-title">Education &amp; Credentials</h2>
+    <p>Academic foundation and technical certifications.</p>
+  </header>
+  @defer (on viewport; hydrate on viewport) {
+    <app-home-credentials />
+  } @placeholder {
+    <div class="section-placeholder" style="min-height: 720px"></div>
+  }
 </section>

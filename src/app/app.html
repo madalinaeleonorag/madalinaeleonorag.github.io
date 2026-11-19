@@ -1,13 +1,22 @@
+<a class="skip-link" href="#main" (click)="skipToContent($event)">Skip to content</a>
+
 <div class="app-wrapper">
   @if (!isHomePage()) {
-    <div class="breadcrumb">
-      <a routerLink="/">← Go back</a>
-      <span>&nbsp;/&nbsp;</span>
-      <span class="breadcrumb__active">{{ breadcrumb() }}</span>
-    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/">← Home</a>
+      <span aria-hidden="true">/</span>
+      @if (breadcrumbParent(); as parent) {
+        <a [routerLink]="parent.link">{{ parent.label }}</a>
+        <span aria-hidden="true">/</span>
+      }
+      <span class="breadcrumb__active" aria-current="page">{{ breadcrumb() }}</span>
+    </nav>
   }
 
-  <router-outlet />
+  <main id="main" tabindex="-1">
+    <router-outlet />
+  </main>
 </div>
 
+<app-theme-picker />
 <app-image-viewer />

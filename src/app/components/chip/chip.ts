@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-chip',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './chip.html',
   styleUrl: './chip.scss',
 })
 export class Chip {
-  label = input<string>();
+  readonly label = input<string>();
 }

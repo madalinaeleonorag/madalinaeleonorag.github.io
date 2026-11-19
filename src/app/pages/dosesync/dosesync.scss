@@ -51,17 +51,17 @@
   text-align: center;
   border-radius: var(--border-radius);
   background: var(--surface-glow);
-  border: 1px solid rgba(122, 30, 46, 0.38);
+  border: 1px solid rgb(var(--brand-rgb) / 0.38);
 
   &__button {
     padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-full);
     font-weight: 600;
-    background: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
 
     &:hover {
-      color: var(--md-sys-color-on-primary);
+      color: var(--md-sys-color-on-primary-container);
     }
   }
 

@@ -1,7 +1,15 @@
-<ng-template #shot let-item let-group="group">
+<ng-template #shot let-item let-group="group" let-priority="priority">
   <figure class="shot">
     @if (item.image) {
-      <img [src]="item.image | assetPath" [alt]="item.alt" [appZoomable]="group || key" [zoomCaption]="item.caption" loading="lazy" />
+      <img
+        [src]="item.image | assetPath"
+        [alt]="item.alt"
+        [appZoomable]="group || key"
+        [zoomCaption]="item.caption"
+        [attr.loading]="priority ? 'eager' : 'lazy'"
+        [attr.fetchpriority]="priority ? 'high' : null"
+        decoding="async"
+      />
     } @else {
       <div class="shot__placeholder" role="img" [attr.aria-label]="item.alt + ' (placeholder)'">
         <span>Screenshot placeholder</span>
@@ -14,31 +22,39 @@
 <header class="hero">
   <div class="hero__text">
     <span class="eyebrow">{{ project.eyebrow }}</span>
-    <h1>{{ project.title }}</h1>
+    <h1 class="hdr-text">{{ project.title }}</h1>
     <p class="hero__slogan">{{ project.slogan }}</p>
     <p class="hero__tagline">{{ project.tagline }}</p>
     <div class="links">
       @for (link of project.links; track link.url; let first = $first) {
-        <a class="link" [class.link--primary]="first" [href]="link.url" target="_blank" rel="noopener" (click)="trackLink(link.url)">
+        <a
+          class="link"
+          [class.link--primary]="first"
+          [href]="link.url"
+          target="_blank"
+          rel="noopener"
+          (click)="trackLink(link.url)"
+        >
           {{ link.label }} &#8599;
         </a>
       }
     </div>
   </div>
-  <div class="hero__visual">
-    <ng-container *ngTemplateOutlet="shot; context: { $implicit: project.hero }" />
+  <div class="hero__visual" [style.view-transition-name]="'project-' + key">
+    <ng-container *ngTemplateOutlet="shot; context: { $implicit: project.hero, priority: true }" />
   </div>
 </header>
 
-<mat-tab-group
-  class="tabs"
-  mat-stretch-tabs="false"
-  animationDuration="0ms"
-  [selectedIndex]="selectedTab()"
-  (selectedIndexChange)="selectTab($event)"
->
-  <!-- Product -->
-  <mat-tab label="Product">
+<app-tab-bar
+  label="Case study sections"
+  [tabs]="tabs"
+  [selected]="selectedTab()"
+  (selectedChange)="selectTab($event)"
+/>
+
+<!-- Product -->
+@if (selectedTab() === 0) {
+  <section role="tabpanel" id="panel-product" aria-labelledby="tab-product" tabindex="-1">
     <div class="tab-body">
       <section class="block">
         <h2>Overview</h2>
@@ -77,7 +93,11 @@
       <section class="block">
         <h2>What it does</h2>
         @for (group of project.featureGroups; track group.title; let odd = $odd) {
-          <article class="feature-group" [class.feature-group--reverse]="odd" [class.feature-group--plain]="!group.shots.length">
+          <article
+            class="feature-group"
+            [class.feature-group--reverse]="odd"
+            [class.feature-group--plain]="!group.shots.length"
+          >
             <div class="feature-group__text">
               <h3>{{ group.title }}</h3>
               @if (group.text) {
@@ -93,9 +113,17 @@
               </ul>
             </div>
             @if (group.shots.length) {
-              <div class="feature-group__shots" [class.feature-group__shots--single]="group.shots.length === 1">
+              <div
+                class="feature-group__shots"
+                [class.feature-group__shots--single]="group.shots.length === 1"
+              >
                 @for (screen of group.shots; track screen.image) {
-                  <ng-container *ngTemplateOutlet="shot; context: { $implicit: screen, group: key + '-features' }" />
+                  <ng-container
+                    *ngTemplateOutlet="
+                      shot;
+                      context: { $implicit: screen, group: key + '-features' }
+                    "
+                  />
                 }
               </div>
             }
@@ -107,24 +135,38 @@
         <div class="gallery-head">
           <h2 id="gallery-title">More screens</h2>
           <div class="gallery-nav">
-            <button type="button" aria-label="Previous screens" (click)="scrollGallery(track, -1)">&#8249;</button>
-            <button type="button" aria-label="Next screens" (click)="scrollGallery(track, 1)">&#8250;</button>
+            <button type="button" aria-label="Previous screens" (click)="scrollGallery(track, -1)">
+              &#8249;
+            </button>
+            <button type="button" aria-label="Next screens" (click)="scrollGallery(track, 1)">
+              &#8250;
+            </button>
           </div>
         </div>
-        <div class="gallery" #track tabindex="0" role="region" [attr.aria-label]="'More ' + project.title + ' screens, scroll sideways'">
+        <div
+          class="gallery"
+          #track
+          tabindex="0"
+          role="region"
+          [attr.aria-label]="'More ' + project.title + ' screens, scroll sideways'"
+        >
           @for (screen of project.gallery; track screen.image + screen.caption) {
             <div class="gallery__item">
-              <ng-container *ngTemplateOutlet="shot; context: { $implicit: screen, group: key + '-gallery' }" />
+              <ng-container
+                *ngTemplateOutlet="shot; context: { $implicit: screen, group: key + '-gallery' }"
+              />
             </div>
           }
         </div>
         <p class="hint">Tap any screen to open it full size.</p>
       </section>
     </div>
-  </mat-tab>
+  </section>
+}
 
-  <!-- Architecture & development -->
-  <mat-tab label="Architecture & Development">
+<!-- Architecture & development -->
+@if (selectedTab() === 1) {
+  <section role="tabpanel" id="panel-architecture" aria-labelledby="tab-architecture" tabindex="-1">
     <div class="tab-body">
       <section class="block">
         <h2>System overview</h2>
@@ -204,7 +246,9 @@
               <tbody>
                 @for (row of project.dataModel.rows; track row.name) {
                   <tr>
-                    <td class="accent"><code>{{ row.name }}</code></td>
+                    <td class="accent">
+                      <code>{{ row.name }}</code>
+                    </td>
                     <td>{{ row.holds }}</td>
                   </tr>
                 }
@@ -213,7 +257,12 @@
           </div>
           @if (project.dataModel.image; as image) {
             <div class="data-model__image">
-              <ng-container *ngTemplateOutlet="shot; context: { $implicit: image, group: key + '-architecture' }" />
+              <ng-container
+                *ngTemplateOutlet="
+                  shot;
+                  context: { $implicit: image, group: key + '-architecture' }
+                "
+              />
             </div>
           }
         </div>
@@ -246,8 +295,8 @@
       <section class="block">
         <h2>Looking back</h2>
         <p>
-          Built as a student project, it worked and was graded, but it was never hardened for real users.
-          This is what I would change today.
+          Built as a student project, it worked and was graded, but it was never hardened for real
+          users. This is what I would change today.
         </p>
         <div class="table-wrap">
           <table>
@@ -269,11 +318,13 @@
         </div>
       </section>
     </div>
-  </mat-tab>
+  </section>
+}
 
-  <!-- Thesis: only once the thesis content is filled in -->
-  @if (project.thesis; as thesis) {
-    <mat-tab label="Thesis">
+<!-- Thesis: only once the thesis content is filled in -->
+@if (project.thesis; as thesis) {
+  @if (selectedTab() === 2) {
+    <section role="tabpanel" id="panel-thesis" aria-labelledby="tab-thesis" tabindex="-1">
       <div class="tab-body">
         <section class="block">
           <span class="eyebrow">{{ project.eyebrow }}</span>
@@ -288,6 +339,6 @@
           </section>
         }
       </div>
-    </mat-tab>
+    </section>
   }
-</mat-tab-group>
+}

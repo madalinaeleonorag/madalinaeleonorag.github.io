@@ -1,115 +1,112 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  afterNextRender,
+  inject,
+  signal,
+} from '@angular/core';
 import { Chip } from '../../components/chip/chip';
 import { SvgIcon } from '../../components/svg-icon/svg-icon';
-import { Router, RouterLink } from '@angular/router';
-import { WORK_EXPERIENCE } from '../../database/experience';
 import { SOCIAL_LINKS } from '../../database/social-links';
 import { EXPERTISE } from '../../database/expertise';
-import { STAKEHOLDER_REVIEWS } from '../../database/reviews';
-import { ReviewCard } from '../../components/review-card/review-card';
-import { CERTIFICATIONS } from '../../database/certifications';
-import { EDUCATION } from '../../database/education';
-import { AssetPathPipe } from '../../pipes/asset-path-pipe';
-import { Zoomable } from '../../components/image-viewer/zoomable';
-import { FEATURED_PROJECTS } from '../../database/projects';
 import { Analytics } from '../../services/analytics';
+import { HomeExperience } from './sections/home-experience';
+import { HomeCredentials } from './sections/home-credentials';
+import { HomeProjects } from './sections/home-projects';
+import { HomeReviews } from './sections/home-reviews';
 
+/**
+ * The landing page. The hero and expertise render with the first JavaScript bundle;
+ * the sections below are in `@defer` blocks: prerendered as HTML, with their code and data
+ * loaded only when they scroll into view.
+ */
 @Component({
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [SvgIcon, Chip, RouterLink, ReviewCard, AssetPathPipe, Zoomable],
+  imports: [SvgIcon, Chip, HomeExperience, HomeCredentials, HomeProjects, HomeReviews],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
-  readonly sidenavLinks = [
-    { label: 'Home', icon: 'home', href: '#hero' },
-    { label: 'Expertise', icon: 'build', href: '#expertise' },
-    { label: 'Work Experience', icon: 'work', href: '#experience' },
-    { label: 'Credentials', icon: 'certificate', href: '#credentials' },
-    { label: 'Personal Projects', icon: 'folder', href: '#projects' },
-    { label: 'Reviews', icon: 'star', href: '#reviews' },
+  readonly sections = [
+    { id: 'hero', label: 'Home', short: 'Home', icon: 'home' },
+    { id: 'expertise', label: 'Expertise', short: 'Expertise', icon: 'build' },
+    { id: 'experience', label: 'Work Experience', short: 'Work', icon: 'work' },
+    { id: 'projects', label: 'Projects & Case Studies', short: 'Projects', icon: 'folder' },
+    { id: 'reviews', label: 'Reviews', short: 'Reviews', icon: 'star' },
+    {
+      id: 'credentials',
+      label: 'Education & Credentials',
+      short: 'Credentials',
+      icon: 'certificate',
+    },
   ];
   readonly socialLinks = SOCIAL_LINKS;
   readonly expertise = EXPERTISE;
-  readonly workExperience = WORK_EXPERIENCE;
-  readonly featuredProjects = FEATURED_PROJECTS;
-  readonly topReviews = STAKEHOLDER_REVIEWS.filter((review) => review.featuredOnHomepage);
-  readonly timelineItems = this.buildChronologicalTimeline();
 
-  currentSlideIndex = signal<number>(0);
+  /** The section currently on screen, highlighted in the side / bottom navigation. */
+  readonly activeSection = signal('hero');
 
-  private router = inject(Router);
-  private analytics = inject(Analytics);
+  private readonly analytics = inject(Analytics);
 
-  downloadFile(fileName: string) {
-    const fileUrl = `/Madalina-Eleonora-Gheorghe-${fileName}.pdf`;
-    this.analytics.trackEvent(`download-${fileName}`, `Downloaded ${fileName}`);
-    window.open(fileUrl, '_blank');
-  }
-
-  openGitHub(url?: string) {
-    this.analytics.trackEvent('outbound-link', url || 'GitHub profile');
-    window.open(url || 'https://github.com/madalinaeleonorag', '_blank', 'noopener,noreferrer');
-  }
-
-  goToReviewDetail(date: Date, reviewer?: string, position?: string): void {
-    this.router.navigate(['/reviews'], {
-      queryParams: { date: date.toISOString(), reviewer, position },
-    });
-  }
-
-  getWorkExperienceLink(company: string): string {
-    return `/work-experience#${this.slugify(company)}`;
-  }
-
-  goToCompany(company: string, event?: Event): void {
-    event?.preventDefault();
-    this.router.navigate(['/work-experience'], { fragment: this.slugify(company) });
-  }
-
-  slugify(value: string): string {
-    return value
-      .toLowerCase()
-      .replace(/&/g, 'and')
-      .replace(/[^a-z0-9\s-]/g, '')
-      .trim()
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-');
-  }
-
-  private buildChronologicalTimeline() {
-    const mappedEdu = EDUCATION.map((edu, index) => {
-      const year = parseInt(edu.period.split('-')[1]?.trim() || edu.period.split('-')[0]?.trim());
-      return {
-        id: `edu-${index}`,
-        type: 'education',
-        sortYear: year,
-        date: edu.period,
-        title: edu.degree,
-        subtitle: edu.institution,
-        meta: edu.grade,
-        logo: edu.logo,
-        url: '',
+  constructor() {
+    const destroyRef = inject(DestroyRef);
+    afterNextRender(() => {
+      // At most one update per frame while scrolling. Sections are looked up by id on every
+      // update rather than kept, because hydration and hot reload can replace those elements.
+      let frame = 0;
+      const schedule = () => {
+        frame ||= requestAnimationFrame(() => {
+          frame = 0;
+          this.activeSection.set(this.currentSection());
+        });
       };
+      addEventListener('scroll', schedule, { passive: true });
+      addEventListener('resize', schedule, { passive: true });
+      schedule();
+      destroyRef.onDestroy(() => {
+        removeEventListener('scroll', schedule);
+        removeEventListener('resize', schedule);
+        cancelAnimationFrame(frame);
+      });
     });
+  }
 
-    const mappedCerts = CERTIFICATIONS.map((cert, index) => {
-      const yearStr = cert.issueDate.split(' ')[1] || cert.issueDate;
-      return {
-        id: `cert-${index}`,
-        type: 'certification',
-        sortYear: parseInt(yearStr),
-        date: cert.issueDate,
-        title: cert.name,
-        subtitle: cert.organization,
-        meta: '',
-        description: '',
-        logo: cert.logo,
-        url: cert.url,
-      };
-    });
+  /** The last section whose top has passed the middle of the screen; the last one at the very bottom. */
+  private currentSection(): string {
+    const ids = this.sections.map((section) => section.id);
+    const root = document.documentElement;
+    if (scrollY > 0 && scrollY + innerHeight >= root.scrollHeight - 2) {
+      return ids[ids.length - 1];
+    }
+    let current = ids[0];
+    for (const id of ids) {
+      const top = document.getElementById(id)?.getBoundingClientRect().top;
+      if (top !== undefined && top <= innerHeight / 2) {
+        current = id;
+      }
+    }
+    return current;
+  }
 
-    return [...mappedEdu, ...mappedCerts].sort((a, b) => b.sortYear - a.sortYear);
+  /** In-page links: `href="#id"` would resolve against <base href="/"> on other pages, so scroll here. */
+  scrollTo(id: string, event: Event) {
+    event.preventDefault();
+    const target = document.getElementById(id);
+    if (!target) {
+      return;
+    }
+    target.scrollIntoView({ block: 'start' });
+    history.replaceState(history.state, '', `#${id}`);
+    this.activeSection.set(id);
+  }
+
+  trackDownload(file: string) {
+    this.analytics.trackEvent(`download-${file}`, `Downloaded ${file}`);
+  }
+
+  trackOutbound(url: string) {
+    this.analytics.trackEvent('outbound-link', url);
   }
 }

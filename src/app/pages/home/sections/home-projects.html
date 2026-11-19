@@ -1,0 +1,75 @@
+<div class="projects-stack">
+  @for (project of projects; track project.id) {
+    <article class="glass-card project-card" [attr.aria-labelledby]="'project-' + project.id">
+      <div
+        class="project-visual"
+        [style.view-transition-name]="project.caseStudyUrl ? 'project-' + project.id : null"
+      >
+        @if (project.imageUrl) {
+          <img
+            [src]="project.imageUrl | assetPath"
+            [alt]="project.title + ' preview'"
+            appZoomable="projects"
+            [zoomCaption]="project.title"
+            loading="lazy"
+            decoding="async"
+          />
+        } @else {
+          <div class="project-visual__placeholder">Preview coming soon</div>
+        }
+      </div>
+
+      <div class="project-content">
+        <p class="project-type">{{ project.type }}</p>
+        <h3 class="project-title" [id]="'project-' + project.id">{{ project.title }}</h3>
+        <p class="project-description">{{ project.description }}</p>
+
+        <ul class="chips-wrapper" [attr.aria-label]="project.title + ' technologies'">
+          @for (tech of project.techStack; track tech) {
+            <li><app-chip [label]="tech" /></li>
+          }
+        </ul>
+
+        <div class="project-actions">
+          @if (project.caseStudyUrl) {
+            <a class="btn btn-primary" [routerLink]="project.caseStudyUrl">
+              Read case study<span class="visually-hidden">: {{ project.title }}</span> →
+            </a>
+          }
+          @if (project.githubUrl) {
+            <a
+              class="btn btn-secondary"
+              [href]="project.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              (click)="trackOutbound(project.githubUrl)"
+            >
+              View repository<span class="visually-hidden">: {{ project.title }}</span>
+            </a>
+          }
+          @if (project.liveUrl) {
+            <a
+              class="btn btn-secondary"
+              [href]="project.liveUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              (click)="trackOutbound(project.liveUrl)"
+            >
+              Live demo<span class="visually-hidden">: {{ project.title }}</span> ↗
+            </a>
+          }
+        </div>
+      </div>
+    </article>
+  }
+</div>
+
+<a
+  class="btn btn-secondary"
+  href="https://github.com/madalinaeleonorag"
+  target="_blank"
+  rel="noopener noreferrer"
+  (click)="trackOutbound('https://github.com/madalinaeleonorag')"
+>
+  Explore the sandbox on GitHub (30+ repos) ↗
+</a>

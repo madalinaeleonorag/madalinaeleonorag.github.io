@@ -5,30 +5,34 @@
     <title>Mădălina-Eleonora Gheorghe | UX & Product Transition</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#171416" />
+    <meta name="color-scheme" content="dark" />
+    <!-- Re-applies the visitor's saved theme colour before the first paint (see app/theme/theme.ts). -->
+    <script>
+      try {
+        var themeCss = localStorage.getItem('theme-css');
+        if (themeCss) document.documentElement.setAttribute('style', themeCss);
+      } catch (e) {}
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon-browser.svg?v=2" sizes="any" />
 
+    <!-- Defaults; services/seo.ts replaces description, canonical and the og/twitter text per page. -->
     <meta
       name="description"
       content="Portfolio of Mădălina-Eleonora Gheorghe, a UX-focused digital professional in transition, learning product strategy, design thinking, and business-aligned digital delivery."
-    />
-    <meta
-      name="keywords"
-      content="Mădălina-Eleonora Gheorghe, UX transition, product transition, UX strategy, product thinking, Angular, TypeScript, Design Systems, User Experience, learning, Bucharest, Frontend"
     />
     <meta name="author" content="Mădălina-Eleonora Gheorghe" />
     <meta name="robots" content="index, follow" />
 
     <meta property="og:type" content="profile" />
-    <meta property="og:url" content="https://madalinaeleonorag.github.io" />
+    <meta property="og:site_name" content="Mădălina-Eleonora Gheorghe" />
+    <meta property="og:url" content="https://madalinaeleonorag.github.io/" />
     <meta property="og:title" content="Mădălina-Eleonora Gheorghe | UX & Product Transition" />
     <meta
       property="og:description"
-      content="Currently in transition, learning product ownership and UX strategy while building digital experiences through strong technical and user-centered thinking."
+      content="Portfolio of Mădălina-Eleonora Gheorghe, a UX-focused digital professional in transition, learning product strategy, design thinking, and business-aligned digital delivery."
     />
-    <meta
-      property="og:image"
-      content="https://madalinaeleonorag.github.io/assets/portfolio-preview.png"
-    />
+    <meta property="og:image" content="https://madalinaeleonorag.github.io/assets/portfolio-preview.png" />
     <meta property="og:image:alt" content="Mădălina-Eleonora Gheorghe portfolio preview" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -37,15 +41,27 @@
     <meta name="twitter:title" content="Mădălina-Eleonora Gheorghe | UX & Product Transition" />
     <meta
       name="twitter:description"
-      content="Transitioning into product ownership and UX leadership through learning, strategy, and hands-on digital experience work."
+      content="Portfolio of Mădălina-Eleonora Gheorghe, a UX-focused digital professional in transition, learning product strategy, design thinking, and business-aligned digital delivery."
     />
-    <meta
-      name="twitter:image"
-      content="https://madalinaeleonorag.github.io/assets/portfolio-preview.png"
-    />
+    <meta name="twitter:image" content="https://madalinaeleonorag.github.io/assets/portfolio-preview.png" />
     <meta name="twitter:image:alt" content="Mădălina-Eleonora Gheorghe portfolio preview" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mădălina-Eleonora Gheorghe",
+        "url": "https://madalinaeleonorag.github.io/",
+        "jobTitle": "UI Engineer",
+        "worksFor": { "@type": "Organization", "name": "SS&C Technologies" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Bucharest", "addressCountry": "RO" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Romanian-American University" },
+        "knowsAbout": ["Angular", "TypeScript", "UX design", "Product design", "Accessibility", "Design systems"],
+        "sameAs": ["https://www.linkedin.com/in/madalinaeleonorag/", "https://github.com/madalinaeleonorag"]
+      }
+    </script>
   </head>
-  <body class="dark">
+  <body>
     <app-root></app-root>
   </body>
 </html>

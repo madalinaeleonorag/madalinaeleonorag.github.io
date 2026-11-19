@@ -1,34 +1,29 @@
-<div class="review-card">
-  <div
-    [ngClass]="{ 'quote-full': fullReview(), 'quote-preview': !fullReview() }"
-    [innerHTML]="
-      fullReview()
-        ? getHighlightedReview(review().review | highlight: searchTerm())
-        : review().preview
-    "
-  ></div>
-  <div class="author" [class.full-width]="fullReview()">
+<figure class="review-card">
+  <blockquote
+    [class.quote-full]="fullReview()"
+    [class.quote-preview]="!fullReview()"
+    [innerHTML]="body()"
+  ></blockquote>
+  <figcaption class="author" [class.full-width]="fullReview()">
     <strong>{{ review().reviewer }}</strong>
-    <div class="author-details">
+    <span class="author-details">
       @if (showRole()) {
         <span>{{ review().position }}</span>
       }
       @if (showRole() && showCompany()) {
-        <span>@</span>
+        <span aria-hidden="true">@</span>
       }
       @if (showCompany()) {
-        <div class="company-info">
-          <app-svg-icon
-            [type]="review().company"
-            class="company-logo"
-            [attr.aria-label]="review().company + ' logo'"
-          ></app-svg-icon>
+        <span class="company-info">
+          <app-svg-icon [type]="review().company" class="company-logo" />
           <span>{{ review().company }}</span>
-        </div>
+        </span>
       }
       @if (showRole() && showCompany()) {
-        <i>({{ review().date | date: 'MMM yyyy' }})</i>
+        <time [attr.datetime]="review().date.toISOString()"
+          >({{ review().date | date: 'MMM yyyy' }})</time
+        >
       }
-    </div>
-  </div>
-</div>
+    </span>
+  </figcaption>
+</figure>

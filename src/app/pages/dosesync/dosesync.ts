@@ -3,19 +3,24 @@ import { NgTemplateOutlet } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
-import { MatTabsModule } from '@angular/material/tabs';
+import { Tab, TabBar } from '../../components/tab-bar/tab-bar';
 import { Chip } from '../../components/chip/chip';
 import { Zoomable } from '../../components/image-viewer/zoomable';
 import { AssetPathPipe } from '../../pipes/asset-path-pipe';
 import { DOSESYNC } from '../../database/dosesync';
 
 // Fragments let each tab be shared directly, e.g. /projects/dosesync#architecture
-const TAB_FRAGMENTS = ['app', 'product', 'architecture'];
+const TABS: Tab[] = [
+  { id: 'app', label: 'The App' },
+  { id: 'product', label: 'Product' },
+  { id: 'architecture', label: 'Architecture & Development' },
+];
+const TAB_FRAGMENTS = TABS.map((tab) => tab.id);
 
 @Component({
   selector: 'app-dosesync',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatTabsModule, NgTemplateOutlet, Chip, AssetPathPipe, Zoomable, RouterLink],
+  imports: [TabBar, NgTemplateOutlet, Chip, AssetPathPipe, Zoomable, RouterLink],
   templateUrl: './dosesync.html',
   styleUrl: './dosesync.scss',
 })
@@ -24,6 +29,7 @@ export class DoseSync {
   private route = inject(ActivatedRoute);
 
   readonly project = DOSESYNC;
+  readonly tabs = TABS;
 
   selectedTab = toSignal(
     this.route.fragment.pipe(map((fragment) => Math.max(TAB_FRAGMENTS.indexOf(fragment ?? ''), 0))),

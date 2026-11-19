@@ -1,88 +1,43 @@
-<h2>Work Experience</h2>
-<div class="experience-wrapper">
-  @for (job of enrichedWorkExperience(); track job.company) {
-    <div class="experience" [id]="slugify(job.company)">
-      <header class="experience__header" [class.current-job]="isCurrentJob(job)">
-        <div class="header-main">
-          <app-svg-icon [type]="job.logo" class="experience__logo" />
-          <div class="header-text">
-            <span class="role">{{ job.role }}</span>
-            <span class="separator">@</span>
-            <span class="company">{{ job.company }}</span>
-          </div>
-        </div>
-        <div class="header-period">{{ job.startDate }} — {{ job.endDate }}</div>
-      </header>
+<h1 class="page-title">Work experience</h1>
+<p class="page-intro">
+  {{ jobs.length }} roles, newest first. Open one to see the projects, technologies and
+  recommendations.
+</p>
 
-      <div class="experience__assignments">
-        @for (assignment of job.assignments; track assignment.title; let i = $index) {
-          <div class="assignment-entry">
-            @if (job.assignments.length > 1) {
-              <p class="assignment-label">
-                Assignment {{ i + 1 }}: {{ assignment.startDate }} -
-                {{ assignment.endDate }}
-              </p>
+<ol class="roles">
+  @for (job of jobs; track job.slug) {
+    <li class="roles__item" [class.current-job]="job.current">
+      <a class="role-card" [routerLink]="['/work-experience', job.slug]">
+        <app-svg-icon [type]="job.logo" class="role-card__logo" />
+        <span class="role-card__body">
+          <span class="role-card__company">{{ job.company }}</span>
+          <span class="role-card__role">{{ job.role }}</span>
+          <span class="role-card__period">
+            {{ job.start }} – {{ job.end }}
+            @if (job.current) {
+              <span class="role-card__now">Current</span>
             }
-
-            <div class="assignment-grid">
-              <div class="assignment-main">
-                @if (assignment.title) {
-                  <h3 class="assignment-title">{{ assignment.title }}</h3>
-                }
-                @if (assignment.summary) {
-                  <p class="assignment-summary">{{ assignment.summary }}</p>
-                }
-                @if (assignment.descriptionPoints?.length) {
-                  <ul class="assignment-description">
-                    @for (point of assignment.descriptionPoints; track point) {
-                      <li [innerHTML]="point"></li>
-                    }
-                  </ul>
-                }
-              </div>
-
-              <aside class="assignment-meta">
-                @if (assignment.techStack?.length) {
-                  <div class="tech-group">
-                    <p class="meta-label">Technologies</p>
-                    <div class="chips-wrapper">
-                      @for (tech of assignment.techStack; track tech) {
-                        <app-chip [label]="tech" />
-                      }
-                    </div>
-                  </div>
-                }
-
-                @if (assignment.stakeholderImpact) {
-                  <div class="impact-group">
-                    <p class="meta-label">Impact</p>
-                    <div class="impact-box">
-                      {{ assignment.stakeholderImpact }}
-                    </div>
-                  </div>
-                }
-
-                @if (assignment.topReviews.length) {
-                  <button class="btn-secondary" (click)="viewReviews(assignment)">
-                    View Reviews
-                  </button>
-                }
-              </aside>
-            </div>
-
-            @if (assignment.topReviews.length) {
-              <div class="assignment-reviews">
-                <p class="meta-label">Featured Recommendations</p>
-                <div class="mini-reviews-grid">
-                  @for (review of assignment.topReviews; track $index) {
-                    <app-review-card [review]="review" [showRole]="true"></app-review-card>
-                  }
-                </div>
-              </div>
+          </span>
+          <span class="role-card__facts">
+            {{ job.assignments.length }}
+            {{ job.assignments.length === 1 ? 'project' : 'projects' }}
+            @if (job.reviewCount) {
+              · {{ job.reviewCount }} {{ job.reviewCount === 1 ? 'review' : 'reviews' }}
             }
-          </div>
-        }
-      </div>
-    </div>
+          </span>
+          @if (job.techPreview.length) {
+            <span class="role-card__tech">
+              @for (tech of job.techPreview; track tech) {
+                <span class="role-card__tag">{{ tech }}</span>
+              }
+              @if (job.moreTech) {
+                <span class="role-card__tag role-card__tag--more">+{{ job.moreTech }}</span>
+              }
+            </span>
+          }
+        </span>
+        <span class="role-card__arrow" aria-hidden="true">→</span>
+      </a>
+    </li>
   }
-</div>
+</ol>

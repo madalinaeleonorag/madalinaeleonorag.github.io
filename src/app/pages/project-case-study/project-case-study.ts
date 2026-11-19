@@ -3,7 +3,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
-import { MatTabsModule } from '@angular/material/tabs';
+import { Tab, TabBar } from '../../components/tab-bar/tab-bar';
 import { Chip } from '../../components/chip/chip';
 import { Zoomable } from '../../components/image-viewer/zoomable';
 import { AssetPathPipe } from '../../pipes/asset-path-pipe';
@@ -25,7 +25,7 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
 @Component({
   selector: 'app-project-case-study',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatTabsModule, NgTemplateOutlet, Chip, AssetPathPipe, Zoomable],
+  imports: [TabBar, NgTemplateOutlet, Chip, AssetPathPipe, Zoomable],
   templateUrl: './project-case-study.html',
   styleUrl: './project-case-study.scss',
 })
@@ -37,7 +37,12 @@ export class ProjectCaseStudy {
   readonly key: string = this.route.snapshot.data['caseStudy'];
   readonly project = CASE_STUDIES[this.key];
 
-  private readonly fragments = ['product', 'architecture', ...(this.project.thesis ? ['thesis'] : [])];
+  readonly tabs: Tab[] = [
+    { id: 'product', label: 'Product' },
+    { id: 'architecture', label: 'Architecture & Development' },
+    ...(this.project.thesis ? [{ id: 'thesis', label: 'Thesis' }] : []),
+  ];
+  private readonly fragments = this.tabs.map((tab) => tab.id);
 
   private fragment = toSignal(this.route.fragment.pipe(map((f) => f ?? '')), { initialValue: '' });
   selectedTab = computed(() => Math.max(this.fragments.indexOf(this.fragment()), 0));

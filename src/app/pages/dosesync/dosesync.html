@@ -1,7 +1,15 @@
-<ng-template #shot let-item let-group="group">
+<ng-template #shot let-item let-group="group" let-priority="priority">
   <figure class="shot">
     @if (item.image) {
-      <img [src]="item.image | assetPath" [alt]="item.alt" [appZoomable]="group || 'dosesync'" [zoomCaption]="item.caption" loading="lazy" />
+      <img
+        [src]="item.image | assetPath"
+        [alt]="item.alt"
+        [appZoomable]="group || 'dosesync'"
+        [zoomCaption]="item.caption"
+        [attr.loading]="priority ? 'eager' : 'lazy'"
+        [attr.fetchpriority]="priority ? 'high' : null"
+        decoding="async"
+      />
     } @else {
       <div class="shot__placeholder" role="img" [attr.aria-label]="item.alt + ' (placeholder)'">
         <span>Screenshot placeholder</span>
@@ -13,7 +21,10 @@
 
 <ng-template #playIcon>
   <svg class="store-badge__icon" viewBox="0 0 24 26" aria-hidden="true" focusable="false">
-    <path d="M1.2 0.6 13.6 13 1.2 25.4C0.8 25.1 0.5 24.6 0.5 24V2c0-.6.3-1.1.7-1.4Z" fill="#00d7fe" />
+    <path
+      d="M1.2 0.6 13.6 13 1.2 25.4C0.8 25.1 0.5 24.6 0.5 24V2c0-.6.3-1.1.7-1.4Z"
+      fill="#00d7fe"
+    />
     <path d="m17.8 8.8-4.2 4.2-12.4-12.4c.4-.3 1-.3 1.6 0l15 8.2Z" fill="#32e875" />
     <path d="m17.8 17.2-15 8.2c-.6.3-1.2.3-1.6 0L13.6 13l4.2 4.2Z" fill="#ff3a44" />
     <path d="M22.4 11.4c1 .6 1 2.6 0 3.2l-4.6 2.6-4.2-4.2 4.2-4.2 4.6 2.6Z" fill="#ffd400" />
@@ -23,7 +34,7 @@
 <header class="hero">
   <div class="hero__text">
     <span class="eyebrow">{{ project.app.availability }}</span>
-    <h1>{{ project.title }}</h1>
+    <h1 class="hdr-text">{{ project.title }}</h1>
     <p class="hero__slogan">{{ project.slogan }}</p>
     <p class="hero__tagline">{{ project.tagline }}</p>
     <div class="store">
@@ -33,7 +44,11 @@
           <span><small>Get it on</small><strong>Google Play</strong></span>
         </a>
       } @else {
-        <span class="store-badge store-badge--soon" role="img" aria-label="Coming soon to Google Play">
+        <span
+          class="store-badge store-badge--soon"
+          role="img"
+          aria-label="Coming soon to Google Play"
+        >
           <ng-container *ngTemplateOutlet="playIcon" />
           <span><small>Coming soon to</small><strong>Google Play</strong></span>
         </span>
@@ -41,20 +56,21 @@
       }
     </div>
   </div>
-  <div class="hero__visual">
-    <ng-container *ngTemplateOutlet="shot; context: { $implicit: project.hero }" />
+  <div class="hero__visual" style="view-transition-name: project-dosesync">
+    <ng-container *ngTemplateOutlet="shot; context: { $implicit: project.hero, priority: true }" />
   </div>
 </header>
 
-<mat-tab-group
-  class="tabs"
-  mat-stretch-tabs="false"
-  animationDuration="0ms"
-  [selectedIndex]="selectedTab()"
-  (selectedIndexChange)="selectTab($event)"
->
-  <!-- The App: for people who might use DoseSync -->
-  <mat-tab label="The App">
+<app-tab-bar
+  label="Case study sections"
+  [tabs]="tabs"
+  [selected]="selectedTab()"
+  (selectedChange)="selectTab($event)"
+/>
+
+<!-- The App: for people who might use DoseSync -->
+@if (selectedTab() === 0) {
+  <section role="tabpanel" id="panel-app" aria-labelledby="tab-app" tabindex="-1">
     <div class="tab-body">
       <section class="block">
         <h2>{{ project.app.headline }}</h2>
@@ -64,7 +80,11 @@
       <section class="block">
         <h2>What it does</h2>
         @for (group of project.app.featureGroups; track group.title; let odd = $odd) {
-          <article class="feature-group" [class.feature-group--reverse]="odd" [class.feature-group--plain]="!group.shots.length">
+          <article
+            class="feature-group"
+            [class.feature-group--reverse]="odd"
+            [class.feature-group--plain]="!group.shots.length"
+          >
             <div class="feature-group__text">
               <h3>{{ group.title }}</h3>
               @if (group.text) {
@@ -73,7 +93,9 @@
               <ul class="feature-list">
                 @for (feature of group.features; track feature.title) {
                   <li>
-                    <span class="badge" [class.badge--soon]="!feature.ready">{{ feature.ready ? 'Available' : 'Coming soon' }}</span>
+                    <span class="badge" [class.badge--soon]="!feature.ready">{{
+                      feature.ready ? 'Available' : 'Coming soon'
+                    }}</span>
                     <strong>{{ feature.title }}</strong>
                     <span>{{ feature.text }}</span>
                   </li>
@@ -81,9 +103,17 @@
               </ul>
             </div>
             @if (group.shots.length) {
-              <div class="feature-group__shots" [class.feature-group__shots--many]="group.shots.length > 2">
+              <div
+                class="feature-group__shots"
+                [class.feature-group__shots--many]="group.shots.length > 2"
+              >
                 @for (screen of group.shots; track screen.image) {
-                  <ng-container *ngTemplateOutlet="shot; context: { $implicit: screen, group: 'dosesync-features' }" />
+                  <ng-container
+                    *ngTemplateOutlet="
+                      shot;
+                      context: { $implicit: screen, group: 'dosesync-features' }
+                    "
+                  />
                 }
               </div>
             }
@@ -151,14 +181,26 @@
         <div class="gallery-head">
           <h2 id="gallery-title">More screens</h2>
           <div class="gallery-nav">
-            <button type="button" aria-label="Previous screens" (click)="scrollGallery(track, -1)">&#8249;</button>
-            <button type="button" aria-label="Next screens" (click)="scrollGallery(track, 1)">&#8250;</button>
+            <button type="button" aria-label="Previous screens" (click)="scrollGallery(track, -1)">
+              &#8249;
+            </button>
+            <button type="button" aria-label="Next screens" (click)="scrollGallery(track, 1)">
+              &#8250;
+            </button>
           </div>
         </div>
-        <div class="gallery" #track tabindex="0" role="region" aria-label="More DoseSync screens, scroll sideways">
+        <div
+          class="gallery"
+          #track
+          tabindex="0"
+          role="region"
+          aria-label="More DoseSync screens, scroll sideways"
+        >
           @for (screen of project.gallery; track screen.image + screen.caption) {
             <div class="gallery__item">
-              <ng-container *ngTemplateOutlet="shot; context: { $implicit: screen, group: 'dosesync-gallery' }" />
+              <ng-container
+                *ngTemplateOutlet="shot; context: { $implicit: screen, group: 'dosesync-gallery' }"
+              />
             </div>
           }
         </div>
@@ -179,10 +221,12 @@
         </p>
       </section>
     </div>
-  </mat-tab>
+  </section>
+}
 
-  <!-- Product -->
-  <mat-tab label="Product">
+<!-- Product -->
+@if (selectedTab() === 1) {
+  <section role="tabpanel" id="panel-product" aria-labelledby="tab-product" tabindex="-1">
     <div class="tab-body">
       <section class="block">
         <span class="eyebrow">Product case study · {{ project.status }}</span>
@@ -247,7 +291,9 @@
 
       <section class="block">
         <h2>Market analysis</h2>
-        <p>I reviewed many existing apps. They fall into three groups, each with a different gap.</p>
+        <p>
+          I reviewed many existing apps. They fall into three groups, each with a different gap.
+        </p>
         <div class="grid grid--3">
           @for (group of project.market; track group.type) {
             <article class="card">
@@ -306,10 +352,12 @@
         </div>
       </section>
     </div>
-  </mat-tab>
+  </section>
+}
 
-  <!-- Architecture & development -->
-  <mat-tab label="Architecture & Development">
+<!-- Architecture & development -->
+@if (selectedTab() === 2) {
+  <section role="tabpanel" id="panel-architecture" aria-labelledby="tab-architecture" tabindex="-1">
     <div class="tab-body">
       <section class="block">
         <h2>System overview</h2>
@@ -357,7 +405,10 @@
 
       <section class="block">
         <h2>Layers</h2>
-        <p>Everything the app decides lives in the domain layer, so it can be tested without a device.</p>
+        <p>
+          Everything the app decides lives in the domain layer, so it can be tested without a
+          device.
+        </p>
         <div class="layers">
           @for (layer of project.layers; track layer.name) {
             <div class="layer" [class.layer--highlight]="layer.highlight">
@@ -492,5 +543,5 @@
         </div>
       </section>
     </div>
-  </mat-tab>
-</mat-tab-group>
+  </section>
+}

@@ -1,250 +1,182 @@
 @use '../../../styles/breakpoints' as *;
 
 :host {
+  // Component hosts are inline by default, which ignores the side padding.
+  display: block;
+  width: min(100%, 960px + 2 * var(--page-gutter));
+  margin: 0 auto var(--space-xl);
   padding: 0 var(--page-gutter);
 }
 
-.section-title {
-  margin: clamp(1.5rem, 4vw, 2rem) 0;
-  text-align: center;
+.page-title {
+  margin: 0 0 var(--space-sm);
   font-size: var(--font-h2);
+  color: var(--md-sys-color-primary);
 }
 
-.experience-wrapper {
+.page-intro {
+  margin: 0 0 var(--space-lg);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+// A vertical timeline: a line down the left, a dot per role, the card beside it.
+.roles {
+  --dot: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 calc(var(--dot) + var(--space-md));
+  position: relative;
   display: flex;
-  flex-flow: column;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-lg);
+  flex-direction: column;
+  gap: var(--space-md);
 
-  &:last-child {
-    border-bottom: none;
-  }
-
-  .experience {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    padding-bottom: clamp(2rem, 5vh, 4rem);
-
-    &:last-child {
-      padding-bottom: 0;
-    }
-
-    &__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: var(--space-md);
-      border-bottom: 2px solid var(--md-sys-color-outline-variant);
-      flex-wrap: wrap;
-      gap: var(--space-md);
-
-      &.current-job .experience__logo {
-        animation: pulse 2s infinite;
-      }
-
-      .header-main {
-        display: flex;
-        align-items: center;
-        gap: var(--space-md);
-
-        .header-text {
-          font-size: clamp(1.1rem, 2vw, 1.25rem);
-          font-weight: 700;
-
-          .role {
-            color: var(--md-sys-color-on-surface);
-          }
-          .separator {
-            margin: 0 clamp(0.25rem, 0.5vw, 0.5rem);
-            color: var(--md-sys-color-primary);
-          }
-          .company {
-            color: var(--md-sys-color-on-surface-variant);
-          }
-        }
-      }
-
-      .header-period {
-        font-weight: 500;
-        color: var(--md-sys-color-on-surface-variant);
-        font-size: clamp(0.9rem, 1.5vw, 1rem);
-      }
-
-      @media (max-width: $breakpoint-md) {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    &__logo {
-      --icon-size: clamp(32px, 4vw, 40px);
-      flex-shrink: 0;
-    }
-  }
-
-  .experience__assignments {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .assignment-entry {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    padding: clamp(0.9rem, 2vw, 1.2rem);
-    background: rgba(18, 15, 17, 0.22);
-    border: 1px solid rgba(122, 30, 46, 0.22);
-    border-radius: var(--border-radius);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
-
-    &:not(:first-child) {
-      padding-top: clamp(0.9rem, 2vw, 1.2rem);
-    }
-
-    .assignment-label {
-      font-size: clamp(0.75rem, 1vw, 0.85rem);
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      color: var(--md-sys-color-primary);
-      font-weight: 600;
-    }
-  }
-
-  .assignment-grid {
-    display: grid;
-    gap: var(--space-lg);
-    width: 100%;
-    padding: 0;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-
-    @media (min-width: $breakpoint-lg) {
-      grid-template-columns: minmax(0, 1.8fr) minmax(220px, 320px);
-      align-items: start;
-    }
-  }
-
-  .assignment-main {
-    min-width: 0;
-    width: 100%;
-
-    .assignment-title {
-      margin: 0 0 var(--space-sm);
-      font-size: clamp(1.15rem, 1.8vw, 1.45rem);
-      color: var(--md-sys-color-on-surface);
-      line-height: 1.3;
-    }
-
-    .assignment-summary {
-      font-size: clamp(1rem, 1.5vw, 1.1rem);
-      color: var(--md-sys-color-on-surface);
-      margin-bottom: var(--space-md);
-      width: 100%;
-      max-width: none;
-      overflow-wrap: break-word;
-    }
-
-    .assignment-description {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: clamp(0.5rem, 1vw, 0.75rem);
-      width: 100%;
-      max-width: none;
-
-      li {
-        position: relative;
-        padding-left: clamp(1.25rem, 2vw, 1.5rem);
-        color: var(--md-sys-color-on-surface);
-        line-height: 1.6;
-
-        &::before {
-          content: '▹';
-          position: absolute;
-          left: 0;
-          color: var(--md-sys-color-primary);
-        }
-      }
-    }
-  }
-
-  .assignment-meta {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    background: transparent;
-    border: none;
-    padding: 0;
-    border-radius: 0;
-
-    @media (min-width: $breakpoint-lg) {
-      position: sticky;
-      top: 1rem;
-      align-self: start;
-    }
-
-    .meta-label {
-      font-size: clamp(0.7rem, 1vw, 0.75rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--md-sys-color-on-surface-variant);
-      margin-bottom: var(--space-sm);
-    }
-
-    .chips-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: clamp(0.25rem, 0.5vw, 0.5rem);
-    }
-
-    .impact-group {
-      margin-top: clamp(0.75rem, 1.5vw, 1rem);
-    }
-
-    .impact-box {
-      font-size: clamp(0.85rem, 1.2vw, 0.9rem);
-      border-left: 2px solid var(--md-sys-color-tertiary);
-      padding-left: clamp(0.75rem, 1.5vw, 1rem);
-      color: var(--md-sys-color-on-surface-variant);
-      font-style: italic;
-    }
-  }
-
-  .assignment-reviews {
-    margin-top: var(--space-md);
-    padding-top: 0;
-
-    .meta-label {
-      font-size: clamp(0.7rem, 1vw, 0.75rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--md-sys-color-on-surface-variant);
-      margin-bottom: var(--space-md);
-    }
-  }
-
-  .mini-reviews-grid {
-    display: grid;
-    gap: var(--space-md);
-    grid-template-columns: repeat(auto-fit, minmax(clamp(240px, 30vw, 280px), 1fr));
+  &::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--dot) / 2 - 1px);
+    top: 1.5rem;
+    bottom: 1.5rem;
+    width: 2px;
+    border-radius: var(--radius-full);
+    background: var(--md-sys-color-outline-variant);
   }
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
+.roles__item {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * (var(--dot) + var(--space-md)));
+    top: 1.6rem;
+    width: var(--dot);
+    height: var(--dot);
+    border-radius: var(--radius-full);
+    background: var(--md-sys-color-background);
+    border: 2px solid var(--md-sys-color-primary);
   }
-  50% {
-    transform: scale(1.15);
-    opacity: 1;
+
+  &.current-job::before {
+    background: var(--md-sys-color-primary);
+    box-shadow: 0 0 0 5px rgb(var(--brand-rgb) / 0.25);
   }
-  100% {
-    transform: scale(1);
-    opacity: 0.7;
+}
+
+.role-card {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-radius: var(--border-radius);
+  border: 1px solid rgb(var(--brand-rgb) / 0.22);
+  background: color-mix(in srgb, var(--md-sys-color-surface-container-lowest) 40%, transparent);
+  color: var(--md-sys-color-on-surface);
+  transition:
+    transform var(--transition-normal) ease,
+    border-color var(--transition-normal) ease,
+    box-shadow var(--transition-normal) ease;
+
+  &:hover {
+    border-color: rgb(var(--brand-rgb) / 0.6);
+    box-shadow: 0 12px 24px rgb(0 0 0 / 0.18);
+    transform: translateX(4px);
+    text-decoration: none;
+
+    .role-card__arrow {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+.role-card__logo {
+  --icon-size: clamp(36px, 4vw, 44px);
+  flex-shrink: 0;
+}
+
+.role-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.role-card__company {
+  color: var(--md-sys-color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
+.role-card__role {
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.role-card__period,
+.role-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.role-card__now {
+  padding: 0.1rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.role-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.375rem;
+}
+
+.role-card__tag {
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  font-size: 0.75rem;
+  color: var(--md-sys-color-on-surface-variant);
+
+  &--more {
+    border-style: dashed;
+  }
+}
+
+.role-card__arrow {
+  align-self: center;
+  font-size: 1.25rem;
+  color: var(--md-sys-color-primary);
+  opacity: 0.5;
+  transform: translateX(-4px);
+  transition:
+    opacity var(--transition-normal) ease,
+    transform var(--transition-normal) ease;
+
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role-card,
+  .role-card__arrow {
+    transition: none;
+  }
+
+  .role-card:hover {
+    transform: none;
   }
 }

@@ -29,7 +29,7 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       'Weather and traffic in one web app: a driving route on the map with live weather at the start and the destination, a travel history, paid map pins for businesses with nearby alerts, and an admin area with statistics. Real-time state kept in sync with Firebase.',
     techStack: ['Vue.js', 'Vuex', 'Firebase', 'Google Maps API', 'AccuWeather API'],
-    imageUrl: 'wafflic.webp',
+    imageUrl: 'waffic-preview.webp',
     githubUrl: 'https://github.com/madalinaeleonorag/Waffic',
     caseStudyUrl: '/projects/waffic',
   },

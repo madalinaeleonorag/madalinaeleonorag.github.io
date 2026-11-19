@@ -1,0 +1,66 @@
+// Sticks to the top while reading a long tab, over a blurred background.
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  margin: 0 calc(-1 * var(--page-gutter));
+  padding: 0 var(--page-gutter);
+  background: color-mix(in srgb, var(--md-sys-color-background) 80%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.tab-list {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  // Room for the theme button fixed in the top right corner.
+  padding-right: 3.5rem;
+}
+
+.tab {
+  // Reset the global button style.
+  all: unset;
+  position: relative;
+  flex-shrink: 0;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--transition-normal) ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: -1px;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: var(--md-sys-color-primary);
+    transform: scaleX(0);
+    transition: transform var(--transition-normal) var(--ease-out);
+  }
+
+  &:hover {
+    color: var(--md-sys-color-on-surface);
+  }
+
+  &[aria-selected='true'] {
+    color: var(--md-sys-color-primary);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--md-sys-color-primary);
+    outline-offset: -3px;
+    border-radius: var(--radius-full);
+  }
+}
