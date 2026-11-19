@@ -1,12 +1,18 @@
 {
   "routes": {
     "/": {},
+    "/404": {},
     "/projects/dosesync": {},
     "/projects/dosesync/privacy": {},
     "/projects/dosesync/terms": {},
     "/projects/university-rating": {},
     "/projects/waffic": {},
     "/reviews": {},
-    "/work-experience": {}
+    "/work-experience": {},
+    "/work-experience/cognizant": {},
+    "/work-experience/deloitte-digital": {},
+    "/work-experience/ibm": {},
+    "/work-experience/renault-group": {},
+    "/work-experience/ssandc-technologies": {}
   }
 }
