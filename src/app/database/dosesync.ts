@@ -89,6 +89,7 @@ export const DOSESYNC = {
           { title: 'Stock that counts itself', text: 'Every dose you take is subtracted, and undo puts it back.', ready: true },
           { title: 'Runs out around…', text: 'An estimated date for each medication, including courses that follow your cycle.', ready: true },
           { title: 'Low-stock reminder', text: 'A notification when a count reaches the level you chose.', ready: true },
+          { title: 'Restock in one tap', text: 'Add a whole box at once. The amount is remembered, so the next refill is one tap.', ready: true },
         ],
       },
       {
